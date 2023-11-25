@@ -9,7 +9,6 @@ oscServer.on('message', (msg, rinfo) => {
     console.log(`${msg}`);
     sendToWebClient(msg.toString());
 });
-
 const {createServer} = require("http");
 let server = createServer((request, response) => {
   response.writeHead(200, {"Content-Type": "text/html"});

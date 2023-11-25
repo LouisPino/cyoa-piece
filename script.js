@@ -1,4 +1,4 @@
-console.log("hit")
+// console.log("hit")
 const greenBtnContent = ["A", "Left", "Swarm", "Attack!"];
 const redBtnContent = ["B", "Right", "Cave", "Run!"];
 let socket = new WebSocket('ws://localhost:8000');
@@ -9,10 +9,17 @@ socket.onopen = function(e) {
 
 socket.onmessage = function(event) {
     let maxMsg = event.data.split(",");
-    console.log(maxMsg);
     if (maxMsg[0] === "/newSection") {
-        document.getElementById('green-btn').textContent = greenBtnContent[maxMsg[1]];
-        document.getElementById('red-btn').textContent = redBtnContent[maxMsg[1]];
+        let val = maxMsg[1]
+        document.getElementById('green-btn').textContent = greenBtnContent[val];
+        document.getElementById('red-btn').textContent = redBtnContent[val];
+        console.log(val)
+        if(val === "4"){
+            console.log("hit")
+            document.getElementById('blue-btn').style.display = "block";
+            document.getElementById('green-btn').style.display = "none"
+        document.getElementById('red-btn').style.display = "none"
+        }
     }
     document.getElementById('numberDisplay').textContent = event.data.slice(4);
 };

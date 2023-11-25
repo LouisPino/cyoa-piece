@@ -11,3 +11,7 @@ background-color: red;
     width: 100px;
 }
 
+#blue-btn{
+    display: none;
+    background-color: blue;
+}

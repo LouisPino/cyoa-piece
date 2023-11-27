@@ -1,8 +1,10 @@
 // Set up socket connection from client to server
-let socket = new WebSocket('ws://10.0.0.162:8000');
+
+// let socket = new WebSocket('ws://10.0.0.162:8000'); //MacBook address
+let socket = new WebSocket('ws://172.20.10.3:8000'); // PC address
 
 // Confirm connection success
-socket.onopen = function(e) {
+socket.onopen = function (e) {
     console.log("Connection established!");
 };
 
@@ -13,7 +15,7 @@ const redBtnContent = ["B", "Right", "Cave", "Run!"];
 
 
 // Run when message is received from server (Max -> Server -> Client)
-socket.onmessage = function(event) {
+socket.onmessage = function (event) {
     // split address and value
     let maxMsg = event.data.split(",");
 
@@ -23,10 +25,10 @@ socket.onmessage = function(event) {
         let val = maxMsg[1]
         document.getElementById('green-btn').textContent = greenBtnContent[val];
         document.getElementById('red-btn').textContent = redBtnContent[val];
-        if(val === "4"){
+        if (val === "4") {
             document.getElementById('blue-btn').style.display = "block";
             document.getElementById('green-btn').style.display = "none"
-        document.getElementById('red-btn').style.display = "none"
+            document.getElementById('red-btn').style.display = "none"
         }
 
     }

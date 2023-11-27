@@ -4,13 +4,18 @@ const fs = require('fs');
 const http = require('http');
 const path = require('path');
 
+
+// 
 const OSC = require('node-osc');
 const oscServer = new OSC.Server(8000, '127.0.0.1'); // Replace with your port and IP
 
+// 
 oscServer.on('message', (msg, rinfo) => {
     sendToWebClient(msg.toString());
 });
- 
+
+
+//  
 const server = http.createServer((req, res) => {
   let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
   let extname = String(path.extname(filePath)).toLowerCase();
@@ -21,8 +26,10 @@ const server = http.createServer((req, res) => {
       // add other mime types as needed
   };
 
+  // 
   let contentType = mimeTypes[extname] || 'application/octet-stream';
 
+  // 
   fs.readFile(filePath, (error, content) => {
       if (error) {
           if (error.code == 'ENOENT') {
@@ -43,6 +50,7 @@ const server = http.createServer((req, res) => {
       }
   });
 });
+// Listen on port 8000
 server.listen(8000);
 
 const WebSocket = require('ws');
@@ -66,14 +74,12 @@ wss.on('connection', ws => {
 });
 });
 
+
 function sendToWebClient(data) {
   if (connectedClient) {
       connectedClient.send(data);
   }
 }
+
+// Send /reset 0 to max when server starts, resets max counter
 client.send("/reset", 0);
-
-
-function sendToServer(msg) {
-  socket.send(msg);
-}

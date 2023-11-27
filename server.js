@@ -5,19 +5,19 @@ const path = require('path');
 const WebSocket = require('ws');
 
 //Declare OSC client at local port 3333 to send to Max
-const client = new Client('127.0.0.1', 3333);
+const oscClient = new Client('127.0.0.1', 3333);
 
 
-//Declare OSC Server at port local 8000
-const oscServer = new Server(8000, '127.0.0.1'); // Replace with your port and IP
+//Declare OSC Server at port local 8001 to listen from Max
+const oscServer = new Server(8001, '127.0.0.1'); // Replace with your port and IP
 
-// When OSC Server receives a message, send it as a string to Web Client
+// When OSC Server receives a message, send it as a string to all Web Clients
 oscServer.on('message', (msg, rinfo) => {
     sendToWebClient(msg.toString());
 });
 
 
-//Create Web Server, 
+//Create Web Server, no idea about types
 const server = http.createServer((req, res) => {
     let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
     let extname = String(path.extname(filePath)).toLowerCase();
@@ -27,7 +27,7 @@ const server = http.createServer((req, res) => {
         '.css': 'text/css',
     };
 
-    // 
+    // no idea
     let contentType = mimeTypes[extname] || 'application/octet-stream';
 
     //Get html/css/js and write as response to client.
@@ -52,7 +52,7 @@ const server = http.createServer((req, res) => {
     });
 });
 
-// Listen on port 8000
+// Listen on port 8000 for http requests
 server.listen(8000);
 
 
@@ -60,17 +60,17 @@ server.listen(8000);
 let connectedClients = [];
 const wss = new WebSocket.Server({ server });
 
-// On connection to web client, 
+// On connection to web client, add to list of web clients
 wss.on('connection', ws => {
     connectedClients.push(ws)
+    // On receiving a message from web client, send to Max
     ws.on('message', message => {
         let oscAddress = '/myAddress'; // Replace with your desired OSC address
         let oscMessage;
 
-
         // Ensure the message is in a format compatible with OSC
         oscMessage = String(message); // Convert to string explicitl
-        client.send(oscAddress, oscMessage);
+        oscClient.send(oscAddress, oscMessage);
         console.log(oscMessage)
     });
     ws.on('close', () => {
@@ -79,50 +79,15 @@ wss.on('connection', ws => {
 });
 
 
-
-//Send data to Web client
+//Send data to all web clients
 function sendToWebClient(data) {
     if (connectedClients.length) {
         for (webClient of connectedClients) {
             webClient.send(data)
 
         }
-        client.send(data);
     }
 }
 
-
-
-// // Initiate Web Socket Server 
-// let connectedClient = null;
-// const wss = new WebSocket.Server({ server });
-
-// // On connection to web client, 
-// wss.on('connection', ws => {
-//     connectedClient = ws;
-//     ws.on('message', message => {
-//         let oscAddress = '/myAddress'; // Replace with your desired OSC address
-//         let oscMessage;
-
-
-//         // Ensure the message is in a format compatible with OSC
-//         oscMessage = String(message); // Convert to string explicitl
-//         client.send(oscAddress, oscMessage);
-//         console.log(oscMessage)
-//     });
-//     ws.on('close', () => {
-//         connectedClient = null;
-//     });
-// });
-
-
-
-// //Send data to Web client
-// function sendToWebClient(data) {
-//     if (connectedClient) {
-//         connectedClient.send(data);
-//     }
-// }
-
 // Send /reset 0 to max when server starts, resets max counter
-client.send("/reset", 0);
+oscClient.send("/reset", 0);

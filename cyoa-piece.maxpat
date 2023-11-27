@@ -235,7 +235,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 190.0, 335.0, 138.0, 22.0 ],
-					"text" : "udpsend 127.0.0.1 8000"
+					"text" : "udpsend 127.0.0.1 8001"
 				}
 
 			}
@@ -247,7 +247,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 84.0, 318.0, 61.0, 22.0 ],
-					"text" : "45"
+					"text" : "9"
 				}
 
 			}

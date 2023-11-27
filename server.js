@@ -13,11 +13,11 @@ const oscServer = new Server(8001, '127.0.0.1'); // Replace with your port and I
 
 // When OSC Server receives a message, send it as a string to all Web Clients
 oscServer.on('message', (msg, rinfo) => {
-    sendToWebClient(msg.toString());
+    sendToWebClients(msg.toString());
 });
 
 
-//Create Web Server, no idea about types
+//Create HTTP Server, no idea about types
 const server = http.createServer((req, res) => {
     let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
     let extname = String(path.extname(filePath)).toLowerCase();
@@ -56,9 +56,9 @@ const server = http.createServer((req, res) => {
 server.listen(8000);
 
 
-// Initiate Web Socket Server 
-let connectedClients = [];
+// Initiate Web Socket Server to piggyback on HTTP Server port
 const wss = new WebSocket.Server({ server });
+let connectedClients = [];
 
 // On connection to web client, add to list of web clients
 wss.on('connection', ws => {
@@ -74,13 +74,12 @@ wss.on('connection', ws => {
         console.log(oscMessage)
     });
     ws.on('close', () => {
-        connectedClients = [];
     });
 });
 
 
 //Send data to all web clients
-function sendToWebClient(data) {
+function sendToWebClients(data) {
     if (connectedClients.length) {
         for (webClient of connectedClients) {
             webClient.send(data)

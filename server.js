@@ -8,7 +8,6 @@ const OSC = require('node-osc');
 const oscServer = new OSC.Server(8000, '127.0.0.1'); // Replace with your port and IP
 
 oscServer.on('message', (msg, rinfo) => {
-    console.log(`${msg}`);
     sendToWebClient(msg.toString());
 });
  
@@ -55,10 +54,11 @@ wss.on('connection', ws => {
   ws.on('message', message => {
     let oscAddress = '/myAddress'; // Replace with your desired OSC address
     let oscMessage;
+    console.log(message)
+
 
     // Ensure the message is in a format compatible with OSC
       oscMessage = String(message); // Convert to string explicitl
-    console.log(oscMessage)
       client.send(oscAddress, oscMessage);
   });
   ws.on('close', () => {

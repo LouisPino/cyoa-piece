@@ -1,4 +1,3 @@
-// console.log("hit")
 const greenBtnContent = ["A", "Left", "Swarm", "Attack!"];
 const redBtnContent = ["B", "Right", "Cave", "Run!"];
 let socket = new WebSocket('ws://localhost:8000');

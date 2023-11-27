@@ -1,6 +1,8 @@
 const { Client } = require('node-osc');
 const client = new Client('127.0.0.1', 3333);
 const fs = require('fs');
+const http = require('http');
+const path = require('path');
 
 const OSC = require('node-osc');
 const oscServer = new OSC.Server(8000, '127.0.0.1'); // Replace with your port and IP
@@ -10,15 +12,35 @@ oscServer.on('message', (msg, rinfo) => {
     sendToWebClient(msg.toString());
 });
  
-const {createServer} = require("http");
-let server = createServer((request, response) => {
-  fs.readFile('index.html', (err, data) => {
-      if (err) {
-          response.writeHead(500);
-          response.end('Error loading index.html');
+const server = http.createServer((req, res) => {
+  let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
+  let extname = String(path.extname(filePath)).toLowerCase();
+  let mimeTypes = {
+      '.html': 'text/html',
+      '.js': 'text/javascript',
+      '.css': 'text/css',
+      // add other mime types as needed
+  };
+
+  let contentType = mimeTypes[extname] || 'application/octet-stream';
+
+  fs.readFile(filePath, (error, content) => {
+      if (error) {
+          if (error.code == 'ENOENT') {
+              // File not found
+              fs.readFile(path.join(__dirname, '404.html'), (error, content) => {
+                  res.writeHead(404, { 'Content-Type': 'text/html' });
+                  res.end(content, 'utf-8');
+              });
+          } else {
+              // Some server error
+              res.writeHead(500);
+              res.end(`Sorry, check with the site admin for error: ${error.code} ..\n`);
+          }
       } else {
-          response.writeHead(200, {"Content-Type": "text/html"});
-          response.end(data);
+          // Success
+          res.writeHead(200, { 'Content-Type': contentType });
+          res.end(content, 'utf-8');
       }
   });
 });

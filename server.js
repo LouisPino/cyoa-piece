@@ -83,7 +83,6 @@ function sendToWebClients(data) {
     if (connectedClients.length) {
         for (webClient of connectedClients) {
             webClient.send(data)
-
         }
     }
 }

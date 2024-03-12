@@ -1,7 +1,6 @@
 // Set up socket connection from client to server, piggyback on HTTP Server port
 
-let socket = new WebSocket('ws://10.0.0.162:8000'); //MacBook web socket address
-// let socket = new WebSocket('ws://172.20.10.3:8000'); // PC web socket address
+let socket = new WebSocket('ws://10.0.0.101:8000'); //USE LOCAL NETWORK IP (192.168.x.x or 10.x.x.x.)
 
 // Confirm connection success
 socket.onopen = function (e) {

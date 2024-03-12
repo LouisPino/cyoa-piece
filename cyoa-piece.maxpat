@@ -3,14 +3,14 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 5,
-			"revision" : 4,
+			"minor" : 1,
+			"revision" : 8,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 616.0, 100.0, 365.0, 758.0 ],
+		"rect" : [ 1315.0, 85.0, 1210.0, 1272.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,6 +39,31 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-20",
+					"linecount" : 2,
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 457.0, 208.0, 50.0, 36.0 ],
+					"text" : "/myAddress A"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-13",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 284.0, 155.0, 29.5, 22.0 ],
+					"text" : "A"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-3",
 					"maxclass" : "message",
@@ -107,6 +132,7 @@
 								"filename" : "Acid Burn.wav",
 								"filekind" : "audiofile",
 								"id" : "u980003786",
+								"selection" : [ 0.0, 1.0 ],
 								"loop" : 0,
 								"content_state" : 								{
 
@@ -118,6 +144,7 @@
 								"filename" : "Bell.wav",
 								"filekind" : "audiofile",
 								"id" : "u403005049",
+								"selection" : [ 0.0, 1.0 ],
 								"loop" : 0,
 								"content_state" : 								{
 
@@ -129,6 +156,7 @@
 								"filename" : "Falling.wav",
 								"filekind" : "audiofile",
 								"id" : "u945005481",
+								"selection" : [ 0.0, 1.0 ],
 								"loop" : 0,
 								"content_state" : 								{
 
@@ -234,7 +262,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 190.0, 335.0, 138.0, 22.0 ],
+					"patching_rect" : [ 190.0, 318.0, 138.0, 22.0 ],
 					"text" : "udpsend 127.0.0.1 8001"
 				}
 
@@ -247,7 +275,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 84.0, 318.0, 61.0, 22.0 ],
-					"text" : "9"
+					"text" : "14"
 				}
 
 			}
@@ -315,7 +343,23 @@
 		"lines" : [ 			{
 				"patchline" : 				{
 					"destination" : [ "obj-2", 0 ],
+					"order" : 1,
 					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-20", 1 ],
+					"order" : 0,
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-6", 0 ],
+					"source" : [ "obj-13", 0 ]
 				}
 
 			}
@@ -524,28 +568,7 @@
 
 			}
  ],
-		"dependency_cache" : [ 			{
-				"name" : "Acid Burn.wav",
-				"bootpath" : "~/Code/n64/samples/Smash64Samples",
-				"patcherrelativepath" : "../n64/samples/Smash64Samples",
-				"type" : "WAVE",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "Bell.wav",
-				"bootpath" : "~/Documents/Peeled Off Skin/audio",
-				"patcherrelativepath" : "../../Documents/Peeled Off Skin/audio",
-				"type" : "WAVE",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "Falling.wav",
-				"bootpath" : "~/Code/n64/samples/Smash64Samples",
-				"patcherrelativepath" : "../n64/samples/Smash64Samples",
-				"type" : "WAVE",
-				"implicit" : 1
-			}
- ],
+		"dependency_cache" : [  ],
 		"autosave" : 0
 	}
 

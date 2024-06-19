@@ -1,6 +1,4 @@
-// Set up socket connection from client to server, piggyback on HTTP Server port
-
-let socket = new WebSocket('ws://10.0.0.101:8000'); //USE LOCAL NETWORK IP (192.168.x.x or 10.x.x.x.)
+const socket = new WebSocket(`ws://10.0.0.162:8000`);
 
 // Confirm connection success
 socket.onopen = function (e) {

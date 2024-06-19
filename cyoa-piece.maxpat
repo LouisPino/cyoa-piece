@@ -3,14 +3,14 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 1,
-			"revision" : 8,
+			"minor" : 5,
+			"revision" : 4,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1315.0, 85.0, 1210.0, 1272.0 ],
+		"rect" : [ 1546.0, 87.0, 1558.0, 959.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -41,13 +41,12 @@
 		"boxes" : [ 			{
 				"box" : 				{
 					"id" : "obj-20",
-					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 457.0, 208.0, 50.0, 36.0 ],
-					"text" : "/myAddress A"
+					"patching_rect" : [ 293.0, 179.0, 151.0, 22.0 ],
+					"text" : "/myAddress B"
 				}
 
 			}
@@ -58,7 +57,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 284.0, 155.0, 29.5, 22.0 ],
+					"patching_rect" : [ 156.0, 215.0, 29.5, 22.0 ],
 					"text" : "A"
 				}
 
@@ -239,7 +238,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 223.75, 266.0, 29.5, 22.0 ],
+					"patching_rect" : [ 221.5, 266.0, 29.5, 22.0 ],
 					"text" : "0"
 				}
 
@@ -251,7 +250,7 @@
 					"numinlets" : 6,
 					"numoutlets" : 6,
 					"outlettype" : [ "bang", "bang", "bang", "bang", "bang", "" ],
-					"patching_rect" : [ 205.0, 525.0, 94.0, 22.0 ],
+					"patching_rect" : [ 362.0, 434.0, 94.0, 22.0 ],
 					"text" : "sel 0 5 10 15 25"
 				}
 
@@ -274,8 +273,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 84.0, 318.0, 61.0, 22.0 ],
-					"text" : "14"
+					"patching_rect" : [ 259.0, 290.0, 61.0, 22.0 ],
+					"text" : "11"
 				}
 
 			}
@@ -311,7 +310,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 259.0, 215.0, 50.0, 22.0 ],
-					"text" : "A"
+					"text" : "B"
 				}
 
 			}
@@ -334,7 +333,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 190.0, 187.0, 97.0, 22.0 ],
+					"patching_rect" : [ 190.0, 179.0, 97.0, 22.0 ],
 					"text" : "udpreceive 3333"
 				}
 
@@ -475,6 +474,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-33", 0 ],
+					"source" : [ "obj-6", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-7", 0 ],
 					"order" : 0,
 					"source" : [ "obj-6", 1 ]
@@ -484,7 +490,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-10", 0 ],
-					"order" : 1,
+					"order" : 2,
 					"source" : [ "obj-7", 0 ]
 				}
 
@@ -500,7 +506,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-9", 1 ],
-					"order" : 2,
+					"order" : 1,
 					"source" : [ "obj-7", 0 ]
 				}
 
@@ -523,7 +529,6 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-21", 0 ],
-					"order" : 0,
 					"source" : [ "obj-8", 2 ]
 				}
 
@@ -531,7 +536,6 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-22", 0 ],
-					"order" : 0,
 					"source" : [ "obj-8", 3 ]
 				}
 
@@ -551,24 +555,22 @@
 				}
 
 			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-32", 0 ],
-					"order" : 1,
-					"source" : [ "obj-8", 2 ]
-				}
-
+ ],
+		"dependency_cache" : [ 			{
+				"name" : "Acid Burn.wav",
+				"bootpath" : "~/Code/n64/samples/Smash64Samples",
+				"patcherrelativepath" : "../n64/samples/Smash64Samples",
+				"type" : "WAVE",
+				"implicit" : 1
 			}
 , 			{
-				"patchline" : 				{
-					"destination" : [ "obj-33", 0 ],
-					"order" : 1,
-					"source" : [ "obj-8", 3 ]
-				}
-
+				"name" : "Falling.wav",
+				"bootpath" : "~/Code/n64/samples/Smash64Samples",
+				"patcherrelativepath" : "../n64/samples/Smash64Samples",
+				"type" : "WAVE",
+				"implicit" : 1
 			}
  ],
-		"dependency_cache" : [  ],
 		"autosave" : 0
 	}
 

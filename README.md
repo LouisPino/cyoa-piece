@@ -1,0 +1,1 @@
+Step 1 - Find local ip (10.0.0.*) and set in script.js

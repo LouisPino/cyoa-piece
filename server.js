@@ -3,6 +3,22 @@ const fs = require('fs');
 const http = require('http');
 const path = require('path');
 const WebSocket = require('ws');
+const os = require('os');
+
+function getLocalIPv4() {
+    const interfaces = os.networkInterfaces();
+    for (const name of Object.keys(interfaces)) {
+        for (const iface of interfaces[name]) {
+            if (iface.family === 'IPv4' && !iface.internal) {
+                return iface.address;
+            }
+        }
+    }
+    return '127.0.0.1';
+}
+
+const IP4 = getLocalIPv4()
+
 
 //Declare OSC client at local port 3333 to send to Max
 const oscClient = new Client('127.0.0.1', 3333);
@@ -19,7 +35,21 @@ oscServer.on('message', (msg, rinfo) => {
 
 //Create HTTP Server, no idea about types
 const server = http.createServer((req, res) => {
-    let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
+    let filePath
+    switch (req.url) {
+        case "/":
+            filePath = path.join(__dirname, 'index.html');
+            break
+        case "/display":
+            filePath = path.join(__dirname, 'display.html');
+            break
+        case "/qrcode.min.js":
+            filePath = path.join(__dirname, 'qrcode.min.js');
+            break;
+        default:
+            filePath = path.join(__dirname, req.url);
+    }
+
     let extname = String(path.extname(filePath)).toLowerCase();
     let mimeTypes = {
         '.html': 'text/html',
@@ -63,6 +93,9 @@ let connectedClients = [];
 // On connection to web client, add to list of web clients
 wss.on('connection', ws => {
     connectedClients.push(ws)
+
+    ws.send(JSON.stringify({ type: 'ip-address', ip: IP4 }));
+
     // On receiving a message from web client, send to Max
     ws.on('message', message => {
         let oscAddress = '/myAddress'; // Replace with your desired OSC address

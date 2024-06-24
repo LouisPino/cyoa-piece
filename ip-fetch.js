@@ -26,7 +26,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Run when message is received from server (Max -> Server -> Client)
         socket.onmessage = function (event) {
-            document.getElementById('ip-address').textContent = `IP ADDRESS: ${event.data.split('"')[7]}`;
+            if (event.data.split('"')[7]) {
+                document.getElementById('ip-address').textContent = `IP ADDRESS: ${event.data.split('"')[7]}`;
+            }
         };
     }
 });

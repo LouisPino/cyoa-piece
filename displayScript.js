@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const initialSocket = new WebSocket(`ws://${location.hostname}:8000`);
-
+    const initialSocket = new WebSocket(`ws://${location.hostname}:8000/display`);
     initialSocket.onopen = function (e) {
         console.log("Initial connection established!");
     };
@@ -17,8 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     function initializeWebSocket(ip) {
-        const socket = new WebSocket(`ws://${ip}:8000`);
-
+        const socket = new WebSocket(`ws://${ip}:8000/display`);
         // Confirm connection success
         socket.onopen = function (e) {
             console.log("WebSocket connection established!");
@@ -28,7 +26,11 @@ document.addEventListener("DOMContentLoaded", function () {
         socket.onmessage = function (event) {
             if (event.data.split('"')[7]) {
                 document.getElementById('ip-address').textContent = `IP ADDRESS: ${event.data.split('"')[7]}`;
+            } else {
+                console.log(event.data)
             }
         };
     }
 });
+
+

@@ -1,21 +1,7 @@
-// Temporary WebSocket connection to get the IP address
-const initialSocket = new WebSocket(`ws://${location.hostname}:8000`);
+const socket = new WebSocket(`ws://${location.hostname}:8000`);
+initializeWebSocket()
 
-initialSocket.onopen = function (e) {
-    console.log("Initial connection established!");
-};
-
-initialSocket.onmessage = function (event) {
-    const data = JSON.parse(event.data);
-    if (data.type === 'ip-address') {
-        const ipAddress = data.ip;
-        initializeWebSocket(ipAddress);
-        initialSocket.close();
-    }
-};
-
-function initializeWebSocket(ip) {
-    const socket = new WebSocket(`ws://${ip}:8000`);
+function initializeWebSocket() {
 
     // Confirm connection success
     socket.onopen = function (e) {

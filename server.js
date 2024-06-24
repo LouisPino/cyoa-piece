@@ -92,11 +92,12 @@ const wss = new WebSocket.Server({ server });
 let connectedClients = [];
 
 // On connection to web client, add to list of web clients
-wss.on('connection', (ws) => {
+wss.on('connection', (ws, req) => {
     ws.id = Date.now()
+    const locationPath = url.parse(req.url).pathname;
+    ws.path = locationPath; // Store the path in the ws object
     connectedClients.push(ws)
     ws.send(JSON.stringify({ type: 'ip-address', ip: IP4 }));
-
     // On receiving a message from web client, send to Max
     ws.on('message', message => {
         let oscAddress = '/myAddress'; // Replace with your desired OSC address
@@ -110,15 +111,21 @@ wss.on('connection', (ws) => {
     ws.on('close', () => {
         connectedClients = connectedClients.filter((client) => client.id != ws.id)
     })
-});;
+});
 
 
-//Send data to all web clients
+//Send data to web clients
 function sendToWebClients(data) {
     if (connectedClients.length) {
         for (client of connectedClients) {
-            client.send(data)
+            if (client.path === "/") { client.send(data) }
         }
+    }
+}
+
+function sendToDisplay(data) {
+    for (client of connectedClients) {
+        if (client.path === "/display") { client.send(data); break }
     }
 }
 

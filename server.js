@@ -4,6 +4,8 @@ const http = require('http');
 const path = require('path');
 const WebSocket = require('ws');
 const os = require('os');
+const url = require('url');
+
 
 function getLocalIPv4() {
     const interfaces = os.networkInterfaces();
@@ -57,7 +59,6 @@ const server = http.createServer((req, res) => {
         '.css': 'text/css',
     };
 
-    // no idea
     let contentType = mimeTypes[extname] || 'application/octet-stream';
 
     //Get html/css/js and write as response to client.
@@ -91,11 +92,9 @@ const wss = new WebSocket.Server({ server });
 let connectedClients = [];
 
 // On connection to web client, add to list of web clients
-wss.on('connection', ws => {
+wss.on('connection', (ws) => {
     ws.id = Date.now()
     connectedClients.push(ws)
-    console.log("IDs:")
-    connectedClients.forEach((client) => console.log(client.id))
     ws.send(JSON.stringify({ type: 'ip-address', ip: IP4 }));
 
     // On receiving a message from web client, send to Max
@@ -104,7 +103,7 @@ wss.on('connection', ws => {
         let oscMessage;
 
         // Ensure the message is in a format compatible with OSC
-        oscMessage = String(message); // Convert to string explicitl
+        oscMessage = String(message); // Convert to string explicitly
         oscClient.send(oscAddress, oscMessage);
         console.log(oscMessage)
     });
@@ -117,8 +116,8 @@ wss.on('connection', ws => {
 //Send data to all web clients
 function sendToWebClients(data) {
     if (connectedClients.length) {
-        for (webClient of connectedClients) {
-            webClient.send(data)
+        for (client of connectedClients) {
+            client.send(data)
         }
     }
 }

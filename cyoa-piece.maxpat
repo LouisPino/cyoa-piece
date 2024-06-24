@@ -58,7 +58,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 289.0, 179.0, 151.0, 22.0 ],
-					"text" : "/myAddress A"
+					"text" : "/reset 0"
 				}
 
 			}
@@ -262,7 +262,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 259.0, 269.0, 61.0, 22.0 ],
-					"text" : "25"
+					"text" : "0"
 				}
 
 			}
@@ -298,7 +298,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 259.0, 239.0, 50.0, 22.0 ],
-					"text" : "A"
+					"text" : "0"
 				}
 
 			}

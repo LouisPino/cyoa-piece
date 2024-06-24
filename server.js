@@ -92,8 +92,10 @@ let connectedClients = [];
 
 // On connection to web client, add to list of web clients
 wss.on('connection', ws => {
+    ws.id = Date.now()
     connectedClients.push(ws)
-
+    console.log("IDs:")
+    connectedClients.forEach((client) => console.log(client.id))
     ws.send(JSON.stringify({ type: 'ip-address', ip: IP4 }));
 
     // On receiving a message from web client, send to Max
@@ -107,8 +109,9 @@ wss.on('connection', ws => {
         console.log(oscMessage)
     });
     ws.on('close', () => {
-    });
-});
+        connectedClients = connectedClients.filter((client) => client.id != ws.id)
+    })
+});;
 
 
 //Send data to all web clients

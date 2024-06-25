@@ -16,7 +16,6 @@ function initializeWebSocket() {
     socket.onmessage = function (event) {
         // split address and value
         let maxMsg = event.data.split(",");
-        console.log(maxMsg)
         // Look for newSection address
         switch (maxMsg[0]) {
             case "/newSection":
@@ -32,7 +31,9 @@ function initializeWebSocket() {
                 break
             case "/counter":
                 document.getElementById('numberDisplay').textContent = maxMsg[1];
-
+            case "/section":
+                console.log(maxMsg)
+                toggleHTML(maxMsg[1])
         }
 
     };
@@ -41,8 +42,34 @@ function initializeWebSocket() {
     function sendToServer(msg) {
         socket.send(msg);
     }
+    const mainEl = document.getElementById("main")
+
+    function toggleHTML(count) {
+        if (count % 2 == 0) {
+            mainEl.innerHTML = `
+                <button id="green-btn" class="btn"> A </button>
+    <button id="red-btn" class="btn"> B </button>
+    <button id="click-btn" class="btn"> Click </button>
+    <button id="blue-btn" class="btn"> Tap Me!!! </button>
+    <div id="numberDisplay">0</div>
+            `
+            document.getElementById('green-btn').addEventListener('click', () => sendToServer('A'));
+            document.getElementById('red-btn').addEventListener('click', () => sendToServer('B'));
+            document.getElementById('click-btn').addEventListener('click', () => sendToServer('Click'));
+        } else {
+            mainEl.innerHTML = `
+    <button id="click-btn" class="btn"> Click </button>
+    <button id="blue-btn" class="btn"> Tap Me!!! </button>
+    <div id="numberDisplay">0</div>
+`
+            document.getElementById('click-btn').addEventListener('click', () => sendToServer('Click'));
+        }
+
+    }
 
     // Add event listeners to send "A" and "B" to server on respective button clicks
     document.getElementById('green-btn').addEventListener('click', () => sendToServer('A'));
     document.getElementById('red-btn').addEventListener('click', () => sendToServer('B'));
+    document.getElementById('click-btn').addEventListener('click', () => sendToServer('Click'));
+
 }

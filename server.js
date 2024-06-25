@@ -40,7 +40,7 @@ const server = http.createServer((req, res) => {
     let filePath
     switch (req.url) {
         case "/":
-            filePath = path.join(__dirname, 'index.html');
+            filePath = path.join(__dirname, 'index1.html');
             break
         case "/display":
             filePath = path.join(__dirname, 'display.html');
@@ -104,11 +104,13 @@ wss.on('connection', (ws, req) => {
     ws.on('message', message => {
         let oscAddress = '/myAddress'; // Replace with your desired OSC address
         let oscMessage;
-
+        if (String(message) === "Click") {
+            receiveClick()
+        }
         // Ensure the message is in a format compatible with OSC
         oscMessage = String(message); // Convert to string explicitly
         oscClient.send(oscAddress, oscMessage);
-        console.log(oscMessage)
+        console.log(`Message: ${oscMessage}`)
     });
     ws.on('close', () => {
         connectedClients = connectedClients.filter((client) => client.id != ws.id)
@@ -123,6 +125,13 @@ function sendToWebClients(data) {
             if (client.path === "/") { client.send(data) }
         }
     }
+}
+
+let clickCount = 0
+function receiveClick() {
+    clickCount++
+    console.log(clickCount)
+    sendToWebClients(`/section,${clickCount}`)
 }
 
 function sendToDisplay(data) {

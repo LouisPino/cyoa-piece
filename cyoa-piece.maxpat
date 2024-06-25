@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 527.0, 196.0, 731.0, 860.0 ],
+		"rect" : [ 1533.0, 419.0, 731.0, 860.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -58,7 +58,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 289.0, 179.0, 151.0, 22.0 ],
-					"text" : "/reset 0"
+					"text" : "/myAddress A"
 				}
 
 			}
@@ -249,7 +249,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 190.0, 317.0, 138.0, 22.0 ],
+					"patching_rect" : [ 313.0, 357.0, 138.0, 22.0 ],
 					"text" : "udpsend 127.0.0.1 8001"
 				}
 
@@ -262,7 +262,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 259.0, 269.0, 61.0, 22.0 ],
-					"text" : "0"
+					"text" : "5"
 				}
 
 			}
@@ -298,7 +298,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 259.0, 239.0, 50.0, 22.0 ],
-					"text" : "0"
+					"text" : "A"
 				}
 
 			}

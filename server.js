@@ -6,6 +6,12 @@ const WebSocket = require('ws');
 const os = require('os');
 const url = require('url');
 
+const index1Path = path.join(__dirname, 'index1.html');
+const index2Path = path.join(__dirname, 'index2.html');
+
+const index1 = fs.readFileSync(index1Path, 'utf-8');
+const index2 = fs.readFileSync(index2Path, 'utf-8');
+
 
 function getLocalIPv4() {
     const interfaces = os.networkInterfaces();
@@ -40,7 +46,7 @@ const server = http.createServer((req, res) => {
     let filePath
     switch (req.url) {
         case "/":
-            filePath = path.join(__dirname, 'index1.html');
+            filePath = path.join(__dirname, 'index.html');
             break
         case "/display":
             filePath = path.join(__dirname, 'display.html');
@@ -99,6 +105,9 @@ wss.on('connection', (ws, req) => {
     connectedClients.push(ws)
     if (locationPath === "/display") {
         ws.send(JSON.stringify({ type: 'ip-address', ip: IP4 }));
+    } else {
+        sendToWebClients(`htmlFiles,${index1},${index2}`)
+
     }
     // On receiving a message from web client, send to Max
     ws.on('message', message => {

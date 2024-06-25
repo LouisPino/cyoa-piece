@@ -1,6 +1,6 @@
 const socket = new WebSocket(`ws://${location.hostname}:8000`);
 initializeWebSocket()
-
+let index1, index2
 function initializeWebSocket() {
     // Confirm connection success
     socket.onopen = function (e) {
@@ -15,9 +15,16 @@ function initializeWebSocket() {
     socket.onmessage = function (event) {
         // split address and value
         let maxMsg = event.data.split(",");
-        console.log(maxMsg)
+        console.log(maxMsg[0])
         // Look for newSection address
         switch (maxMsg[0]) {
+            case `htmlFiles`:
+                console.log("hit")
+                index1 = maxMsg[1]
+                index2 = maxMsg[2]
+                console.log(index1)
+                console.log(index2)
+                break
             case "/newSection":
                 break
             case "/counter":
@@ -36,22 +43,12 @@ function initializeWebSocket() {
 
     function toggleHTML(section) {
         if (section % 2 == 0) {
-            mainEl.innerHTML = `
-                <button id="green-btn" class="btn"> ${greenBtnContent[section % 4]} </button>
-    <button id="red-btn" class="btn"> ${redBtnContent[section % 4]} </button>
-    <button id="click-btn" class="btn"> Click </button>
-    <button id="blue-btn" class="btn"> Tap Me!!! </button>
-    <div id="numberDisplay">0</div>
-            `
+            mainEl.innerHTML = index1
             document.getElementById('green-btn').addEventListener('click', () => sendToServer('A'));
             document.getElementById('red-btn').addEventListener('click', () => sendToServer('B'));
             document.getElementById('click-btn').addEventListener('click', () => sendToServer('Click'));
         } else {
-            mainEl.innerHTML = `
-    <button id="click-btn" class="btn"> Click </button>
-    <button id="blue-btn" class="btn"> Tap Me!!! </button>
-    <div id="numberDisplay">0</div>
-`
+            mainEl.innerHTML = index2
             document.getElementById('click-btn').addEventListener('click', () => sendToServer('Click'));
         }
 

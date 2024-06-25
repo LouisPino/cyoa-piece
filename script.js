@@ -2,7 +2,6 @@ const socket = new WebSocket(`ws://${location.hostname}:8000`);
 initializeWebSocket()
 
 function initializeWebSocket() {
-
     // Confirm connection success
     socket.onopen = function (e) {
         console.log("WebSocket connection established!");
@@ -16,24 +15,15 @@ function initializeWebSocket() {
     socket.onmessage = function (event) {
         // split address and value
         let maxMsg = event.data.split(",");
+        console.log(maxMsg)
         // Look for newSection address
         switch (maxMsg[0]) {
             case "/newSection":
-                // Temporary button rendering / text changing to test connections
-                let val = maxMsg[1]
-                document.getElementById('green-btn').textContent = greenBtnContent[val];
-                document.getElementById('red-btn').textContent = redBtnContent[val];
-                if (val === "4") {
-                    document.getElementById('blue-btn').style.display = "block";
-                    document.getElementById('green-btn').style.display = "none";
-                    document.getElementById('red-btn').style.display = "none";
-                }
                 break
             case "/counter":
-                document.getElementById('numberDisplay').textContent = maxMsg[1];
+                renderCounter(maxMsg[1])
             case "/section":
-                console.log(maxMsg)
-                toggleHTML(maxMsg[1])
+                sectionChange(maxMsg[1])
         }
 
     };
@@ -44,11 +34,11 @@ function initializeWebSocket() {
     }
     const mainEl = document.getElementById("main")
 
-    function toggleHTML(count) {
-        if (count % 2 == 0) {
+    function toggleHTML(section) {
+        if (section % 2 == 0) {
             mainEl.innerHTML = `
-                <button id="green-btn" class="btn"> A </button>
-    <button id="red-btn" class="btn"> B </button>
+                <button id="green-btn" class="btn"> ${greenBtnContent[section % 4]} </button>
+    <button id="red-btn" class="btn"> ${redBtnContent[section % 4]} </button>
     <button id="click-btn" class="btn"> Click </button>
     <button id="blue-btn" class="btn"> Tap Me!!! </button>
     <div id="numberDisplay">0</div>
@@ -67,9 +57,16 @@ function initializeWebSocket() {
 
     }
 
+    function sectionChange(section) {
+        section = section
+        toggleHTML(section)
+    }
+
+    function renderCounter(val) {
+        document.getElementById('numberDisplay').textContent = val;
+    }
     // Add event listeners to send "A" and "B" to server on respective button clicks
     document.getElementById('green-btn').addEventListener('click', () => sendToServer('A'));
     document.getElementById('red-btn').addEventListener('click', () => sendToServer('B'));
     document.getElementById('click-btn').addEventListener('click', () => sendToServer('Click'));
-
 }

@@ -97,7 +97,9 @@ wss.on('connection', (ws, req) => {
     const locationPath = url.parse(req.url).pathname;
     ws.path = locationPath; // Store the path in the ws object
     connectedClients.push(ws)
-    ws.send(JSON.stringify({ type: 'ip-address', ip: IP4 }));
+    if (locationPath === "/display") {
+        ws.send(JSON.stringify({ type: 'ip-address', ip: IP4 }));
+    }
     // On receiving a message from web client, send to Max
     ws.on('message', message => {
         let oscAddress = '/myAddress'; // Replace with your desired OSC address

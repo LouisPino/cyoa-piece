@@ -14,7 +14,6 @@ function initializeWebSocket() {
     // Run when message is received from server (Max -> Server -> Client)
     socket.onmessage = function (event) {
         let msg = JSON.parse(event.data)
-
         switch (msg.type) {
             case `htmlFiles`:
                 index1 = msg.data[0]

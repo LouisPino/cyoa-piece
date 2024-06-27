@@ -5,15 +5,26 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     initialSocket.onmessage = function (event) {
-        const data = JSON.parse(event.data);
-        if (data.type === 'ip-address') {
-            const ipAddress = data.ip;
-            initializeWebSocket(ipAddress);
-            new QRCode(document.getElementById("qrcode"), `http://${ipAddress}:8000`);
-            document.getElementById('ip-address').textContent = `IP ADDRESS: ${ipAddress}`;
-            initialSocket.close();
+        let msg = JSON.parse(event.data)
+        switch (msg.type) {
+            case `htmlFiles`:
+                display1 = msg.data[0]
+                display2 = msg.data[1]
+                break
+            case "ip-address":
+                const ipAddress = msg.data;
+                initializeWebSocket(ipAddress);
+                new QRCode(document.getElementById("qrcode"), `http://${ipAddress}:8000`);
+                initialSocket.close();
+            case "counter":
+                renderCounter(msg.data)
+            case "section":
+                sectionChange(msg.data)
         }
+
     };
+
+
 
     function initializeWebSocket(ip) {
         const socket = new WebSocket(`ws://${ip}:8000/display`);

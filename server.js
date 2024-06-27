@@ -6,11 +6,26 @@ const WebSocket = require('ws');
 const os = require('os');
 const url = require('url');
 
+
 const index1Path = path.join(__dirname, 'index1.html');
 const index2Path = path.join(__dirname, 'index2.html');
 
 const index1 = fs.readFileSync(index1Path, 'utf-8');
 const index2 = fs.readFileSync(index2Path, 'utf-8');
+
+
+const display1Path = path.join(__dirname, 'display1.html');
+const display2Path = path.join(__dirname, 'display2.html');
+
+const display1 = fs.readFileSync(display1Path, 'utf-8');
+const display2 = fs.readFileSync(display2Path, 'utf-8');
+
+
+
+
+
+
+
 
 
 function getLocalIPv4() {
@@ -105,7 +120,9 @@ wss.on('connection', (ws, req) => {
     ws.path = locationPath; // Store the path in the ws object
     connectedClients.push(ws)
     if (locationPath === "/display") {
-        ws.send(JSON.stringify({ type: 'ip-address', ip: IP4 }));
+        ws.send(JSON.stringify({ type: 'ip-address', data: IP4 }));
+        sendToDisplay({ type: 'htmlFiles', data: [display1, display2] })
+
     } else {
         sendToWebClients({ type: 'htmlFiles', data: [index1, index2] })
 
@@ -138,18 +155,18 @@ function sendToWebClients(data) {
     }
 }
 
+
+function sendToDisplay(data) {
+    for (client of connectedClients) {
+        if (client.path === "/display") { client.send(JSON.stringify(data)); break }
+    }
+}
+
 let clickCount = 0
 function receiveClick() {
     clickCount++
     console.log(clickCount)
     sendToWebClients({ type: "section", data: clickCount })
 }
-
-function sendToDisplay(data) {
-    for (client of connectedClients) {
-        if (client.path === "/display") { client.send(data); break }
-    }
-}
-
 // Send /reset 0 to max when server starts, resets max counter
 oscClient.send("/reset", 0);

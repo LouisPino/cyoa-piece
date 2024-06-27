@@ -37,7 +37,8 @@ const oscServer = new Server(8001, '127.0.0.1'); // Replace with your port and I
 
 // When OSC Server receives a message, send it as a string to all Web Clients
 oscServer.on('message', (msg, rinfo) => {
-    sendToWebClients(msg.toString());
+    const msgObj = { type: msg[0], data: msg[1] }
+    sendToWebClients(msgObj);
 });
 
 
@@ -106,7 +107,7 @@ wss.on('connection', (ws, req) => {
     if (locationPath === "/display") {
         ws.send(JSON.stringify({ type: 'ip-address', ip: IP4 }));
     } else {
-        sendToWebClients(`htmlFiles,${index1},${index2}`)
+        sendToWebClients({ type: 'htmlFiles', data: [index1, index2] })
 
     }
     // On receiving a message from web client, send to Max
@@ -131,7 +132,8 @@ wss.on('connection', (ws, req) => {
 function sendToWebClients(data) {
     if (connectedClients.length) {
         for (client of connectedClients) {
-            if (client.path === "/") { client.send(data) }
+            if (client.path === "/") { client.send(JSON.stringify(data)) }
+
         }
     }
 }
@@ -140,7 +142,7 @@ let clickCount = 0
 function receiveClick() {
     clickCount++
     console.log(clickCount)
-    sendToWebClients(`/section,${clickCount}`)
+    sendToWebClients({ type: "section", data: clickCount })
 }
 
 function sendToDisplay(data) {

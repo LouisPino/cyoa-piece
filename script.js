@@ -13,24 +13,19 @@ function initializeWebSocket() {
 
     // Run when message is received from server (Max -> Server -> Client)
     socket.onmessage = function (event) {
-        // split address and value
-        let maxMsg = event.data.split(",");
-        console.log(maxMsg[0])
-        // Look for newSection address
-        switch (maxMsg[0]) {
+        let msg = JSON.parse(event.data)
+
+        switch (msg.type) {
             case `htmlFiles`:
-                console.log("hit")
-                index1 = maxMsg[1]
-                index2 = maxMsg[2]
-                console.log(index1)
-                console.log(index2)
+                index1 = msg.data[0]
+                index2 = msg.data[1]
                 break
-            case "/newSection":
+            case "newSection":
                 break
-            case "/counter":
-                renderCounter(maxMsg[1])
-            case "/section":
-                sectionChange(maxMsg[1])
+            case "counter":
+                renderCounter(msg.data)
+            case "section":
+                sectionChange(msg.data)
         }
 
     };
@@ -55,7 +50,6 @@ function initializeWebSocket() {
     }
 
     function sectionChange(section) {
-        section = section
         toggleHTML(section)
     }
 
@@ -67,3 +61,7 @@ function initializeWebSocket() {
     document.getElementById('red-btn').addEventListener('click', () => sendToServer('B'));
     document.getElementById('click-btn').addEventListener('click', () => sendToServer('Click'));
 }
+
+
+
+//Mobile class

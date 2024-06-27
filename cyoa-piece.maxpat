@@ -45,8 +45,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 190.0, 293.0, 69.0, 22.0 ],
-					"text" : "/counter $1"
+					"patching_rect" : [ 190.0, 293.0, 65.0, 22.0 ],
+					"text" : "counter $1"
 				}
 
 			}
@@ -58,7 +58,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 289.0, 179.0, 151.0, 22.0 ],
-					"text" : "/myAddress A"
+					"text" : "/myAddress Click"
 				}
 
 			}
@@ -262,7 +262,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 259.0, 269.0, 61.0, 22.0 ],
-					"text" : "5"
+					"text" : "9"
 				}
 
 			}
@@ -298,7 +298,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 259.0, 239.0, 50.0, 22.0 ],
-					"text" : "A"
+					"text" : "Click"
 				}
 
 			}

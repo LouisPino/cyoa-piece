@@ -165,8 +165,14 @@ function sendToDisplay(data) {
 let clickCount = 0
 function receiveClick() {
     clickCount++
-    console.log(clickCount)
     sendToWebClients({ type: "section", data: clickCount })
+    sendToDisplay({ type: "section", data: clickCount })
+    console.log(clickCount)
 }
+
+
+
+
+
 // Send /reset 0 to max when server starts, resets max counter
 oscClient.send("/reset", 0);

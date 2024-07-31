@@ -1,6 +1,6 @@
 const socket = new WebSocket(`ws://${location.hostname}:8000`);
 initializeWebSocket()
-let index1, index2
+let index, indexSpace, indexSwamp
 function initializeWebSocket() {
     // Confirm connection success
     socket.onopen = function (e) {
@@ -16,8 +16,10 @@ function initializeWebSocket() {
         let msg = JSON.parse(event.data)
         switch (msg.type) {
             case `htmlFiles`:
-                index1 = msg.data[0]
-                index2 = msg.data[1]
+                index = msg.data["index"]
+                indexSpace = msg.data["space"]
+                indexSwamp = msg.data["swamp"]
+                indexVote = msg.data["vote"]
                 break
             case "newSection":
                 break
@@ -36,20 +38,25 @@ function initializeWebSocket() {
     const mainEl = document.getElementById("main")
 
     function toggleHTML(section) {
-        if (section % 2 == 0) {
-            mainEl.innerHTML = index1
-            document.getElementById('green-btn').addEventListener('click', () => sendToServer('A'));
-            document.getElementById('red-btn').addEventListener('click', () => sendToServer('B'));
-            document.getElementById('click-btn').addEventListener('click', () => sendToServer('Click'));
-        } else {
-            mainEl.innerHTML = index2
-            document.getElementById('click-btn').addEventListener('click', () => sendToServer('Click'));
+        switch (section){
+          case "Space":
+            mainEl.innerHTML = indexSpace
+            break
+          case "Swamp":
+            console.log(indexSwamp)
+            mainEl.innerHTML = indexSwamp
+            break
+          case "Vote":
+            console.log(indexSwamp)
+            mainEl.innerHTML = indexVote
+            break
         }
 
     }
 
     function sectionChange(section) {
         toggleHTML(section)
+        console.log(section)
     }
 
     function renderCounter(val) {

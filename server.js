@@ -7,22 +7,24 @@ const os = require('os');
 const url = require('url');
 
 
-const index1Path = path.join(__dirname, 'index1.html');
-const index2Path = path.join(__dirname, 'index2.html');
+const indexPath = path.join(__dirname, 'index.html');
+const indexSpacePath = path.join(__dirname, 'indexSpace.html');
+const indexSwampPath = path.join(__dirname, 'indexSwamp.html');
+const indexVotePath = path.join(__dirname, 'indexVote.html');
 
-const index1 = fs.readFileSync(index1Path, 'utf-8');
-const index2 = fs.readFileSync(index2Path, 'utf-8');
-
-
-const display1Path = path.join(__dirname, 'display1.html');
-const display2Path = path.join(__dirname, 'display2.html');
-
-const display1 = fs.readFileSync(display1Path, 'utf-8');
-const display2 = fs.readFileSync(display2Path, 'utf-8');
+const index = fs.readFileSync(indexPath, 'utf-8');
+const indexSpace = fs.readFileSync(indexSpacePath, 'utf-8');
+const indexSwamp = fs.readFileSync(indexSwampPath, 'utf-8');
+const indexVote = fs.readFileSync(indexVotePath, 'utf-8');
 
 
+const displayPath = path.join(__dirname, 'display.html');
+const displaySpacePath = path.join(__dirname, 'displaySpace.html');
+const displaySwampPath = path.join(__dirname, 'displaySwamp.html');
 
-
+const display = fs.readFileSync(displayPath, 'utf-8');
+const displaySpace = fs.readFileSync(displaySpacePath, 'utf-8');
+const displaySwamp = fs.readFileSync(displaySwampPath, 'utf-8');
 
 
 
@@ -52,6 +54,10 @@ const oscServer = new Server(8001, '127.0.0.1'); // Replace with your port and I
 
 // When OSC Server receives a message, send it as a string to all Web Clients
 oscServer.on('message', (msg, rinfo) => {
+    if (msg[0] === "scene"){
+        sendSectionChange(msg[1])
+        console.log(msg[1])
+    }
     const msgObj = { type: msg[0], data: msg[1] }
     sendToWebClients(msgObj);
 });
@@ -121,18 +127,16 @@ wss.on('connection', (ws, req) => {
     connectedClients.push(ws)
     if (locationPath === "/display") {
         ws.send(JSON.stringify({ type: 'ip-address', data: IP4 }));
-        sendToDisplay({ type: 'htmlFiles', data: [display1, display2] })
+        sendToDisplay({ type: 'htmlFiles', data: [display, displaySpace, displaySwamp] })
 
     } else {
-        sendToWebClients({ type: 'htmlFiles', data: [index1, index2] })
-
+        sendToWebClients({ type: 'htmlFiles', data: {index: index, space: indexSpace, swamp:indexSwamp, vote: indexVote} })
     }
     // On receiving a message from web client, send to Max
     ws.on('message', message => {
         let oscAddress = '/myAddress'; // Replace with your desired OSC address
         let oscMessage;
         if (String(message) === "Click") {
-            receiveClick()
         }
         // Ensure the message is in a format compatible with OSC
         oscMessage = String(message); // Convert to string explicitly
@@ -149,8 +153,7 @@ wss.on('connection', (ws, req) => {
 function sendToWebClients(data) {
     if (connectedClients.length) {
         for (client of connectedClients) {
-            if (client.path === "/") { client.send(JSON.stringify(data)) }
-
+            if (client.path === "/") { client.send(JSON.stringify(data))}
         }
     }
 }
@@ -163,11 +166,16 @@ function sendToDisplay(data) {
 }
 
 let clickCount = 0
-function receiveClick() {
-    clickCount++
-    sendToWebClients({ type: "section", data: clickCount })
-    sendToDisplay({ type: "section", data: clickCount })
-    console.log(clickCount)
+// function receiveClick() {
+//     clickCount++
+//     sendToWebClients({ type: "section", data: clickCount })
+//     sendToDisplay({ type: "section", data: clickCount })
+//     console.log(clickCount)
+// }
+
+function sendSectionChange(scene) {
+    sendToWebClients({ type: "section", data: scene })
+    sendToDisplay({ type: "section", data: scene })
 }
 
 

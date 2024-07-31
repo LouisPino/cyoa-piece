@@ -28,8 +28,6 @@ const displaySwamp = fs.readFileSync(displaySwampPath, 'utf-8');
 
 
 
-
-
 function getLocalIPv4() {
     const interfaces = os.networkInterfaces();
     for (const name of Object.keys(interfaces)) {
@@ -127,7 +125,7 @@ wss.on('connection', (ws, req) => {
     connectedClients.push(ws)
     if (locationPath === "/display") {
         ws.send(JSON.stringify({ type: 'ip-address', data: IP4 }));
-        sendToDisplay({ type: 'htmlFiles', data: [display, displaySpace, displaySwamp] })
+        sendToDisplay({ type: 'htmlFiles', data: {display: display, space: displaySpace, swamp:displaySwamp} })
 
     } else {
         sendToWebClients({ type: 'htmlFiles', data: {index: index, space: indexSpace, swamp:indexSwamp, vote: indexVote} })

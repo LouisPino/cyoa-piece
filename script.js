@@ -50,13 +50,15 @@ function initializeWebSocket() {
             console.log(indexSwamp)
             mainEl.innerHTML = indexVote
             break
+          case "Default":
+            mainEl.innerHTML = index
+            break
         }
 
     }
 
     function sectionChange(section) {
         toggleHTML(section)
-        console.log(section)
     }
 
     function renderCounter(val) {

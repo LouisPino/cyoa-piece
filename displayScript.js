@@ -21,9 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     new QRCode(document.getElementById("qrcode"), `http://${ipAddress}:8000`);
                     break
                 case `htmlFiles`:
-                    console.log(msg.data)
-                    display1 = msg.data[0]
-                    display2 = msg.data[1]
+                    display = msg.data["display"]
+                    displaySpace = msg.data["space"]
+                    displaySwamp = msg.data["swamp"]
                     break
                 case "section":
                     sectionChange(msg.data)
@@ -37,10 +37,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     function toggleHTML(section) {
-        if (section % 2 == 0) {
-            mainEl.innerHTML = display1
-        } else {
-            mainEl.innerHTML = display2
+        switch (section){
+          case "Default":
+                mainEl.innerHTML = display
+                break           
+          case "Space":
+            mainEl.innerHTML = displaySpace
+            break
+          case "Swamp":
+            mainEl.innerHTML = displaySwamp
+            break
         }
 
     }

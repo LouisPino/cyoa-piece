@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    let display1, display2
     initializeWebSocket(location.hostname)
     function initializeWebSocket(ip) {
         const socket = new WebSocket(`ws://${ip}:8000/display`);

@@ -7,10 +7,6 @@ function initializeWebSocket() {
         console.log("WebSocket connection established!");
     };
 
-    // Button text by section, probably set up to be a dictionary instead for easier use later
-    const greenBtnContent = ["A", "Left", "Swarm", "Attack!"];
-    const redBtnContent = ["B", "Right", "Cave", "Run!"];
-
     // Run when message is received from server (Max -> Server -> Client)
     socket.onmessage = function (event) {
         let msg = JSON.parse(event.data)
@@ -69,7 +65,3 @@ function initializeWebSocket() {
     document.getElementById('red-btn').addEventListener('click', () => sendToServer('B'));
     document.getElementById('click-btn').addEventListener('click', () => sendToServer('Click'));
 }
-
-
-
-//Mobile class

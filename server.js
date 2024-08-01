@@ -4,23 +4,18 @@ const path = require('path');
 const WebSocket = require('ws');
 const url = require('url');
 const IP4 = require('ip4.js')
-
 const [index, indexSpace, indexSwamp, indexVote] = require("indexHtmls.js")
 const [display, displaySpace, displaySwamp] = require("displayHtmls.js");
 
-require("osc.js")
 
-
-
-//Create HTTP Server, no idea about types
 const server = http.createServer((req, res) => {
     let filePath
     switch (req.url) {
         case "/":
-            filePath = path.join(__dirname, 'index.html');
+            filePath = path.join(__dirname, './mobile/index.html');
             break
         case "/display":
-            filePath = path.join(__dirname, 'display.html');
+            filePath = path.join(__dirname, './display/display.html');
             break
         case "/qrcode.min.js":
             filePath = path.join(__dirname, 'qrcode.min.js');
@@ -107,7 +102,6 @@ function sendToWebClients(data) {
     }
 }
 
-
 function sendToDisplay(data) {
     for (client of connectedClients) {
         if (client.path === "/display") { client.send(JSON.stringify(data)); break }
@@ -121,3 +115,33 @@ function sendSectionChange(scene) {
 }
 
 
+
+const { Client, Server } = require('node-osc');
+
+//Declare OSC client at local port 3333 to send to Max
+const oscClient = new Client('127.0.0.1', 3333);
+
+//Declare OSC Server at port local 8001 to listen from Max
+const oscServer = new Server(8001, '127.0.0.1'); // Replace with your port and IP
+
+// When OSC Server receives a message, send it as a string to all Web Clients
+oscServer.on('message', (msg, rinfo) => {
+    if (msg[0] === "scene"){
+        sendSectionChange(msg[1])
+        console.log(msg[1])
+    }
+    const msgObj = { type: msg[0], data: msg[1] }
+    sendToWebClients(msgObj);
+});
+
+
+
+
+// Send /reset 0 to max when server starts
+
+
+module.exports = [
+    sendToWebClients,
+    sendToDisplay,
+    sendSectionChange
+]

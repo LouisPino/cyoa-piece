@@ -1,64 +1,15 @@
-const { Client, Server } = require('node-osc');
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
 const WebSocket = require('ws');
-const os = require('os');
 const url = require('url');
+const IP4 = require('ip4.js')
 
+const [index, indexSpace, indexSwamp, indexVote] = require("indexHtmls.js")
+const [display, displaySpace, displaySwamp] = require("displayHtmls.js");
 
-const indexPath = path.join(__dirname, 'index.html');
-const indexSpacePath = path.join(__dirname, 'indexSpace.html');
-const indexSwampPath = path.join(__dirname, 'indexSwamp.html');
-const indexVotePath = path.join(__dirname, 'indexVote.html');
+require("osc.js")
 
-const index = fs.readFileSync(indexPath, 'utf-8');
-const indexSpace = fs.readFileSync(indexSpacePath, 'utf-8');
-const indexSwamp = fs.readFileSync(indexSwampPath, 'utf-8');
-const indexVote = fs.readFileSync(indexVotePath, 'utf-8');
-
-
-const displayPath = path.join(__dirname, 'display.html');
-const displaySpacePath = path.join(__dirname, 'displaySpace.html');
-const displaySwampPath = path.join(__dirname, 'displaySwamp.html');
-
-const display = fs.readFileSync(displayPath, 'utf-8');
-const displaySpace = fs.readFileSync(displaySpacePath, 'utf-8');
-const displaySwamp = fs.readFileSync(displaySwampPath, 'utf-8');
-
-
-
-function getLocalIPv4() {
-    const interfaces = os.networkInterfaces();
-    for (const name of Object.keys(interfaces)) {
-        for (const iface of interfaces[name]) {
-            if (iface.family === 'IPv4' && !iface.internal) {
-                return iface.address;
-            }
-        }
-    }
-    return '127.0.0.1';
-}
-
-const IP4 = getLocalIPv4()
-
-
-//Declare OSC client at local port 3333 to send to Max
-const oscClient = new Client('127.0.0.1', 3333);
-
-
-//Declare OSC Server at port local 8001 to listen from Max
-const oscServer = new Server(8001, '127.0.0.1'); // Replace with your port and IP
-
-// When OSC Server receives a message, send it as a string to all Web Clients
-oscServer.on('message', (msg, rinfo) => {
-    if (msg[0] === "scene"){
-        sendSectionChange(msg[1])
-        console.log(msg[1])
-    }
-    const msgObj = { type: msg[0], data: msg[1] }
-    sendToWebClients(msgObj);
-});
 
 
 //Create HTTP Server, no idea about types
@@ -163,13 +114,6 @@ function sendToDisplay(data) {
     }
 }
 
-let clickCount = 0
-// function receiveClick() {
-//     clickCount++
-//     sendToWebClients({ type: "section", data: clickCount })
-//     sendToDisplay({ type: "section", data: clickCount })
-//     console.log(clickCount)
-// }
 
 function sendSectionChange(scene) {
     sendToWebClients({ type: "section", data: scene })
@@ -177,8 +121,3 @@ function sendSectionChange(scene) {
 }
 
 
-
-
-
-// Send /reset 0 to max when server starts, resets max counter
-oscClient.send("/reset", 0);

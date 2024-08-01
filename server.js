@@ -3,9 +3,9 @@ const http = require('http');
 const path = require('path');
 const WebSocket = require('ws');
 const url = require('url');
-const IP4 = require('ip4.js')
-const [index, indexSpace, indexSwamp, indexVote] = require("indexHtmls.js")
-const [display, displaySpace, displaySwamp] = require("displayHtmls.js");
+const IP4 = require('./helpers/ip4.js')
+const [index, indexSpace, indexSwamp, indexVote] = require("./helpers/indexHtmls.js")
+const [display, displaySpace, displaySwamp] = require("./helpers/displayHtmls.js");
 
 
 const server = http.createServer((req, res) => {

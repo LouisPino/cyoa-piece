@@ -34,21 +34,19 @@ function initializeWebSocket() {
     const mainEl = document.getElementById("main")
 
     function toggleHTML(section) {
-        switch (section){
-          case "Space":
-            mainEl.innerHTML = indexSpace
-            break
-          case "Swamp":
-            console.log(indexSwamp)
-            mainEl.innerHTML = indexSwamp
-            break
-          case "Vote":
-            console.log(indexSwamp)
-            mainEl.innerHTML = indexVote
-            break
-          case "Default":
-            mainEl.innerHTML = index
-            break
+        switch (section) {
+            case "Space":
+                mainEl.innerHTML = indexSpace
+                break
+            case "Swamp":
+                mainEl.innerHTML = indexSwamp
+                break
+            case "Vote":
+                mainEl.innerHTML = indexVote
+                break
+            case "Default":
+                mainEl.innerHTML = index
+                break
         }
 
     }
@@ -60,6 +58,8 @@ function initializeWebSocket() {
     function renderCounter(val) {
         document.getElementById('numberDisplay').textContent = val;
     }
+
+
     // Add event listeners to send "A" and "B" to server on respective button clicks
     document.getElementById('green-btn').addEventListener('click', () => sendToServer('A'));
     document.getElementById('red-btn').addEventListener('click', () => sendToServer('B'));

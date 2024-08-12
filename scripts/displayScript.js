@@ -47,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
             case "Swamp":
                 mainEl.innerHTML = displaySwamp
                 setCharacterSprites(moving = false)
-
                 break
         }
 
@@ -56,13 +55,14 @@ document.addEventListener("DOMContentLoaded", function () {
     function sectionChange(section) {
         toggleHTML(section)
     }
+
+
     function setCharacterSprites() {
         const wizardEl = document.getElementById("wizardSprite")
         const jesterEl = document.getElementById("jesterSprite")
         if (moving) {
             wizardEl.src = "../characters/jester1.gif"
             jesterEl.src = "../characters/jester2.gif"
-
         } else {
             wizardEl.src = "../characters/jester1.jpg"
             jesterEl.src = "../characters/jester2.jpg"

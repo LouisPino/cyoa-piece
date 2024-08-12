@@ -36,16 +36,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     function toggleHTML(section) {
-        switch (section){
-          case "Default":
+        switch (section) {
+            case "Default":
                 mainEl.innerHTML = display
-                break           
-          case "Space":
-            mainEl.innerHTML = displaySpace
-            break
-          case "Swamp":
-            mainEl.innerHTML = displaySwamp
-            break
+                break
+            case "Space":
+                mainEl.innerHTML = displaySpace
+                setCharacterSprites()
+                break
+            case "Swamp":
+                mainEl.innerHTML = displaySwamp
+                setCharacterSprites()
+
+                break
         }
 
     }
@@ -53,6 +56,14 @@ document.addEventListener("DOMContentLoaded", function () {
     function sectionChange(section) {
         toggleHTML(section)
     }
+    function setCharacterSprites() {
+        const wizardEl = document.getElementById("wizardSprite")
+        const jesterEl = document.getElementById("jesterSprite")
+        wizardEl.src = "../characters/jester1.jpg"
+        jesterEl.src = "../characters/jester2.jpg"
+
+    }
+
 });
 
 

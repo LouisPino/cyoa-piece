@@ -1,6 +1,6 @@
 const socket = new WebSocket(`ws://${location.hostname}:8000`);
 initializeWebSocket()
-let index, indexSpace, indexSwamp
+let index, indexSpace, indexSwamp, indexVote
 function initializeWebSocket() {
     // Confirm connection success
     socket.onopen = function (e) {
@@ -10,6 +10,7 @@ function initializeWebSocket() {
     // Run when message is received from server (Max -> Server -> Client)
     socket.onmessage = function (event) {
         let msg = JSON.parse(event.data)
+        console.log(msg.data)
         switch (msg.type) {
             case `htmlFiles`:
                 index = msg.data["index"]
@@ -17,51 +18,45 @@ function initializeWebSocket() {
                 indexSwamp = msg.data["swamp"]
                 indexVote = msg.data["vote"]
                 break
-            case "newSection":
-                break
-            case "counter":
-                renderCounter(msg.data)
             case "section":
-                sectionChange(msg.data)
+                const section = { name: msg.data, choices: ["Left", "Right"] }
+                sectionChange(section)
         }
 
     };
-
-    // Send message from client to server
-    function sendToServer(msg) {
-        socket.send(msg);
-    }
-    const mainEl = document.getElementById("main")
-
-    function toggleHTML(section) {
-        switch (section) {
-            case "Space":
-                mainEl.innerHTML = indexSpace
-                break
-            case "Swamp":
-                mainEl.innerHTML = indexSwamp
-                break
-            case "Vote":
-                mainEl.innerHTML = indexVote
-                break
-            case "Default":
-                mainEl.innerHTML = index
-                break
-        }
-
-    }
-
-    function sectionChange(section) {
-        toggleHTML(section)
-    }
-
-    function renderCounter(val) {
-        document.getElementById('numberDisplay').textContent = val;
-    }
-
-
-    // Add event listeners to send "A" and "B" to server on respective button clicks
-    document.getElementById('green-btn').addEventListener('click', () => sendToServer('A'));
-    document.getElementById('red-btn').addEventListener('click', () => sendToServer('B'));
-    document.getElementById('click-btn').addEventListener('click', () => sendToServer('Click'));
 }
+// Send message from client to server
+function sendToServer(msg) {
+    socket.send(msg);
+}
+const mainEl = document.getElementById("main")
+function toggleHTML(section) {
+    switch (section.name) {
+        case "Space":
+            mainEl.innerHTML = indexSpace
+            break
+        case "Swamp":
+            mainEl.innerHTML = indexSwamp
+            break
+        case "Vote":
+            mainEl.innerHTML = indexVote
+            let choice1El = document.getElementById('choice-1')
+            let choice2El = document.getElementById('choice-2')
+            choice1El.innerHTML = section.choices[0]
+            choice2El.innerHTML = section.choices[1]
+            choice1El.addEventListener('click', () => sendToServer(section.choices[0]));
+            choice2El.addEventListener('click', () => sendToServer(section.choices[1]));
+            break
+        case "Default":
+            mainEl.innerHTML = index
+            break
+    }
+
+}
+
+function sectionChange(section) {
+    toggleHTML(section)
+}
+
+// Add event listeners to send "A" and "B" to server on respective button clicks
+

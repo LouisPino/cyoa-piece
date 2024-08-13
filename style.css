@@ -1,17 +1,17 @@
-#green-btn{
-background-color: green; 
+#choice-1 {
+    background-color: green;
 }
 
-#red-btn{
-background-color: red; 
+#choice-2 {
+    background-color: red;
 }
 
-.btn{
-    height: 100px; 
+.btn {
+    height: 100px;
     width: 100px;
 }
 
-#blue-btn{
+#blue-btn {
     display: none;
     background-color: blue;
 }

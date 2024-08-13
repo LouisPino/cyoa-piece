@@ -71,10 +71,10 @@ wss.on('connection', (ws, req) => {
     connectedClients.push(ws)
     if (locationPath === "/display") {
         ws.send(JSON.stringify({ type: 'ip-address', data: IP4 }));
-        sendToDisplay({ type: 'htmlFiles', data: {display: display, space: displaySpace, swamp:displaySwamp} })
+        sendToDisplay({ type: 'htmlFiles', data: { display: display, space: displaySpace, swamp: displaySwamp } })
 
     } else {
-        sendToWebClients({ type: 'htmlFiles', data: {index: index, space: indexSpace, swamp:indexSwamp, vote: indexVote} })
+        sendToWebClients({ type: 'htmlFiles', data: { index: index, space: indexSpace, swamp: indexSwamp, vote: indexVote } })
     }
     // On receiving a message from web client, send to Max
     ws.on('message', message => {
@@ -97,7 +97,7 @@ wss.on('connection', (ws, req) => {
 function sendToWebClients(data) {
     if (connectedClients.length) {
         for (client of connectedClients) {
-            if (client.path === "/") { client.send(JSON.stringify(data))}
+            if (client.path === "/") { client.send(JSON.stringify(data)) }
         }
     }
 }
@@ -126,7 +126,7 @@ const oscServer = new Server(8001, '127.0.0.1'); // Replace with your port and I
 
 // When OSC Server receives a message, send it as a string to all Web Clients
 oscServer.on('message', (msg, rinfo) => {
-    if (msg[0] === "scene"){
+    if (msg[0] === "scene") {
         sendSectionChange(msg[1])
         console.log(msg[1])
     }

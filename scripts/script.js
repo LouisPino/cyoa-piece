@@ -17,6 +17,8 @@ function initializeWebSocket() {
                 indexSpace = msg.data["space"]
                 indexSwamp = msg.data["swamp"]
                 indexVote = msg.data["vote"]
+                indexThank = msg.data["thank"]
+                console.log(indexThank)
                 break
             case "section":
                 const section = { name: msg.data, choices: ["Left", "Right"] }
@@ -29,6 +31,10 @@ function initializeWebSocket() {
 function sendToServer(msg) {
     socket.send(msg);
 }
+
+
+
+
 const mainEl = document.getElementById("main")
 function toggleHTML(section) {
     switch (section.name) {
@@ -44,14 +50,19 @@ function toggleHTML(section) {
             let choice2El = document.getElementById('choice-2')
             choice1El.innerHTML = section.choices[0]
             choice2El.innerHTML = section.choices[1]
-            choice1El.addEventListener('click', () => sendToServer(section.choices[0]));
-            choice2El.addEventListener('click', () => sendToServer(section.choices[1]));
+            choice1El.addEventListener('click', () => handleVote("choice1"));
+            choice2El.addEventListener('click', () => handleVote("choice2"));
             break
         case "Default":
             mainEl.innerHTML = index
             break
     }
 
+}
+
+function handleVote(vote) {
+    sendToServer(vote)
+    mainEl.innerHTML = indexThank
 }
 
 function sectionChange(section) {

@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
             switch (msg.type) {
                 case "ip-address":
                     const ipAddress = msg.data;
+                    console.log(msg)
                     // initializeWebSocket(ipAddress);
                     new QRCode(document.getElementById("qrcode"), `http://${ipAddress}:8000`);
                     break

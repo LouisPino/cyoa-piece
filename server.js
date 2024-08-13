@@ -4,7 +4,7 @@ const path = require('path');
 const WebSocket = require('ws');
 const url = require('url');
 const IP4 = require('./helpers/ip4.js')
-const [index, indexSpace, indexSwamp, indexVote] = require("./helpers/indexHtmls.js")
+const [index, indexSpace, indexSwamp, indexVote, indexThank] = require("./helpers/indexHtmls.js")
 const [display, displaySpace, displaySwamp] = require("./helpers/displayHtmls.js");
 
 
@@ -71,14 +71,14 @@ wss.on('connection', (ws, req) => {
     connectedClients.push(ws)
     if (locationPath === "/display") {
         ws.send(JSON.stringify({ type: 'ip-address', data: IP4 }));
-        sendToDisplay({ type: 'htmlFiles', data: { display: display, space: displaySpace, swamp: displaySwamp } })
+        sendToDisplay({ type: 'htmlFiles', data: { display: display, space: displaySpace, swamp: displaySwamp, thank: indexThank } })
 
     } else {
-        sendToWebClients({ type: 'htmlFiles', data: { index: index, space: indexSpace, swamp: indexSwamp, vote: indexVote } })
+        sendToWebClients({ type: 'htmlFiles', data: { index: index, space: indexSpace, swamp: indexSwamp, vote: indexVote, thank: indexThank } })
     }
     // On receiving a message from web client, send to Max
     ws.on('message', message => {
-        let oscAddress = '/myAddress'; // Replace with your desired OSC address
+        let oscAddress = '/max'; // Replace with your desired OSC address
         let oscMessage;
         if (String(message) === "Click") {
         }
@@ -86,6 +86,14 @@ wss.on('connection', (ws, req) => {
         oscMessage = String(message); // Convert to string explicitly
         oscClient.send(oscAddress, oscMessage);
         console.log(`Message: ${oscMessage}`)
+        if (voting) {
+            if (oscMessage === "choice1") {
+                choice1++
+            }
+            else {
+                choice2++
+            }
+        }
     });
     ws.on('close', () => {
         connectedClients = connectedClients.filter((client) => client.id != ws.id)
@@ -114,6 +122,24 @@ function sendSectionChange(scene) {
     sendToDisplay({ type: "section", data: scene })
 }
 
+let voting = false
+let choice1 = 0
+let choice2 = 0
+
+function triggerVote() {
+    console.log("voting")
+    voting = true
+    sendToWebClients({ type: "section", data: "Vote", choices: ["choice 1", "choice 2"] })
+    sendToDisplay({ type: "section", data: "Vote" })
+    setTimeout(() => {
+        if (choice1 === choice2) { console.log("it's a tie!!!") }
+        else { console.log(`Winner is ${choice1 > choice2 ? "choice1" : "choice2"} with ${choice1 > choice2 ? choice1 : choice2} votes!`) }
+        voting = false;
+        choice1 = 0;
+        choice2 = 0;
+    }, 5000)
+}
+
 
 
 const { Client, Server } = require('node-osc');
@@ -126,9 +152,11 @@ const oscServer = new Server(8001, '127.0.0.1'); // Replace with your port and I
 
 // When OSC Server receives a message, send it as a string to all Web Clients
 oscServer.on('message', (msg, rinfo) => {
+    console.log(msg)
     if (msg[0] === "scene") {
         sendSectionChange(msg[1])
-        console.log(msg[1])
+    } else if (msg[0] === "vote") {
+        triggerVote()
     }
     const msgObj = { type: msg[0], data: msg[1] }
     sendToWebClients(msgObj);

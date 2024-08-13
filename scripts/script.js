@@ -13,6 +13,7 @@ function initializeWebSocket() {
         console.log(msg.data)
         switch (msg.type) {
             case `htmlFiles`:
+                console.log(msg.data)
                 index = msg.data["index"]
                 indexSpace = msg.data["space"]
                 indexSwamp = msg.data["swamp"]
@@ -23,6 +24,9 @@ function initializeWebSocket() {
             case "section":
                 const section = { name: msg.data, choices: ["Left", "Right"] }
                 sectionChange(section)
+                break
+            case "selection":
+                renderSelection(msg.data)
         }
 
     };
@@ -58,6 +62,10 @@ function toggleHTML(section) {
             break
     }
 
+}
+
+function renderSelection(winner) {
+    mainEl.innerHTML = "THE WINNER IS " + winner
 }
 
 function handleVote(vote) {

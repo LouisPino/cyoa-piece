@@ -27,6 +27,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     break
                 case "section":
                     sectionChange(msg.data)
+                    break
+                case "selection":
+                    renderSelection(msg.data)
             }
         };
     }
@@ -57,7 +60,9 @@ document.addEventListener("DOMContentLoaded", function () {
         toggleHTML(section)
     }
 
-
+    function renderSelection(winner) {
+        mainEl.innerHTML = "THE WINNER IS " + winner
+    }
     function setCharacterSprites() {
         const wizardEl = document.getElementById("wizardSprite")
         const jesterEl = document.getElementById("jesterSprite")

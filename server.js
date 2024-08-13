@@ -9,13 +9,14 @@ const [display, displaySpace, displaySwamp] = require("./helpers/displayHtmls.js
 
 
 const server = http.createServer((req, res) => {
+
     let filePath
     switch (req.url) {
         case "/":
-            filePath = path.join(__dirname, './mobile/index.html');
+            filePath = path.join(__dirname, './mobile/default.html');
             break
         case "/display":
-            filePath = path.join(__dirname, './display/display.html');
+            filePath = path.join(__dirname, './display/default.html');
             break
         case "/qrcode.min.js":
             filePath = path.join(__dirname, 'qrcode.min.js');
@@ -132,15 +133,33 @@ function triggerVote() {
     sendToWebClients({ type: "section", data: "Vote", choices: ["choice 1", "choice 2"] })
     sendToDisplay({ type: "section", data: "Vote" })
     setTimeout(() => {
-        if (choice1 === choice2) { console.log("it's a tie!!!") }
-        else { console.log(`Winner is ${choice1 > choice2 ? "choice1" : "choice2"} with ${choice1 > choice2 ? choice1 : choice2} votes!`) }
+        if (choice1 === choice2) { endVote(2) }
+        else { endVote(choice1 > choice2 ? 0 : 1) }
         voting = false;
         choice1 = 0;
         choice2 = 0;
     }, 5000)
 }
 
+function endVote(winner) {
+    switch (winner) {
+        case (0):
+            // choice 1
+            sendToWebClients({ type: "selection", data: winner })
+            sendToDisplay({ type: "selection", data: winner })
 
+            console.log("CHOICE 1 WINS")
+            break
+        case (1):
+            // choice 2
+            console.log("CHOICE 2 WINS")
+            break
+        case (2):
+            // tie
+            console.log("IT'S A TIE")
+            break
+    }
+}
 
 const { Client, Server } = require('node-osc');
 

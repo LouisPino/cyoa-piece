@@ -39,26 +39,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function toggleHTML(section) {
         mainEl.innerHTML = section.html.display
-        setCharacterSprites(section.movingSprites)
-        console.log(section)
-        // switch (section) {
-
-        // case "Default":
-        //     mainEl.innerHTML = display
-        //     break
-        // case "forestNorth":
-        //     mainEl.innerHTML = locations.forestNorth.html.display
-        //     setCharacterSprites(moving = true)
-        //     break
-        // case "forestSouth":
-        //     mainEl.innerHTML = locations.forestSouth.html.display
-        //     setCharacterSprites(moving = false)
-        //     break
     }
-    // }
 
     function sectionChange(section) {
         toggleHTML(section)
+        setCharacterSprites(section.movingSprites)
     }
 
     function renderSelection(winner) {
@@ -70,11 +55,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const wizardEl = document.getElementById("wizardSprite")
         const jesterEl = document.getElementById("jesterSprite")
         if (moving) {
-            wizardEl.src = "../characters/jester1.gif"
-            jesterEl.src = "../characters/jester2.gif"
+            if (wizardEl) { wizardEl.src = "../characters/wizard.gif" };
+            if (jesterEl) { jesterEl.src = "../characters/jester.gif" };
         } else {
-            wizardEl.src = "../characters/jester1.jpg"
-            jesterEl.src = "../characters/jester2.jpg"
+            if (wizardEl) { wizardEl.src = "../characters/wizard.jpg" };
+            if (jesterEl) { jesterEl.src = "../characters/jester.jpg" };
         }
     }
 

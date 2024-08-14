@@ -53,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 setCharacterSprites(moving = false)
                 break
         }
-
     }
 
     function sectionChange(section) {

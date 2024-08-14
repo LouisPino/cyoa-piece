@@ -18,8 +18,7 @@ function initializeWebSocket() {
                 extras = msg.data["extras"]
                 break
             case "section":
-                console.log("hit", msg.type)
-                sectionChange(locations[msg.data])
+                sectionChange(locations[msg.data.name])
                 break
             case "selection":
                 renderSelection(msg.data)

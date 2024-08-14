@@ -5,7 +5,7 @@ const WebSocket = require('ws');
 const url = require('url');
 const IP4 = require('./helpers/ip4.js')
 const [locations, extras] = require("./helpers/htmlLoader.js")
-
+let currentLocation
 
 
 /////////////////////////Initialize server
@@ -79,16 +79,9 @@ wss.on('connection', (ws, req) => {
     }
     // On receiving a message from web client, send to Max
     ws.on('message', message => {
-        let oscAddress = '/max'; // Replace with your desired OSC address
-        let oscMessage;
-        if (String(message) === "Click") {
-        }
-        // Ensure the message is in a format compatible with OSC
-        oscMessage = String(message); // Convert to string explicitly
-        oscClient.send(oscAddress, oscMessage);
-        console.log(`Message: ${oscMessage}`)
+        console.log(`Message: ${message}`)
         if (voting) {
-            if (oscMessage === "choice1") {
+            if (message === "choice1") {
                 choice1++
             }
             else {
@@ -122,9 +115,11 @@ function sendToDisplay(data) {
 }
 
 
-function sendSectionChange(scene) {
-    sendToWebClients({ type: "section", data: scene })
-    sendToDisplay({ type: "section", data: scene })
+function sendSectionChange(location) {
+    console.log(location)
+    currentLocation = location
+    sendToWebClients({ type: "section", data: location })
+    sendToDisplay({ type: "section", data: location })
 }
 
 
@@ -158,18 +153,17 @@ function endVote(winner) {
     switch (winner) {
         case (0):
             // choice 1
-            sendToWebClients({ type: "selection", data: winner })
-            sendToDisplay({ type: "selection", data: winner })
-
+            oscClient.send("/vote", currentLocation.paths[0])
             console.log("CHOICE 1 WINS")
             break
         case (1):
             // choice 2
+            oscClient.send("/vote", currentLocation.paths[1])
             console.log("CHOICE 2 WINS")
             break
         case (2):
             // tie
-            console.log("IT'S A TIE")
+            endVote(1)
             break
     }
 }
@@ -188,9 +182,9 @@ const oscServer = new Server(8001, '127.0.0.1'); // Replace with your port and I
 
 // When OSC Server receives a message, send it as a string to all Web Clients
 oscServer.on('message', (msg, rinfo) => {
-    console.log(msg)
     if (msg[0] === "scene") {
-        sendSectionChange(msg[1])
+        let location = locations[msg[1]];
+        sendSectionChange(location)
     } else if (msg[0] === "vote") {
         triggerVote()
     }

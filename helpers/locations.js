@@ -4,53 +4,56 @@ const locations = {
         choicePrompt: "You encounter a cliff at the edge of the kingdom! What do you do?",
         choiceImg: "forestNorthCoice.jpg",
         choices: ["climb mountains", "swim in the ocean"],
-        html: "kingdom"
+        html: {}
     },
     forestNorth: {
         paths: ["cave", "river"],
         choicePrompt: "You've hit a fork in the road! Where will you go?",
         choices: ["Left", "Right"],
-        html: "forestNorth"
+        html: {}
     },
     forestSouth: {
         paths: ["river", "cave"],
         choicePrompt: "You've hit a fork in the road! Where will you go?",
         choices: ["Left", "Right"],
-        html: "forestSouth"
+        html: {}
+
     },
     cave: {
         paths: ["bats", "bugs"],
         choicePrompt: "",
         choices: ["Left", "Right"],
-        html: "cave"
+        html: {}
+
     },
     river: {
         paths: ["bugs", "fish"],
         choicePrompt: "",
         choices: ["", ""],
-        html: "river"
+        html: {}
+
     },
     bats: {
         paths: ["chatBats", "fightBats"],
         choicePrompt: "You've encountered a swarm of bats! Will you fight or try to talk it out?",
         choices: ["Left", "Right"],
-        html: "bats"
+        html: {},
+        movingSprites: true
     },
     bugs: {
         paths: ["chatBugs", "fightBugs"],
         choicePrompt: "You've hit a fork in the road! Where will you go?",
         choices: ["Left", "Right"],
-        html: "bugs"
+        html: {}
+
     },
     fish: {
         paths: ["chatFish", "fightFish"],
         choicePrompt: "You've hit a fork in the road! Where will you go?",
         choices: ["Left", "Right"],
-        html: "fish"
-    },
-    mountains: ["", ""],
-    cloud: ["", ""],
-    ocean: ["", ""]
+        html: {}
+
+    }
 }
 
 module.exports = locations

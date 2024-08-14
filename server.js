@@ -4,9 +4,7 @@ const path = require('path');
 const WebSocket = require('ws');
 const url = require('url');
 const IP4 = require('./helpers/ip4.js')
-const [index, indexSpace, indexSwamp, indexVote, indexThank] = require("./helpers/indexHtmls.js")
-const [display, displaySpace, displaySwamp] = require("./helpers/displayHtmls.js");
-
+const [locations] = require("./helpers/htmlLoader.js")
 
 const server = http.createServer((req, res) => {
 
@@ -72,10 +70,10 @@ wss.on('connection', (ws, req) => {
     connectedClients.push(ws)
     if (locationPath === "/display") {
         ws.send(JSON.stringify({ type: 'ip-address', data: IP4 }));
-        sendToDisplay({ type: 'htmlFiles', data: { display: display, space: displaySpace, swamp: displaySwamp, thank: indexThank } })
+        sendToDisplay({ type: 'htmlFiles', data: { locations: locations } })
 
     } else {
-        sendToWebClients({ type: 'htmlFiles', data: { index: index, space: indexSpace, swamp: indexSwamp, vote: indexVote, thank: indexThank } })
+        sendToWebClients({ type: 'htmlFiles', data: { locations: locations } })
     }
     // On receiving a message from web client, send to Max
     ws.on('message', message => {
@@ -128,10 +126,9 @@ let choice1 = 0
 let choice2 = 0
 
 function triggerVote() {
-    console.log("voting")
     voting = true
-    sendToWebClients({ type: "section", data: "Vote", choices: ["choice 1", "choice 2"] })
-    sendToDisplay({ type: "section", data: "Vote" })
+    sendToWebClients({ type: "section", data: "Vote", choices: ["choice 1", "choice 2"] }) // send currentLocation.choices[0] and [1]
+    sendToDisplay({ type: "section", data: "Vote" }) // in display, make visible the choice prompt + image
     setTimeout(() => {
         if (choice1 === choice2) { endVote(2) }
         else { endVote(choice1 > choice2 ? 0 : 1) }
@@ -161,6 +158,10 @@ function endVote(winner) {
     }
 }
 
+
+
+
+
 const { Client, Server } = require('node-osc');
 
 //Declare OSC client at local port 3333 to send to Max
@@ -181,10 +182,6 @@ oscServer.on('message', (msg, rinfo) => {
     sendToWebClients(msgObj);
 });
 
-
-
-
-// Send /reset 0 to max when server starts
 
 
 module.exports = [

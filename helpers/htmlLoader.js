@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const locations = require("./locations.js")
 const mobileDir = path.join(__dirname, '../mobile');
+const extrasDir = path.join(__dirname, '../mobile/extras');
 const displayDir = path.join(__dirname, '../display');
 // Function to read all HTML files in a directory
 function readHtmlFiles(directory) {
@@ -18,16 +19,13 @@ for (const [k, v] of Object.entries(locations)) {
     let filename = k
     v.html.mobile = getMobile(filename)
     v.html.display = getDisplay(filename)
-    console.log(v.html)
 }
 
 // Directory containing HTML files
 
 
 // Get contents of all HTML files in the directory
-const mobileHtmls = readHtmlFiles(mobileDir);
-const displayHtmls = readHtmlFiles(displayDir);
-
+const extras = readHtmlFiles(extrasDir);
 
 function getMobile(filename) {
     const filePath = path.join(mobileDir, `${filename}.html`); // Construct the full file path
@@ -38,4 +36,4 @@ function getDisplay(filename) {
     const filePath = path.join(displayDir, `${filename}.html`); // Construct the full file path
     return fs.readFileSync(filePath, 'utf-8');
 }
-module.exports = [locations];
+module.exports = [locations, extras];

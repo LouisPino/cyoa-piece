@@ -1,6 +1,8 @@
 const socket = new WebSocket(`ws://${location.hostname}:8000`);
 initializeWebSocket()
-let index, indexSpace, indexSwamp, indexVote
+let locations
+let extras
+let currentLocation
 function initializeWebSocket() {
     // Confirm connection success
     socket.onopen = function (e) {
@@ -10,23 +12,21 @@ function initializeWebSocket() {
     // Run when message is received from server (Max -> Server -> Client)
     socket.onmessage = function (event) {
         let msg = JSON.parse(event.data)
-        console.log(msg.data)
         switch (msg.type) {
             case `htmlFiles`:
-                console.log(msg.data)
-                index = msg.data["index"]
-                indexSpace = msg.data["space"]
-                indexSwamp = msg.data["swamp"]
-                indexVote = msg.data["vote"]
-                indexThank = msg.data["thank"]
-                console.log(indexThank)
+                locations = msg.data["locations"]
+                extras = msg.data["extras"]
                 break
             case "section":
-                const section = { name: msg.data, choices: ["Left", "Right"] }
-                sectionChange(section)
+                console.log("hit", msg.type)
+                sectionChange(locations[msg.data])
                 break
             case "selection":
                 renderSelection(msg.data)
+                break
+            case "vote":
+                startVote(currentLocation)
+                break
         }
 
     };
@@ -38,43 +38,33 @@ function sendToServer(msg) {
 
 
 
-
 const mainEl = document.getElementById("main")
-function toggleHTML(section) {
-    switch (section.name) {
-        case "Space":
-            mainEl.innerHTML = indexSpace
-            break
-        case "Swamp":
-            mainEl.innerHTML = indexSwamp
-            break
-        case "Vote":
-            mainEl.innerHTML = indexVote
-            let choice1El = document.getElementById('choice-1')
-            let choice2El = document.getElementById('choice-2')
-            choice1El.innerHTML = section.choices[0]
-            choice2El.innerHTML = section.choices[1]
-            choice1El.addEventListener('click', () => handleVote("choice1"));
-            choice2El.addEventListener('click', () => handleVote("choice2"));
-            break
-        case "Default":
-            mainEl.innerHTML = index
-            break
-    }
-
+function toggleHTML() {
+    mainEl.innerHTML = currentLocation.html.mobile
 }
 
 function renderSelection(winner) {
     mainEl.innerHTML = "THE WINNER IS " + winner
 }
 
+function startVote(section) {
+    mainEl.innerHTML = extras[1]
+    let choice1El = document.getElementById('choice-1')
+    let choice2El = document.getElementById('choice-2')
+    choice1El.innerHTML = section.choices[0]
+    choice2El.innerHTML = section.choices[1]
+    choice1El.addEventListener('click', () => handleVote("choice1"));
+    choice2El.addEventListener('click', () => handleVote("choice2"));
+}
+
 function handleVote(vote) {
     sendToServer(vote)
-    mainEl.innerHTML = indexThank
+    mainEl.innerHTML = extras[0]
 }
 
 function sectionChange(section) {
-    toggleHTML(section)
+    currentLocation = section
+    toggleHTML()
 }
 
 // Add event listeners to send "A" and "B" to server on respective button clicks

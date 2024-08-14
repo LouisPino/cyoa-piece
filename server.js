@@ -4,10 +4,12 @@ const path = require('path');
 const WebSocket = require('ws');
 const url = require('url');
 const IP4 = require('./helpers/ip4.js')
-const [locations] = require("./helpers/htmlLoader.js")
+const [locations, extras] = require("./helpers/htmlLoader.js")
 
+
+
+/////////////////////////Initialize server
 const server = http.createServer((req, res) => {
-
     let filePath
     switch (req.url) {
         case "/":
@@ -73,7 +75,7 @@ wss.on('connection', (ws, req) => {
         sendToDisplay({ type: 'htmlFiles', data: { locations: locations } })
 
     } else {
-        sendToWebClients({ type: 'htmlFiles', data: { locations: locations } })
+        sendToWebClients({ type: 'htmlFiles', data: { locations: locations, extras: extras } })
     }
     // On receiving a message from web client, send to Max
     ws.on('message', message => {
@@ -100,7 +102,11 @@ wss.on('connection', (ws, req) => {
 });
 
 
-//Send data to web clients
+
+
+
+
+///////////////////////////Sending data to web clients
 function sendToWebClients(data) {
     if (connectedClients.length) {
         for (client of connectedClients) {
@@ -121,14 +127,24 @@ function sendSectionChange(scene) {
     sendToDisplay({ type: "section", data: scene })
 }
 
+
+
+
+
+
+
+
+
+
+////////////////////////voting
 let voting = false
 let choice1 = 0
 let choice2 = 0
 
 function triggerVote() {
     voting = true
-    sendToWebClients({ type: "section", data: "Vote", choices: ["choice 1", "choice 2"] }) // send currentLocation.choices[0] and [1]
-    sendToDisplay({ type: "section", data: "Vote" }) // in display, make visible the choice prompt + image
+    sendToWebClients({ type: "vote", data: "Vote" }) // send currentLocation.choices[0] and [1]
+    sendToDisplay({ type: "vote", data: "Vote" }) // in display, make visible the choice prompt + image
     setTimeout(() => {
         if (choice1 === choice2) { endVote(2) }
         else { endVote(choice1 > choice2 ? 0 : 1) }
@@ -160,7 +176,7 @@ function endVote(winner) {
 
 
 
-
+/////////////////////OSC
 
 const { Client, Server } = require('node-osc');
 

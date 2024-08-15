@@ -24,14 +24,20 @@ function initializeWebSocket() {
                 renderSelection(msg.data)
                 break
             case "vote":
-                startVote(currentLocation)
+                switch (msg.data.type) {
+                    case "path":
+                        startVote(currentLocation)
+                        break
+                    case "skin":
+                        startSkinVote(msg.data.vote)
+                        break
+                }
                 break
             case "location":
                 currentLocation = msg.data.currentLocation
                 sectionChange(currentLocation)
                 break
         }
-
     };
 }
 // Send message from client to server
@@ -70,5 +76,7 @@ function sectionChange(section) {
     toggleHTML()
 }
 
-// Add event listeners to send "A" and "B" to server on respective button clicks
 
+function startSkinVote() {
+
+}

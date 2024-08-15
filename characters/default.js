@@ -1,18 +1,20 @@
-const wizard = {
-    face: "",
-    robe: "",
-    hat: "",
-    device: ""
+const characters = {
+    wizard: {
+        face: "",
+        robe: "",
+        hat: "",
+        device: ""
+    },
+
+    jester: {
+        face: "",
+        points: 0,
+        color: "",
+        device: ""
+    }
 }
 
-const jester = {
-    face: "",
-    points: 0,
-    color: "",
-    device: ""
-}
-
-const wizardOptions = {
+const skinOptions = {
     face: {
         prompt: "Pick your favorite cat",
         choices: [
@@ -23,7 +25,8 @@ const wizardOptions = {
             {
                 label: "Tuxedo",
                 img: ""
-            }]
+            }],
+        character: "wizard"
     },
     robe: {
         prompt: "Choose your favorite robe",
@@ -128,8 +131,5 @@ const jesterOptions = {
 }
 
 module.exports = [
-    wizard,
-    wizardOptions,
-    jester,
-    jesterOptions
+    skinOptions, characters
 ]

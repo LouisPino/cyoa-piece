@@ -5,7 +5,7 @@ const WebSocket = require('ws');
 const url = require('url');
 const IP4 = require('./helpers/ip4.js')
 const [locations, extras] = require("./helpers/htmlLoader.js")
-const [wizardOptions, jesterOptions] = require("./characters/default.js")
+const [skinOptions, characters] = require("./characters/default.js")
 let currentLocation
 
 
@@ -78,6 +78,7 @@ wss.on('connection', (ws, req) => {
     } else {
         sendToWebClients({ type: 'htmlFiles', data: { locations: locations, extras: extras } })
         ws.send(JSON.stringify({ type: "location", data: { currentLocation: currentLocation } }))
+        console.log(currentLocation)
     }
     // On receiving a message from web client, send to Max
     ws.on('message', message => {
@@ -126,12 +127,6 @@ function sendSectionChange(location) {
 
 
 
-
-
-
-
-
-
 ////////////////////////voting
 let voting = false
 let choice1 = 0
@@ -139,8 +134,8 @@ let choice2 = 0
 
 function triggerVote() {
     voting = true
-    sendToWebClients({ type: "vote", data: "Vote" }) // send currentLocation.choices[0] and [1]
-    sendToDisplay({ type: "vote", data: "Vote" }) // in display, make visible the choice prompt + image
+    sendToWebClients({ type: "vote", data: { type: "path" } })
+    sendToDisplay({ type: "vote", data: { type: "path" } }) // in display, make visible the choice prompt + image
     setTimeout(() => {
         if (choice1 === choice2) { endVote(2) }
         else { endVote(choice1 > choice2 ? 0 : 1) }
@@ -169,6 +164,39 @@ function endVote(winner) {
     }
 }
 
+
+
+function triggerSkinVote(item) {
+    voting = true
+    sendToWebClients({ type: "vote", data: { type: "skin", item: item } })
+    sendToDisplay({ type: "vote", data: { type: "skin", item: item } }) // in display, make visible the choice prompt + image
+    setTimeout(() => {
+        if (choice1 === choice2) { endSkinVote(2) }
+        else { endSkinVote(choice1 > choice2 ? 0 : 1) }
+        voting = false;
+        choice1 = 0;
+        choice2 = 0;
+    }, 5000)
+}
+
+function endSkinVote(winner) {
+    switch (winner) {
+        case (0):
+            // choice 1
+            oscClient.send("/vote", currentLocation.paths[0])
+            console.log("CHOICE 1 WINS")
+            break
+        case (1):
+            // choice 2
+            oscClient.send("/vote", currentLocation.paths[1])
+            console.log("CHOICE 2 WINS")
+            break
+        case (2):
+            // tie
+            endSkinVote(1)
+            break
+    }
+}
 
 
 /////////////////////OSC

@@ -7,7 +7,7 @@ const IP4 = require('./helpers/ip4.js')
 const [locations, mobileExtras, displayExtras] = require("./helpers/htmlLoader.js")
 const [skinOptions, characters] = require("./characters/default.js")
 let currentLocation
-const voteLength = 1000
+const voteLength = 2000
 
 /////////////////////////Initialize server
 const server = http.createServer((req, res) => {
@@ -81,13 +81,15 @@ wss.on('connection', (ws, req) => {
     }
     // On receiving a message from web client, send to Max
     ws.on('message', message => {
-        console.log(`Max Message: ${message}`)
+        console.log(`Client Message: ${message}`)
         if (voting) {
-            if (message === "choice1") {
+            if (message == "choice1") {
                 choice1++
+                console.log(1)
             }
             else {
                 choice2++
+                console.log(2)
             }
         }
     });
@@ -161,28 +163,40 @@ function endVote(winner) {
 
 function skinVoting() {
     Object.entries(skinOptions).forEach(([k, v], index) => {
-        setTimeout(() => { triggerSkinVote(k, v) }, index * voteLength);
         setTimeout(() => {
-            oscClient.send("/switch", "kingdom")
-        }, voteLength * Object.keys(skinOptions).length)
+            choice1 = 0
+            choice2 = 0
+            triggerSkinVote(k, v);
+        }, index * voteLength);
 
+        // Move this logic outside the loop so it only runs once after all voting rounds
+        if (index === Object.keys(skinOptions).length - 1) {
+            setTimeout(() => {
+                oscClient.send("/switch", "kingdom");
+                voting = false;
+            }, (index + 1) * voteLength); // Ensure this runs after the last vote
+        }
     });
 }
+
 function triggerSkinVote(name, obj) {
-    voting = true
-    sendToWebClients({ type: "vote", data: { type: "skin", item: obj } })
-    sendToDisplay({ type: "vote", data: { type: "skin", item: obj } }) // in display, make visible the choice prompt + image
+    voting = true;
+    sendToWebClients({ type: "vote", data: { type: "skin", item: obj } });
+    sendToDisplay({ type: "vote", data: { type: "skin", item: obj } }); // Display the choice prompt + image
+
     setTimeout(() => {
-        if (choice1 === choice2) { endSkinVote(1, name, obj) }
-        else { endSkinVote(choice1 > choice2 ? 0 : 1, name, obj) }
-        voting = false;
-        choice1 = 0;
-        choice2 = 0;
-    }, voteLength)
+        if (choice1 === choice2) {
+            endSkinVote(1, name, obj);
+        } else {
+            endSkinVote(choice1 > choice2 ? 0 : 1, name, obj);
+        }
+    }, voteLength - 100); // Ensure this runs close to the end of voteLength
 }
+
 
 function endSkinVote(winner, name, obj) {
     characters[obj.character][name] = skinOptions[name].choices[winner]
+    console.log(characters)
 }
 
 

@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
             switch (msg.type) {
                 case "ip-address":
                     const ipAddress = msg.data;
-                    console.log(msg)
                     // initializeWebSocket(ipAddress);
                     new QRCode(document.getElementById("qrcode"), `http://${ipAddress}:8000`);
                     break
@@ -22,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     locations = msg.data["locations"]
                     break
                 case "section":
-                    sectionChange(locations[msg.data])
+                    sectionChange(locations[msg.data.name])
                     break
                 case "selection":
                     renderSelection(msg.data)

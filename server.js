@@ -81,7 +81,7 @@ wss.on('connection', (ws, req) => {
     }
     // On receiving a message from web client, send to Max
     ws.on('message', message => {
-        console.log(`Message: ${message}`)
+        console.log(`Max Message: ${message}`)
         if (voting) {
             if (message === "choice1") {
                 choice1++
@@ -183,11 +183,14 @@ const oscServer = new Server(8001, '127.0.0.1'); // Replace with your port and I
 
 // When OSC Server receives a message, send it as a string to all Web Clients
 oscServer.on('message', (msg, rinfo) => {
-    if (msg[0] === "scene") {
-        let location = locations[msg[1]];
-        sendSectionChange(location)
-    } else if (msg[0] === "vote") {
-        triggerVote()
+    switch (msg[0]) {
+        case "scene":
+            let location = locations[msg[1]];
+            sendSectionChange(location)
+            break
+        case "vote":
+            triggerVote()
+            break
     }
     const msgObj = { type: msg[0], data: msg[1] }
     sendToWebClients(msgObj);

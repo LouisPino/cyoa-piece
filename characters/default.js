@@ -1,30 +1,30 @@
 const characters = {
     wizard: {
-        face: "",
+        wizardFace: "",
         robe: "",
         hat: "",
-        device: ""
+        wizardDevice: ""
     },
 
     jester: {
-        face: "",
+        jesterFace: "",
         points: 0,
         color: "",
-        device: ""
+        jesterDevice: ""
     }
 }
 
 const skinOptions = {
-    face: {
+    wizardFace: {
         prompt: "Pick your favorite cat",
         choices: [
             {
                 label: "Gray",
-                img: ""
+                img: "https://www.rd.com/wp-content/uploads/2023/04/GettyImages-1212822618.jpg?fit=700,700"
             },
             {
                 label: "Tuxedo",
-                img: ""
+                img: "https://rawznaturalpetfood.com/wp-content/uploads/tuxedo-cats.jpg"
             }],
         character: "wizard"
     },
@@ -33,76 +33,78 @@ const skinOptions = {
         choices: [
             {
                 label: "Purple",
-                img: ""
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbu6ckPo5NMKXkEW9bGp7t7sVwl4TZyKarWA&s"
             },
             {
                 label: "Green",
-                img: ""
-            }]
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqdHx95bIRcx3cyo3O8iMa6xvTQrWsBsHVfQ&s"
+            }],
+        character: "wizard"
     },
     hat: {
         choices: [
             {
                 label: "Star",
-                img: ""
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbu6ckPo5NMKXkEW9bGp7t7sVwl4TZyKarWA&s"
             },
             {
                 label: "Flower",
-                img: ""
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqdHx95bIRcx3cyo3O8iMa6xvTQrWsBsHVfQ&s"
             }],
-        prompt: "Pick between these patterns"
+        prompt: "Pick between these patterns",
+        character: "wizard"
     },
-    device: {
+    wizardDevice: {
         choices: [
             {
                 label: "Frog",
-                img: ""
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbu6ckPo5NMKXkEW9bGp7t7sVwl4TZyKarWA&s"
             },
             {
                 label: "Panda",
-                img: ""
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqdHx95bIRcx3cyo3O8iMa6xvTQrWsBsHVfQ&s"
             }],
-        prompt: "Pick your favorite animal"
-    }
-}
-
-const jesterOptions = {
-    face: {
+        prompt: "Pick your favorite animal",
+        character: "wizard"
+    },
+    jesterFace: {
         prompt: "Choose your favorite cat",
         choices: [
             {
                 label: "Orange",
-                img: ""
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbu6ckPo5NMKXkEW9bGp7t7sVwl4TZyKarWA&s"
             },
             {
                 label: "White",
-                img: ""
-            }]
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqdHx95bIRcx3cyo3O8iMa6xvTQrWsBsHVfQ&s"
+            }],
+        character: "jester"
     },
     points: {
         choices: [
             {
                 label: "2",
-                img: ""
+                img: "https://www.handsoccupied.com/wp-content/uploads/2017/01/whatsnewhat1.jpg"
             },
             {
                 label: "3",
-                img: ""
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1kVEJWeGIDtaEzk8VvWX_Sflt8G9-st7JgA&s"
             },
             {
                 label: "4",
-                img: ""
+                img: "https://i.etsystatic.com/27234842/r/il/0eaff2/4633347721/il_570xN.4633347721_gokd.jpg"
             },
             {
                 label: "5",
-                img: ""
+                img: "https://i.etsystatic.com/5918183/r/il/418793/922998199/il_570xN.922998199_rcvr.jpg"
             },
             {
                 label: "6",
-                img: ""
+                img: "https://www.mardigrasoutlet.com/media/catalog/product/cache/4/image/1000x1000/9df78eab33525d08d6e5fb8d27136e95/B/E/BE60702.jpg"
             }
         ],
-        prompt: "Choose a numnber from 2 to 6"
+        prompt: "Choose a number from 2 to 6",
+        character: "jester"
     },
     color: {
         prompt: "Choose your favorite color",
@@ -114,9 +116,10 @@ const jesterOptions = {
             {
                 label: "Orange",
                 img: ""
-            }]
+            }],
+        character: "jester"
     },
-    device: {
+    jesterDevice: {
         prompt: "Which is more annoying?",
         choices: [
             {
@@ -126,7 +129,8 @@ const jesterOptions = {
             {
                 label: "Horn",
                 img: ""
-            }]
+            }],
+        character: "jester"
     }
 }
 

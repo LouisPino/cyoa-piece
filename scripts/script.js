@@ -57,7 +57,7 @@ function renderSelection(winner) {
 }
 
 function startVote(section) {
-    mainEl.innerHTML = extras[1]
+    mainEl.innerHTML = extras.filter((extra) => (extra.name === "vote"))[0].content
     let choice1El = document.getElementById('choice-1')
     let choice2El = document.getElementById('choice-2')
     choice1El.innerHTML = section.choices[0]
@@ -68,7 +68,7 @@ function startVote(section) {
 
 function handleVote(vote) {
     sendToServer(vote)
-    mainEl.innerHTML = extras[0]
+    mainEl.innerHTML = extras.filter((extra) => (extra.name === "thank"))[0].content
 }
 
 function sectionChange(section) {
@@ -78,5 +78,11 @@ function sectionChange(section) {
 
 
 function startSkinVote() {
-
+    mainEl.innerHTML = extras[1]
+    let choice1El = document.getElementById('choice-1')
+    let choice2El = document.getElementById('choice-2')
+    choice1El.innerHTML = section.choices[0]
+    choice2El.innerHTML = section.choices[1]
+    choice1El.addEventListener('click', () => handleVote("choice1"));
+    choice2El.addEventListener('click', () => handleVote("choice2"));
 }

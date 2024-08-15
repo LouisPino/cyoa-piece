@@ -4,10 +4,10 @@ const path = require('path');
 const WebSocket = require('ws');
 const url = require('url');
 const IP4 = require('./helpers/ip4.js')
-const [locations, extras] = require("./helpers/htmlLoader.js")
+const [locations, mobileExtras, displayExtras] = require("./helpers/htmlLoader.js")
 const [skinOptions, characters] = require("./characters/default.js")
 let currentLocation
-
+const voteLength = 1000
 
 /////////////////////////Initialize server
 const server = http.createServer((req, res) => {
@@ -73,12 +73,11 @@ wss.on('connection', (ws, req) => {
     connectedClients.push(ws)
     if (locationPath === "/display") {
         ws.send(JSON.stringify({ type: 'ip-address', data: IP4 }));
-        sendToDisplay({ type: 'htmlFiles', data: { locations: locations } })
+        sendToDisplay({ type: 'htmlFiles', data: { locations: locations, extras: displayExtras } })
 
     } else {
-        sendToWebClients({ type: 'htmlFiles', data: { locations: locations, extras: extras } })
+        sendToWebClients({ type: 'htmlFiles', data: { locations: locations, extras: mobileExtras } })
         ws.send(JSON.stringify({ type: "location", data: { currentLocation: currentLocation } }))
-        console.log(currentLocation)
     }
     // On receiving a message from web client, send to Max
     ws.on('message', message => {
@@ -137,7 +136,7 @@ function triggerVote() {
     sendToWebClients({ type: "vote", data: { type: "path" } })
     sendToDisplay({ type: "vote", data: { type: "path" } }) // in display, make visible the choice prompt + image
     setTimeout(() => {
-        if (choice1 === choice2) { endVote(2) }
+        if (choice1 === choice2) { endVote(1) }
         else { endVote(choice1 > choice2 ? 0 : 1) }
         voting = false;
         choice1 = 0;
@@ -149,53 +148,41 @@ function endVote(winner) {
     switch (winner) {
         case (0):
             // choice 1
-            oscClient.send("/vote", currentLocation.paths[0])
+            oscClient.send("/switch", currentLocation.paths[0])
             console.log("CHOICE 1 WINS")
             break
         case (1):
             // choice 2
-            oscClient.send("/vote", currentLocation.paths[1])
+            oscClient.send("/switch", currentLocation.paths[1])
             console.log("CHOICE 2 WINS")
-            break
-        case (2):
-            // tie
-            endVote(1)
             break
     }
 }
 
+function skinVoting() {
+    Object.entries(skinOptions).forEach(([k, v], index) => {
+        setTimeout(() => { triggerSkinVote(k, v) }, index * voteLength);
+        setTimeout(() => {
+            oscClient.send("/switch", "kingdom")
+        }, voteLength * Object.keys(skinOptions).length)
 
-
-function triggerSkinVote(item) {
+    });
+}
+function triggerSkinVote(name, obj) {
     voting = true
-    sendToWebClients({ type: "vote", data: { type: "skin", item: item } })
-    sendToDisplay({ type: "vote", data: { type: "skin", item: item } }) // in display, make visible the choice prompt + image
+    sendToWebClients({ type: "vote", data: { type: "skin", item: obj } })
+    sendToDisplay({ type: "vote", data: { type: "skin", item: obj } }) // in display, make visible the choice prompt + image
     setTimeout(() => {
-        if (choice1 === choice2) { endSkinVote(2) }
-        else { endSkinVote(choice1 > choice2 ? 0 : 1) }
+        if (choice1 === choice2) { endSkinVote(1, name, obj) }
+        else { endSkinVote(choice1 > choice2 ? 0 : 1, name, obj) }
         voting = false;
         choice1 = 0;
         choice2 = 0;
-    }, 5000)
+    }, voteLength)
 }
 
-function endSkinVote(winner) {
-    switch (winner) {
-        case (0):
-            // choice 1
-            oscClient.send("/vote", currentLocation.paths[0])
-            console.log("CHOICE 1 WINS")
-            break
-        case (1):
-            // choice 2
-            oscClient.send("/vote", currentLocation.paths[1])
-            console.log("CHOICE 2 WINS")
-            break
-        case (2):
-            // tie
-            endSkinVote(1)
-            break
-    }
+function endSkinVote(winner, name, obj) {
+    characters[obj.character][name] = skinOptions[name].choices[winner]
 }
 
 
@@ -217,7 +204,14 @@ oscServer.on('message', (msg, rinfo) => {
             sendSectionChange(location)
             break
         case "vote":
-            triggerVote()
+            switch (msg[1]) {
+                case "path":
+                    triggerVote()
+                    break
+                case "skin":
+                    skinVoting()
+                    break
+            }
             break
     }
     const msgObj = { type: msg[0], data: msg[1] }

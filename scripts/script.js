@@ -26,6 +26,11 @@ function initializeWebSocket() {
             case "vote":
                 startVote(currentLocation)
                 break
+            case "location":
+                currentLocation = msg.data.currentLocation
+                console.log(msg.data.currentLocation)
+                sectionChange(currentLocation)
+                break
         }
 
     };

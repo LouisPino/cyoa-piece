@@ -5,6 +5,7 @@ const WebSocket = require('ws');
 const url = require('url');
 const IP4 = require('./helpers/ip4.js')
 const [locations, extras] = require("./helpers/htmlLoader.js")
+const [wizardOptions, jesterOptions] = require("./characters/default.js")
 let currentLocation
 
 
@@ -76,6 +77,7 @@ wss.on('connection', (ws, req) => {
 
     } else {
         sendToWebClients({ type: 'htmlFiles', data: { locations: locations, extras: extras } })
+        ws.send(JSON.stringify({ type: "location", data: { currentLocation: currentLocation } }))
     }
     // On receiving a message from web client, send to Max
     ws.on('message', message => {
@@ -116,7 +118,6 @@ function sendToDisplay(data) {
 
 
 function sendSectionChange(location) {
-    console.log(location)
     currentLocation = location
     sendToWebClients({ type: "section", data: location })
     sendToDisplay({ type: "section", data: location })

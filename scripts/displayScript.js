@@ -11,8 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // Run when message is received from server (Max -> Server -> Client)
         socket.onmessage = function (event) {
             let msg = JSON.parse(event.data)
-            console.log(msg)
-
             switch (msg.type) {
                 case "ip-address":
                     const ipAddress = msg.data;

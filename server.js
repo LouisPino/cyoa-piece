@@ -168,7 +168,6 @@ function skinVoting() {
             setTimeout(() => {
                 oscClient.send("/switch", "kingdom");
                 voting = false;
-                console.log(characters)
             }, (index + 1) * voteLength); // Ensure this runs after the last vote
         }
     });
@@ -188,7 +187,6 @@ const choiceMap = {
 }
 
 function tallyVotes() {
-    console.log(choices)
     return choiceMap[Object.keys(choices).reduce((a, b) => choices[a] >= choices[b] ? a : b)]
 }
 

@@ -30,6 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         case "skin":
                             toggleSkinHTML(msg.data.item)
                             break
+                        case "skinChoice":
+                            displaySkinChoice(msg.data.item, msg.data.winner)
+                            break
                     }
                     break
             }
@@ -44,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function toggleHTML(section) {
         mainEl.innerHTML = section.html.display
     }
+
     function toggleSkinHTML(item) {
         mainEl.innerHTML = extras.filter((extra) => (extra.name === "skin"))[0].content
         const choice1El = document.getElementById("skin-choice1")
@@ -63,6 +67,20 @@ document.addEventListener("DOMContentLoaded", function () {
     function sectionChange(section) {
         toggleHTML(section)
         setCharacterSprites(section.movingSprites)
+    }
+
+    function displaySkinChoice(item, winner) {
+        console.log(item)
+        const choice1El = document.getElementById("skin-choice1")
+        choice1El.src = item.choices[winner].img
+        const choice2El = document.getElementById("skin-choice2")
+        const choice3El = document.getElementById("skin-choice3")
+        const choice4El = document.getElementById("skin-choice4")
+        const choice5El = document.getElementById("skin-choice5")
+        choice2El.remove()
+        choice3El.remove()
+        choice4El.remove()
+        choice5El.remove()
     }
 
 

@@ -161,14 +161,14 @@ function skinVoting() {
     Object.entries(skinOptions).forEach(([k, v], index) => {
         setTimeout(() => {
             triggerSkinVote(k, v);
-        }, index * voteLength);
+        }, index * voteLength * 2);
 
         // Move this logic outside the loop so it only runs once after all voting rounds
         if (index === Object.keys(skinOptions).length - 1) {
             setTimeout(() => {
                 oscClient.send("/switch", "kingdom");
                 voting = false;
-            }, (index + 1) * voteLength); // Ensure this runs after the last vote
+            }, (index + 1) * voteLength * 2); // Ensure this runs after the last vote
         }
     });
 }
@@ -203,8 +203,8 @@ function triggerSkinVote(name, obj) {
 
 function endSkinVote(winner, name, obj) {
     characters[obj.character][name] = skinOptions[name].choices[winner]
+    sendToDisplay({ type: "vote", data: { type: "skinChoice", item: obj, winner: winner } }); // Display the choice prompt + image
     resetChoices()
-
 }
 
 

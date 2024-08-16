@@ -83,14 +83,7 @@ wss.on('connection', (ws, req) => {
     ws.on('message', message => {
         console.log(`Client Message: ${message}`)
         if (voting) {
-            if (message == "choice1") {
-                choice1++
-                console.log(1)
-            }
-            else {
-                choice2++
-                console.log(2)
-            }
+            handleVote(message)
         }
     });
     ws.on('close', () => {
@@ -130,19 +123,19 @@ function sendSectionChange(location) {
 
 ////////////////////////voting
 let voting = false
-let choice1 = 0
-let choice2 = 0
+let choices = { choice1: 0, choice2: 0, choice3: 0, choice4: 0, choice5: 0, }
+
+function handleVote(vote) {
+    choices[vote] += 1
+}
+
 
 function triggerVote() {
     voting = true
     sendToWebClients({ type: "vote", data: { type: "path" } })
     sendToDisplay({ type: "vote", data: { type: "path" } }) // in display, make visible the choice prompt + image
     setTimeout(() => {
-        if (choice1 === choice2) { endVote(1) }
-        else { endVote(choice1 > choice2 ? 0 : 1) }
-        voting = false;
-        choice1 = 0;
-        choice2 = 0;
+        endVote(tallyVotes())
     }, 5000)
 }
 
@@ -159,13 +152,14 @@ function endVote(winner) {
             console.log("CHOICE 2 WINS")
             break
     }
+    voting = false;
+    resetChoices()
+
 }
 
 function skinVoting() {
     Object.entries(skinOptions).forEach(([k, v], index) => {
         setTimeout(() => {
-            choice1 = 0
-            choice2 = 0
             triggerSkinVote(k, v);
         }, index * voteLength);
 
@@ -174,9 +168,28 @@ function skinVoting() {
             setTimeout(() => {
                 oscClient.send("/switch", "kingdom");
                 voting = false;
+                console.log(characters)
             }, (index + 1) * voteLength); // Ensure this runs after the last vote
         }
     });
+}
+
+function resetChoices() {
+    for (let key in choices) {
+        choices[key] = 0;
+    }
+}
+const choiceMap = {
+    choice1: 0,
+    choice2: 1,
+    choice3: 2,
+    choice4: 3,
+    choice5: 4,
+}
+
+function tallyVotes() {
+    console.log(choices)
+    return choiceMap[Object.keys(choices).reduce((a, b) => choices[a] >= choices[b] ? a : b)]
 }
 
 function triggerSkinVote(name, obj) {
@@ -185,18 +198,15 @@ function triggerSkinVote(name, obj) {
     sendToDisplay({ type: "vote", data: { type: "skin", item: obj } }); // Display the choice prompt + image
 
     setTimeout(() => {
-        if (choice1 === choice2) {
-            endSkinVote(1, name, obj);
-        } else {
-            endSkinVote(choice1 > choice2 ? 0 : 1, name, obj);
-        }
-    }, voteLength - 100); // Ensure this runs close to the end of voteLength
+        endSkinVote(tallyVotes(), name, obj)
+    }, voteLength - 10); // Ensure this runs close to the end of voteLength
 }
 
 
 function endSkinVote(winner, name, obj) {
     characters[obj.character][name] = skinOptions[name].choices[winner]
-    console.log(characters)
+    resetChoices()
+
 }
 
 

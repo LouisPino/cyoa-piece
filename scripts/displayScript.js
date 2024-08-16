@@ -70,9 +70,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function displaySkinChoice(item, winner) {
-        console.log(item)
         const choice1El = document.getElementById("skin-choice1")
         choice1El.src = item.choices[winner].img
+        choice1El.classList.add("skin-winner")
         const choice2El = document.getElementById("skin-choice2")
         const choice3El = document.getElementById("skin-choice3")
         const choice4El = document.getElementById("skin-choice4")

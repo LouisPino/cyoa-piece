@@ -27,3 +27,8 @@
 .skin-choice {
     width: 100px;
 }
+
+.skin-winner {
+    transition: 800ms;
+    width: 800px;
+}

@@ -45,11 +45,11 @@ const skinOptions = {
         choices: [
             {
                 label: "Star",
-                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbu6ckPo5NMKXkEW9bGp7t7sVwl4TZyKarWA&s"
+                img: "https://www.shutterstock.com/shutterstock/photos/1924994678/display_1500/stock-vector-black-star-seamless-pattern-on-white-background-1924994678.jpg"
             },
             {
                 label: "Flower",
-                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqdHx95bIRcx3cyo3O8iMa6xvTQrWsBsHVfQ&s"
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHfI2f-0vcyxOVHZsdGchgfjfZ_HByBcyw2g&s"
             }],
         prompt: "Pick between these patterns",
         character: "wizard"
@@ -58,11 +58,11 @@ const skinOptions = {
         choices: [
             {
                 label: "Frog",
-                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbu6ckPo5NMKXkEW9bGp7t7sVwl4TZyKarWA&s"
+                img: "https://i.natgeofe.com/k/8fa25ea4-6409-47fb-b3cc-4af8e0dc9616/red-eyed-tree-frog-on-leaves-3-2.jpg"
             },
             {
                 label: "Panda",
-                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqdHx95bIRcx3cyo3O8iMa6xvTQrWsBsHVfQ&s"
+                img: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSU5JTuNNiASNlAUwaojYTBtQ8GNJ58yfaPI3x1__F8cEIJPXmj"
             }],
         prompt: "Pick your favorite animal",
         character: "wizard"
@@ -72,11 +72,11 @@ const skinOptions = {
         choices: [
             {
                 label: "Orange",
-                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbu6ckPo5NMKXkEW9bGp7t7sVwl4TZyKarWA&s"
+                img: "https://www.rover.com/blog/wp-content/uploads/cat-breathing-fast-orange-kitten-960x540.jpg"
             },
             {
                 label: "White",
-                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqdHx95bIRcx3cyo3O8iMa6xvTQrWsBsHVfQ&s"
+                img: "https://static-cdn.jtvnw.net/jtv_user_pictures/e169dea3-4d46-4a1b-9fed-cdd6843ea742-profile_image-300x300.png"
             }],
         character: "jester"
     },
@@ -111,11 +111,11 @@ const skinOptions = {
         choices: [
             {
                 label: "Pink",
-                img: ""
+                img: "https://i.etsystatic.com/13860675/r/il/f9b75e/3019682734/il_fullxfull.3019682734_kxi9.jpg"
             },
             {
                 label: "Orange",
-                img: ""
+                img: "https://insertface.com/fb/2322/orange-jester-costume-face-2322296-xofhz-fb.jpg"
             }],
         character: "jester"
     },
@@ -124,11 +124,11 @@ const skinOptions = {
         choices: [
             {
                 label: "Bells",
-                img: ""
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWEHb8X3ugssy16bJZ-ZyNBLjN0SYhy761Kw&s"
             },
             {
                 label: "Horn",
-                img: ""
+                img: "https://archaeology.org/wp-content/uploads/2018/12/Trenches-Medieval-Drinking-Horn.jpg"
             }],
         character: "jester"
     }

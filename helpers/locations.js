@@ -1,67 +1,169 @@
 const locations = {
-    kingdom: {
-        name: "kingdom",
-        paths: ["forestNorth", "forestSouth"],
-        choicePrompt: "You encounter a cliff at the edge of the kingdom! What do you do?",
-        choiceImg: "forestNorthCoice.jpg",
-        choices: ["climb mountains", "swim in the ocean"],
-        html: {}
-    },
-    forestNorth: {
-        name: "forestNorth",
-        paths: ["cave", "river"],
-        choicePrompt: "You've hit a fork in the road! Where will you go?",
-        choices: ["Left", "Right"],
-        html: {}
-    },
-    forestSouth: {
-        name: "forestSouth",
-        paths: ["river", "cave"],
-        choicePrompt: "You've hit a fork in the road! Where will you go?",
-        choices: ["Left", "Right"],
-        html: {}
+  kingdom: {
+    name: "kingdom",
+    paths: ["forestNorth", "forestSouth"],
+    choicePrompt:
+      "You encounter a cliff at the edge of the kingdom! What do you do?",
+    choiceImg: "forestNorthCoice.jpg",
+    choices: ["climb mountains", "swim in the ocean"],
+    html: {},
+  },
+  forestNorth: {
+    name: "forestNorth",
+    paths: ["cave", "river"],
+    choicePrompt: "You've hit a fork in the road! Where will you go?",
+    choices: ["Left", "Right"],
+    html: {},
+  },
+  forestSouth: {
+    name: "forestSouth",
+    paths: ["river", "cave"],
+    choicePrompt: "You've hit a fork in the road! Where will you go?",
+    choices: ["Left", "Right"],
+    html: {},
+  },
+  cave: {
+    name: "cave",
+    paths: ["bats", "bugs"],
+    choicePrompt: "",
+    choices: ["Left", "Right"],
+    html: {},
+  },
+  river: {
+    name: "river",
+    paths: ["bugs", "fish"],
+    choicePrompt: "",
+    choices: ["", ""],
+    html: {},
+  },
+  bats: {
+    name: "bats",
+    paths: ["chatBats", "fightBats"],
+    choicePrompt:
+      "Sensing hostility!! They get defensive. Do we fight them or try to talk to them? ",
+    choices: ["Chat", "Fight"],
+    html: {},
+    movingSprites: true,
+  },
+  bugs: {
+    name: "bugs",
+    paths: ["chatBugs", "fightBugs"],
+    choicePrompt:
+    "Sensing hostility!! They get defensive. Do we fight them or try to talk to them? ",    choices: ["Chat", "Fight"],
+    html: {},
+  },
+  fish: {
+    name: "fish",
+    paths: ["chatFish", "fightFish"],
+    choicePrompt:
+    "Sensing hostility!! They get defensive. Do we fight them or try to talk to them? ",    choices: ["Chat", "Fight"],
+    html: {},
+  },
+  chatFish: {
+    name: "chatFish",
+    paths: ["pacifist", "pacifist"],
+    choicePrompt: "The creatures open up to you on how they’re really nervous and stressed out. They’re having difficulty writing a story for their local creative writing festival. Can you help them? ",
+    choices: ["Left", "Right"],
+    html: {},
+  },
+  fightFish: {
+    name: "fightFish",
+    paths: ["spaceBuff", "oceanBuff"],
+    choicePrompt: "A rousing battle between the adventurers and the creature!! (ouch dude what the heck was that for, I’m leaving). Two pieces of loot (that provide buffs) are available but only one can be taken. What will you choose?",
+    choices: ["Left", "Right"],
+    html: {},
+  },
+  chatBats: {
+    name: "chatBats",
+    paths: ["pacifist", "pacifist"],
+    choicePrompt: "The creatures open up to you on how they’re really nervous and stressed out. They’re having difficulty writing a story for their local creative writing festival. Can you help them? ",
+    choices: ["Left", "Right"],
+    html: {},
+  },
+  fightBats: {
+    name: "fightBats",
+    paths: ["spaceBuff", "oceanBuff"],
+    choicePrompt: "A rousing battle between the adventurers and the creature!! (ouch dude what the heck was that for, I’m leaving). Two pieces of loot (that provide buffs) are available but only one can be taken. What will you choose?",
+    choices: ["Left", "Right"],
+    html: {},
+  },
+  chatBugs: {
+    name: "chatBugs",
+    paths: ["pacifist", "pacifist"],
+    choicePrompt: "The creatures open up to you on how they’re really nervous and stressed out. They’re having difficulty writing a story for their local creative writing festival. Can you help them?",
+    choices: ["Left", "Right"],
+    html: {},
+  },
+  fightBugs: {
+    name: "fightBugs",
+    paths: ["spaceBuff", "oceanBuff"],
+    choicePrompt: "A rousing battle between the adventurers and the creature!! (ouch dude what the heck was that for, I’m leaving). Two pieces of loot (that provide buffs) are available but only one can be taken. What will you choose?",
+    choices: ["Left", "Right"],
+    html: {},
+  },
+  spaceBuff: {
+    name: "spaceBuff",
+    paths: ["fightSpace", "explainSpace"],
+    choicePrompt: "Do you choose to fight the Cloud folk? Or will you try to explain yourself?",
+    choices: ["Fight", "Explain yourself"],
+    html: {},
+  },
+  oceanBuff: {
+    name: "oceanBuff",
+    paths: ["fightOcean", "explainOcean"],
+    choicePrompt: "Do you choose to fight the Merfolk? Or will you try to explain yourself?",
+    choices: ["Fight", "Explain yourself"],
+    html: {},
+  },
+  pacifist: {
+    name: "pacifist",
+    paths: ["thermosphere", "mesopelagic"],
+    choicePrompt: "Now at The Grand Teleporter. Where should our adventurers meet up?",
+    choices: ["To the THERMOSPHERE, amidst the Aurora Borealis.", "To the MESOPELAGIC ZONE, the ocean's twilight zone."],
+    html: {},
+  },
+  fightSpace: {
+    name: "fightSpace",
+    paths: ["thermosphere", "mesopelagic"],
+    choicePrompt: "Where should the adventurers meet up with each other? Neither have any idea where the treasure might be but they’ll try to follow through for the heck of it.",
+    choices: ["To the THERMOSPHERE, amidst the Aurora Borealis.", "To the MESOPELAGIC ZONE, the ocean's twilight zone."],
+    html: {},
+  },
+  explainSpace: {
+    name: "explainSpace",
+    paths: ["thermosphere", "mesopelagic"],
+    choicePrompt: "You've hit a fork in the road! Where will you go?",
+    choices: ["To the THERMOSPHERE, amidst the Aurora Borealis.", "To the MESOPELAGIC ZONE, the ocean's twilight zone."],
+    html: {},
+  },
+  fightOcean: {
+    name: "fightOcean",
+    paths: ["thermosphere", "mesopelagic"],
+    choicePrompt: "Where should the adventurers meet up with each other? Neither have any idea where the treasure might be but they’ll try to follow through for the heck of it.",
+    choices: ["To the THERMOSPHERE, amidst the Aurora Borealis.", "To the MESOPELAGIC ZONE, the ocean's twilight zone."],
+    html: {},
+  },
+  explainOcean: {
+    name: "explainOcean",
+    paths: ["thermosphere", "mesopelagic"],
+    choicePrompt: "You've hit a fork in the road! Where will you go?",
+    choices: ["To the THERMOSPHERE, amidst the Aurora Borealis.", "To the MESOPELAGIC ZONE, the ocean's twilight zone."],
+    html: {},
+  },
+  thermosphere: {
+    name: "thermosphere",
+    paths: ["thermosphere", "mesopelagic"],
+    choicePrompt: "You've hit a fork in the road! Where will you go?",
+    choices: ["To the THERMOSPHERE, amidst the Aurora Borealis.", "To the MESOPELAGIC ZONE, the ocean's twilight zone."],
+    html: {},
+  },
+  mesopelagic: {
+    name: "mesopelagic",
+    paths: ["thermosphere", "mesopelagic"],
+    choicePrompt: "You've hit a fork in the road! Where will you go?",
+    choices: ["To the THERMOSPHERE, amidst the Aurora Borealis.", "To the MESOPELAGIC ZONE, the ocean's twilight zone."],
+    html: {},
+  },
+};
 
-    },
-    cave: {
-        name: "cave",
-        paths: ["bats", "bugs"],
-        choicePrompt: "",
-        choices: ["Left", "Right"],
-        html: {}
-
-    },
-    river: {
-        name: "river",
-        paths: ["bugs", "fish"],
-        choicePrompt: "",
-        choices: ["", ""],
-        html: {}
-
-    },
-    bats: {
-        name: "bats",
-        paths: ["chatBats", "fightBats"],
-        choicePrompt: "You've encountered a swarm of bats! Will you fight or try to talk it out?",
-        choices: ["Left", "Right"],
-        html: {},
-        movingSprites: true
-    },
-    bugs: {
-        name: "bugs",
-        paths: ["chatBugs", "fightBugs"],
-        choicePrompt: "You've hit a fork in the road! Where will you go?",
-        choices: ["Left", "Right"],
-        html: {}
-
-    },
-    fish: {
-        name: "fish",
-        paths: ["chatFish", "fightFish"],
-        choicePrompt: "You've hit a fork in the road! Where will you go?",
-        choices: ["Left", "Right"],
-        html: {}
-
-    }
-}
-
-module.exports = locations
+module.exports = locations;

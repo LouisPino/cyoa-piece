@@ -34,6 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         case "skinChoice":
                             displaySkinChoice(msg.data.item, msg.data.winner)
                             break
+                        case "path":
+                            break
                     }
                     break
             }
@@ -99,9 +101,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const votePrompt = document.createElement("h1");
     votePrompt.classList.add("vote-prompt")
-    votePrompt.textContent = "VOTE!!";    
-    function promptVote(){
-        mainEl.appendChild(votePrompt)
+    votePrompt.innerText = "VOTE!! 5";    
+    function promptVote() {
+        let seconds = 4;
+        mainEl.appendChild(votePrompt);
+        const countdown = setInterval(() => {
+            votePrompt.innerText = `VOTE!! ${seconds}`;
+            seconds -= 1;
+            if (seconds < 0) {
+                clearInterval(countdown);
+            }
+        }, 1000);
     }
 });
 

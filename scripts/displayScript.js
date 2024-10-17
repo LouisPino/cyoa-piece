@@ -25,6 +25,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 case "section":
                     sectionChange(locations[msg.data.name])
                     break
+                case "intermission":
+                    intermissionStart()
+                    break
                 case "vote":
                     promptVote()
                     switch (msg.data.type) {
@@ -98,6 +101,11 @@ document.addEventListener("DOMContentLoaded", function () {
             if (jesterEl) { jesterEl.src = "../characters/jester.jpg" };
         }
     }
+
+    function intermissionStart(){
+        console.log("it is intermission now")
+    }
+
 
     const votePrompt = document.createElement("h1");
     votePrompt.classList.add("vote-prompt")

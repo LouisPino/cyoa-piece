@@ -154,7 +154,6 @@ function endVote(winner) {
     }
     voting = false;
     resetChoices()
-
 }
 
 function skinVoting() {
@@ -207,6 +206,12 @@ function endSkinVote(winner, name, obj) {
     resetChoices()
 }
 
+function intermissionTrigger(){
+    sendToWebClients({ type: "intermission"});
+    sendToDisplay({ type: "intermission"}); // Display the choice prompt + image
+
+}
+
 
 /////////////////////OSC
 
@@ -235,6 +240,9 @@ oscServer.on('message', (msg, rinfo) => {
                     break
             }
             break
+        case "intermission":
+            intermissionTrigger()
+
     }
     const msgObj = { type: msg[0], data: msg[1] }
     sendToWebClients(msgObj);

@@ -23,6 +23,9 @@ function initializeWebSocket() {
             case "selection":
                 renderSelection(msg.data)
                 break
+            case "intermission":
+                intermissionStart()
+                break
             case "vote":
                 switch (msg.data.type) {
                     case "path":
@@ -94,4 +97,8 @@ function startSkinVote(item) {
     choice3El.addEventListener('click', () => handleVote("choice3"));
     choice4El.addEventListener('click', () => handleVote("choice4"));
     choice5El.addEventListener('click', () => handleVote("choice5"));
+}
+
+function intermissionStart(){
+    console.log("it is intermission now")
 }

@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 196.0, 326.0, 896.0, 477.0 ],
+		"rect" : [ 501.0, 311.0, 896.0, 477.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -154,7 +154,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 207.0, 14.0, 151.0, 22.0 ],
-					"text" : "/vote cave"
+					"text" : "/switch thermosphere"
 				}
 
 			}

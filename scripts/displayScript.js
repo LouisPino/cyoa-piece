@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     sectionChange(locations[msg.data.name])
                     break
                 case "vote":
+                    promptVote()
                     switch (msg.data.type) {
                         case "skin":
                             toggleSkinHTML(msg.data.item)
@@ -96,6 +97,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    const votePrompt = document.createElement("h1");
+    votePrompt.classList.add("vote-prompt")
+    votePrompt.textContent = "VOTE!!";    
+    function promptVote(){
+        mainEl.appendChild(votePrompt)
+    }
 });
 
 

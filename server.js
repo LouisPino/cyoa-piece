@@ -7,7 +7,7 @@ const IP4 = require('./helpers/ip4.js')
 const [locations, mobileExtras, displayExtras] = require("./helpers/htmlLoader.js")
 const [skinOptions, characters] = require("./characters/default.js")
 let currentLocation
-const voteLength = 7500
+const voteLength = 10000
 
 /////////////////////////Initialize server
 const server = http.createServer((req, res) => {
@@ -136,7 +136,7 @@ function triggerVote() {
     sendToDisplay({ type: "vote", data: { type: "path" } }) // in display, make visible the choice prompt + image
     setTimeout(() => {
         endVote(tallyVotes())
-    }, 5000)
+    }, voteLength)
 }
 
 function endVote(winner) {

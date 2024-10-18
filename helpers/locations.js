@@ -4,7 +4,6 @@ const locations = {
     paths: ["forestNorth", "forestSouth"],
     choicePrompt:
       "You encounter a cliff at the edge of the kingdom! What do you do?",
-    choiceImg: "forestNorthCoice.jpg",
     choices: ["climb mountains", "swim in the ocean"],
     html: {},
   },
@@ -25,15 +24,15 @@ const locations = {
   cave: {
     name: "cave",
     paths: ["bats", "bugs"],
-    choicePrompt: "",
+    choicePrompt: "Should we go right or left?",
     choices: ["Left", "Right"],
     html: {},
   },
   river: {
     name: "river",
     paths: ["bugs", "fish"],
-    choicePrompt: "",
-    choices: ["", ""],
+    choicePrompt: "Should we go right or left?",
+    choices: ["Left", "Right"],
     html: {},
   },
   bats: {
@@ -50,6 +49,7 @@ const locations = {
     paths: ["chatBugs", "fightBugs"],
     choicePrompt:
     "Sensing hostility!! They get defensive. Do we fight them or try to talk to them? ",    choices: ["Chat", "Fight"],
+    choices: ["Chat", "Fight"],
     html: {},
   },
   fish: {
@@ -57,6 +57,7 @@ const locations = {
     paths: ["chatFish", "fightFish"],
     choicePrompt:
     "Sensing hostility!! They get defensive. Do we fight them or try to talk to them? ",    choices: ["Chat", "Fight"],
+    choices: ["Chat", "Fight"],
     html: {},
   },
   chatFish: {
@@ -70,7 +71,7 @@ const locations = {
     name: "fightFish",
     paths: ["spaceBuff", "oceanBuff"],
     choicePrompt: "A rousing battle between the adventurers and the creature!! (ouch dude what the heck was that for, I’m leaving). Two pieces of loot (that provide buffs) are available but only one can be taken. What will you choose?",
-    choices: ["Left", "Right"],
+    choices: ["Space Weapon", "Ocean Weapon"],
     html: {},
   },
   chatBats: {
@@ -84,7 +85,7 @@ const locations = {
     name: "fightBats",
     paths: ["spaceBuff", "oceanBuff"],
     choicePrompt: "A rousing battle between the adventurers and the creature!! (ouch dude what the heck was that for, I’m leaving). Two pieces of loot (that provide buffs) are available but only one can be taken. What will you choose?",
-    choices: ["Left", "Right"],
+    choices: ["Space Weapon", "Ocean Weapon"],
     html: {},
   },
   chatBugs: {
@@ -98,7 +99,7 @@ const locations = {
     name: "fightBugs",
     paths: ["spaceBuff", "oceanBuff"],
     choicePrompt: "A rousing battle between the adventurers and the creature!! (ouch dude what the heck was that for, I’m leaving). Two pieces of loot (that provide buffs) are available but only one can be taken. What will you choose?",
-    choices: ["Left", "Right"],
+    choices: ["Space Weapon", "Ocean Weapon"],
     html: {},
   },
   spaceBuff: {

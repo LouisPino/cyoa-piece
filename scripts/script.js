@@ -49,7 +49,7 @@ function sendToServer(msg) {
 }
 
 
-
+const voteLength = 10000
 const mainEl = document.getElementById("main")
 function toggleHTML() {
     mainEl.innerHTML = currentLocation.html.mobile
@@ -63,6 +63,8 @@ function startVote(section) {
     mainEl.innerHTML = extras.filter((extra) => (extra.name === "vote"))[0].content
     let choice1El = document.getElementById('choice-1')
     let choice2El = document.getElementById('choice-2')
+    let prompt = document.getElementById('vote-prompt-mobile')
+    prompt.innerText = section.choicePrompt
     choice1El.innerHTML = section.choices[0]
     choice2El.innerHTML = section.choices[1]
     choice1El.addEventListener('click', () => handleVote("choice1"));

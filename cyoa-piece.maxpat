@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 274.0, 227.0, 896.0, 477.0 ],
+		"rect" : [ 1116.0, 348.0, 354.0, 352.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -45,7 +45,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 528.0, 58.0, 73.0, 22.0 ],
+					"patching_rect" : [ 460.0, 58.0, 73.0, 22.0 ],
 					"text" : "intermission"
 				}
 
@@ -57,7 +57,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 474.0, 58.0, 30.0, 22.0 ],
+					"patching_rect" : [ 406.0, 58.0, 30.0, 22.0 ],
 					"text" : "skin"
 				}
 
@@ -69,7 +69,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 440.0, 82.0, 64.0, 22.0 ],
+					"patching_rect" : [ 372.0, 82.0, 64.0, 22.0 ],
 					"text" : "vote $1"
 				}
 
@@ -153,7 +153,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 440.0, 58.0, 32.0, 22.0 ],
+					"patching_rect" : [ 372.0, 58.0, 32.0, 22.0 ],
 					"text" : "path"
 				}
 
@@ -166,7 +166,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 207.0, 14.0, 151.0, 22.0 ],
-					"text" : "/switch cave"
+					"text" : "/switch fightBats"
 				}
 
 			}

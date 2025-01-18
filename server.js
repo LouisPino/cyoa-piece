@@ -131,7 +131,7 @@ let voting = false
 let choices = { choice1: 0, choice2: 0, choice3: 0, choice4: 0, choice5: 0, }
 
 function handleVote(vote) {
-    choices[vote] += 1
+    choices[JSON.parse(vote)] += 1
 }
 
 

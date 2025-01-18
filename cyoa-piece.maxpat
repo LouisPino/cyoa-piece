@@ -41,6 +41,7 @@
 		"boxes" : [ 			{
 				"box" : 				{
 					"basictuning" : 440,
+					"clipheight" : 26.0,
 					"data" : 					{
 						"clips" : [ 							{
 								"absolutepath" : "snare.aiff",
@@ -68,7 +69,7 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 624.0, 553.0, 150.0, 30.0 ],
+					"patching_rect" : [ 517.5, 439.0, 148.0, 26.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ]
@@ -82,7 +83,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 624.0, 522.0, 29.5, 22.0 ],
+					"patching_rect" : [ 517.5, 415.0, 29.5, 22.0 ],
 					"text" : "1"
 				}
 
@@ -94,7 +95,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 527.0, 415.0, 29.5, 22.0 ],
+					"patching_rect" : [ 517.5, 480.0, 29.5, 22.0 ],
 					"text" : "1"
 				}
 
@@ -129,7 +130,7 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 527.0, 439.0, 150.0, 30.0 ],
+					"patching_rect" : [ 517.5, 504.0, 150.0, 30.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ]
@@ -155,7 +156,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 156.0, 370.0, 67.0, 22.0 ],
+					"patching_rect" : [ 336.5, 154.0, 67.0, 22.0 ],
 					"text" : "sampletest"
 				}
 
@@ -178,7 +179,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 0,
-					"patching_rect" : [ 491.0, 546.0, 55.0, 22.0 ],
+					"patching_rect" : [ 343.0, 512.0, 55.0, 22.0 ],
 					"text" : "dac~ 1 2"
 				}
 
@@ -349,7 +350,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 207.0, 14.0, 151.0, 22.0 ],
-					"text" : "/sample 3"
+					"text" : "/switch river"
 				}
 
 			}

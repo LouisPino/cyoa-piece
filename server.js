@@ -82,8 +82,13 @@ wss.on('connection', (ws, req) => {
     // On receiving a message from web client, send to Max
     ws.on('message', message => {
         console.log(`Client Message: ${message}`)
+        data = JSON.parse(message)
         if (voting) {
             handleVote(message)
+        } else if (data.type === "sample") {
+            {
+                oscClient.send("/sample", data.val)
+            }
         }
     });
     ws.on('close', () => {
@@ -206,9 +211,9 @@ function endSkinVote(winner, name, obj) {
     resetChoices()
 }
 
-function intermissionTrigger(){
-    sendToWebClients({ type: "intermission"});
-    sendToDisplay({ type: "intermission"}); // Display the choice prompt + image
+function intermissionTrigger() {
+    sendToWebClients({ type: "intermission" });
+    sendToDisplay({ type: "intermission" }); // Display the choice prompt + image
 
 }
 

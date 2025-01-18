@@ -48,7 +48,7 @@ const locations = {
     name: "bugs",
     paths: ["chatBugs", "fightBugs"],
     choicePrompt:
-    "Sensing hostility!! They get defensive. Do we fight them or try to talk to them? ",    choices: ["Chat", "Fight"],
+      "Sensing hostility!! They get defensive. Do we fight them or try to talk to them? ", choices: ["Chat", "Fight"],
     choices: ["Chat", "Fight"],
     html: {},
   },
@@ -56,7 +56,7 @@ const locations = {
     name: "fish",
     paths: ["chatFish", "fightFish"],
     choicePrompt:
-    "Sensing hostility!! They get defensive. Do we fight them or try to talk to them? ",    choices: ["Chat", "Fight"],
+      "Sensing hostility!! They get defensive. Do we fight them or try to talk to them? ", choices: ["Chat", "Fight"],
     choices: ["Chat", "Fight"],
     html: {},
   },
@@ -165,6 +165,13 @@ const locations = {
     choices: ["To the THERMOSPHERE, amidst the Aurora Borealis.", "To the MESOPELAGIC ZONE, the ocean's twilight zone."],
     html: {},
   },
+  sampletest: {
+    name: "sampletest",
+    paths: ["thermosphere", "mesopelagic"],
+    choicePrompt: "You've hit a fork in the road! Where will you go?",
+    choices: ["To the THERMOSPHERE, amidst the Aurora Borealis.", "To the MESOPELAGIC ZONE, the ocean's twilight zone."],
+    html: {},
+  }
 };
 
 module.exports = locations;

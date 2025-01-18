@@ -45,7 +45,7 @@ function initializeWebSocket() {
 }
 // Send message from client to server
 function sendToServer(msg) {
-    socket.send(msg);
+    socket.send(JSON.stringify(msg));
 }
 
 
@@ -79,6 +79,12 @@ function handleVote(vote) {
 function sectionChange(section) {
     currentLocation = section
     toggleHTML()
+    let btnEl1 = document.querySelector(".sample-btn1")
+    btnEl1.addEventListener("click", () => { sendToServer({ type: "sample", val: 1 }) })
+    let btnEl2 = document.querySelector(".sample-btn2")
+    btnEl2.addEventListener("click", () => { sendToServer({ type: "sample", val: 2 }) })
+    let btnEl3 = document.querySelector(".sample-btn3")
+    btnEl3.addEventListener("click", () => { sendToServer({ type: "sample", val: 3 }) })
 }
 
 
@@ -101,6 +107,6 @@ function startSkinVote(item) {
     choice5El.addEventListener('click', () => handleVote("choice5"));
 }
 
-function intermissionStart(){
+function intermissionStart() {
     console.log("it is intermission now")
 }

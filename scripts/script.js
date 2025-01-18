@@ -79,12 +79,46 @@ function handleVote(vote) {
 function sectionChange(section) {
     currentLocation = section
     toggleHTML()
-    let btnEl1 = document.querySelector(".sample-btn1")
-    btnEl1.addEventListener("click", () => { sendToServer({ type: "sample", val: 1 }) })
-    let btnEl2 = document.querySelector(".sample-btn2")
-    btnEl2.addEventListener("click", () => { sendToServer({ type: "sample", val: 2 }) })
-    let btnEl3 = document.querySelector(".sample-btn3")
-    btnEl3.addEventListener("click", () => { sendToServer({ type: "sample", val: 3 }) })
+    if (currentLocation.name === "sampletest") {
+        let btnEl1 = document.querySelector(".sample-btn1")
+        btnEl1.addEventListener("click", () => { sendToServer({ type: "sample", val: 1 }) })
+        let btnEl2 = document.querySelector(".sample-btn2")
+        btnEl2.addEventListener("click", () => { sendToServer({ type: "sample", val: 2 }) })
+        let btnEl3 = document.querySelector(".sample-btn3")
+        btnEl3.addEventListener("click", () => { sendToServer({ type: "sample", val: 3 }) })
+    } else if (currentLocation.name === "kingdom") {
+        let textEls = document.querySelectorAll(".text")
+        let texts = []
+        let textBodyEl = document.querySelector(".text-body")
+        for (el of textEls) {
+            texts.push(el.innerText)
+            el.remove()
+        }
+        let i = 0; // Index for texts array
+
+        function typeText() {
+            if (i < texts.length) {
+                const text = texts[i];
+                let j = 0; // Index for characters in the current text
+
+                function typeCharacter() {
+                    if (j < text.length) {
+                        textBodyEl.innerHTML += text[j];
+                        j++;
+                        setTimeout(typeCharacter, 50); // Type the next character
+                    } else {
+                        textBodyEl.innerHTML += "<br>"; // Add a line break after the text
+                        i++;
+                        setTimeout(typeText, 1000); // Move to the next text
+                    }
+                }
+
+                typeCharacter(); // Start typing the current text
+            }
+        }
+
+        typeText(); // Start typing texts
+    }
 }
 
 

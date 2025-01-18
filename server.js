@@ -87,8 +87,10 @@ wss.on('connection', (ws, req) => {
         if (voting) {
             handleVote(message)
         } else if (data.type === "sample") {
-            {
-                oscClient.send("/sample", data.val)
+            oscClient.send("/sample", data.val)
+            if (data.val === 'drum 3') {
+                console.log("hit")
+                punchBadGuy()
             }
         }
     });
@@ -122,10 +124,18 @@ function sendSectionChange(location) {
     currentLocation = location
     sendToWebClients({ type: "section", data: location })
     sendToDisplay({ type: "section", data: location })
-    if (location.name === "welcome") {
-        // sendIPToDisplay()
-    }
 }
+
+
+////////audience kill bad guy test
+let badguyhealth = 5
+function punchBadGuy() {
+    badguyhealth--
+    sendToDisplay({ type: "badguy", data: badguyhealth })
+}
+
+
+
 
 
 

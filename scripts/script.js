@@ -81,11 +81,13 @@ function sectionChange(section) {
     toggleHTML()
     if (currentLocation.name === "sampletest") {
         let btnEl1 = document.querySelector(".sample-btn1")
-        btnEl1.addEventListener("click", () => { sendToServer({ type: "sample", val: 1 }) })
+        btnEl1.addEventListener("click", () => { sendToServer({ type: "sample", val: "drum 1" }) })
         let btnEl2 = document.querySelector(".sample-btn2")
-        btnEl2.addEventListener("click", () => { sendToServer({ type: "sample", val: 2 }) })
+        btnEl2.addEventListener("click", () => { sendToServer({ type: "sample", val: "drum 2" }) })
         let btnEl3 = document.querySelector(".sample-btn3")
-        btnEl3.addEventListener("click", () => { sendToServer({ type: "sample", val: 3 }) })
+        btnEl3.addEventListener("click", () => { sendToServer({ type: "sample", val: "drum 3" }) })
+        let btnEl4 = document.querySelector(".sample-btn4")
+        btnEl4.addEventListener("click", () => { sendToServer({ type: "sample", val: "synth 1" }) })
     } else if (currentLocation.name === "kingdom") {
         let textEls = document.querySelectorAll(".text")
         let texts = []

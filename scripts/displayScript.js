@@ -34,6 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
         case "intermission":
           intermissionStart();
           break;
+        case "badguy":
+          punchBadGuy(msg.data);
+          break;
         case "vote":
           switch (msg.data.type) {
             case "skin":
@@ -118,6 +121,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function intermissionStart() {
     console.log("it is intermission now");
+  }
+
+  function punchBadGuy(badguyhealth) {
+    let guyEl = document.getElementById("bad-guy")
+    if (badguyhealth < 4) {
+      guyEl.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx4ZdHAZCyp05x-CkfDVdtzuRY0b0mJ40izg&s"
+    }
+    if (badguyhealth < 1) {
+      guyEl.src = "https://cdn.dribbble.com/users/2194692/screenshots/4931328/media/2be30908d56c5cc3e6a3bb3090bed0d0.jpg"
+    }
   }
 
   const voteLength = 10000;

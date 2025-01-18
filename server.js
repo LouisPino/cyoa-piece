@@ -79,6 +79,7 @@ wss.on('connection', (ws, req) => {
         sendToWebClients({ type: 'htmlFiles', data: { locations: locations, extras: mobileExtras } })
         ws.send(JSON.stringify({ type: "location", data: { currentLocation: currentLocation } }))
     }
+
     // On receiving a message from web client, send to Max
     ws.on('message', message => {
         console.log(`Client Message: ${message}`)
@@ -121,6 +122,9 @@ function sendSectionChange(location) {
     currentLocation = location
     sendToWebClients({ type: "section", data: location })
     sendToDisplay({ type: "section", data: location })
+    if (location.name === "welcome") {
+        // sendIPToDisplay()
+    }
 }
 
 

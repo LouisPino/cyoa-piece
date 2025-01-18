@@ -171,6 +171,13 @@ const locations = {
     choicePrompt: "You've hit a fork in the road! Where will you go?",
     choices: ["To the THERMOSPHERE, amidst the Aurora Borealis.", "To the MESOPELAGIC ZONE, the ocean's twilight zone."],
     html: {},
+  },
+  welcome: {
+    name: "welcome",
+    paths: ["thermosphere", "mesopelagic"],
+    choicePrompt: "You've hit a fork in the road! Where will you go?",
+    choices: ["To the THERMOSPHERE, amidst the Aurora Borealis.", "To the MESOPELAGIC ZONE, the ocean's twilight zone."],
+    html: {},
   }
 };
 

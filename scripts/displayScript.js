@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   let locations;
   let extras;
+  let ipAddress;
   initializeWebSocket(location.hostname);
   function initializeWebSocket(ip) {
     const socket = new WebSocket(`ws://${ip}:8000/display`);
@@ -14,12 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
       let msg = JSON.parse(event.data);
       switch (msg.type) {
         case "ip-address":
-          const ipAddress = msg.data;
+          ipAddress = msg.data;
           // initializeWebSocket(ipAddress);
-          new QRCode(
-            document.getElementById("qrcode"),
-            `http://${ipAddress}:8000`
-          );
           break;
         case `htmlFiles`:
           locations = msg.data["locations"];
@@ -27,6 +24,12 @@ document.addEventListener("DOMContentLoaded", function () {
           break;
         case "section":
           sectionChange(locations[msg.data.name]);
+          if (msg.data.name === "welcome") {
+            new QRCode(
+              document.getElementById("qrcode"),
+              `http://${ipAddress}:8000`
+            );
+          }
           break;
         case "intermission":
           intermissionStart();
@@ -74,6 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function sectionChange(section) {
+    console.log(section)
     toggleHTML(section);
     setCharacterSprites(section.movingSprites);
   }
@@ -119,8 +123,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const voteLength = 10000;
   const votePrompt = document.createElement("h1");
   function promptVote() {
-      votePrompt.classList.add("vote-prompt");
-      votePrompt.innerText = `VOTE!! ${voteLength / 1000}`;
+    votePrompt.classList.add("vote-prompt");
+    votePrompt.innerText = `VOTE!! ${voteLength / 1000}`;
     let seconds = voteLength / 1000 - 1;
     mainEl.appendChild(votePrompt);
     const countdown = setInterval(() => {

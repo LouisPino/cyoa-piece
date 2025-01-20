@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function toggleSkinHTML(item) {
     mainEl.innerHTML = extras.filter(
-      (extra) => extra.name === "skin"
+      (extra) => extra.name === "character"
     )[0].content;
     const choice1El = document.getElementById("skin-choice1");
     const choice2El = document.getElementById("skin-choice2");

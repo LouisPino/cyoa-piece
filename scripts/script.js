@@ -125,7 +125,7 @@ function sectionChange(section) {
 
 
 function startSkinVote(item) {
-    mainEl.innerHTML = extras.filter((extra) => (extra.name === "skin"))[0].content
+    mainEl.innerHTML = extras.filter((extra) => (extra.name === "character"))[0].content
     const choice1El = document.getElementById("skin-choice1")
     const choice2El = document.getElementById("skin-choice2")
     const choice3El = document.getElementById("skin-choice3")

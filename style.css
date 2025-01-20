@@ -32,13 +32,17 @@ body {
 
 .skin-choices {
     display: flex;
-    width: 100vw;
+    flex-direction: column;
+    min-width: 100vw;
+    min-height: 100vh;
     justify-content: space-around;
-    align-items: center;
+    align-items: space-around;
 }
 
 .skin-choice {
-    width: 100px;
+    width: 80vw;
+    margin-left: 10vw;
+    max-height: 40vh;
 }
 
 .skin-winner {

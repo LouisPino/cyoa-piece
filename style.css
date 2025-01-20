@@ -39,6 +39,20 @@ body {
     align-items: space-around;
 }
 
+.skin-choices-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: space-around;
+    transition: 800ms;
+
+}
+
+.skin-choice-display {
+    width: 33vw;
+    transition: 800ms;
+
+}
 .skin-choice {
     width: 80vw;
     margin-left: 10vw;
@@ -47,7 +61,13 @@ body {
 
 .skin-winner {
     transition: 800ms;
-    width: 800px;
+    width: 66vw;
+}
+
+.character-select-div-display{
+    border: 5px solid purple;
+    transition: 800ms;
+
 }
 
 .bg-mobile {

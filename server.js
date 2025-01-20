@@ -7,7 +7,7 @@ const IP4 = require('./helpers/ip4.js')
 const [locations, mobileExtras, displayExtras] = require("./helpers/htmlLoader.js")
 const [skinOptions, characters] = require("./characters/default.js")
 let currentLocation
-const voteLength = 10000
+const voteLength = 1000
 
 /////////////////////////Initialize server
 const server = http.createServer((req, res) => {

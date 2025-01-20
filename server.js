@@ -5,7 +5,7 @@ const WebSocket = require('ws');
 const url = require('url');
 const IP4 = require('./helpers/ip4.js')
 const [locations, mobileExtras, displayExtras] = require("./helpers/htmlLoader.js")
-const [skinOptions, characters] = require("./characters/default.js")
+const [skinOptionsJaz, skinOptionsPeen, characters] = require("./characters/default.js")
 let currentLocation
 const voteLength = 1000
 
@@ -175,20 +175,36 @@ function endVote(winner) {
     resetChoices()
 }
 
-function skinVoting() {
-    Object.entries(skinOptions).forEach(([k, v], index) => {
-        setTimeout(() => {
-            triggerSkinVote(k, v);
-        }, index * voteLength * 2);
-
-        // Move this logic outside the loop so it only runs once after all voting rounds
-        if (index === Object.keys(skinOptions).length - 1) {
+function skinVoting(name) {
+    if(name === "peen"){
+        Object.entries(skinOptionsPeen).forEach(([k, v], index) => {
             setTimeout(() => {
-                oscClient.send("/switch", "kingdom");
-                voting = false;
-            }, (index + 1) * voteLength * 2); // Ensure this runs after the last vote
-        }
-    });
+                triggerSkinVote(k, v);
+            }, index * voteLength * 2);
+    
+            // Move this logic outside the loop so it only runs once after all voting rounds
+            if (index === Object.keys(skinOptionsPeen).length - 1) {
+                setTimeout(() => {
+                    oscClient.send("/switch", "kingdom");
+                    voting = false;
+                }, (index + 1) * voteLength * 2); // Ensure this runs after the last vote
+            }
+        });
+    }else{
+        Object.entries(skinOptionsJaz).forEach(([k, v], index) => {
+            setTimeout(() => {
+                triggerSkinVote(k, v);
+            }, index * voteLength * 2);
+    
+            // Move this logic outside the loop so it only runs once after all voting rounds
+            if (index === Object.keys(skinOptionsJaz).length - 1) {
+                setTimeout(() => {
+                    oscClient.send("/switch", "kingdom");
+                    voting = false;
+                }, (index + 1) * voteLength * 2); // Ensure this runs after the last vote
+            }
+        });
+    }
 }
 
 function resetChoices() {
@@ -220,7 +236,13 @@ function triggerSkinVote(name, obj) {
 
 
 function endSkinVote(winner, name, obj) {
-    characters[obj.character][name] = skinOptions[name].choices[winner]
+    console.log(skinOptionsPeen)
+    if (obj.character === "wizard"){
+        characters[obj.character][name] = skinOptionsPeen[name].choices[winner]
+    }else{
+        characters[obj.character][name] = skinOptionsJaz[name].choices[winner]
+
+    }
     sendToDisplay({ type: "vote", data: { type: "skinChoice", item: obj, winner: winner } }); // Display the choice prompt + image
     resetChoices()
 }
@@ -254,8 +276,11 @@ oscServer.on('message', (msg, rinfo) => {
                 case "path":
                     triggerVote()
                     break
-                case "skin":
-                    skinVoting()
+                case "skinJaz":
+                    skinVoting("jaz")
+                    break
+                case "skinPeen":
+                    skinVoting("peen")
                     break
             }
             break

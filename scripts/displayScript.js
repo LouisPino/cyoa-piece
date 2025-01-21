@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
       switch (msg.type) {
         case "ip-address":
           ipAddress = msg.data;
-          // initializeWebSocket(ipAddress);
           break;
         case `htmlFiles`:
           locations = msg.data["locations"];
@@ -65,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function revealCharacter(charObj){
+    console.log(charObj)
     mainEl.innerHTML = extras.filter(
       (extra) => extra.name === "characterReveal"
     )[0].content; 
@@ -73,17 +73,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const asset3El = document.getElementById("asset-3");
     const asset4El = document.getElementById("asset-face");
     if(Object.keys(charObj)[0] === "jesterFace"){
-      console.log("hit")
-      asset1El.src = "https://upload.wikimedia.org/wikipedia/commons/c/c0/Heinrich_Vogtherr_d._J._Schalksnarr.JPG"
-      asset2El.src = "https://media.istockphoto.com/id/507272482/vector/jolly-jester.jpg?s=612x612&w=0&k=20&c=3Ow0ZHBOzUVUbA9GhqH9PfUqshXugy97C-_zRnfoPgs="
-      asset3El.src = "https://www.themarysue.com/wp-content/uploads/2023/10/Pomni-and-The-Amazing-Digital-Circus-Cast.jpg"
-      asset4El.src = "https://preview.redd.it/i-did-not-know-this-existed-pomni-man-v0-yakskg9za90c1.jpg?auto=webp&s=6a30097d5f20a9b97c8509a7dd6aa3fd849bb9d7"
+      asset1El.src = charObj.color.img
+      asset2El.src = charObj.points.img
+      asset3El.src = charObj.jesterDevice.img
+      asset4El.src = charObj.jesterFace.img
     }else{
-      asset1El.src = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7b114df6-2cc6-4298-8a2f-6406f7c47dbe/d9680ro-37d1f758-bbd2-4197-95ba-4bc9757018b2.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzdiMTE0ZGY2LTJjYzYtNDI5OC04YTJmLTY0MDZmN2M0N2RiZVwvZDk2ODByby0zN2QxZjc1OC1iYmQyLTQxOTctOTViYS00YmM5NzU3MDE4YjIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.HSocytwWC9zg5o7EszEWlFv0vvT1AUzxyhtj5TuII80"
-      asset2El.src = "https://helloartsy.com/wp-content/uploads/kids/mythology/how-to-draw-a-wizard/how-to-draw-a-wizard-step-9.jpg"
-      asset3El.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Albus_Dumbledore.jpg/149px-Albus_Dumbledore.jpg"
-      asset4El.src = "https://happygoducky.com.au/cdn/shop/products/WoodentoyWizardCopy_d213175d-c794-4b82-bd81-f3f71ccfdeaa.jpg?v=1665574664"
-
+      asset1El.src = charObj.wizardFace.img
+      asset2El.src = charObj.robe.img
+      asset3El.src = charObj.hat.img
+      asset4El.src = charObj.wizardDevice.img
     }
   }
 

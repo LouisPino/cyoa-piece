@@ -185,9 +185,11 @@ function skinVoting(name) {
             // Move this logic outside the loop so it only runs once after all voting rounds
             if (index === Object.keys(skinOptionsPeen).length - 1) {
                 setTimeout(() => {
-                    sendToDisplay({type: "character", data: "peen"})
-                    sendToWebClients({type: "character", data: "peen"})
+                    sendToDisplay({type: "character", data: characters.wizard})
+                    sendToWebClients({type: "character", data: characters.wizard})
+                    console.log(characters)
                     voting = false;
+
                 }, (index + 1) * voteLength * 2); // Ensure this runs after the last vote
             }
         });
@@ -200,8 +202,8 @@ function skinVoting(name) {
             // Move this logic outside the loop so it only runs once after all voting rounds
             if (index === Object.keys(skinOptionsJaz).length - 1) {
                 setTimeout(() => {
-                    sendToDisplay({type: "character", data: "jaz"})
-                    sendToWebClients({type: "character", data: "jaz"})
+                    sendToDisplay({type: "character", data: characters.jester})
+                    sendToWebClients({type: "character", data: characters.jester})
                     voting = false;
                 }, (index + 1) * voteLength * 2); // Ensure this runs after the last vote
             }
@@ -238,12 +240,10 @@ function triggerSkinVote(name, obj) {
 
 
 function endSkinVote(winner, name, obj) {
-    console.log(skinOptionsPeen)
     if (obj.character === "wizard"){
         characters[obj.character][name] = skinOptionsPeen[name].choices[winner]
     }else{
         characters[obj.character][name] = skinOptionsJaz[name].choices[winner]
-
     }
     sendToDisplay({ type: "vote", data: { type: "skinChoice", item: obj, winner: winner } }); // Display the choice prompt + image
     resetChoices()

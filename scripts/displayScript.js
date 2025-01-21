@@ -37,6 +37,9 @@ document.addEventListener("DOMContentLoaded", function () {
         case "badguy":
           punchBadGuy(msg.data);
           break;
+        case "character":
+          revealCharacter(msg.data);
+          break;
         case "vote":
           switch (msg.data.type) {
             case "skin":
@@ -61,6 +64,21 @@ document.addEventListener("DOMContentLoaded", function () {
     mainEl.innerHTML = section.html.display;
   }
 
+  function revealCharacter(charObj){
+    mainEl.innerHTML = extras.filter(
+      (extra) => extra.name === "characterReveal"
+    )[0].content; 
+    const asset1El = document.getElementById("asset-1");
+    const asset2El = document.getElementById("asset-2");
+    const asset3El = document.getElementById("asset-3");
+    const asset4El = document.getElementById("asset-face");
+    if(charObj.name === "jaz"){
+      console.log(charObj)
+    }else{
+      console.log(charObj)
+    }
+  }
+
   function toggleSkinHTML(item) {
     mainEl.innerHTML = extras.filter(
       (extra) => extra.name === "character"
@@ -80,7 +98,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function sectionChange(section) {
-    console.log(section)
     toggleHTML(section);
     let textEls = document.querySelectorAll(".text")
     let texts = []

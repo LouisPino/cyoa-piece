@@ -185,7 +185,8 @@ function skinVoting(name) {
             // Move this logic outside the loop so it only runs once after all voting rounds
             if (index === Object.keys(skinOptionsPeen).length - 1) {
                 setTimeout(() => {
-                    oscClient.send("/switch", "kingdom");
+                    sendToDisplay({type: "character", data: "peen"})
+                    sendToWebClients({type: "character", data: "peen"})
                     voting = false;
                 }, (index + 1) * voteLength * 2); // Ensure this runs after the last vote
             }
@@ -199,7 +200,8 @@ function skinVoting(name) {
             // Move this logic outside the loop so it only runs once after all voting rounds
             if (index === Object.keys(skinOptionsJaz).length - 1) {
                 setTimeout(() => {
-                    oscClient.send("/switch", "kingdom");
+                    sendToDisplay({type: "character", data: "jaz"})
+                    sendToWebClients({type: "character", data: "jaz"})
                     voting = false;
                 }, (index + 1) * voteLength * 2); // Ensure this runs after the last vote
             }

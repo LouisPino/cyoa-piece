@@ -82,6 +82,37 @@ document.addEventListener("DOMContentLoaded", function () {
   function sectionChange(section) {
     console.log(section)
     toggleHTML(section);
+    let textEls = document.querySelectorAll(".text")
+    let texts = []
+    let textBodyEl = document.querySelector(".text-body")
+    for (el of textEls) {
+        texts.push(el.innerText)
+        el.remove()
+    }
+    let i = 0; // Index for texts array
+
+    function typeText() {
+        if (i < texts.length) {
+            const text = texts[i];
+            let j = 0; // Index for characters in the current text
+
+            function typeCharacter() {
+                if (j < text.length) {
+                    textBodyEl.innerHTML += text[j];
+                    j++;
+                    setTimeout(typeCharacter, 50); // Type the next character
+                } else {
+                    textBodyEl.innerHTML += "<br>"; // Add a line break after the text
+                    i++;
+                    setTimeout(typeText, 1000); // Move to the next text
+                }
+            }
+
+            typeCharacter(); // Start typing the current text
+        }
+    }
+
+    typeText(); // Start typing texts
     setCharacterSprites(section.movingSprites);
   }
 
@@ -133,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  const voteLength = 10000;
+  const voteLength = 1000;
   const votePrompt = document.createElement("h1");
   function promptVote() {
     votePrompt.classList.add("vote-prompt");

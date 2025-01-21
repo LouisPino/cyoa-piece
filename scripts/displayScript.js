@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
       asset3El.src = "https://www.themarysue.com/wp-content/uploads/2023/10/Pomni-and-The-Amazing-Digital-Circus-Cast.jpg"
       asset4El.src = "https://preview.redd.it/i-did-not-know-this-existed-pomni-man-v0-yakskg9za90c1.jpg?auto=webp&s=6a30097d5f20a9b97c8509a7dd6aa3fd849bb9d7"
     }else{
-      asset1El.src = "https://static.wikia.nocookie.net/theregularshow/images/1/12/The_Wizard.png/revision/latest?cb=20240703103236"
+      asset1El.src = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7b114df6-2cc6-4298-8a2f-6406f7c47dbe/d9680ro-37d1f758-bbd2-4197-95ba-4bc9757018b2.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzdiMTE0ZGY2LTJjYzYtNDI5OC04YTJmLTY0MDZmN2M0N2RiZVwvZDk2ODByby0zN2QxZjc1OC1iYmQyLTQxOTctOTViYS00YmM5NzU3MDE4YjIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.HSocytwWC9zg5o7EszEWlFv0vvT1AUzxyhtj5TuII80"
       asset2El.src = "https://helloartsy.com/wp-content/uploads/kids/mythology/how-to-draw-a-wizard/how-to-draw-a-wizard-step-9.jpg"
       asset3El.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Albus_Dumbledore.jpg/149px-Albus_Dumbledore.jpg"
       asset4El.src = "https://happygoducky.com.au/cdn/shop/products/WoodentoyWizardCopy_d213175d-c794-4b82-bd81-f3f71ccfdeaa.jpg?v=1665574664"

@@ -72,10 +72,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const asset2El = document.getElementById("asset-2");
     const asset3El = document.getElementById("asset-3");
     const asset4El = document.getElementById("asset-face");
-    if(charObj.name === "jaz"){
-      console.log(charObj)
+    if(Object.keys(charObj)[0] === "jesterFace"){
+      console.log("hit")
+      asset1El.src = "https://upload.wikimedia.org/wikipedia/commons/c/c0/Heinrich_Vogtherr_d._J._Schalksnarr.JPG"
+      asset2El.src = "https://media.istockphoto.com/id/507272482/vector/jolly-jester.jpg?s=612x612&w=0&k=20&c=3Ow0ZHBOzUVUbA9GhqH9PfUqshXugy97C-_zRnfoPgs="
+      asset3El.src = "https://www.themarysue.com/wp-content/uploads/2023/10/Pomni-and-The-Amazing-Digital-Circus-Cast.jpg"
+      asset4El.src = "https://preview.redd.it/i-did-not-know-this-existed-pomni-man-v0-yakskg9za90c1.jpg?auto=webp&s=6a30097d5f20a9b97c8509a7dd6aa3fd849bb9d7"
     }else{
-      console.log(charObj)
+      asset1El.src = "https://static.wikia.nocookie.net/theregularshow/images/1/12/The_Wizard.png/revision/latest?cb=20240703103236"
+      asset2El.src = "https://helloartsy.com/wp-content/uploads/kids/mythology/how-to-draw-a-wizard/how-to-draw-a-wizard-step-9.jpg"
+      asset3El.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Albus_Dumbledore.jpg/149px-Albus_Dumbledore.jpg"
+      asset4El.src = "https://happygoducky.com.au/cdn/shop/products/WoodentoyWizardCopy_d213175d-c794-4b82-bd81-f3f71ccfdeaa.jpg?v=1665574664"
+
     }
   }
 

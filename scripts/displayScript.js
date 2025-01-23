@@ -64,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function revealCharacter(charObj){
-    console.log(charObj)
     mainEl.innerHTML = extras.filter(
       (extra) => extra.name === "characterReveal"
     )[0].content; 
@@ -72,16 +71,36 @@ document.addEventListener("DOMContentLoaded", function () {
     const asset2El = document.getElementById("asset-2");
     const asset3El = document.getElementById("asset-3");
     const asset4El = document.getElementById("asset-face");
+    const assetsEl = document.querySelector(".skin-assets")
     if(Object.keys(charObj)[0] === "jesterFace"){
-      asset1El.src = charObj.color.img
-      asset2El.src = charObj.points.img
-      asset3El.src = charObj.jesterDevice.img
-      asset4El.src = charObj.jesterFace.img
+      setTimeout(()=>{
+        asset1El.src = charObj.color.img
+        asset1El.style.opacity = 1
+        console.log(asset2El.getBoundingClientRect().width)
+      }, 1000)
+      setTimeout(()=>{
+        asset2El.src = charObj.points.img
+        asset2El.style.left = `${(assetsEl.getBoundingClientRect().width / 2)-(asset2El.getBoundingClientRect().width/2)}px`
+        asset2El.style.opacity = 1
+
+      }, 2000)
+      setTimeout(()=>{
+        asset3El.src = charObj.jesterDevice.img
+        asset3El.style.left = `${assetsEl.getBoundingClientRect().width - asset3El.getBoundingClientRect().width }px`
+        asset3El.style.opacity = 1
+      }, 3000)
+      setTimeout(()=>{
+        asset4El.src = charObj.jesterFace.img
+        asset4El.style.left = `${(assetsEl.getBoundingClientRect().width / 2 ) - (asset4El.getBoundingClientRect().width/2)}px`
+
+        asset4El.style.opacity = 1
+      }, 4000)
     }else{
-      asset1El.src = charObj.wizardFace.img
-      asset2El.src = charObj.robe.img
-      asset3El.src = charObj.hat.img
-      asset4El.src = charObj.wizardDevice.img
+      asset1El.src = charObj.robe.img
+      asset2El.src = charObj.hat.img
+      asset3El.src = charObj.wizardDevice.img
+      // asset4El.src = charObj.wizardFace.img
+
     }
   }
 

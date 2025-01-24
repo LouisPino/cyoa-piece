@@ -75,7 +75,7 @@ body {
 
 .skin-asset{
     width: 15vw;
-    transition: 500ms;
+    transition: .5s;
     opacity: 0;
     position: absolute;
     bottom:0;

@@ -75,14 +75,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if(Object.keys(charObj)[0] === "jesterFace"){
       setTimeout(()=>{
         asset1El.src = charObj.color.img
+        asset1El.style.left = "0px"
         asset1El.style.opacity = 1
-        console.log(asset2El.getBoundingClientRect().width)
       }, 1000)
       setTimeout(()=>{
         asset2El.src = charObj.points.img
         asset2El.style.left = `${(assetsEl.getBoundingClientRect().width / 2)-(asset2El.getBoundingClientRect().width/2)}px`
         asset2El.style.opacity = 1
-
       }, 2000)
       setTimeout(()=>{
         asset3El.src = charObj.jesterDevice.img
@@ -92,15 +91,29 @@ document.addEventListener("DOMContentLoaded", function () {
       setTimeout(()=>{
         asset4El.src = charObj.jesterFace.img
         asset4El.style.left = `${(assetsEl.getBoundingClientRect().width / 2 ) - (asset4El.getBoundingClientRect().width/2)}px`
-
         asset4El.style.opacity = 1
       }, 4000)
+      setTimeout(()=>{
+        asset1El.style.left = `${(assetsEl.getBoundingClientRect().width / 2 ) - (asset4El.getBoundingClientRect().width/2)}px`
+        asset1El.style.bottom = "75%"
+      }, 5000)
+      setTimeout(()=>{
+        asset2El.style.left = `${(assetsEl.getBoundingClientRect().width / 2 ) - (asset4El.getBoundingClientRect().width/2)}px`
+        asset2El.style.bottom = "75%"
+      }, 6000)
+      setTimeout(()=>{
+        asset3El.style.left = `${(assetsEl.getBoundingClientRect().width / 2 ) - (asset4El.getBoundingClientRect().width/2)}px`
+        asset3El.style.bottom = "75%"
+      }, 7000)
+
+      setTimeout(()=>{
+        let newJester = "https://cdn-images.dzcdn.net/images/artist/7d241d43d2b13779977b6331205bc68d/1900x1900-000000-80-0-0.jpg"
+        flashImages([asset1El, asset2El, asset3El], asset4El, newJester)
+      }, 8000)
     }else{
       asset1El.src = charObj.robe.img
       asset2El.src = charObj.hat.img
       asset3El.src = charObj.wizardDevice.img
-      // asset4El.src = charObj.wizardFace.img
-
     }
   }
 
@@ -221,4 +234,32 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }, 1000);
   }
+
+  function flashImages(assetsArr, oldImage, newImage) {
+    let i = 12;
+    let oldSrc = oldImage.src;
+
+    function flash() {
+        if (i > 1) {
+            setTimeout(() => {
+                for (const asset of assetsArr) {
+                    asset.style.transition = "0s";
+                    asset.style.opacity = i % 2 === 0 ? "0" : "1";
+                }
+                oldImage.src = i % 2 === 0 ? newImage : oldSrc;
+                console.log(oldImage.src);
+                i--;
+                console.log(i);
+
+                // Recursive call
+                flash();
+            }, 50 * i); // Increasing delay as i decreases
+        }
+    }
+
+    // Start the recursive flashing
+    flash();
+}
+
+
 });

@@ -89,7 +89,6 @@ wss.on('connection', (ws, req) => {
         } else if (data.type === "sample") {
             oscClient.send("/sample", data.val)
             if (data.val === 'drum 3') {
-                console.log("hit")
                 punchBadGuy()
             }
         }
@@ -187,7 +186,6 @@ function skinVoting(name) {
                 setTimeout(() => {
                     sendToDisplay({type: "character", data: characters.wizard})
                     sendToWebClients({type: "character", data: characters.wizard})
-                    console.log(characters)
                     voting = false;
 
                 }, (index + 1) * voteLength * 2); // Ensure this runs after the last vote

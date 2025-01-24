@@ -219,7 +219,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  const voteLength = 1000;
+  const voteLength = 100;
   const votePrompt = document.createElement("h1");
   function promptVote() {
     votePrompt.classList.add("vote-prompt");
@@ -236,10 +236,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function flashImages(assetsArr, oldImage, newImage) {
-    let i = 12;
+    let i = 50;
     let oldSrc = oldImage.src;
 
     function flash() {
+      const flashTime = i > 45 ?  i * 16 : i**2/10
         if (i > 1) {
             setTimeout(() => {
                 for (const asset of assetsArr) {
@@ -253,7 +254,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 // Recursive call
                 flash();
-            }, 50 * i); // Increasing delay as i decreases
+            }, flashTime); // Increasing delay as i decreases
         }
     }
 

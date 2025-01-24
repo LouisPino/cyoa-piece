@@ -7,7 +7,7 @@ const IP4 = require('./helpers/ip4.js')
 const [locations, mobileExtras, displayExtras] = require("./helpers/htmlLoader.js")
 const [skinOptionsJaz, skinOptionsPeen, characters] = require("./characters/default.js")
 let currentLocation
-const voteLength = 1000
+const voteLength = 100
 
 /////////////////////////Initialize server
 const server = http.createServer((req, res) => {
@@ -187,7 +187,7 @@ function skinVoting(name) {
                     sendToDisplay({type: "character", data: characters.wizard})
                     sendToWebClients({type: "character", data: characters.wizard})
                     voting = false;
-
+                    s
                 }, (index + 1) * voteLength * 2); // Ensure this runs after the last vote
             }
         });

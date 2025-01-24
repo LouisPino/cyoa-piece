@@ -32,6 +32,7 @@ function initializeWebSocket() {
                         startVote(currentLocation)
                         break
                     case "skin":
+                        currentLocation = "skin"
                         startSkinVote(msg.data.item)
                         break
                 }
@@ -39,6 +40,9 @@ function initializeWebSocket() {
             case "location":
                 currentLocation = msg.data.currentLocation
                 sectionChange(currentLocation)
+                break
+            case "character":
+                lookUp()
                 break
         }
     };
@@ -49,7 +53,7 @@ function sendToServer(msg) {
 }
 
 
-const voteLength = 1000
+const voteLength = 100
 const mainEl = document.getElementById("main")
 function toggleHTML() {
     mainEl.innerHTML = currentLocation.html.mobile
@@ -91,6 +95,9 @@ function sectionChange(section) {
     }
 }
 
+function lookUp(){
+    mainEl.innerHTML = '<h1 class="look-up">↑</h1>'
+}
 
 function startSkinVote(item) {
     mainEl.innerHTML = extras.filter((extra) => (extra.name === "character"))[0].content

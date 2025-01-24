@@ -81,6 +81,14 @@ body {
     bottom:0;
 }
 
+.look-up{
+    color: var(--sylvan-purple);
+    font-size: 90vw;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+
 .skin-assets{
 position: relative; 
 height: 100vh;

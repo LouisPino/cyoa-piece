@@ -14,7 +14,7 @@ const characters = {
     }
 }
 
-const skinOptions = {
+const skinOptionsPeen = {
     wizardFace: {
         prompt: "Pick your favorite cat",
         choices: [
@@ -66,7 +66,10 @@ const skinOptions = {
             }],
         prompt: "Pick your favorite animal",
         character: "wizard"
-    },
+    }
+}
+
+const skinOptionsJaz = {
     jesterFace: {
         prompt: "Choose your favorite cat",
         choices: [
@@ -135,5 +138,5 @@ const skinOptions = {
 }
 
 module.exports = [
-    skinOptions, characters
+    skinOptionsJaz, skinOptionsPeen, characters
 ]

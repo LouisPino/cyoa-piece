@@ -32,6 +32,7 @@ function initializeWebSocket() {
                         startVote(currentLocation)
                         break
                     case "skin":
+                        currentLocation = "skin"
                         startSkinVote(msg.data.item)
                         break
                 }
@@ -39,6 +40,9 @@ function initializeWebSocket() {
             case "location":
                 currentLocation = msg.data.currentLocation
                 sectionChange(currentLocation)
+                break
+            case "character":
+                lookUp()
                 break
         }
     };
@@ -88,44 +92,15 @@ function sectionChange(section) {
         btnEl3.addEventListener("click", () => { sendToServer({ type: "sample", val: "drum 3" }) })
         let btnEl4 = document.querySelector(".sample-btn4")
         btnEl4.addEventListener("click", () => { sendToServer({ type: "sample", val: "synth 1" }) })
-    } else if (currentLocation.name === "kingdom") {
-        let textEls = document.querySelectorAll(".text")
-        let texts = []
-        let textBodyEl = document.querySelector(".text-body")
-        for (el of textEls) {
-            texts.push(el.innerText)
-            el.remove()
-        }
-        let i = 0; // Index for texts array
-
-        function typeText() {
-            if (i < texts.length) {
-                const text = texts[i];
-                let j = 0; // Index for characters in the current text
-
-                function typeCharacter() {
-                    if (j < text.length) {
-                        textBodyEl.innerHTML += text[j];
-                        j++;
-                        setTimeout(typeCharacter, 50); // Type the next character
-                    } else {
-                        textBodyEl.innerHTML += "<br>"; // Add a line break after the text
-                        i++;
-                        setTimeout(typeText, 1000); // Move to the next text
-                    }
-                }
-
-                typeCharacter(); // Start typing the current text
-            }
-        }
-
-        typeText(); // Start typing texts
     }
 }
 
+function lookUp(){
+    mainEl.innerHTML = '<h1 class="look-up">↑</h1>'
+}
 
 function startSkinVote(item) {
-    mainEl.innerHTML = extras.filter((extra) => (extra.name === "skin"))[0].content
+    mainEl.innerHTML = extras.filter((extra) => (extra.name === "character"))[0].content
     const choice1El = document.getElementById("skin-choice1")
     const choice2El = document.getElementById("skin-choice2")
     const choice3El = document.getElementById("skin-choice3")

@@ -7,17 +7,17 @@ const IP4 = require('./helpers/ip4.js')
 const [locations, mobileExtras, displayExtras] = require("./helpers/htmlLoader.js")
 const [skinOptions, characters] = require("./characters/default.js")
 let currentLocation
-const voteLength = 10000
+const voteLength = 100
 
 /////////////////////////Initialize server
 const server = http.createServer((req, res) => {
     let filePath
     switch (req.url) {
         case "/":
-            filePath = path.join(__dirname, './mobile/default.html');
+            filePath = path.join(__dirname, './mobile/html/default.html');
             break
         case "/display":
-            filePath = path.join(__dirname, './display/default.html');
+            filePath = path.join(__dirname, './display/html/default.html');
             break
         case "/qrcode.min.js":
             filePath = path.join(__dirname, 'qrcode.min.js');

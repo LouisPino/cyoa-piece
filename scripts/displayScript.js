@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  const voteLength = 10000;
+  const voteLength = 100;
   const votePrompt = document.createElement("h1");
   function promptVote() {
     votePrompt.classList.add("vote-prompt");

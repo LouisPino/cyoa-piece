@@ -49,7 +49,7 @@ function sendToServer(msg) {
 }
 
 
-const voteLength = 10000
+const voteLength = 100
 const mainEl = document.getElementById("main")
 function toggleHTML() {
     mainEl.innerHTML = currentLocation.html.mobile

@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 const locations = require("./locations.js")
-const mobileDir = path.join(__dirname, '../mobile');
-const mobileExtrasDir = path.join(__dirname, '../mobile/extras');
-const displayExtrasDir = path.join(__dirname, '../display/extras');
-const displayDir = path.join(__dirname, '../display');
+const mobileDir = path.join(__dirname, '../mobile/html');
+const mobileExtrasDir = path.join(__dirname, '../mobile/html/extras');
+const displayExtrasDir = path.join(__dirname, '../display/html/extras');
+const displayDir = path.join(__dirname, '../display/html');
 // Function to read all HTML files in a directory
 function readHtmlFiles(dir) {
     return fs.readdirSync(dir)

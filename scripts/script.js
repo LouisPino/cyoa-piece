@@ -23,9 +23,9 @@ function initializeWebSocket() {
             case "selection":
                 renderSelection(msg.data)
                 break
-            case "intermission":
-                intermissionStart()
-                break
+            // case "intermission":
+            //     intermissionStart()
+            //     break
             case "vote":
                 switch (msg.data.type) {
                     case "path":
@@ -56,6 +56,10 @@ function sendToServer(msg) {
 const voteLength = 100
 const mainEl = document.getElementById("main")
 function toggleHTML() {
+    console.log(currentLocation)
+    console.log(currentLocation.html)
+    console.log(currentLocation.html.mobile)
+    setTimeout(() => console.log(currentLocation.html), 1000)
     mainEl.innerHTML = currentLocation.html.mobile
 }
 
@@ -95,7 +99,7 @@ function sectionChange(section) {
     }
 }
 
-function lookUp(){
+function lookUp() {
     mainEl.innerHTML = '<h1 class="look-up">↑</h1>'
 }
 
@@ -118,6 +122,6 @@ function startSkinVote(item) {
     choice5El.addEventListener('click', () => handleVote("choice5"));
 }
 
-function intermissionStart() {
-    console.log("it is intermission now")
-}
+// function intermissionStart() {
+//     console.log("it is intermission now")
+// }

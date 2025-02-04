@@ -6,7 +6,7 @@ const url = require('url');
 const IP4 = require('./helpers/ip4.js')
 const [locations, mobileExtras, displayExtras] = require("./helpers/htmlLoader.js")
 const [skinOptions, characters] = require("./characters/default.js")
-let currentLocation
+let currentLocation = locations["welcome"]
 const voteLength = 100
 
 /////////////////////////Initialize server
@@ -76,8 +76,8 @@ wss.on('connection', (ws, req) => {
         sendToDisplay({ type: 'htmlFiles', data: { locations: locations, extras: displayExtras } })
 
     } else {
-        sendToWebClients({ type: 'htmlFiles', data: { locations: locations, extras: mobileExtras } })
-        ws.send(JSON.stringify({ type: "location", data: { currentLocation: currentLocation } }))
+        ws.send(JSON.stringify({ type: 'htmlFiles', data: { locations: locations, extras: mobileExtras } }))
+        ws.send(JSON.stringify({ type: "section", data: currentLocation }))
     }
 
     // On receiving a message from web client, send to Max
@@ -266,8 +266,6 @@ oscServer.on('message', (msg, rinfo) => {
     const msgObj = { type: msg[0], data: msg[1] }
     sendToWebClients(msgObj);
 });
-
-
 
 module.exports = [
     sendToWebClients,

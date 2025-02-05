@@ -23,7 +23,15 @@ const server = http.createServer((req, res) => {
             filePath = path.join(__dirname, 'qrcode.min.js');
             break;
         default:
+            // Ensure static files from /assets, /images, /scripts are served
             filePath = path.join(__dirname, req.url);
+
+            // Security check to prevent directory traversal attacks
+            if (!filePath.startsWith(__dirname)) {
+                res.writeHead(403);
+                res.end('Access Denied');
+                return;
+            }
     }
 
     let extname = String(path.extname(filePath)).toLowerCase();
@@ -31,6 +39,20 @@ const server = http.createServer((req, res) => {
         '.html': 'text/html',
         '.js': 'text/javascript',
         '.css': 'text/css',
+        '.html': 'text/html',
+        '.js': 'text/javascript',
+        '.css': 'text/css',
+        '.png': 'image/png',
+        '.jpg': 'image/jpeg',
+        '.jpeg': 'image/jpeg',
+        '.gif': 'image/gif',
+        '.svg': 'image/svg+xml',
+        '.woff': 'font/woff',
+        '.woff2': 'font/woff2',
+        '.ttf': 'font/ttf',
+        '.eot': 'application/vnd.ms-fontobject',
+        '.otf': 'font/otf',
+        '.json': 'application/json'
     };
 
     let contentType = mimeTypes[extname] || 'application/octet-stream';
@@ -249,6 +271,9 @@ oscServer.on('message', (msg, rinfo) => {
             let location = locations[msg[1]];
             sendSectionChange(location)
             break
+        case "swipe":
+            console.log(msg.val)
+            break
         case "vote":
             switch (msg[1]) {
                 case "path":
@@ -271,4 +296,5 @@ module.exports = [
     sendToWebClients,
     sendToDisplay,
     sendSectionChange
+
 ]

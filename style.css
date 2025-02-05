@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+#main {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 0;
+}
+
 #choice-1 {
     background-color: var(--sylvan-lavender);
 }
@@ -61,4 +67,123 @@ body {
     color: blue;
     border: 2px solid red;
     background-color: yellow;
+}
+
+.enemy {
+    width: 50px;
+    height: 50px;
+    right: -50px;
+    position: absolute
+}
+
+.cat {
+    bottom: 0
+}
+
+.flower {
+    height: 75px;
+    rotate: 180deg;
+}
+
+#game-box {
+    height: 70vh;
+    margin: 5vh 0 0 0;
+    left: 0;
+    width: 90vw;
+    border: 1px solid red;
+    position: relative;
+    overflow: hidden;
+
+}
+
+#game-character-sprite {
+    position: absolute;
+    left: 5%;
+    width: 20%;
+    height: 90%;
+    bottom: 0;
+    border: 1px solid red;
+}
+
+#score {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+/* Jump Animation: Up and then Down over 0.5s */
+@keyframes jumpAnimation {
+    0% {
+        bottom: 0;
+    }
+
+    50% {
+        bottom: 200px;
+    }
+
+    /* Adjust jump height */
+    100% {
+        bottom: 0;
+    }
+}
+
+/* Dive Animation: Down and then Up over 0.5s */
+@keyframes diveAnimation {
+    0% {
+        bottom: 0;
+    }
+
+    /* Start from a higher position */
+    50% {
+        bottom: -200px;
+    }
+
+    /* Dive down */
+    100% {
+        bottom: 0;
+    }
+}
+
+
+@keyframes moveLeft {
+    from {
+        left: 100%;
+        /* Start off the screen on the right */
+    }
+
+    to {
+        left: -50px;
+        /* Move to the left and off the screen */
+    }
+}
+
+@keyframes flash {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.character-flash {
+    animation: flash 0.5s infinite;
+}
+
+.jump {
+    animation: jumpAnimation 0.7s ease-in-out;
+}
+
+.dive {
+    animation: diveAnimation 0.7s ease-in-out;
+}
+
+.game-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1
 }

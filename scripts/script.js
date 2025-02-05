@@ -143,37 +143,17 @@ function callFunction(locationName) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function welcomeGame() {
     let score = 0
     let enemyCount = 0
     let enemyEls = []
-    const sprites = ["https://www.shutterstock.com/image-photo/striped-red-cat-sits-on-600nw-2287680415.jpg", "https://media.istockphoto.com/id/1010812722/photo/portrait-of-a-frisky-playful-cat-scottish-straight.jpg?s=612x612&w=0&k=20&c=-XrbFsfuJpF457OSquGCEVymivZY2JWLqNxOxi5jVvI=", "https://nypost.com/wp-content/uploads/sites/2/2020/12/cat-standing-up-wp-thumb.jpg?quality=80&strip=all&w=1024"]
+    const sprites = ["https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWJna3I0ZXd4cjZuemoweGV6YnJ3NDZqY3Fqb2htMmRpNjNpazl4MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xwsp8g4MIrK5G/giphy.gif", "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWpkczB3NjlxcGlpdmdvYXJyMTk4OHoxcnJpaXpoaDgybXI5eXN2eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zg0wrBuqsQG72sRByD/giphy.gif", "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzRndnZiMmM2MWN6MnFod2VpcjZ5d3UxcmVsZTB0YjluZjVwcTQ4diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LtFo9eDzBUtbyK74E5/giphy.gif"]
     let spriteCtr = 0
     let enemyGenTime = 1000
     const gameBoxEl = document.getElementById("game-box")
     const scoreEl = document.getElementById("score")
     const charEl = document.getElementById("game-character-sprite")
     charEl.addEventListener("click", toggleCharacterSrc)
-    document.getElementsByClassName("game-bg")[0].src = "http://10.0.0.57:8000/mobile/assets/bgForestGif.gif"
     class Enemy {
         constructor() {
             this.height = 50;
@@ -191,10 +171,10 @@ function welcomeGame() {
             // Assign a random sprite to the enemy
             if (Math.floor(Math.random() * 2)) {
                 enemy.classList.add("cat");
-                enemy.src = "https://art.pixilart.com/thumb/6520c0bf4ceb23f.png";
+                enemy.src = "/mobile/assets/cat.png";
             } else {
                 enemy.classList.add("flower");
-                enemy.src = "https://e7.pngegg.com/pngimages/930/311/png-clipart-undertale-pixel-art-flowey-flower-bones-miscellaneous-text.png";
+                enemy.src = "/mobile/assets/flower.png";
             }
 
             // Apply the move-left animation

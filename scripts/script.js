@@ -76,7 +76,7 @@ function startVote(section) {
 }
 
 function handleVote(vote) {
-    sendToServer(vote)
+    sendToServer({ type: "vote", val: vote })
     mainEl.innerHTML = extras.filter((extra) => (extra.name === "thank"))[0].content
 }
 
@@ -154,11 +154,18 @@ function welcomeGame() {
     const gameBoxEl = document.getElementById("game-box")
     const scoreEl = document.getElementById("score")
     const charEl = document.getElementById("game-character-sprite")
-    const replaybtnEl = document.getElementById("play-again")
+    const replaybtnEl = [...document.getElementsByClassName("play-again")];
+    const leaderboardModalNameEl = [...document.getElementsByClassName("add-to-leaderboard-modal-type-name")];
+    const defaultLeaderboardHtml = leaderboardModalNameEl[0].innerHTML
     const replayModalEl = document.getElementById("replay-modal")
     const modalScoreEl = document.getElementById("modal-score")
-    replaybtnEl.addEventListener("click", startGame)
-
+    const addToLeaderboardBtnEl = document.getElementById("add-to-leaderboard-btn")
+    const addToLeaderboardModalEl = document.getElementById("add-to-leaderboard-modal")
+    const addToLeaderboardModalBtnsEl = document.querySelector(".add-to-leaderboard-modal-btns")
+    const submitScoreEl = document.getElementById("submit-score")
+    replaybtnEl.forEach((btn) => { btn.addEventListener("click", startGame) })
+    submitScoreEl.addEventListener("click", submitScore)
+    addToLeaderboardBtnEl.addEventListener("click", addToLeaderboard)
     charEl.addEventListener("click", toggleCharacterSrc)
     class Enemy {
         constructor() {
@@ -248,14 +255,21 @@ function welcomeGame() {
     }
 
     function startGame() {
+        replayModalEl.style.visibility = "hidden"
+        addToLeaderboardModalEl.style.visibility = "hidden"
         changeScore(0)  // Reset the score or whatever logic you need
-
         gameRunning = true
         generateEnemies()
-        replayModalEl.style.visibility = "hidden"
 
     }
+    function addToLeaderboard() {
 
+        leaderboardModalNameEl[0].innerHTML = defaultLeaderboardHtml
+        addToLeaderboardModalBtnsEl.appendChild(submitScoreEl)
+        submitScoreEl.addEventListener("click", submitScore)
+        replayModalEl.style.visibility = "hidden"
+        addToLeaderboardModalEl.style.visibility = "visible"
+    }
 
     function toggleCharacterSrc() {
         charEl.src = sprites[spriteCtr]
@@ -263,6 +277,20 @@ function welcomeGame() {
         if (spriteCtr === 3) {
             spriteCtr = 0
         }
+    }
+
+    function submitScore() {
+        const badWords = ["ASS", "COK", "FAG", "FCK", "CUM", "TIT", "KKK", "IDF", "NIG", "NGR", "SEX"];
+        const inputEls = document.querySelectorAll(".score-letter")
+        let nameStr = (inputEls[0].value + inputEls[1].value + inputEls[2].value).toUpperCase()
+        submitScoreEl.remove()
+        if (badWords.includes(nameStr)) {
+            nameStr = "BOO"
+            alert("I can't read but this word doesn't shine and sparkle with the council")
+            return
+        }
+        leaderboardModalNameEl[0].innerHTML = "Thanks!"
+        sendToServer({ type: "game-score", val: { name: nameStr, score: score } })
     }
 
     function handleSwipe(direction) {

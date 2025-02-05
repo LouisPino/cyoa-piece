@@ -9,6 +9,10 @@ const [skinOptions, characters] = require("./characters/default.js")
 let currentLocation = locations["welcome"]
 const voteLength = 100
 
+
+let gameScores = []
+
+
 /////////////////////////Initialize server
 const server = http.createServer((req, res) => {
     let filePath
@@ -96,7 +100,6 @@ wss.on('connection', (ws, req) => {
     if (locationPath === "/display") {
         ws.send(JSON.stringify({ type: 'ip-address', data: IP4 }));
         sendToDisplay({ type: 'htmlFiles', data: { locations: locations, extras: displayExtras } })
-
     } else {
         ws.send(JSON.stringify({ type: 'htmlFiles', data: { locations: locations, extras: mobileExtras } }))
         ws.send(JSON.stringify({ type: "section", data: currentLocation }))
@@ -106,14 +109,22 @@ wss.on('connection', (ws, req) => {
     ws.on('message', message => {
         console.log(`Client Message: ${message}`)
         data = JSON.parse(message)
-        if (voting) {
-            handleVote(message)
-        } else if (data.type === "sample") {
-            oscClient.send("/sample", data.val)
-            if (data.val === 'drum 3') {
-                console.log("hit")
-                punchBadGuy()
-            }
+        switch (data.type) {
+            case "vote":
+                if (voting) {
+                    handleVote(data.val)
+                }
+                break
+            case "sample":
+                oscClient.send("/sample", data.val)
+                if (data.val === 'drum 3') {
+                    punchBadGuy()
+                }
+                break
+            case "game-score":
+                gameScores.push(data.val)
+                renderGameLeaderboard()
+                break
         }
     });
     ws.on('close', () => {
@@ -271,9 +282,6 @@ oscServer.on('message', (msg, rinfo) => {
             let location = locations[msg[1]];
             sendSectionChange(location)
             break
-        case "swipe":
-            console.log(msg.val)
-            break
         case "vote":
             switch (msg[1]) {
                 case "path":
@@ -292,9 +300,35 @@ oscServer.on('message', (msg, rinfo) => {
     sendToWebClients(msgObj);
 });
 
+
+
+
+//////////////////////////intro game
+function renderGameLeaderboard() {
+    let sortedScores = gameScores.sort((a, b) => {
+        return b.score - a.score
+    })
+    sendToDisplay({ type: "game-score", data: sortedScores.slice(0, 5) })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports = [
     sendToWebClients,
     sendToDisplay,
     sendSectionChange
-
 ]

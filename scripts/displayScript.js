@@ -52,6 +52,8 @@ document.addEventListener("DOMContentLoaded", function () {
               promptVote();
               break;
           }
+        case "game-score":
+          displayLeaderboard(msg.data);
           break;
       }
     };
@@ -63,92 +65,110 @@ document.addEventListener("DOMContentLoaded", function () {
     mainEl.innerHTML = section.html.display;
   }
 
-  function revealCharacter(charObj){
+  function displayLeaderboard(scores) {
+    const leaderboardEl = document.querySelector(".leaderboard")
+    leaderboardEl.innerHTML = ""
+    let scoreEls = []
+    for (score of scores) {
+      const scoreEl = document.createElement("div")
+      scoreEl.innerHTML = `${score.name} - ${score.score}`
+      scoreEl.classList.add("display-score")
+      scoreEls.push(scoreEl)
+    }
+
+    for (el of scoreEls) {
+      leaderboardEl.appendChild(el)
+    }
+
+  }
+
+
+  function revealCharacter(charObj) {
     mainEl.innerHTML = extras.filter(
       (extra) => extra.name === "characterReveal"
-    )[0].content; 
+    )[0].content;
     const asset1El = document.getElementById("asset-1");
     const asset2El = document.getElementById("asset-2");
     const asset3El = document.getElementById("asset-3");
     const asset4El = document.getElementById("asset-face");
     const assetsEl = document.querySelector(".skin-assets")
-    if(Object.keys(charObj)[0] === "jesterFace"){
-      setTimeout(()=>{
+    if (Object.keys(charObj)[0] === "jesterFace") {
+      setTimeout(() => {
         asset1El.src = charObj.color.img
         asset1El.style.left = "0px"
         asset1El.style.opacity = 1
       }, 1000)
-      setTimeout(()=>{
+      setTimeout(() => {
         asset2El.src = charObj.points.img
-        asset2El.style.left = `${(assetsEl.getBoundingClientRect().width / 2)-(asset2El.getBoundingClientRect().width/2)}px`
+        asset2El.style.left = `${(assetsEl.getBoundingClientRect().width / 2) - (asset2El.getBoundingClientRect().width / 2)}px`
         asset2El.style.opacity = 1
       }, 2000)
-      setTimeout(()=>{
+      setTimeout(() => {
         asset3El.src = charObj.jesterDevice.img
-        asset3El.style.left = `${assetsEl.getBoundingClientRect().width - asset3El.getBoundingClientRect().width }px`
+        asset3El.style.left = `${assetsEl.getBoundingClientRect().width - asset3El.getBoundingClientRect().width}px`
         asset3El.style.opacity = 1
       }, 3000)
-      setTimeout(()=>{
+      setTimeout(() => {
         asset4El.src = charObj.jesterFace.img
-        asset4El.style.left = `${(assetsEl.getBoundingClientRect().width / 2 ) - (asset4El.getBoundingClientRect().width/2)}px`
+        asset4El.style.left = `${(assetsEl.getBoundingClientRect().width / 2) - (asset4El.getBoundingClientRect().width / 2)}px`
         asset4El.style.opacity = 1
       }, 4000)
-      setTimeout(()=>{
-        asset1El.style.left = `${(assetsEl.getBoundingClientRect().width / 2 ) - (asset4El.getBoundingClientRect().width/2)}px`
+      setTimeout(() => {
+        asset1El.style.left = `${(assetsEl.getBoundingClientRect().width / 2) - (asset4El.getBoundingClientRect().width / 2)}px`
         asset1El.style.bottom = "75%"
       }, 5000)
-      setTimeout(()=>{
-        asset2El.style.left = `${(assetsEl.getBoundingClientRect().width / 2 ) - (asset4El.getBoundingClientRect().width/2)}px`
+      setTimeout(() => {
+        asset2El.style.left = `${(assetsEl.getBoundingClientRect().width / 2) - (asset4El.getBoundingClientRect().width / 2)}px`
         asset2El.style.bottom = "75%"
       }, 6000)
-      setTimeout(()=>{
-        asset3El.style.left = `${(assetsEl.getBoundingClientRect().width / 2 ) - (asset4El.getBoundingClientRect().width/2)}px`
+      setTimeout(() => {
+        asset3El.style.left = `${(assetsEl.getBoundingClientRect().width / 2) - (asset4El.getBoundingClientRect().width / 2)}px`
         asset3El.style.bottom = "75%"
       }, 7000)
 
-      setTimeout(()=>{
+      setTimeout(() => {
         let newJester = "https://cdn-images.dzcdn.net/images/artist/7d241d43d2b13779977b6331205bc68d/1900x1900-000000-80-0-0.jpg"
         flashImages([asset1El, asset2El, asset3El], asset4El, newJester)
       }, 8000)
-    }else{
-      setTimeout(()=>{
+    } else {
+      setTimeout(() => {
         asset1El.src = charObj.robe.img
         asset1El.style.left = "0px"
         asset1El.style.opacity = 1
       }, 1000)
-      setTimeout(()=>{
+      setTimeout(() => {
         asset2El.src = charObj.hat.img
-        asset2El.style.left = `${(assetsEl.getBoundingClientRect().width / 2)-(asset2El.getBoundingClientRect().width/2)}px`
+        asset2El.style.left = `${(assetsEl.getBoundingClientRect().width / 2) - (asset2El.getBoundingClientRect().width / 2)}px`
         asset2El.style.opacity = 1
       }, 2000)
-      setTimeout(()=>{
+      setTimeout(() => {
         asset3El.src = charObj.wizardDevice.img
-        asset3El.style.left = `${assetsEl.getBoundingClientRect().width - asset3El.getBoundingClientRect().width }px`
+        asset3El.style.left = `${assetsEl.getBoundingClientRect().width - asset3El.getBoundingClientRect().width}px`
         asset3El.style.opacity = 1
       }, 3000)
-      setTimeout(()=>{
+      setTimeout(() => {
         asset4El.src = charObj.wizardFace.img
-        asset4El.style.left = `${(assetsEl.getBoundingClientRect().width / 2 ) - (asset4El.getBoundingClientRect().width/2)}px`
+        asset4El.style.left = `${(assetsEl.getBoundingClientRect().width / 2) - (asset4El.getBoundingClientRect().width / 2)}px`
         asset4El.style.opacity = 1
       }, 4000)
-      setTimeout(()=>{
-        asset1El.style.left = `${(assetsEl.getBoundingClientRect().width / 2 ) - (asset4El.getBoundingClientRect().width/2)}px`
+      setTimeout(() => {
+        asset1El.style.left = `${(assetsEl.getBoundingClientRect().width / 2) - (asset4El.getBoundingClientRect().width / 2)}px`
         asset1El.style.bottom = "75%"
       }, 5000)
-      setTimeout(()=>{
-        asset2El.style.left = `${(assetsEl.getBoundingClientRect().width / 2 ) - (asset4El.getBoundingClientRect().width/2)}px`
+      setTimeout(() => {
+        asset2El.style.left = `${(assetsEl.getBoundingClientRect().width / 2) - (asset4El.getBoundingClientRect().width / 2)}px`
         asset2El.style.bottom = "75%"
       }, 6000)
-      setTimeout(()=>{
-        asset3El.style.left = `${(assetsEl.getBoundingClientRect().width / 2 ) - (asset4El.getBoundingClientRect().width/2)}px`
+      setTimeout(() => {
+        asset3El.style.left = `${(assetsEl.getBoundingClientRect().width / 2) - (asset4El.getBoundingClientRect().width / 2)}px`
         asset3El.style.bottom = "75%"
       }, 7000)
 
-      setTimeout(()=>{
+      setTimeout(() => {
         let newChar = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQsLq8jGXoZygQoBD47jVCzB-5nIPLIWGG_A&s"
         flashImages([asset1El, asset2El, asset3El], asset4El, newChar)
       }, 8000)
-    
+
     }
   }
 
@@ -176,30 +196,30 @@ document.addEventListener("DOMContentLoaded", function () {
     let texts = []
     let textBodyEl = document.querySelector(".text-body")
     for (el of textEls) {
-        texts.push(el.innerText)
-        el.remove()
+      texts.push(el.innerText)
+      el.remove()
     }
     let i = 0; // Index for texts array
 
     function typeText() {
-        if (i < texts.length) {
-            const text = texts[i];
-            let j = 0; // Index for characters in the current text
+      if (i < texts.length) {
+        const text = texts[i];
+        let j = 0; // Index for characters in the current text
 
-            function typeCharacter() {
-                if (j < text.length) {
-                    textBodyEl.innerHTML += text[j];
-                    j++;
-                    setTimeout(typeCharacter, 50); // Type the next character
-                } else {
-                    textBodyEl.innerHTML += "<br>"; // Add a line break after the text
-                    i++;
-                    setTimeout(typeText, 1000); // Move to the next text
-                }
-            }
-
-            typeCharacter(); // Start typing the current text
+        function typeCharacter() {
+          if (j < text.length) {
+            textBodyEl.innerHTML += text[j];
+            j++;
+            setTimeout(typeCharacter, 50); // Type the next character
+          } else {
+            textBodyEl.innerHTML += "<br>"; // Add a line break after the text
+            i++;
+            setTimeout(typeText, 1000); // Move to the next text
+          }
         }
+
+        typeCharacter(); // Start typing the current text
+      }
     }
 
     typeText(); // Start typing texts
@@ -240,9 +260,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function intermissionStart() {
-    console.log("it is intermission now");
-  }
+  // function intermissionStart() {
+  //   console.log("it is intermission now");
+  // }
 
   function punchBadGuy(badguyhealth) {
     let guyEl = document.getElementById("bad-guy")
@@ -275,27 +295,25 @@ document.addEventListener("DOMContentLoaded", function () {
     let oldSrc = oldImage.src;
 
     function flash() {
-      const flashTime = i > 45 ?  i * 16 : i**2/10
-        if (i > 1) {
-            setTimeout(() => {
-                for (const asset of assetsArr) {
-                    asset.style.transition = "0s";
-                    asset.style.opacity = i % 2 === 0 ? "0" : "1";
-                }
-                oldImage.src = i % 2 === 0 ? newImage : oldSrc;
-                console.log(oldImage.src);
-                i--;
-                console.log(i);
+      const flashTime = i > 45 ? i * 16 : i ** 2 / 10
+      if (i > 1) {
+        setTimeout(() => {
+          for (const asset of assetsArr) {
+            asset.style.transition = "0s";
+            asset.style.opacity = i % 2 === 0 ? "0" : "1";
+          }
+          oldImage.src = i % 2 === 0 ? newImage : oldSrc;
+          i--;
 
-                // Recursive call
-                flash();
-            }, flashTime); // Increasing delay as i decreases
-        }
+          // Recursive call
+          flash();
+        }, flashTime); // Increasing delay as i decreases
+      }
     }
 
     // Start the recursive flashing
     flash();
-}
+  }
 
 
 });

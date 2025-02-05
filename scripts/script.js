@@ -144,6 +144,7 @@ function callFunction(locationName) {
 
 
 function welcomeGame() {
+    let gameRunning = true
     let score = 0
     let enemyCount = 0
     let enemyEls = []
@@ -153,6 +154,11 @@ function welcomeGame() {
     const gameBoxEl = document.getElementById("game-box")
     const scoreEl = document.getElementById("score")
     const charEl = document.getElementById("game-character-sprite")
+    const replaybtnEl = document.getElementById("play-again")
+    const replayModalEl = document.getElementById("replay-modal")
+    const modalScoreEl = document.getElementById("modal-score")
+    replaybtnEl.addEventListener("click", startGame)
+
     charEl.addEventListener("click", toggleCharacterSrc)
     class Enemy {
         constructor() {
@@ -234,27 +240,22 @@ function welcomeGame() {
         scoreEl.innerHTML = score
     }
     function collision() {
+        enemyEls.forEach((el) => {
+            el.remove();
+        }); modalScoreEl.innerHTML = score
+        replayModalEl.style.visibility = "visible"
+        gameRunning = false
+    }
+
+    function startGame() {
         changeScore(0)  // Reset the score or whatever logic you need
-        // Apply the flashing effect
-        charEl.src = "https://e7.pngegg.com/pngimages/991/153/png-clipart-black-cat-illustration-black-cat-kitten-cartoon-black-cat-hd-mammal-animals-thumbnail.png"
-        setTimeout(() => {
-            charEl.src = sprites[spriteCtr]
-        }, 500)
-        flashCharacter();
+
+        gameRunning = true
+        generateEnemies()
+        replayModalEl.style.visibility = "hidden"
+
     }
 
-    function flashCharacter() {
-        // Add the flash animation to the character
-        if (!charEl.classList.value.includes("character-flash")) {
-
-            charEl.classList.add("character-flash");
-
-            // Stop the flashing after 3 seconds (3 * 1000ms)
-            setTimeout(() => {
-                charEl.classList.remove("character-flash");
-            }, 3000);
-        }
-    }
 
     function toggleCharacterSrc() {
         charEl.src = sprites[spriteCtr]
@@ -353,7 +354,7 @@ function welcomeGame() {
     };
 
     function generateEnemies() {
-        if (currentLocation.name !== "welcome") return; // Stop if location changes
+        if (currentLocation.name !== "welcome" || gameRunning === false) return; // Stop if location changes
 
         enemyGenTime = Math.floor(Math.random() * (1500 - 500 + 1)) + 500;
         enemyInstance.enemyCreate()

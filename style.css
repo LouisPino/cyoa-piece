@@ -176,22 +176,6 @@ body {
     }
 }
 
-@keyframes flash {
-
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0;
-    }
-}
-
-.character-flash {
-    animation: flash 0.5s infinite;
-}
-
 .jump {
     animation: jumpAnimation 0.7s ease-in-out;
 }
@@ -205,6 +189,19 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1
+}
+
+#replay-modal {
+    visibility: hidden;
+    position: absolute;
+    left: 15%;
+    width: 70%;
+    height: 40vh;
+    top: 20vh;
+    background-color: purple;
+    border: 3px solid black;
+    z-index: 50;
+    text-align: center;
 }
 
 /* When in portrait mode */

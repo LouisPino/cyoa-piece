@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
               promptVote();
               break;
           }
+          break;
         case "game-score":
           displayLeaderboard(msg.data);
           break;
@@ -274,15 +275,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  const voteLength = 3000;
-  const votePrompt = document.createElement("h1");
+  const voteLength = 300000;
   function promptVote() {
-    votePrompt.classList.add("vote-prompt");
-    votePrompt.innerText = `VOTE!! ${voteLength / 1000}`;
     let seconds = voteLength / 1000 - 1;
-    mainEl.appendChild(votePrompt);
+    mainEl.innerHTML = extras.filter(
+      (extra) => extra.name === "vote"
+    )[0].content;
     const countdown = setInterval(() => {
-      votePrompt.innerText = `VOTE!! ${seconds}`;
+      // votePrompt.innerText = `VOTE!! ${seconds}`;
       seconds -= 1;
       if (seconds < 0) {
         clearInterval(countdown);

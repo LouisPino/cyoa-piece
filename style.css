@@ -9,16 +9,41 @@
     --sylvan-lavender: #aeadcf;
 }
 
-html,
-body {
-    touch-action: manipulation;
-    font-family: "Press Start 2P", serif;
-    overflow-x: hidden;
-    overflow-y: hidden;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 html {
-    background-image: url("/mobile/assets/bg-book.png");
+    position: fixed;
+    background-color: #444573;
+    overflow: hidden;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    width: calc(var(--vw, 1vw) * 100);
+    touch-action: manipulation;
+    font-family: "Press Start 2P", serif;
+    /* border: 5px solid green; */
+    padding: 0;
+}
+
+body {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    /* border: 1px solid red; */
+    margin: 0;
+    padding: 0;
+}
+
+#main {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+
 }
 
 .btn {
@@ -40,9 +65,7 @@ button {
     min-height: 200px;
 }
 
-#main {
-    /* background-color: #444573; */
-}
+
 
 .landscape-required {
     background-color: var(--sylvan-light);
@@ -57,37 +80,37 @@ button {
     text-align: center;
 }
 
-
 .bg-mobile {
-    min-width: 100vw;
-    min-height: 100vh;
-    max-width: 100vw;
-    max-height: 100vh;
+    margin-left: 0;
+    padding-left: 0;
+    background-position: contain;
+    /* border: 1px solid red; */
     position: absolute;
     top: 0;
     left: 0;
+    min-width: 100vw;
+    min-height: 100vh;
     z-index: -1;
 }
 
 .bg-display {
     min-width: 100vw;
     min-height: 100vh;
-    max-width: 100vw;
-    max-height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
 }
 
-
 .complete-screen-img {
     position: absolute;
-    width: 100vw;
-    height: 100vh;
     top: 0;
     left: 0;
+    width: calc(var(--vw, 1vw) * 100);
+    height: calc(var(--vh, 1vh) * 100);
+    z-index: 10;
 }
+
 
 
 /***** skin votes */
@@ -144,7 +167,9 @@ button {
 
 .vote-img {
     position: absolute;
-    width: 50%;
+    width: calc(var(--vw, 1vw) * 50);
+    height: calc(var(--vh, 1vh) * 100);
+
 }
 
 
@@ -237,7 +262,10 @@ button {
     margin: 0;
     text-align: center;
     padding: 0;
+}
 
+#welcome-p {
+    text-align: center;
 }
 
 /* Jump Animation: Up and then Down over 0.5s */
@@ -351,7 +379,6 @@ button {
     display: flex;
     justify-content: space-around;
     height: 50px;
-    /* border: 1px solid purple; */
     margin-top: 20px;
     width: 40%;
     padding: 8px;
@@ -389,6 +416,7 @@ button {
 @media only screen and (orientation: landscape) {
     .landscape-required {
         display: none;
+        margin: 0;
     }
 
     #main {

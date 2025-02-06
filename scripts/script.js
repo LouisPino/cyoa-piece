@@ -131,7 +131,7 @@ function callFunction(locationName) {
     }
 }
 
-
+//TEST WITH JAZ, LEAVE IN FOR ANDROID USERS IF IT WORKS
 // Select the element we want to make fullscreen. 
 // Often 'document.documentElement' or a specific element like a video container.
 // const elem = document.documentElement;

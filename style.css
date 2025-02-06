@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+:root {
+    --sylvan-light: #e9ecd9;
+    --sylvan-purple: #ae8cbe;
+    --sylvan-blue: #6d6faa;
+    --sylvan-indigo: #444573;
+    --sylvan-lavender: #aeadcf;
+}
+
 #main {}
 
 #choice-1 {
@@ -25,6 +33,8 @@ body {
     overflow-x: hidden;
     overflow-y: hidden;
     padding: 0;
+    background-color: var(--sylvan-indigo);
+    background-image: url("/mobile/assets/bg-book.png");
 }
 
 .btn {
@@ -49,6 +59,17 @@ body {
 }
 
 .bg-mobile {
+    min-width: 100vw;
+    min-height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.bg-display {
     min-width: 100vw;
     min-height: 100vh;
     max-width: 100vw;
@@ -107,8 +128,30 @@ body {
 }
 
 
+.instructions-scroll-ctr {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20vw;
+    height: 50vh;
+    font-size: small;
+}
 
+.scroll {
+    position: absolute;
+    width: 40vw;
+    height: 50vh;
+    top: 0;
+    right: 0;
+}
 
+#qrcode {
+    max-width: 5vw;
+    max-height: 5vw;
+}
 
 
 
@@ -244,7 +287,7 @@ body {
     width: 70%;
     height: 40vh;
     top: 20vh;
-    background-color: purple;
+    background-color: var(--sylvan-blue);
     border: 3px solid black;
     z-index: 50;
     text-align: center;
@@ -305,6 +348,21 @@ body {
 #score-letter-4 {
     width: 50%;
     letter-spacing: 2vw;
+    text-align: center;
+}
+
+.landscape-required {
+    background-color: var(--sylvan-light);
+    border: 2px solid var(--sylvan-indigo);
+    width: 79vw;
+    height: fit-content;
+    position: absolute;
+    left: 10vw;
+    top: 10vh;
+    padding: 10px 6px;
+}
+
+.please-rotate {
     text-align: center;
 }
 

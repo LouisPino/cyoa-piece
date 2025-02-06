@@ -100,6 +100,7 @@ wss.on('connection', (ws, req) => {
     if (locationPath === "/display") {
         ws.send(JSON.stringify({ type: 'ip-address', data: IP4 }));
         sendToDisplay({ type: 'htmlFiles', data: { locations: locations, extras: displayExtras } })
+        sendToDisplay({ type: "section", data: currentLocation })
     } else {
         ws.send(JSON.stringify({ type: 'htmlFiles', data: { locations: locations, extras: mobileExtras } }))
         ws.send(JSON.stringify({ type: "section", data: currentLocation }))

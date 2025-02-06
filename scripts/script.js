@@ -67,7 +67,7 @@ function startVote(section) {
     mainEl.innerHTML = extras.filter((extra) => (extra.name === "vote"))[0].content//get vote html
     let choice1El = document.getElementById('choice-1')
     let choice2El = document.getElementById('choice-2')
-    let prompt = document.getElementById('vote-prompt-mobile')
+    // let prompt = document.getElementById('vote-prompt-mobile')
     // prompt.innerText = section.choicePrompt
     // choice1El.innerHTML = section.choices[0]
     // choice2El.innerHTML = section.choices[1]
@@ -155,8 +155,7 @@ function callFunction(locationName) {
 
 
 
-
-
+////////////////////////////Game
 
 
 function welcomeGame() {
@@ -412,8 +411,4 @@ function welcomeGame() {
         leaderboardModalNameEl[0].innerHTML = "Thanks!"
         sendToServer({ type: "game-score", val: { name: nameStr, score: score } })
     }
-
-
-
-
 }   

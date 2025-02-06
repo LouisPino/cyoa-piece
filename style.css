@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+/***** general */
 :root {
     --sylvan-light: #e9ecd9;
     --sylvan-purple: #ae8cbe;
@@ -8,10 +9,21 @@
     --sylvan-lavender: #aeadcf;
 }
 
-#main {}
+html,
+body {
+    touch-action: manipulation;
+    font-family: "Press Start 2P", serif;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
 
-#choice-1 {
-    background-color: var(--sylvan-lavender);
+html {
+    background-image: url("/mobile/assets/bg-book.png");
+}
+
+.btn {
+    height: 100px;
+    width: 100px;
 }
 
 button {
@@ -21,42 +33,30 @@ button {
     font-family: "Press Start 2P", serif;
 }
 
-.text-body {
+
+/* scrolling text container */
+.display-text-body {
     border: 2px solid var(--sylvan-lavender);
     min-height: 200px;
 }
 
-html,
-body {
-    touch-action: manipulation;
-    font-family: "Press Start 2P", serif;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    padding: 0;
-    background-color: var(--sylvan-indigo);
-    background-image: url("/mobile/assets/bg-book.png");
+#main {
+    /* background-color: #444573; */
 }
 
-.btn {
-    height: 100px;
-    width: 100px;
+.landscape-required {
+    background-color: var(--sylvan-light);
+    border: 2px solid var(--sylvan-indigo);
+    width: 80vw;
+    height: fit-content;
+    padding: 10px 6px;
+    margin: 10vh auto 0 auto;
 }
 
-.skin-choices {
-    display: flex;
-    width: 100vw;
-    justify-content: space-around;
-    align-items: center;
+.please-rotate {
+    text-align: center;
 }
 
-.skin-choice {
-    width: 100px;
-}
-
-.skin-winner {
-    transition: 800ms;
-    width: 800px;
-}
 
 .bg-mobile {
     min-width: 100vw;
@@ -80,7 +80,36 @@ body {
     z-index: -1;
 }
 
-/* votes */
+
+.complete-screen-img {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+
+/***** skin votes */
+
+.skin-choices {
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.skin-choice {
+    width: 100px;
+}
+
+.skin-winner {
+    transition: 800ms;
+    width: 800px;
+}
+
+
+/***** votes */
 .vote-body {
     display: flex;
     flex-direction: column;
@@ -92,7 +121,6 @@ body {
 #choose {
     text-align: center;
 }
-
 
 
 .vote-btns {
@@ -119,15 +147,8 @@ body {
     width: 50%;
 }
 
-.complete-screen-img {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-}
 
-
+/*****Display Welcome  */
 .instructions-scroll-ctr {
     position: absolute;
     top: 40px;
@@ -155,7 +176,7 @@ body {
 
 
 
-/* game */
+/***** Game */
 
 .enemy {
     width: 50px;
@@ -188,6 +209,7 @@ body {
 .game-bg {
     width: 100%;
     height: 100%;
+    z-index: 100;
 }
 
 #game-character-sprite {
@@ -351,20 +373,6 @@ body {
     text-align: center;
 }
 
-.landscape-required {
-    background-color: var(--sylvan-light);
-    border: 2px solid var(--sylvan-indigo);
-    width: 79vw;
-    height: fit-content;
-    position: absolute;
-    left: 10vw;
-    top: 10vh;
-    padding: 10px 6px;
-}
-
-.please-rotate {
-    text-align: center;
-}
 
 /* When in portrait mode */
 @media only screen and (orientation: portrait) {

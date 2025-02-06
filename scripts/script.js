@@ -53,7 +53,7 @@ function sendToServer(msg) {
 }
 
 
-const voteLength = 100
+const voteLength = 3000
 const mainEl = document.getElementById("main")
 function toggleHTML() {
     mainEl.innerHTML = currentLocation.html.mobile
@@ -64,13 +64,13 @@ function renderSelection(winner) {
 }
 
 function startVote(section) {
-    mainEl.innerHTML = extras.filter((extra) => (extra.name === "vote"))[0].content
+    mainEl.innerHTML = extras.filter((extra) => (extra.name === "vote"))[0].content//get vote html
     let choice1El = document.getElementById('choice-1')
     let choice2El = document.getElementById('choice-2')
     let prompt = document.getElementById('vote-prompt-mobile')
-    prompt.innerText = section.choicePrompt
-    choice1El.innerHTML = section.choices[0]
-    choice2El.innerHTML = section.choices[1]
+    // prompt.innerText = section.choicePrompt
+    // choice1El.innerHTML = section.choices[0]
+    // choice2El.innerHTML = section.choices[1]
     choice1El.addEventListener('click', () => handleVote("choice1"));
     choice2El.addEventListener('click', () => handleVote("choice2"));
 }
@@ -144,13 +144,19 @@ function callFunction(locationName) {
 
 
 function welcomeGame() {
+    //globals
     let gameRunning = true
     let score = 0
     let enemyCount = 0
     let enemyEls = []
-    const sprites = ["https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWJna3I0ZXd4cjZuemoweGV6YnJ3NDZqY3Fqb2htMmRpNjNpazl4MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xwsp8g4MIrK5G/giphy.gif", "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWpkczB3NjlxcGlpdmdvYXJyMTk4OHoxcnJpaXpoaDgybXI5eXN2eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zg0wrBuqsQG72sRByD/giphy.gif", "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzRndnZiMmM2MWN6MnFod2VpcjZ5d3UxcmVsZTB0YjluZjVwcTQ4diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LtFo9eDzBUtbyK74E5/giphy.gif"]
-    let spriteCtr = 0
+    const sprites = ["https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzRndnZiMmM2MWN6MnFod2VpcjZ5d3UxcmVsZTB0YjluZjVwcTQ4diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LtFo9eDzBUtbyK74E5/giphy.gif", "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWJna3I0ZXd4cjZuemoweGV6YnJ3NDZqY3Fqb2htMmRpNjNpazl4MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xwsp8g4MIrK5G/giphy.gif", "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWpkczB3NjlxcGlpdmdvYXJyMTk4OHoxcnJpaXpoaDgybXI5eXN2eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zg0wrBuqsQG72sRByD/giphy.gif"]
+    let spriteCtr = 1
     let enemyGenTime = 1000
+    var xDown = null;
+    var yDown = null;
+
+
+    //elements
     const gameBoxEl = document.getElementById("game-box")
     const scoreEl = document.getElementById("score")
     const charEl = document.getElementById("game-character-sprite")
@@ -163,10 +169,16 @@ function welcomeGame() {
     const addToLeaderboardModalEl = document.getElementById("add-to-leaderboard-modal")
     const addToLeaderboardModalBtnsEl = document.querySelector(".add-to-leaderboard-modal-btns")
     const submitScoreEl = document.getElementById("submit-score")
+
+    //listeners
+    document.addEventListener('touchstart', handleTouchStart, false);
+    document.addEventListener('touchmove', handleTouchMove, false);
     replaybtnEl.forEach((btn) => { btn.addEventListener("click", startGame) })
     submitScoreEl.addEventListener("click", submitScore)
     addToLeaderboardBtnEl.addEventListener("click", addToLeaderboard)
     charEl.addEventListener("click", toggleCharacterSrc)
+
+    //enemies
     class Enemy {
         constructor() {
             this.height = 50;
@@ -238,6 +250,20 @@ function welcomeGame() {
         }
 
     }
+    const enemyInstance = new Enemy();
+
+    function generateEnemies() {
+        if (currentLocation.name !== "welcome" || gameRunning === false) return; // Stop if location changes
+
+        enemyGenTime = Math.floor(Math.random() * (1500 - 500 + 1)) + 500;
+        enemyInstance.enemyCreate()
+        // Call this function again after enemyGenTime milliseconds
+        setTimeout(generateEnemies, enemyGenTime);
+    }
+
+    // Start the enemy generation loop
+    generateEnemies();
+    //score
     function changeScore(num) {
         if (num) {
             score++
@@ -246,6 +272,10 @@ function welcomeGame() {
         }
         scoreEl.innerHTML = score
     }
+
+
+
+    //events
     function collision() {
         enemyEls.forEach((el) => {
             el.remove();
@@ -262,14 +292,7 @@ function welcomeGame() {
         generateEnemies()
 
     }
-    function addToLeaderboard() {
 
-        leaderboardModalNameEl[0].innerHTML = defaultLeaderboardHtml
-        addToLeaderboardModalBtnsEl.appendChild(submitScoreEl)
-        submitScoreEl.addEventListener("click", submitScore)
-        replayModalEl.style.visibility = "hidden"
-        addToLeaderboardModalEl.style.visibility = "visible"
-    }
 
     function toggleCharacterSrc() {
         charEl.src = sprites[spriteCtr]
@@ -279,20 +302,7 @@ function welcomeGame() {
         }
     }
 
-    function submitScore() {
-        const badWords = ["ASS", "COK", "FAG", "FCK", "CUM", "TIT", "KKK", "IDF", "NIG", "NGR", "SEX"];
-        const inputEls = document.querySelectorAll(".score-letter")
-        let nameStr = (inputEls[0].value + inputEls[1].value + inputEls[2].value).toUpperCase()
-        submitScoreEl.remove()
-        if (badWords.includes(nameStr)) {
-            nameStr = "BOO"
-            alert("I can't read but this word doesn't shine and sparkle with the council")
-            return
-        }
-        leaderboardModalNameEl[0].innerHTML = "Thanks!"
-        sendToServer({ type: "game-score", val: { name: nameStr, score: score } })
-    }
-
+    //swipe events
     function handleSwipe(direction) {
         if (direction === "up") {
             jumpCharacter();
@@ -302,43 +312,6 @@ function welcomeGame() {
         sendToServer({ type: "swipe", val: direction });
     }
 
-    // Jump Function (Up and Down over 0.5s)
-    function jumpCharacter() {
-        resetAnimation(charEl, "jump")
-    }
-
-
-    function diveCharacter() {
-        resetAnimation(charEl, "dive")
-    }
-
-    // Helper to Reset Animation (Allows it to trigger every time)
-    function resetAnimation(element, animationClass) {
-        element.classList.remove("jump", "dive");  // Remove any existing animation classes
-        // Trigger reflow to restart animation
-        void element.offsetWidth;
-        element.classList.add(animationClass);  // Add new animation class
-    }
-
-
-
-    const enemyInstance = new Enemy();
-
-
-
-    // // Create and append a button
-    // const btnEl = document.createElement("button");
-    // btnEl.textContent = "Add Enemy";
-    // mainEl.appendChild(btnEl);
-
-    // btnEl.addEventListener("click", () => enemyInstance.enemyCreate());
-
-
-    document.addEventListener('touchstart', handleTouchStart, false);
-    document.addEventListener('touchmove', handleTouchMove, false);
-
-    var xDown = null;
-    var yDown = null;
 
     function getTouches(evt) {
         return evt.touches
@@ -381,17 +354,50 @@ function welcomeGame() {
         yDown = null;
     };
 
-    function generateEnemies() {
-        if (currentLocation.name !== "welcome" || gameRunning === false) return; // Stop if location changes
 
-        enemyGenTime = Math.floor(Math.random() * (1500 - 500 + 1)) + 500;
-        enemyInstance.enemyCreate()
-        // Call this function again after enemyGenTime milliseconds
-        setTimeout(generateEnemies, enemyGenTime);
+    //animation
+    function jumpCharacter() {
+        resetAnimation(charEl, "jump")
     }
 
-    // Start the enemy generation loop
-    generateEnemies();
+
+    function diveCharacter() {
+        resetAnimation(charEl, "dive")
+    }
+
+    // Helper to Reset Animation (Allows it to trigger every time)
+    function resetAnimation(element, animationClass) {
+        element.classList.remove("jump", "dive");  // Remove any existing animation classes
+        // Trigger reflow to restart animation
+        void element.offsetWidth;
+        element.classList.add(animationClass);  // Add new animation class
+    }
+
+    //leaderboard
+    function addToLeaderboard() {
+        leaderboardModalNameEl[0].innerHTML = defaultLeaderboardHtml
+        addToLeaderboardModalBtnsEl.appendChild(submitScoreEl)
+        submitScoreEl.addEventListener("click", submitScore)
+        replayModalEl.style.visibility = "hidden"
+        addToLeaderboardModalEl.style.visibility = "visible"
+    }
+
+    function submitScore() {
+        const badWords = ["ASS", "COK", "FAG", "FCK", "CUM", "TIT", "KKK", "IDF", "NIG", "NGR", "SEX"];
+        const inputEl = document.getElementById("score-letter-4")
+        let nameStr = inputEl.value.toUpperCase()
+        // let nameStr = (inputEls[0].value + inputEls[1].value + inputEls[2].value).toUpperCase()
+        submitScoreEl.remove()
+        if (badWords.includes(nameStr)) {
+            nameStr = "BOO"
+            alert("I can't read but this word doesn't shine and sparkle with the council")
+            return
+        }
+        leaderboardModalNameEl[0].innerHTML = "Thanks!"
+        sendToServer({ type: "game-score", val: { name: nameStr, score: score } })
+    }
+
+
 
 
 }   

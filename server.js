@@ -7,7 +7,7 @@ const IP4 = require('./helpers/ip4.js')
 const [locations, mobileExtras, displayExtras] = require("./helpers/htmlLoader.js")
 const [skinOptions, characters] = require("./characters/default.js")
 let currentLocation = locations["welcome"]
-const voteLength = 100
+const voteLength = 3000
 
 
 let gameScores = []
@@ -178,7 +178,8 @@ let voting = false
 let choices = { choice1: 0, choice2: 0, choice3: 0, choice4: 0, choice5: 0, }
 
 function handleVote(vote) {
-    choices[JSON.parse(vote)] += 1
+    console.log(vote)
+    choices[vote] += 1
 }
 
 
@@ -192,16 +193,17 @@ function triggerVote() {
 }
 
 function endVote(winner) {
+    console.log(choices)
     switch (winner) {
         case (0):
             // choice 1
             oscClient.send("/switch", currentLocation.paths[0])
-            console.log("CHOICE 1 WINS")
+            console.log("CHOICE 1 WINS", choices["choice1"])
             break
         case (1):
             // choice 2
             oscClient.send("/switch", currentLocation.paths[1])
-            console.log("CHOICE 2 WINS")
+            console.log("CHOICE 2 WINS", choices["choice2"])
             break
     }
     voting = false;

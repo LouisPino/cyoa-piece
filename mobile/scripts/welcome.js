@@ -164,7 +164,6 @@ function welcomeGame() {
         } else if (direction === "down") {
             diveCharacter();
         }
-        sendToServer({ type: "swipe", val: direction });
     }
 
 

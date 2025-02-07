@@ -1,8 +1,8 @@
+let ipAddress;
 document.addEventListener("DOMContentLoaded", function () {
   let locations;
   let extras;
   let scripts;
-  let ipAddress;
   initializeWebSocket(location.hostname);
   function initializeWebSocket(ip) {
     const socket = new WebSocket(`ws://${ip}:8000/display`);
@@ -22,7 +22,11 @@ document.addEventListener("DOMContentLoaded", function () {
           locations = msg.data["locations"];
           extras = msg.data.extras;
           scripts = msg.data.scripts;
-          getAndRunScript("characterSelectAnimation")
+          // for (script of scripts) {
+          //   // run helper function declarations
+          // //   if (["characterSelectAnimation", "qrcode.min.js", "voteHelpers"].includes(script.name))
+          // //     runSetupScript(script.name)
+          // // }
           break;
         case "section":
           sectionChange(locations[msg.data.name]);
@@ -57,35 +61,32 @@ document.addEventListener("DOMContentLoaded", function () {
     };
   }
 
-  function getAndRunScript(scriptName) {
-    const scriptObj = scripts.filter(script => script.name === scriptName)[0];
-    eval(scriptObj.content);
+  // function runSetupScript(scriptName) {
+  //   const scriptObj = scripts.find(script => script.name === scriptName);
+  //   if (!scriptObj) {
+  //     console.error(`Script with name "${scriptName}" not found.`);
+  //     return;
+  //   }
+  //   const scriptTag = document.createElement('script');
+  //   scriptTag.textContent = scriptObj.content;
+  //   document.head.appendChild(scriptTag);
+  // }
+
+  function runSectionScript(scriptName) {
+    const scriptObj = scripts.find(script => script.name === scriptName);
+    if (!scriptObj) {
+      console.error(`Script with name "${scriptName}" not found.`);
+      return;
+    }
+    eval(scriptObj.content)
+
   }
 
 
   const mainEl = document.getElementById("display-main");
-
   function toggleHTML(section) {
     mainEl.innerHTML = section.html.display;
   }
-
-  function displayLeaderboard(scores) {
-    const leaderboardEl = document.querySelector(".leaderboard")
-    leaderboardEl.innerHTML = ""
-    let scoreEls = []
-    for (score of scores) {
-      const scoreEl = document.createElement("div")
-      scoreEl.innerHTML = `${score.name} - ${score.score}`
-      scoreEl.classList.add("display-score")
-      scoreEls.push(scoreEl)
-    }
-
-    for (el of scoreEls) {
-      leaderboardEl.appendChild(el)
-    }
-
-  }
-
 
 
 
@@ -98,8 +99,10 @@ document.addEventListener("DOMContentLoaded", function () {
       texts.push(el.innerText)
       el.remove()
     }
+
+    runSectionScript(section.name)
+
     let i = 0; // Index for texts array
-    getAndRunScript(section.name)
 
     function typeText() {
       if (i < texts.length) {
@@ -162,20 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  const voteLength = 10000;
-  function promptVote() {
-    let seconds = voteLength / 1000 - 1;
-    mainEl.innerHTML = extras.filter(
-      (extra) => extra.name === "vote"
-    )[0].content;
-    const countdown = setInterval(() => {
-      // votePrompt.innerText = `VOTE!! ${seconds}`;
-      seconds -= 1;
-      if (seconds < 0) {
-        clearInterval(countdown);
-      }
-    }, 1000);
-  }
+
 
 
 

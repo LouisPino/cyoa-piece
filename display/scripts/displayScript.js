@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   let locations;
   let extras;
+  let scripts;
   let ipAddress;
   initializeWebSocket(location.hostname);
   function initializeWebSocket(ip) {
@@ -17,18 +18,13 @@ document.addEventListener("DOMContentLoaded", function () {
         case "ip-address":
           ipAddress = msg.data;
           break;
-        case `htmlFiles`:
+        case `initialFileServe`:
           locations = msg.data["locations"];
           extras = msg.data.extras;
+          scripts = msg.data.scripts;
           break;
         case "section":
           sectionChange(locations[msg.data.name]);
-          if (msg.data.name === "welcome") {
-            new QRCode(
-              document.getElementById("qrcode"),
-              `http://${ipAddress}:8000`
-            );
-          }
           break;
         case "intermission":
           intermissionStart();
@@ -59,6 +55,13 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     };
   }
+
+  function getAndRunScript(locationName) {
+    const scriptObj = scripts.filter(script => script.name === locationName)[0];
+    console.log(scriptObj)
+    eval(scriptObj.content);
+  }
+
 
   const mainEl = document.getElementById("display-main");
 
@@ -201,6 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
       el.remove()
     }
     let i = 0; // Index for texts array
+    getAndRunScript(section.name)
 
     function typeText() {
       if (i < texts.length) {

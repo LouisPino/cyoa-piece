@@ -8,8 +8,6 @@ const [locations, mobileExtras, displayExtras, displayScripts, mobileScripts] = 
 const [skinOptions, characters] = require("./characters/default.js")
 let currentLocation = locations["welcome"]
 const voteLength = 10000
-
-
 let gameScores = []
 
 

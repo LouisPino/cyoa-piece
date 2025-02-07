@@ -5,12 +5,6 @@ let extras
 let scripts
 let currentLocation
 function initializeWebSocket() {
-    ////////Constants
-    const importedScripts = {};
-
-
-
-
     /////////////////Communcation
     // Confirm connection success
     socket.onopen = function (e) {

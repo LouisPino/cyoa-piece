@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  const voteLength = 300000;
+  const voteLength = 10000;
   function promptVote() {
     let seconds = voteLength / 1000 - 1;
     mainEl.innerHTML = extras.filter(

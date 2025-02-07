@@ -16,16 +16,9 @@
 }
 
 html {
-    position: fixed;
-    /* background-color: #444573; */
-    overflow: hidden;
     height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
-    width: calc(var(--vw, 1vw) * 100);
     touch-action: manipulation;
     font-family: "Press Start 2P", serif;
-    /* border: 5px solid green; */
-    padding: 0;
 }
 
 body {

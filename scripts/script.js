@@ -79,7 +79,7 @@ function testBtn() {
 }
 
 
-const voteLength = 300000
+const voteLength = 10000
 const mainEl = document.getElementById("main")
 function toggleHTML() {
     mainEl.innerHTML = currentLocation.html.mobile
@@ -193,7 +193,8 @@ function welcomeGame() {
     let score = 0
     let enemyCount = 0
     let enemyEls = []
-    const sprites = ["https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzRndnZiMmM2MWN6MnFod2VpcjZ5d3UxcmVsZTB0YjluZjVwcTQ4diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LtFo9eDzBUtbyK74E5/giphy.gif", "/mobile/assets/Jester.gif", "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWpkczB3NjlxcGlpdmdvYXJyMTk4OHoxcnJpaXpoaDgybXI5eXN2eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zg0wrBuqsQG72sRByD/giphy.gif"]
+    const sprites = ["/mobile/assets/game/Wizard.gif", "/mobile/assets/game/Jester.gif", "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWpkczB3NjlxcGlpdmdvYXJyMTk4OHoxcnJpaXpoaDgybXI5eXN2eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zg0wrBuqsQG72sRByD/giphy.gif"]
+    const gameBGUrl = "/mobile/assets/game/GameBgGif.gif"
     let spriteCtr = 1
     let enemyGenTime = 1000
     var xDown = null;

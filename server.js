@@ -7,7 +7,7 @@ const IP4 = require('./helpers/ip4.js')
 const [locations, mobileExtras, displayExtras] = require("./helpers/htmlLoader.js")
 const [skinOptions, characters] = require("./characters/default.js")
 let currentLocation = locations["welcome"]
-const voteLength = 300000
+const voteLength = 10000
 
 
 let gameScores = []

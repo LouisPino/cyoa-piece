@@ -1,4 +1,12 @@
 const locations = {
+  sandbox: {
+    name: "sandbox",
+    paths: ["sandbox", "sandbox"],
+    choicePrompt:
+      "sandbox",
+    choices: ["sandbox", "sandbox"],
+    html: {},
+  },
   kingdom: {
     name: "kingdom",
     paths: ["forestNorth", "forestSouth"],

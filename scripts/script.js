@@ -4,10 +4,12 @@ let locations
 let extras
 let currentLocation
 function initializeWebSocket() {
+    /////////////////Communcation
     // Confirm connection success
     socket.onopen = function (e) {
         console.log("WebSocket connection established!");
     };
+
 
     // Run when message is received from server (Max -> Server -> Client)
     socket.onmessage = function (event) {
@@ -47,47 +49,34 @@ function initializeWebSocket() {
         }
     };
 }
+
 // Send message from client to server
 function sendToServer(msg) {
     socket.send(JSON.stringify(msg));
 }
 
 
+
+/////////////////////Style
 function adjustHeight() {
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 }
-
-window.addEventListener('resize', adjustHeight);
-adjustHeight(); // Initial adjustment
-
-
-
 function adjustWidth() {
     console.log("hit")
     const vw = window.innerWidth * 0.01;
     document.documentElement.style.setProperty('--vw', `${vw}px`);
 }
 
+window.addEventListener('resize', adjustHeight);
+adjustHeight(); // Initial adjustment
+
 window.addEventListener('resize', adjustWidth);
 adjustWidth(); // Initial adjustment
 
-function testBtn() {
-
-    const btnTest = document.getElementById("test-btn")
-    btnTest?.addEventListener("click", adjustWidth)
-}
-
+/////////////////////Vote
 
 const voteLength = 10000
-const mainEl = document.getElementById("main")
-function toggleHTML() {
-    mainEl.innerHTML = currentLocation.html.mobile
-}
-
-function renderSelection(winner) {
-    mainEl.innerHTML = "THE WINNER IS " + winner
-}
 
 function startVote(section) {
     mainEl.innerHTML = extras.filter((extra) => (extra.name === "vote"))[0].content//get vote html
@@ -101,20 +90,7 @@ function startVote(section) {
     choice2El.addEventListener('click', () => handleVote("choice2"));
 }
 
-function handleVote(vote) {
-    sendToServer({ type: "vote", val: vote })
-    mainEl.innerHTML = extras.filter((extra) => (extra.name === "thank"))[0].content
-}
 
-function sectionChange(section) {
-    currentLocation = section
-    toggleHTML()
-    callFunction(currentLocation.name)
-}
-
-function lookUp() {
-    mainEl.innerHTML = '<h1 class="look-up">↑</h1>'
-}
 
 function startSkinVote(item) {
     mainEl.innerHTML = extras.filter((extra) => (extra.name === "character"))[0].content
@@ -134,6 +110,34 @@ function startSkinVote(item) {
     choice4El.addEventListener('click', () => handleVote("choice4"));
     choice5El.addEventListener('click', () => handleVote("choice5"));
 }
+
+
+function handleVote(vote) {
+    sendToServer({ type: "vote", val: vote })
+    mainEl.innerHTML = extras.filter((extra) => (extra.name === "thank"))[0].content
+}
+
+/////////////////////Section
+
+const mainEl = document.getElementById("main")
+function toggleHTML() {
+    mainEl.innerHTML = currentLocation.html.mobile
+}
+
+function renderSelection(winner) {
+    mainEl.innerHTML = "THE WINNER IS " + winner
+}
+
+function sectionChange(section) {
+    currentLocation = section
+    toggleHTML()
+    callFunction(currentLocation.name)
+}
+
+function lookUp() {
+    mainEl.innerHTML = '<h1 class="look-up">↑</h1>'
+}
+
 
 // function intermissionStart() {
 //     console.log("it is intermission now")
@@ -155,7 +159,6 @@ function callFunction(locationName) {
             welcomeGame()
             break
         case "kingdom":
-            testBtn()
             break
     }
 }
@@ -194,7 +197,6 @@ function welcomeGame() {
     let enemyCount = 0
     let enemyEls = []
     const sprites = ["/mobile/assets/game/Wizard.gif", "/mobile/assets/game/Jester.gif", "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWpkczB3NjlxcGlpdmdvYXJyMTk4OHoxcnJpaXpoaDgybXI5eXN2eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zg0wrBuqsQG72sRByD/giphy.gif"]
-    const gameBGUrl = "/mobile/assets/game/GameBgGif.gif"
     let spriteCtr = 1
     let enemyGenTime = 1000
     var xDown = null;
@@ -383,9 +385,9 @@ function welcomeGame() {
 
         if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
             if (xDiff > 0) {
-                sendToServer({ type: "swipe", val: "left" })
+                // sendToServer({ type: "swipe", val: "left" })
             } else {
-                sendToServer({ type: "swipe", val: "right" })
+                // sendToServer({ type: "swipe", val: "right" })
             }
         } else {
             if (yDiff > 0) {

@@ -57,6 +57,14 @@ document.addEventListener("DOMContentLoaded", function () {
         case "game-score":
           displayLeaderboard(msg.data);
           break;
+        case "sandbox":
+          if (msg.data.name === "next-line") {
+            nextLine()
+          }
+          else if (msg.data.name === "change-bg") {
+            changeBg(msg.data.value)
+          }
+          break;
       }
     };
   }
@@ -89,43 +97,18 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-
   function sectionChange(section) {
     toggleHTML(section);
     let textEls = document.querySelectorAll(".text")
     let texts = []
-    let textBodyEl = document.querySelector(".text-body")
+    const textBodyEl = document.querySelector(".text-body")
     for (el of textEls) {
       texts.push(el.innerText)
       el.remove()
     }
-
     runSectionScript(section.name)
-
-    let i = 0; // Index for texts array
-
-    function typeText() {
-      if (i < texts.length) {
-        const text = texts[i];
-        let j = 0; // Index for characters in the current text
-
-        function typeCharacter() {
-          if (j < text.length) {
-            textBodyEl.innerHTML += text[j];
-            j++;
-            setTimeout(typeCharacter, 50); // Type the next character
-          } else {
-            textBodyEl.innerHTML += "<br>"; // Add a line break after the text
-            i++;
-            setTimeout(typeText, 1000); // Move to the next text
-          }
-        }
-
-        typeCharacter(); // Start typing the current text
-      }
-    }
-
-    typeText(); // Start typing texts
+    // typeTextAutomatic(texts, textBodyEl);
+    typeTextManual(texts, textBodyEl);
     setCharacterSprites(section.movingSprites);
   }
 

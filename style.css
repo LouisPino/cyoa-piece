@@ -59,12 +59,6 @@ button {
 }
 
 
-/* scrolling text container */
-.display-text-body {
-    border: 2px solid var(--sylvan-lavender);
-    min-height: 200px;
-}
-
 
 
 .landscape-required {
@@ -93,14 +87,7 @@ button {
     z-index: -1;
 }
 
-.bg-display {
-    min-width: 100vw;
-    min-height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
+
 
 .complete-screen-img {
     position: absolute;
@@ -172,32 +159,6 @@ button {
 
 }
 
-
-/*****Display Welcome  */
-.instructions-scroll-ctr {
-    position: absolute;
-    top: 40px;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 20vw;
-    height: 50vh;
-    font-size: small;
-}
-
-.scroll {
-    position: absolute;
-    width: 40vw;
-    height: 50vh;
-    top: 0;
-    right: 0;
-}
-
-#qrcode {
-    max-width: 5vw;
-    max-height: 5vw;
-}
 
 
 

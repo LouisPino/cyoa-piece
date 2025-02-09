@@ -1,11 +1,12 @@
 function changeBg(newSrc) {
     const container = document.getElementById("sandbox-bg-container");
     // Grab the current background image (if any)
-    const oldImg = container.querySelector("img.complete-screen-img");
+    const oldImg = container.querySelector("sandbox-bg");
 
     // Create the new image element
     const newImg = document.createElement("img");
-    newImg.classList.add("complete-screen-img");
+    newImg.classList.add("sandbox-bg");
+    newImg.id = "sandbox-bg"
     // Start off invisible and heavily blurred
     newImg.style.opacity = 0;
     newImg.style.filter = "blur(10px)";
@@ -42,6 +43,13 @@ function changeBg(newSrc) {
     console.log("Changing background to:", newSrc);
 }
 
+function changeDialogueSprite(newSrcName) {
+    const spriteEl = document.getElementById("sandbox-dialogue-sprite");
+    spriteEl.src = `/display/assets/dialogue/sprites/${newSrcName}`
+    console.log(spriteEl)
+}
+
+
 
 
 let iManual = 0; // Index for texts array
@@ -66,7 +74,7 @@ function nextLine() {
             j++;
             setTimeout(typeCharacter, 50); // Type the next character
         } else {
-            textBodyElGlobal.innerHTML += "<br>"; // Add a line break after the text
+            textBodyElGlobal.innerHTML += "<br> <br>"; // Add a line break after the text
             iManual++;
             //ADD AN ON MESSAGE FROM MAX TO SERVE THAT CALLD TYPETEXTMANUAL FUNCTION AGAIN
         }

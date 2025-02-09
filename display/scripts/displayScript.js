@@ -64,6 +64,9 @@ document.addEventListener("DOMContentLoaded", function () {
           else if (msg.data.name === "change-bg") {
             changeBg(msg.data.value)
           }
+          else if (msg.data.name === "dialogue-sprite") {
+            changeDialogueSprite(msg.data.value)
+          }
           break;
       }
     };

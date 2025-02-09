@@ -13,7 +13,7 @@
 
 html {
     position: fixed;
-    background-color: #444573;
+    background-color: black;
     overflow: hidden;
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
@@ -65,7 +65,19 @@ body {
 }
 
 .text-body {
-    background-color: #aeadcf;
+    /* background-color: #aeadcf; */
+    position: absolute;
+    left: 45%;
+    top: 48%;
+    /* border: 1px solid red; */
+    color: white;
+    z-index: 3;
+    min-width: 38%;
+    max-width: 38%;
+    min-height: 40%;
+    max-height: 40%;
+    line-height: 1.5rem;
+
 }
 
 /* Container for the background images */
@@ -80,8 +92,22 @@ body {
     /* behind your other content */
 }
 
+#sandbox-dialogue-box,
+#sandbox-dialogue-sprite-box {
+    z-index: 1;
+    /* behind your other content */
+}
+
 /* Background images */
 .complete-screen-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Background images */
+#sandbox-bg {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -92,7 +118,10 @@ body {
     opacity: 1;
 }
 
-
+#sandbox-dialogue-sprite,
+#sandbox-dialogue-name {
+    z-index: 2;
+}
 
 
 /*****Display Welcome  */

@@ -1,4 +1,6 @@
 let ipAddress;
+const promptVoteTime = 3000
+const voteLength = 10000 - promptVoteTime
 document.addEventListener("DOMContentLoaded", function () {
   let locations;
   let extras;
@@ -41,17 +43,23 @@ document.addEventListener("DOMContentLoaded", function () {
           revealCharacter(msg.data);
           break;
         case "vote":
+
           switch (msg.data.type) {
             case "skin":
-              promptVote();
-              toggleSkinHTML(msg.data.item);
+              promptVote(mainEl, extras)
+              setTimeout(() => {
+                displayVote(mainEl, extras, voteLength);
+                toggleSkinHTML(msg.data.item);
+              }, promptVoteTime)
               break;
             case "skinChoice":
               displaySkinChoice(msg.data.item, msg.data.winner);
               break;
             case "path":
-              promptVote();
-              break;
+              promptVote(mainEl, extras)
+              setTimeout(() => {
+                displayVote(mainEl, extras, voteLength);
+              }, promptVoteTime)
           }
           break;
         case "game-score":
@@ -150,9 +158,6 @@ document.addEventListener("DOMContentLoaded", function () {
       guyEl.src = "https://cdn.dribbble.com/users/2194692/screenshots/4931328/media/2be30908d56c5cc3e6a3bb3090bed0d0.jpg"
     }
   }
-
-
-
 
 
 });

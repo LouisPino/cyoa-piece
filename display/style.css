@@ -16,8 +16,6 @@ html {
     background-color: black;
     overflow: hidden;
     height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
-    width: calc(var(--vw, 1vw) * 100);
     touch-action: manipulation;
     font-family: "Press Start 2P", serif;
     /* border: 5px solid green; */
@@ -39,6 +37,7 @@ body {
     width: 100vw;
     margin: 0;
     padding: 0;
+    /* border: 1px solid blue */
 }
 
 
@@ -104,6 +103,8 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    left: 0;
+    top: 0;
 }
 
 /* Background images */
@@ -148,4 +149,38 @@ body {
 #qrcode {
     max-width: 5vw;
     max-height: 5vw;
+}
+
+.vote-bg {
+    z-index: 1;
+}
+
+.vote-heading,
+.vote-prompt,
+.vote-selection {
+    z-index: 2;
+}
+
+.vote-time-div {
+    position: relative;
+    /* This is crucial for z-index to work */
+
+    background-color: var(--sylvan-light);
+    width: 100%;
+    height: 5vh;
+    z-index: 50;
+    left: 0;
+}
+
+
+
+@keyframes voteTimer {
+    0% {
+        width: 100%;
+    }
+
+    /* Adjust jump height */
+    100% {
+        width: 0;
+    }
 }

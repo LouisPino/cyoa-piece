@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 4122.0, 675.0, 504.0, 880.0 ],
+		"rect" : [ 3876.0, 675.0, 504.0, 880.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -118,7 +118,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 194.0, 418.0, 228.0, 22.0 ],
-					"presentation_linecount" : 3,
 					"text" : "sandbox dialogue-sprite Frog_Happy.png"
 				}
 
@@ -155,7 +154,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 73.0, 592.0, 406.0, 50.0 ],
-					"presentation_linecount" : 3,
 					"text" : "sandbox change-bg https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA8xZg_4E4q3c5MoBnXHFE4JcZRN3q6L9xKQ&s"
 				}
 

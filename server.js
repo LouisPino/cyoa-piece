@@ -9,7 +9,12 @@ const [skinOptions, characters] = require("./characters/default.js")
 let currentLocation = locations["welcome"]
 const voteLength = 10000
 let gameScores = []
-
+let history = {
+    locationsVisited: [],
+    madLibWords: [],
+    enemies: {},
+    buff: ""
+}
 
 /////////////////////////Initialize server
 const server = http.createServer((req, res) => {
@@ -154,6 +159,7 @@ function sendToDisplay(data) {
 
 function sendSectionChange(location) {
     currentLocation = location
+    history.locationsVisited.push(location)
     sendToWebClients({ type: "section", data: location })
     sendToDisplay({ type: "section", data: location })
 }

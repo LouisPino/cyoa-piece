@@ -76,6 +76,9 @@ document.addEventListener("DOMContentLoaded", function () {
           else if (msg.data.name === "dialogue-sprite") {
             changeDialogueSprite(msg.data.value)
           }
+          else if (msg.data.name === "toggle-box") {
+            toggleBox()
+          }
           break;
       }
     };

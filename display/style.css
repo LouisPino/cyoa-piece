@@ -71,12 +71,10 @@ body {
     /* border: 1px solid red; */
     color: white;
     z-index: 3;
-    min-width: 38%;
-    max-width: 38%;
-    min-height: 40%;
-    max-height: 40%;
-    line-height: 1.5rem;
-
+    width: 38%;
+    height: 40%;
+    line-height: 2rem;
+    font-size: 1.5rem;
 }
 
 /* Container for the background images */

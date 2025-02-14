@@ -18,4 +18,5 @@ function promptVote(mainEl, extras) {
         (extra) => extra.name === "votePrompt"
     )[0].content;
     mainEl.innerHTML += html
+    setTimeout(() => { document.getElementById("vote-prompt").style.top = "0px" }, 10)
 }

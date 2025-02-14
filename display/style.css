@@ -154,10 +154,16 @@ body {
 }
 
 .vote-heading,
-.vote-prompt,
+#vote-prompt,
 .vote-selection {
     z-index: 2;
 }
+
+#vote-prompt {
+    top: 100%;
+    transition: top .2s ease-in;
+}
+
 
 .vote-time-div {
     position: relative;

@@ -11,7 +11,6 @@ function displayVote(mainEl, extras, voteLength) {
             clearInterval(countdown);
         }
     }, 1000);
-
 }
 
 function promptVote(mainEl, extras) {

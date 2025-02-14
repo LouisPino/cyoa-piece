@@ -1,4 +1,4 @@
-const voteLength = 10000
+let voteLength = 10000
 
 function startVote(section) {
     mainEl.innerHTML = extras.filter((extra) => (extra.name === "vote"))[0].content//get vote html

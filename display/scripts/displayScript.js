@@ -1,6 +1,6 @@
 let ipAddress;
 const promptVoteTime = 3000
-const voteLength = 10000 - promptVoteTime
+let voteLength
 document.addEventListener("DOMContentLoaded", function () {
   let locations;
   let extras;
@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
           ipAddress = msg.data;
           break;
         case `initialFileServe`:
+          voteLength = msg.data["voteLength"] - promptVoteTime
           locations = msg.data["locations"];
           extras = msg.data.extras;
           scripts = msg.data.scripts;

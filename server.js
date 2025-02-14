@@ -15,6 +15,7 @@ let history = {
     enemies: {},
     buff: ""
 }
+let voting = false
 
 /////////////////////////Initialize server
 const server = http.createServer((req, res) => {
@@ -106,7 +107,12 @@ wss.on('connection', (ws, req) => {
         sendToDisplay({ type: "section", data: currentLocation })
     } else {
         ws.send(JSON.stringify({ type: 'initialFileServe', data: { locations: locations, extras: mobileExtras, scripts: mobileScripts, voteLength: voteLength } }))
-        ws.send(JSON.stringify({ type: "section", data: currentLocation }))
+        if (!voting) {
+            ws.send(JSON.stringify({ type: "section", data: currentLocation }))
+        } else {
+            ws.send(JSON.stringify({ type: "vote", data: { type: "path" } }))
+
+        }
     }
 
     // On receiving a message from web client, send to Max
@@ -179,7 +185,6 @@ function punchBadGuy() {
 
 
 ////////////////////////voting
-let voting = false
 let choices = { choice1: 0, choice2: 0, choice3: 0, choice4: 0, choice5: 0, }
 
 function handleVote(vote) {

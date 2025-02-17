@@ -96,10 +96,11 @@ button {
     height: 100px;
 }
 
-#wizard-sprite {
-    left: 100px;
+#dvd-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
 }
-
 
 
 

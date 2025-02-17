@@ -1,10 +1,10 @@
 function dvdBounce() {
-    const container = document.getElementById('container');
+    const container = document.getElementById('dvd-container');
     const sprites = document.querySelectorAll('.sprite');
     // For each sprite, initialize its position and velocity, then start its own animation loop.
     sprites.forEach(sprite => {
         // For the red sprite, set a different initial position.
-        if (sprite.classList.contains('red')) {
+        if (sprite.id === "wizard-sprite") {
             sprite.style.left = '400px';
             sprite.style.top = '300px';
         } else {

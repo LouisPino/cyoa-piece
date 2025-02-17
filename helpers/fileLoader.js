@@ -11,6 +11,9 @@ const displayExtrasDir = path.join(__dirname, '../display/html/extras');
 // Directory for JS scripts
 const mobileScriptsDir = path.join(__dirname, '../mobile/scripts');
 const displayScriptsDir = path.join(__dirname, '../display/scripts');
+// Directory for JS scripts
+const mobileLocationScriptsDir = path.join(__dirname, '../mobile/scripts/locations');
+const displayLocationScriptsDir = path.join(__dirname, '../display/scripts/locations');
 
 // Function to read all HTML files in a directory
 function readHtmlFiles(dir) {
@@ -50,6 +53,8 @@ const displayExtras = readHtmlFiles(displayExtrasDir);
 // Get contents of all JavaScript files in the scripts directory
 const mobileScripts = readScriptFiles(mobileScriptsDir);
 const displayScripts = readScriptFiles(displayScriptsDir);
+const mobileLocationScripts = readScriptFiles(mobileLocationScriptsDir);
+const displayLocationScripts = readScriptFiles(displayLocationScriptsDir);
 
 // Helper functions to get a single HTML file for mobile and display
 function getMobile(filename) {
@@ -62,4 +67,4 @@ function getDisplay(filename) {
     return fs.readFileSync(filePath, 'utf8');
 }
 
-module.exports = [locations, mobileExtras, displayExtras, displayScripts, mobileScripts];
+module.exports = [locations, mobileExtras, displayExtras, displayScripts, mobileScripts, mobileLocationScripts, displayLocationScripts];

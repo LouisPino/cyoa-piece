@@ -4,7 +4,7 @@ const path = require('path');
 const WebSocket = require('ws');
 const url = require('url');
 const IP4 = require('./helpers/ip4.js')
-const [locations, mobileExtras, displayExtras, displayScripts, mobileScripts] = require("./helpers/fileLoader.js")
+const [locations, mobileExtras, displayExtras, displayScripts, mobileScripts, mobileLocationScripts, displayLocationScripts] = require("./helpers/fileLoader.js")
 const [skinOptions, characters] = require("./characters/default.js")
 let currentLocation = locations["welcome"]
 const voteLength = 10000
@@ -103,10 +103,10 @@ wss.on('connection', (ws, req) => {
     connectedClients.push(ws)
     if (locationPath === "/display") {
         ws.send(JSON.stringify({ type: 'ip-address', data: IP4 }));
-        sendToDisplay({ type: 'initialFileServe', data: { locations: locations, extras: displayExtras, scripts: displayScripts, voteLength: voteLength } })
+        sendToDisplay({ type: 'initialFileServe', data: { locations: locations, extras: displayExtras, scripts: displayScripts, locationScripts: displayLocationScripts, voteLength: voteLength } })
         sendToDisplay({ type: "section", data: currentLocation })
     } else {
-        ws.send(JSON.stringify({ type: 'initialFileServe', data: { locations: locations, extras: mobileExtras, scripts: mobileScripts, voteLength: voteLength } }))
+        ws.send(JSON.stringify({ type: 'initialFileServe', data: { locations: locations, extras: mobileExtras, scripts: mobileScripts, voteLength: voteLength, locationScripts: mobileLocationScripts } }))
         if (!voting) {
             ws.send(JSON.stringify({ type: "section", data: currentLocation }))
         } else {

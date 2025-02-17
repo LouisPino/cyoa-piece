@@ -3,6 +3,7 @@ initializeWebSocket()
 let locations
 let extras
 let scripts
+let locationScripts
 let currentLocation
 function initializeWebSocket() {
     /////////////////Communcation
@@ -20,6 +21,7 @@ function initializeWebSocket() {
                 locations = msg.data["locations"]
                 extras = msg.data["extras"]
                 scripts = msg.data["scripts"]
+                locationScripts = msg.data["locationScripts"]
                 break
             case "section":
                 sectionChange(locations[msg.data.name])
@@ -70,15 +72,15 @@ function renderSelection(winner) {
 function sectionChange(section) {
     currentLocation = section
     toggleHTML()
-    runSectionScript(currentLocation.name)
+    runLocationScript(currentLocation.name)
 }
 
 function lookUp() {
     mainEl.innerHTML = '<h1 class="look-up">↑</h1>'
 }
 
-function runSectionScript(locationName) {
-    const scriptObj = scripts.filter(script => script.name === locationName)[0];
-    console.log(scriptObj)
-    eval(scriptObj?.content);
+function runLocationScript(locationName) {
+    const locationScriptObj = locationScripts.filter(script => script.name === locationName)[0];
+    console.log(locationScriptObj)
+    eval(locationScriptObj?.content);
 }

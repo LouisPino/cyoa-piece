@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let locations;
   let extras;
   let scripts;
+  let locationScripts;
   initializeWebSocket(location.hostname);
   function initializeWebSocket(ip) {
     const socket = new WebSocket(`ws://${ip}:8000/display`);
@@ -25,6 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
           locations = msg.data["locations"];
           extras = msg.data.extras;
           scripts = msg.data.scripts;
+          locationScripts = msg.data["locationScripts"]
+
           // for (script of scripts) {
           //   // run helper function declarations
           // //   if (["characterSelectAnimation", "qrcode.min.js", "voteHelpers"].includes(script.name))
@@ -96,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // }
 
   function runSectionScript(scriptName) {
-    const scriptObj = scripts.find(script => script.name === scriptName);
+    const scriptObj = locationScripts.find(script => script.name === scriptName);
     if (!scriptObj) {
       console.error(`Script with name "${scriptName}" not found.`);
       return;

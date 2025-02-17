@@ -79,5 +79,6 @@ function lookUp() {
 
 function runSectionScript(locationName) {
     const scriptObj = scripts.filter(script => script.name === locationName)[0];
+    console.log(scriptObj)
     eval(scriptObj?.content);
 }

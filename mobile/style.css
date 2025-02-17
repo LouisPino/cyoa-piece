@@ -89,6 +89,20 @@ button {
 
 
 
+/* mobile displays */
+.sprite {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+
+#wizard-sprite {
+    left: 100px;
+}
+
+
+
+
 .complete-screen-img {
     position: absolute;
     top: 0;

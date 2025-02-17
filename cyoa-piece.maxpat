@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 3876.0, 675.0, 504.0, 880.0 ],
+		"rect" : [ 1767.0, 314.0, 662.0, 880.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,13 +40,25 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-44",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 74.0, 715.0, 113.0, 22.0 ],
+					"text" : "sandbox toggle-box"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-53",
 					"maxclass" : "button",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 198.0, 463.0, 24.0, 24.0 ]
+					"patching_rect" : [ 182.0, 454.0, 24.0, 24.0 ]
 				}
 
 			}
@@ -1987,13 +1999,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-20",
-					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 102.0, 6.0, 78.0, 36.0 ],
-					"text" : "/switch forestNorth"
+					"patching_rect" : [ 102.0, 6.0, 78.0, 22.0 ],
+					"text" : "/switch cave"
 				}
 
 			}
@@ -3217,6 +3228,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-10", 0 ],
 					"source" : [ "obj-43", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-10", 0 ],
+					"source" : [ "obj-44", 0 ]
 				}
 
 			}

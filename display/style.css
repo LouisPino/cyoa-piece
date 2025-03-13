@@ -13,7 +13,7 @@
 
 html {
     position: fixed;
-    background-color: black;
+    /* background-color: black; */
     overflow: hidden;
     height: 100vh;
     touch-action: manipulation;
@@ -147,6 +147,8 @@ body {
 #qrcode {
     max-width: 5vw;
     max-height: 5vw;
+    min-height: 5vw;
+    border: 1px solid red;
 }
 
 .vote-bg {

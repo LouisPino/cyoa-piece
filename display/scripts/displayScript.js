@@ -30,9 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
           // for (script of scripts) {
           //   // run helper function declarations
-          // //   if (["characterSelectAnimation", "qrcode.min.js", "voteHelpers"].includes(script.name))
-          // //     runSetupScript(script.name)
-          // // }
+          //   if (["characterSelectAnimation", "qrcode.min.js", "voteHelpers"].includes(script.name))
+          //     runSetupScript(script.name)
+          // }
           break;
         case "section":
           sectionChange(locations[msg.data.name]);
@@ -105,7 +105,6 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
     eval(scriptObj.content)
-
   }
 
 

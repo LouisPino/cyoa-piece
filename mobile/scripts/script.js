@@ -84,3 +84,16 @@ function runLocationScript(locationName) {
     console.log(locationScriptObj)
     eval(locationScriptObj?.content);
 }
+
+
+window.addEventListener("devicemotion", (event) => {
+    console.log("hit")
+    if (event.rotationRate) {
+        console.log("Gyroscope Data:");
+        console.log("Alpha (Z-axis):", event.rotationRate.alpha);
+        console.log("Beta (X-axis):", event.rotationRate.beta);
+        console.log("Gamma (Y-axis):", event.rotationRate.gamma);
+    } else {
+        console.log("Gyroscope not supported.");
+    }
+});

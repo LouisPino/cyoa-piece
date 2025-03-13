@@ -20,17 +20,21 @@ document.addEventListener("touchend", function (evt) {
         if (xDiff > 20) {
             console.log("left");
             xEl.innerHTML = "YOU SMACKED ME";
+            sendToServer({ type: "attack", val: "smack" })
         } else if (xDiff < -20) {
             console.log("right");
             xEl.innerHTML = "YOU SMACKED ME";
+            sendToServer({ type: "attack", val: "smack" })
         }
     } else {
         if (yDiff > 20) {
             console.log("UP");
             xEl.innerHTML = "A FUCKING UPPPERCUT?";
+            sendToServer({ type: "attack", val: "uppercut" })
         } else if (yDiff < -20) {
             console.log("DOWN");
             xEl.innerHTML = "WATCH THE HAIR ASSHOLE";
+            sendToServer({ type: "attack", val: "smash" })
         }
     }
 

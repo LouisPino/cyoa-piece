@@ -17,6 +17,11 @@ let history = {
 }
 let voting = false
 
+let bossHealth = 10
+
+
+
+
 /////////////////////////Initialize server
 const server = http.createServer((req, res) => {
     let filePath
@@ -135,6 +140,9 @@ wss.on('connection', (ws, req) => {
                 gameScores.push(data.val)
                 renderGameLeaderboard()
                 break
+            case "attack":
+                handleAttack(data.val)
+                break
         }
     });
     ws.on('close', () => {
@@ -169,16 +177,6 @@ function sendSectionChange(location) {
     sendToWebClients({ type: "section", data: location })
     sendToDisplay({ type: "section", data: location })
 }
-
-
-////////audience kill bad guy test
-let badguyhealth = 5
-function punchBadGuy() {
-    badguyhealth--
-    sendToDisplay({ type: "badguy", data: badguyhealth })
-}
-
-
 
 
 
@@ -274,6 +272,19 @@ function intermissionTrigger() {
     sendToWebClients({ type: "intermission" });
     sendToDisplay({ type: "intermission" }); // Display the choice prompt + image
 
+}
+
+function handleAttack(attackType) {
+    console.log(attackType)
+    bossHealth--
+    if (bossHealth === 0) {
+        endFight()
+    }
+    console.log(bossHealth)
+}
+
+function endFight() {
+    console.log("you.....you killed him")
 }
 
 

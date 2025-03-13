@@ -1,0 +1,41 @@
+const xEl = document.getElementById("x-axis")
+let xDown = null;
+let yDown = null;
+
+document.addEventListener("touchstart", function (evt) {
+    xDown = evt.touches[0].clientX;
+    yDown = evt.touches[0].clientY;
+});
+
+document.addEventListener("touchend", function (evt) {
+    if (xDown === null || yDown === null) return;
+
+    let xUp = evt.changedTouches[0].clientX;
+    let yUp = evt.changedTouches[0].clientY;
+
+    let xDiff = xDown - xUp;
+    let yDiff = yDown - yUp;
+
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        if (xDiff > 20) {
+            console.log("left");
+            xEl.innerHTML = "YOU SMACKED ME";
+        } else if (xDiff < -20) {
+            console.log("right");
+            xEl.innerHTML = "YOU SMACKED ME";
+        }
+    } else {
+        if (yDiff > 20) {
+            console.log("UP");
+            xEl.innerHTML = "A FUCKING UPPPERCUT?";
+        } else if (yDiff < -20) {
+            console.log("DOWN");
+            xEl.innerHTML = "WATCH THE HAIR ASSHOLE";
+        }
+    }
+
+    xDown = null;
+    yDown = null;
+});
+
+

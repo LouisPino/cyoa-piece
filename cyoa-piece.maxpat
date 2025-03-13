@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 2595.0, 476.0, 861.0, 880.0 ],
+		"rect" : [ 2595.0, 476.0, 750.0, 880.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -153,7 +153,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 194.0, 418.0, 228.0, 22.0 ],
+					"patching_rect" : [ 102.0, 415.0, 228.0, 22.0 ],
 					"text" : "sandbox dialogue-sprite Frog_Happy.png"
 				}
 
@@ -213,7 +213,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 66.0, 509.0, 402.0, 36.0 ],
+					"patching_rect" : [ 66.0, 524.0, 402.0, 36.0 ],
 					"text" : "sandbox change-bg https://media.tenor.com/NbEN7Ga0VDgAAAAM/hiking-world-water-day.gif"
 				}
 
@@ -299,7 +299,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 54.0, 192.0, 152.0, 22.0 ],
+					"patching_rect" : [ 409.0, 279.0, 152.0, 22.0 ],
 					"text" : "fromsymbol @separator \" \""
 				}
 
@@ -311,7 +311,7 @@
 					"numinlets" : 3,
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "" ],
-					"patching_rect" : [ 54.0, 216.0, 99.0, 22.0 ],
+					"patching_rect" : [ 409.0, 303.0, 99.0, 22.0 ],
 					"text" : "route drum synth"
 				}
 
@@ -332,7 +332,7 @@
 					"numoutlets" : 4,
 					"offset" : [ 0.0, 0.0 ],
 					"outlettype" : [ "signal", "signal", "", "" ],
-					"patching_rect" : [ 494.0, 876.0, 403.0, 196.0 ],
+					"patching_rect" : [ 1014.0, 787.0, 403.0, 196.0 ],
 					"presentation_linecount" : 2,
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
@@ -422,24 +422,6 @@
 
 									}
 ,
-									"fileref" : 									{
-										"name" : "ChamberVerb.amxd",
-										"filename" : "ChamberVerb.amxd.maxsnap",
-										"filepath" : "~/Documents/Max 8/Snapshots",
-										"filepos" : -1,
-										"snapshotfileid" : "93fd7bfed09e17832926b5edfe743a7e"
-									}
-
-								}
-, 								{
-									"filetype" : "C74Snapshot",
-									"version" : 2,
-									"minorversion" : 0,
-									"name" : "ChamberVerb.amxd",
-									"origin" : "ChamberVerb.amxd",
-									"type" : "amxd",
-									"subtype" : "Undefined",
-									"embed" : 0,
 									"fileref" : 									{
 										"name" : "ChamberVerb.amxd",
 										"filename" : "ChamberVerb.amxd.maxsnap",
@@ -768,6 +750,8 @@
 					"patching_rect" : [ 1920.0, 750.0, 63.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"enabled" : [ 1 ],
+						"pitchshift" : [ 0.80511811023622 ],
+						"pitchshiftcent" : [ -375 ],
 						"quality" : "basic",
 						"reportlatency" : 0,
 						"usecents" : 0
@@ -896,6 +880,8 @@
 					"patching_rect" : [ 1911.0, 473.0, 63.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"enabled" : [ 1 ],
+						"pitchshift" : [ 0.30511811023622 ],
+						"pitchshiftcent" : [ -2055 ],
 						"quality" : "basic",
 						"reportlatency" : 0,
 						"usecents" : 0
@@ -1576,7 +1562,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 0,
-					"patching_rect" : [ 360.0, 527.0, 55.0, 22.0 ],
+					"patching_rect" : [ 533.0, 606.0, 55.0, 22.0 ],
 					"text" : "dac~ 1 2"
 				}
 
@@ -1776,7 +1762,7 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 517.5, 439.0, 148.0, 26.0 ],
+					"patching_rect" : [ 583.5, 381.0, 148.0, 26.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ]
@@ -1790,7 +1776,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 517.5, 415.0, 29.5, 22.0 ],
+					"patching_rect" : [ 583.5, 357.0, 29.5, 22.0 ],
 					"text" : "1"
 				}
 
@@ -1802,7 +1788,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 517.5, 480.0, 29.5, 22.0 ],
+					"patching_rect" : [ 583.5, 422.0, 29.5, 22.0 ],
 					"text" : "1"
 				}
 
@@ -1837,7 +1823,7 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 517.5, 504.0, 150.0, 30.0 ],
+					"patching_rect" : [ 583.5, 446.0, 150.0, 30.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ]
@@ -1851,7 +1837,7 @@
 					"numinlets" : 4,
 					"numoutlets" : 4,
 					"outlettype" : [ "bang", "bang", "bang", "" ],
-					"patching_rect" : [ 343.0, 390.0, 54.0, 22.0 ],
+					"patching_rect" : [ 409.0, 332.0, 54.0, 22.0 ],
 					"text" : "sel 1 2 3"
 				}
 
@@ -1875,7 +1861,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 343.0, 415.0, 29.5, 22.0 ],
+					"patching_rect" : [ 409.0, 357.0, 29.5, 22.0 ],
 					"text" : "1"
 				}
 
@@ -1911,7 +1897,7 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 343.0, 439.0, 163.0, 26.0 ],
+					"patching_rect" : [ 409.0, 381.0, 163.0, 26.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ]

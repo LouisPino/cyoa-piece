@@ -5,6 +5,7 @@ let extras
 let scripts
 let locationScripts
 let currentLocation
+let fighting = true
 function initializeWebSocket() {
     /////////////////Communcation
     // Confirm connection success
@@ -50,6 +51,11 @@ function initializeWebSocket() {
             case "character":
                 lookUp()
                 break
+            case "bossFight":
+                if (msg.data === "endFight") {
+                    endFight()
+                }
+                break
         }
     };
 }
@@ -86,4 +92,10 @@ function runLocationScript(locationName) {
 }
 
 
+
+function endFight() {
+    fighting = false
+    const xEl = document.getElementById("bad-guy")
+    xEl.innerHTML = "I am in fact dead."
+}
 

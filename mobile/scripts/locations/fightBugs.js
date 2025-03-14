@@ -3,8 +3,10 @@ let xDown = null;
 let yDown = null;
 
 document.addEventListener("touchstart", function (evt) {
-    xDown = evt.touches[0].clientX;
-    yDown = evt.touches[0].clientY;
+    if (fighting) {
+        xDown = evt.touches[0].clientX;
+        yDown = evt.touches[0].clientY;
+    }
 });
 
 document.addEventListener("touchend", function (evt) {

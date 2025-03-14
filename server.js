@@ -277,17 +277,15 @@ function intermissionTrigger() {
 function handleAttack(attackType) {
     console.log(attackType)
     bossHealth--
-    if (bossHealth > 0) {
-        sendToDisplay({ type: "bossHealth", data: bossHealth / bossMaxHealth })
-    } else {
-        endFight()
-        sendToDisplay({ type: "bossHealth", data: "you.....you fucking killed him" })
-    }
+    sendToDisplay({ type: "bossHealth", data: bossHealth / bossMaxHealth })
     console.log(bossHealth / bossMaxHealth, "%")
+    if (bossHealth === 0) { endFight() }
+
 }
 
 function endFight() {
     console.log("you.....you killed him")
+    sendToWebClients({ type: "bossFight", data: "endFight" })
 }
 
 

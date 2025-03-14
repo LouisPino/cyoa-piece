@@ -160,9 +160,8 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(bossHealth)
     let healthBar = document.getElementById("health-bar")
     healthBar.style.width = bossHealth * 100 + "%"
-    if (bossHealth[0] === "y") {
+    if (bossHealth === 0) {
       healthBar.style.width = "0"
-
     }
   }
 

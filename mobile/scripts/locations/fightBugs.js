@@ -1,4 +1,4 @@
-const xEl = document.getElementById("x-axis")
+const xEl = document.getElementById("bad-guy")
 let xDown = null;
 let yDown = null;
 

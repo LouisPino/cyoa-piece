@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         case "intermission":
           intermissionStart();
           break;
-        case "badguy":
+        case "bossHealth":
           punchBadGuy(msg.data);
           break;
         case "character":
@@ -155,13 +155,14 @@ document.addEventListener("DOMContentLoaded", function () {
   //   console.log("it is intermission now");
   // }
 
-  function punchBadGuy(badguyhealth) {
-    let guyEl = document.getElementById("bad-guy")
-    if (badguyhealth < 4) {
-      guyEl.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx4ZdHAZCyp05x-CkfDVdtzuRY0b0mJ40izg&s"
-    }
-    if (badguyhealth < 1) {
-      guyEl.src = "https://cdn.dribbble.com/users/2194692/screenshots/4931328/media/2be30908d56c5cc3e6a3bb3090bed0d0.jpg"
+  //health is in %
+  function punchBadGuy(bossHealth) {
+    console.log(bossHealth)
+    let healthBar = document.getElementById("health-bar")
+    healthBar.style.width = bossHealth * 100 + "%"
+    if (bossHealth[0] === "y") {
+      healthBar.style.width = "0"
+
     }
   }
 

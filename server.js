@@ -17,8 +17,8 @@ let history = {
 }
 let voting = false
 
-let bossHealth = 10
-
+const bossMaxHealth = 15
+let bossHealth = bossMaxHealth
 
 
 
@@ -277,10 +277,13 @@ function intermissionTrigger() {
 function handleAttack(attackType) {
     console.log(attackType)
     bossHealth--
-    if (bossHealth === 0) {
+    if (bossHealth > 0) {
+        sendToDisplay({ type: "bossHealth", data: bossHealth / bossMaxHealth })
+    } else {
         endFight()
+        sendToDisplay({ type: "bossHealth", data: "you.....you fucking killed him" })
     }
-    console.log(bossHealth)
+    console.log(bossHealth / bossMaxHealth, "%")
 }
 
 function endFight() {

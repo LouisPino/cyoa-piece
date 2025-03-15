@@ -10,8 +10,8 @@ function changeBg(newSrc) {
     // Start off invisible and heavily blurred
     newImg.style.opacity = 0;
     newImg.style.filter = "blur(10px)";
-    newImg.src = newSrc;
-
+    newImg.src = `display/assets/backgrounds/${newSrc}`;
+    console.log(newSrc)
     // Append the new image into the container (above the old image)
     container.appendChild(newImg);
 

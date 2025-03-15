@@ -7,6 +7,14 @@ const locations = {
     choices: ["sandbox", "sandbox"],
     html: {},
   },
+  intro: {
+    name: "intro",
+    paths: ["kingdom", "kingdom"],
+    choicePrompt:
+      "intro",
+    choices: ["intro", "intro"],
+    html: {},
+  },
   kingdom: {
     name: "kingdom",
     paths: ["forestNorth", "forestSouth"],

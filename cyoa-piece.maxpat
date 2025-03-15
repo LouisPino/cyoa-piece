@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 2595.0, 476.0, 750.0, 880.0 ],
+		"rect" : [ 2595.0, 476.0, 861.0, 880.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,12 +40,36 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-41",
+					"maxclass" : "button",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 133.0, 185.0, 24.0, 24.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-38",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 284.5, 150.0, 32.0, 22.0 ],
+					"text" : "intro"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-94",
 					"linecount" : 3,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 81.5, 762.599999904632568, 50.5, 48.0 ],
+					"patching_rect" : [ 81.5, 762.599999904632568, 53.0, 48.0 ],
 					"text" : "Count through coll"
 				}
 
@@ -720,6 +744,8 @@
 					"patching_rect" : [ 2196.0, 483.0, 63.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"enabled" : [ 1 ],
+						"pitchshift" : [ 1.22244094488189 ],
+						"pitchshiftcent" : [ 348 ],
 						"quality" : "basic",
 						"reportlatency" : 0,
 						"usecents" : 0
@@ -836,8 +862,8 @@
 					"patching_rect" : [ 1920.0, 750.0, 63.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"enabled" : [ 1 ],
-						"pitchshift" : [ 0.805245165974627 ],
-						"pitchshiftcent" : [ -375 ],
+						"pitchshift" : [ 0.952755905511811 ],
+						"pitchshiftcent" : [ -84 ],
 						"quality" : "basic",
 						"reportlatency" : 0,
 						"usecents" : 0
@@ -966,8 +992,8 @@
 					"patching_rect" : [ 1911.0, 473.0, 63.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"enabled" : [ 1 ],
-						"pitchshift" : [ 0.305130859542539 ],
-						"pitchshiftcent" : [ -2055 ],
+						"pitchshift" : [ 0.346456692913386 ],
+						"pitchshiftcent" : [ -1835 ],
 						"quality" : "basic",
 						"reportlatency" : 0,
 						"usecents" : 0
@@ -1084,6 +1110,8 @@
 					"patching_rect" : [ 1624.0, 769.0, 63.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"enabled" : [ 1 ],
+						"pitchshift" : [ 0.840551181102362 ],
+						"pitchshiftcent" : [ -301 ],
 						"quality" : "basic",
 						"reportlatency" : 0,
 						"usecents" : 0
@@ -1212,6 +1240,8 @@
 					"patching_rect" : [ 1615.0, 496.0, 63.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"enabled" : [ 1 ],
+						"pitchshift" : [ 1.393700787401575 ],
+						"pitchshiftcent" : [ 575 ],
 						"quality" : "basic",
 						"reportlatency" : 0,
 						"usecents" : 0
@@ -1328,6 +1358,8 @@
 					"patching_rect" : [ 1319.0, 687.0, 63.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"enabled" : [ 1 ],
+						"pitchshift" : [ 0.456692913385827 ],
+						"pitchshiftcent" : [ -1357 ],
 						"quality" : "basic",
 						"reportlatency" : 0,
 						"usecents" : 0
@@ -1456,6 +1488,8 @@
 					"patching_rect" : [ 1319.0, 496.0, 63.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"enabled" : [ 1 ],
+						"pitchshift" : [ 1.269685039370079 ],
+						"pitchshiftcent" : [ 413 ],
 						"quality" : "basic",
 						"reportlatency" : 0,
 						"usecents" : 0
@@ -1572,6 +1606,8 @@
 					"patching_rect" : [ 1023.0, 687.0, 63.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"enabled" : [ 1 ],
+						"pitchshift" : [ 0.633858267716535 ],
+						"pitchshiftcent" : [ -789 ],
 						"quality" : "basic",
 						"reportlatency" : 0,
 						"usecents" : 0
@@ -1747,6 +1783,8 @@
 					"patching_rect" : [ 1023.0, 492.0, 63.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"enabled" : [ 1 ],
+						"pitchshift" : [ 0.883858267716535 ],
+						"pitchshiftcent" : [ -214 ],
 						"quality" : "basic",
 						"reportlatency" : 0,
 						"usecents" : 0
@@ -2101,12 +2139,13 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-20",
+					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 102.0, 6.0, 78.0, 22.0 ],
-					"text" : "/switch bats"
+					"patching_rect" : [ 102.0, 6.0, 78.0, 36.0 ],
+					"text" : "/sample \"drum 3\""
 				}
 
 			}
@@ -2168,8 +2207,16 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-6", 0 ],
+					"destination" : [ "obj-41", 0 ],
 					"order" : 1,
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-6", 0 ],
+					"order" : 2,
 					"source" : [ "obj-1", 0 ]
 				}
 
@@ -3326,6 +3373,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-86", 0 ],
+					"source" : [ "obj-38", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-29", 0 ],
 					"order" : 0,
 					"source" : [ "obj-39", 0 ]
@@ -3638,13 +3692,6 @@
 				"name" : "ChamberVerb.amxd",
 				"bootpath" : "C74:/packages/Max for Live/patchers/Max Audio Effect/Chamberverb",
 				"type" : "amxd",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "RiverTest.txt",
-				"bootpath" : "~/code/n64-button-tracker/max",
-				"patcherrelativepath" : "../n64-button-tracker/max",
-				"type" : "TEXT",
 				"implicit" : 1
 			}
  ],

@@ -120,7 +120,7 @@ wss.on('connection', (ws, req) => {
         }
     }
 
-    // On receiving a message from web client, send to Max
+    // On receiving a message from web client
     ws.on('message', message => {
         console.log(`Client Message: ${message}`)
         data = JSON.parse(message)
@@ -132,9 +132,6 @@ wss.on('connection', (ws, req) => {
                 break
             case "sample":
                 oscClient.send("/sample", data.val)
-                if (data.val === 'drum 3') {
-                    punchBadGuy()
-                }
                 break
             case "game-score":
                 gameScores.push(data.val)

@@ -1,5 +1,3 @@
-console.log("hit")
-
 function welcomeGame() {
     document.addEventListener('DOMContentLoaded', () => {
         // Use a short delay to ensure layout is complete
@@ -225,6 +223,8 @@ function welcomeGame() {
         document.body.scrollTop = 0; // For Safari
         document.documentElement.scrollTop = 0;
         window.scrollTo(0, 0)
+        adjustHeight()
+        adjustWidth()
     }
 
     //swipe events
@@ -306,17 +306,10 @@ function welcomeGame() {
     }
     function closeLeaderboardModal() {
         addToLeaderboardModalEl.style.visibility = "hidden"
+        resizeGameScreen()
     }
 
     //leaderboard
-    function addToLeaderboard() {
-        leaderboardModalNameEl[0].innerHTML = defaultLeaderboardHtml
-        addToLeaderboardModalBtnsEl.appendChild(submitScoreEl)
-        submitScoreEl.addEventListener("click", submitScore)
-        replayModalEl.style.visibility = "hidden"
-        addToLeaderboardModalEl.style.visibility = "visible"
-    }
-
     function submitScore() {
         const badWords = ["ASS", "COK", "FAG", "FCK", "CUM", "TIT", "KKK", "IDF", "NIG", "NGR", "SEX"];
         const inputEl = document.getElementById("score-letter-4")
@@ -330,6 +323,8 @@ function welcomeGame() {
         }
         document.querySelector(".add-to-leaderboard-modal-type-name").innerHTML = "Thanks!"
         sendToServer({ type: "game-score", val: { name: nameStr, score: score } })
+        resizeGameScreen()
+
     }
     // async function displayLeaderboard() {
     //     leaderboardFieldEl.innerHTML = "LEADERBOARD <br/><br/>";
@@ -612,5 +607,3 @@ function welcomeGameOld() {
 }
 
 welcomeGame()
-
-console.log("hit2")

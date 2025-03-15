@@ -1,4 +1,5 @@
 function displayLeaderboard(scores) {
+    console.log(scores)
     const leaderboardEl = document.querySelector(".leaderboard")
     leaderboardEl.innerHTML = ""
     let scoreEls = []

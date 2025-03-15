@@ -75,15 +75,13 @@ button {
 }
 
 .bg-mobile {
-    margin-left: 0;
-    padding-left: 0;
-    background-position: contain;
-    /* border: 1px solid red; */
+    min-width: 100vw;
+    min-height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
-    min-width: 100vw;
-    min-height: 100vh;
     z-index: -1;
 }
 
@@ -184,59 +182,92 @@ button {
 
 /***** Game */
 
+
 .enemy {
-    width: 50px;
-    height: 50px;
     right: -50px;
-    position: absolute
+    position: absolute;
+    border-bottom-left-radius: 25%;
 }
 
-.cat {
-    bottom: 0
+.spike {
+    bottom: 13%;
+    height: 25%;
+    border-top-left-radius: 25%;
 }
 
-.flower {
-    height: 75px;
-    top: 0;
-    rotate: 180deg;
-    z-index: 100;
+.bat {
+    height: 18%;
+    width: auto;
+    top: 30%;
+    z-index: 2;
+    object-fit: fill;
 }
 
 #game-box {
-    height: 60vh;
-    left: 0;
+    height: 100vh;
     width: 100vw;
     position: relative;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
     overflow: hidden;
-    margin: 0;
-    padding: 0;
 }
 
 .game-bg {
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-    object-fit: cover;
+    min-width: 100%;
+    height: auto;
+    left: auto;
+    object-fit: contain;
 }
+
 
 #game-character-sprite {
     position: absolute;
-    left: 5%;
-    width: 20%;
-    height: 90%;
-    bottom: 0;
+    left: 10%;
+    height: 40%;
+    width: auto;
+    max-width: 25%;
+    bottom: 20%;
+    object-fit: contain;
+    overflow: visible;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
 }
 
-#score {
+.game-character-sprite-div {
     position: absolute;
-    top: -16px;
-    right: 14px;
-    min-width: 25px;
-    min-height: fit-content;
-    padding: 4px 0;
-    background-color: white;
-    z-index: 20;
+    left: 15%;
+    height: 90%;
+    width: 20%;
+    bottom: 0;
+    overflow: visible;
+    /* border: 1px solid red; */
+}
+
+
+.fitted-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    overflow: visible;
+}
+
+.score-ctr {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+}
+
+#score-star {
+    height: 4rem;
+}
+
+#score-num {
+    color: gold;
     text-align: center;
+    font-size: 4rem;
 }
 
 .game-title {
@@ -244,42 +275,45 @@ button {
     margin: 0;
     text-align: center;
     padding: 0;
+
 }
 
-#welcome-p {
-    text-align: center;
+.leaderboard-field {
+    min-height: 50%;
+    max-height: 50%;
+    overflow-y: auto;
 }
 
 /* Jump Animation: Up and then Down over 0.5s */
 @keyframes jumpAnimation {
     0% {
-        bottom: 0;
+        bottom: 20%;
     }
 
     50% {
-        bottom: 200px;
+        bottom: 70%;
     }
 
     /* Adjust jump height */
     100% {
-        bottom: 0;
+        bottom: 20%;
     }
 }
 
 /* Dive Animation: Down and then Up over 0.5s */
 @keyframes diveAnimation {
     0% {
-        bottom: 0;
+        bottom: 20%;
     }
 
     /* Start from a higher position */
     50% {
-        bottom: -200px;
+        bottom: -20%;
     }
 
     /* Dive down */
     100% {
-        bottom: 0;
+        bottom: 20%;
     }
 }
 
@@ -296,6 +330,23 @@ button {
     }
 }
 
+@keyframes taunt {
+    0% {
+        rotate: -33deg;
+        /* Start off the screen on the right */
+    }
+
+    50% {
+        rotate: 33deg;
+        /* Move to the left and off the screen */
+    }
+
+    100% {
+        rotate: -33deg;
+        /* Start off the screen on the right */
+    }
+}
+
 .jump {
     animation: jumpAnimation 0.7s ease-in-out;
 }
@@ -304,12 +355,6 @@ button {
     animation: diveAnimation 0.7s ease-in-out;
 }
 
-.game-bg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -1
-}
 
 
 #replay-modal {
@@ -317,13 +362,93 @@ button {
     position: absolute;
     left: 15%;
     width: 70%;
-    height: 40vh;
+    max-height: 80vh;
     top: 20vh;
-    background-color: var(--sylvan-blue);
+    background-color: var(--sylvan-purple);
     border: 3px solid black;
-    z-index: 50;
+    z-index: 3;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.replay-modal-l {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    border-right: 3px solid black;
+    height: 100%;
+}
+
+.replay-modal-r {
+    width: 50%;
+    height: 100%;
+    border-left: 3px solid black;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.replay-modal-r-top {
+    width: 100%;
+    max-height: 25%;
+    height: fit-content;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#welcome-p {
+    padding: 0;
+    margin: 0;
     text-align: center;
 }
+
+
+#modal-score {
+    font-size: 6rem;
+}
+
+.play-again,
+#submit-prompt-btn {
+    font-size: 2rem;
+    padding: 8px;
+}
+
+
+.modal-enemy-img {
+    height: 80%;
+    width: 33%;
+    object-fit: contain;
+    animation: taunt 1s infinite;
+}
+
+.countdown {
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%);
+    height: 75%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: var(--sylvan-blue);
+    display: flex;
+    justify-content: center;
+    /* centers horizontally */
+    align-items: center;
+    /* centers vertically */
+}
+
+
+
 
 #add-to-leaderboard-btn {
     margin-top: 8px;
@@ -336,14 +461,15 @@ button {
     width: 70%;
     height: 40vh;
     top: 20vh;
-    background-color: aliceblue;
+    background-color: var(--sylvan-light);
     border: 3px solid black;
-    z-index: 50;
+    z-index: 4;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    background-color: var(--sylvan-lavender);
 }
 
 
@@ -361,6 +487,7 @@ button {
     display: flex;
     justify-content: space-around;
     height: 50px;
+    /* border: 1px solid purple; */
     margin-top: 20px;
     width: 40%;
     padding: 8px;
@@ -383,8 +510,13 @@ button {
 }
 
 
+a {
+    color: black;
+
+}
+
 /* When in portrait mode */
-@media only screen and (orientation: portrait) {
+@media only screen and (max-width: 700px) and (orientation: portrait) {
     .landscape-required {
         display: block;
     }
@@ -392,16 +524,49 @@ button {
     #main {
         visibility: hidden;
     }
+
+    #replay-modal {
+        opacity: 0;
+    }
 }
 
 /* When in landscape mode */
 @media only screen and (orientation: landscape) {
     .landscape-required {
         display: none;
-        margin: 0;
     }
+
+
+    .play-again,
+    #submit-prompt-btn {
+        font-size: 1rem;
+        padding: 4px;
+    }
+
 
     #main {
         visibility: visible;
     }
+
+    #welcome-p {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        font-size: 1rem;
+        line-height: 1.2rem;
+    }
+
+    #replay-modal {
+        min-height: fit-content;
+        height: 85vh;
+        top: 7.5vh;
+        width: 95vw;
+        left: 2.5vw;
+    }
+
+    #modal-score {
+        font-size: 3rem;
+    }
+
+
 }

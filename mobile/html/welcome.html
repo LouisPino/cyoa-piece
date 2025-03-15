@@ -1,27 +1,62 @@
-<!-- <h2 class="game-title">The Sylvan Legacy</h2> -->
-<div id="game-box">
-    <p id="score">0</p>
-    <!-- <img class="game-bg" src="/mobile/assets/bgForestGif.gif" /> -->
-    <img class="game-bg" src="/mobile/assets/game/GameBgGif.gif" alt="">
-    <img id="game-character-sprite" src="/mobile/assets/game/Wizard.gif" />
-</div>
-<div id="replay-modal">
-    <h1 id="modal-score"></h1>
-    <button class="play-again">Play Again?</button>
-    <button id="add-to-leaderboard-btn">Add score to leaderboard?</button>
+<!-- portrait mode -->
+<div class="landscape-required">
+    <p class="please-rotate">
+        Please rotate your phone to landscape mode for the best experience.
+    </p>
 </div>
 
-<div id="add-to-leaderboard-modal">
-    <div class="add-to-leaderboard-modal-type-name">
-        <input type="text" maxlength="3" id="score-letter-4" class="score-letter"> </input>
+
+
+<div id="main">
+    <!-- game screen -->
+    <div id="game-box">
+        <div class="score-ctr">
+            <img src="/mobile/assets/game/star.gif" id="score-star" />
+            <p id="score-num">0</p>
+        </div>
+        <img class="game-bg" src="/mobile/assets/game/GameBgGif.gif" />
+        <img id="game-character-sprite" src="/mobile/assets/game/Jester_Stand.png" />
     </div>
-    <div class="add-to-leaderboard-modal-btns">
-        <button id="submit-score">Submit Score!</button>
-        <button class="play-again">Play Again?</button>
+
+    <!-- Replay Box -->
+    <div id="replay-modal">
+        <div class="replay-modal-l">
+            <p id="welcome-p">
+                Swipe or ↑ to jump,<br /> <br />
+                Swipe or ↓ to dodge,<br /> <br />
+                Tap or [space] to change character<br />
+                <br />
+            </p>
+            <a href="https://duocichorium.com/the-sylvan-legacy" target="_blank">Learn more about The Sylvan
+                Legacy
+            </a>
+        </div>
+
+
+        <div class="replay-modal-r">
+            <div class="replay-modal-r-top">
+                <img class="modal-enemy-img" src="/mobile/assets/game/Bat.png" />
+                <h1 id="modal-score"></h1>
+                <img class="modal-enemy-img" src="/mobile/assets/game/Spike.png" />
+            </div>
+            <div name="leaderboard" class="leaderboard-field">LEADERBOARD</div>
+            <div class="replay-modal-r-bottom">
+                <button id="submit-prompt-btn">BOAST!</button>
+                <button class="play-again">AGAIN!</button>
+            </div>
+        </div>
     </div>
+
+    <div id="add-to-leaderboard-modal">
+        <div class="add-to-leaderboard-modal-type-name">
+            <input type="text" maxlength="3" id="score-letter-4" class="score-letter"> </input>
+        </div>
+        <div class="add-to-leaderboard-modal-btns">
+            <button id="submit-score">Submit Score!</button>
+            <button class="play-again">Play Again?</button>
+        </div>
+    </div>
+
+
+
 </div>
-<p id="welcome-p">
-    Swipe up to jump,<br>
-    Swipe down to dodge,<br />
-    Tap to change character<br />
-</p>

@@ -167,7 +167,7 @@ function welcomeGame() {
         replayModalEl.style.visibility = "visible"
         // displayLeaderboard()
         gameRunning = false
-        setCharStanding()
+        // setCharStanding()
         clearTimeout(enemyLoop);
 
     }

@@ -203,7 +203,8 @@ function welcomeGame() {
         if (spriteCtr === 3) {
             spriteCtr = 0
         }
-        charEl.src = gameRunning ? sprites[spriteCtr] : standingSprites[spriteCtr]
+        // charEl.src = gameRunning ? sprites[spriteCtr] : standingSprites[spriteCtr]
+        charEl.src = sprites[spriteCtr]
     }
 
     function setCharRunning() {

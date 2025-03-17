@@ -331,9 +331,13 @@ oscServer.on('message', (msg, rinfo) => {
 
 //////////////////////////intro game
 function renderGameLeaderboard() {
-    let sortedScores = gameScores.sort((a, b) => {
-        return b.score - a.score
-    })
+    let sortedScores = gameScores
+        .sort((a, b) => b.score - a.score)
+        .map((player, index) => ({
+            ...player,
+            rank: index + 1
+        }));
+
     sendToDisplay({ type: "game-score", data: sortedScores.slice(0, 5) })
 }
 

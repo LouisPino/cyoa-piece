@@ -55,11 +55,6 @@ body {
 
 
 .bg-display {
-    min-width: 100vw;
-    min-height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
     z-index: -1;
 }
 
@@ -144,10 +139,23 @@ body {
     right: 0;
 }
 
-#qrcode {
+#qrcode1,
+#qrcode2 {
     max-width: 5vw;
     max-height: 5vw;
     min-height: 5vw;
+    position: absolute;
+    bottom: 234px;
+}
+
+#qrcode1 {
+    position: absolute;
+    left: 53px;
+}
+
+#qrcode2 {
+    position: absolute;
+    right: 210px;
 }
 
 .vote-bg {

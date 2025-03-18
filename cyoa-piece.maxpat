@@ -40,6 +40,31 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-44",
+					"linecount" : 4,
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 533.0, 863.0, 50.0, 64.0 ],
+					"text" : "sandbox toggle-box 0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-41",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 266.0, 632.0, 102.0, 22.0 ],
+					"text" : "read RiverTest.txt"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-40",
 					"linecount" : 4,
 					"maxclass" : "comment",
@@ -175,7 +200,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 352.666666666666742, 676.000000417232513, 131.0, 22.0 ],
-					"text" : "change-bg scroll.png"
+					"text" : "toggle-box sprite"
 				}
 
 			}
@@ -183,11 +208,11 @@
 				"box" : 				{
 					"id" : "obj-78",
 					"maxclass" : "newobj",
-					"numinlets" : 4,
-					"numoutlets" : 4,
-					"outlettype" : [ "", "", "", "" ],
-					"patching_rect" : [ 266.0, 700.000000417232513, 219.0, 22.0 ],
-					"text" : "route symbol change-bg dialogue-sprite"
+					"numinlets" : 5,
+					"numoutlets" : 5,
+					"outlettype" : [ "", "", "", "", "" ],
+					"patching_rect" : [ 266.0, 700.000000417232513, 279.0, 22.0 ],
+					"text" : "route symbol change-bg dialogue-sprite toggle-box"
 				}
 
 			}
@@ -199,7 +224,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 89.0, 868.400001287460327, 50.0, 22.0 ],
-					"text" : "7"
+					"text" : "2"
 				}
 
 			}
@@ -219,11 +244,11 @@
 				"box" : 				{
 					"id" : "obj-71",
 					"maxclass" : "newobj",
-					"numinlets" : 4,
-					"numoutlets" : 4,
-					"outlettype" : [ "", "", "", "" ],
-					"patching_rect" : [ 266.0, 779.599999964237213, 170.0, 22.0 ],
-					"text" : "route toggle-box next next-line"
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 266.0, 779.599999964237213, 85.0, 22.0 ],
+					"text" : "route next-line"
 				}
 
 			}
@@ -258,8 +283,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 266.0, 834.800000011920929, 113.0, 22.0 ],
-					"text" : "sandbox toggle-box"
+					"patching_rect" : [ 266.0, 834.800000011920929, 130.0, 22.0 ],
+					"text" : "sandbox toggle-box $1"
 				}
 
 			}
@@ -3387,6 +3412,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-2", 0 ],
+					"source" : [ "obj-41", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-84", 0 ],
 					"source" : [ "obj-43", 0 ]
 				}
@@ -3424,7 +3456,16 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-44", 1 ],
+					"order" : 0,
+					"source" : [ "obj-56", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-84", 0 ],
+					"order" : 1,
 					"source" : [ "obj-56", 0 ]
 				}
 
@@ -3526,21 +3567,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-36", 0 ],
-					"source" : [ "obj-71", 2 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-56", 0 ],
 					"source" : [ "obj-71", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-75", 0 ],
-					"source" : [ "obj-71", 1 ]
 				}
 
 			}
@@ -3555,6 +3582,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-43", 0 ],
 					"source" : [ "obj-78", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-56", 0 ],
+					"source" : [ "obj-78", 3 ]
 				}
 
 			}
@@ -3667,6 +3701,13 @@
 				"name" : "ChamberVerb.amxd",
 				"bootpath" : "C74:/packages/Max for Live/patchers/Max Audio Effect/Chamberverb",
 				"type" : "amxd",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "RiverTest.txt",
+				"bootpath" : "~/code/n64-button-tracker/max",
+				"patcherrelativepath" : "../n64-button-tracker/max",
+				"type" : "TEXT",
 				"implicit" : 1
 			}
  ],

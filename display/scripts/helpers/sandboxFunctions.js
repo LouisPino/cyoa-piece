@@ -86,25 +86,31 @@ function nextLine() {
 
 
 
-function toggleBox() {
+function toggleBox(arg) {
     const boxEl = document.getElementById("sandbox-dialogue-box")
     const spriteEl = document.getElementById("sandbox-dialogue-sprite")
     const spriteNameEl = document.getElementById("sandbox-dialogue-name")
     const textBodyEl = document.querySelector(".text-body")
-    if (boxEl.src === "http://localhost:8000/display/assets/dialogue/DialogueBox.png") {
+    if (arg === "sprite") {
         boxEl.src = "/display/assets/dialogue/DialogueSpriteBox.png"
         spriteEl.style.visibility = "visible"
         spriteNameEl.style.visibility = "visible"
         textBodyEl.style.width = "38%"
         textBodyEl.style.left = "45%"
-    } else {
+    } else if (arg === "dialogue") {
         boxEl.src = "/display/assets/dialogue/DialogueBox.png"
         spriteEl.style.visibility = "hidden"
         spriteNameEl.style.visibility = "hidden"
         textBodyEl.style.width = "65%"
         textBodyEl.style.left = "17.5%"
         textBodyEl.style.textAlign = "center"
+    } else if (arg === "none") {
+        boxEl.src = ""
+        spriteEl.style.visibility = "hidden"
+        spriteNameEl.style.visibility = "hidden"
+        textBodyEl.style.visibility = "hidden"
     }
+
 
 
     //remove sprite stuff

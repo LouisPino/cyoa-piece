@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
             changeDialogueSprite(msg.data.value)
           }
           else if (msg.data.name === "toggle-box") {
-            toggleBox()
+            toggleBox(msg.data.value)
           }
           break;
       }

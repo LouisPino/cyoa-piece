@@ -120,12 +120,22 @@ document.addEventListener("DOMContentLoaded", function () {
   function sectionChange(section) {
     toggleHTML(section);
     let textEls = document.querySelectorAll(".text")
-    let texts = []
+    let texts = [
+      // ENTER YOUR SCENE'S TEXT HERE AS AN ARRAY OF STRINGS ONE PER LINE
+      "*grumble grumble*",
+      " We… are the golems…Made of earth and mud…",
+      "*grumble* … you…you… YOU . . .  ",
+      "have come by at the perfect moment! *grumble*",
+      "We were just about to rehearse for the Sylvan Forest dance recital *grumble grumble*",
+      "Please, take a moment to watch our performance…",
+      " *grumble* Thank you for your time… Let us help you with your journey…*grumble* come over here…",
+      "We think this portal will take you where you need to go next…."
+    ]
     const textBodyEl = document.querySelector(".text-body")
-    for (el of textEls) {
-      texts.push(el.innerText)
-      el.remove()
-    }
+    // for (el of textEls) {
+    //   texts.push(el.innerText)
+    //   el.remove()
+    // }
     runSectionScript(section.name)
     // typeTextAutomatic(texts, textBodyEl);
     typeTextManual(texts, textBodyEl);

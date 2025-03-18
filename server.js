@@ -170,8 +170,6 @@ function sendToDisplay(data) {
 
 function sendSectionChange(location) {
     currentLocation = location
-    console.log(currentLocation)
-
     history.locationsVisited.push(location)
     sendToWebClients({ type: "section", data: location })
     sendToDisplay({ type: "section", data: location })
@@ -200,7 +198,6 @@ function triggerVote() {
 }
 
 function endVote(winner) {
-    console.log(currentLocation)
     switch (winner) {
         case (0):
             // choice 1

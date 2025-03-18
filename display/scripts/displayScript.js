@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "have come by at the perfect moment! *grumble*",
       "We were just about to rehearse for the Sylvan Forest dance recital *grumble grumble*",
       "Please, take a moment to watch our performance…",
-      " *grumble* Thank you for your time… Let us help you with your journey…*grumble* come over here…",
+      "*grumble* Thank you for your time… Let us help you with your journey…*grumble* come over here…",
       "We think this portal will take you where you need to go next…."
     ]
     const textBodyEl = document.querySelector(".text-body")

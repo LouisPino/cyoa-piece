@@ -61,11 +61,13 @@ let textBodyElGlobal
 function typeTextManual(texts, textBodyEl) {
     textsArr = texts
     textBodyElGlobal = textBodyEl
+    console.log(textsArr)
 }
 
 function nextLine() {
     const text = textsArr[iManual];
     let j = 0; // Index for characters in the current text
+    console.log(textBodyElGlobal)
 
     function typeCharacter() {
         if (j < text.length) {
@@ -91,12 +93,15 @@ function toggleBox(arg) {
         boxEl.src = "/display/assets/dialogue/DialogueSpriteBox.png"
         spriteEl.style.visibility = "visible"
         spriteNameEl.style.visibility = "visible"
+        textBodyEl.style.visibility = "visible"
         textBodyEl.style.width = "38%"
         textBodyEl.style.left = "45%"
     } else if (arg === "dialogue") {
         boxEl.src = "/display/assets/dialogue/DialogueBox.png"
         spriteEl.style.visibility = "hidden"
         spriteNameEl.style.visibility = "hidden"
+        textBodyEl.style.visibility = "visible"
+
         textBodyEl.style.width = "65%"
         textBodyEl.style.left = "17.5%"
         textBodyEl.style.textAlign = "center"
@@ -105,6 +110,7 @@ function toggleBox(arg) {
         spriteEl.style.visibility = "hidden"
         spriteNameEl.style.visibility = "hidden"
         textBodyEl.style.visibility = "hidden"
+        clearText()
     }
 }
 

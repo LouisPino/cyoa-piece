@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 2595.0, 476.0, 861.0, 880.0 ],
+		"rect" : [ 715.0, 121.0, 861.0, 880.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -93,8 +93,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 266.0, 632.0, 102.0, 22.0 ],
-					"text" : "read RiverTest.txt"
+					"patching_rect" : [ 266.0, 632.0, 115.0, 22.0 ],
+					"text" : "read GolemGuys.txt"
 				}
 
 			}
@@ -259,7 +259,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 89.0, 868.400001287460327, 50.0, 22.0 ],
-					"text" : "13"
+					"text" : "11"
 				}
 
 			}

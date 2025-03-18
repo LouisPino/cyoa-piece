@@ -271,10 +271,8 @@ function intermissionTrigger() {
 }
 
 function handleAttack(attackType) {
-    console.log(attackType)
     bossHealth--
     sendToDisplay({ type: "bossHealth", data: bossHealth / bossMaxHealth })
-    console.log(bossHealth / bossMaxHealth, "%")
     if (bossHealth === 0) { endFight() }
 
 }

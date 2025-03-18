@@ -11,7 +11,6 @@ function changeBg(newSrc) {
     newImg.style.opacity = 0;
     newImg.style.filter = "blur(10px)";
     newImg.src = `display/assets/backgrounds/${newSrc}`;
-    console.log(newSrc)
     // Append the new image into the container (above the old image)
     container.appendChild(newImg);
 
@@ -39,14 +38,11 @@ function changeBg(newSrc) {
             newImg.removeEventListener("transitionend", handler);
         }
     });
-
-    console.log("Changing background to:", newSrc);
 }
 
 function changeDialogueSprite(newSrcName) {
     const spriteEl = document.getElementById("sandbox-dialogue-sprite");
     spriteEl.src = `/display/assets/dialogue/sprites/${newSrcName}`
-    console.log(spriteEl)
 }
 
 
@@ -61,13 +57,11 @@ let textBodyElGlobal
 function typeTextManual(texts, textBodyEl) {
     textsArr = texts
     textBodyElGlobal = textBodyEl
-    console.log(textsArr)
 }
 
 function nextLine() {
     const text = textsArr[iManual];
     let j = 0; // Index for characters in the current text
-    console.log(textBodyElGlobal)
 
     function typeCharacter() {
         if (j < text.length) {
@@ -83,12 +77,18 @@ function nextLine() {
 }
 
 
+const outs = ["slide-down", "slide-out", "slide-out-fast", "fade-out-fast",]
+const ins = ["slide-up", "slide-in", "slide-in-fast", "fade-in-fast"]
 
 function toggleBox(arg) {
     const boxEl = document.getElementById("sandbox-dialogue-box")
     const spriteEl = document.getElementById("sandbox-dialogue-sprite")
     const spriteNameEl = document.getElementById("sandbox-dialogue-name")
     const textBodyEl = document.querySelector(".text-body")
+    boxEl.classList.remove(...outs)
+    textBodyEl.classList.remove(...outs)
+    spriteNameEl.classList.remove(...outs)
+    spriteEl.classList.remove(...outs)
     if (arg === "sprite") {
         boxEl.src = "/display/assets/dialogue/DialogueSpriteBox.png"
         spriteEl.style.visibility = "visible"
@@ -101,7 +101,6 @@ function toggleBox(arg) {
         spriteEl.style.visibility = "hidden"
         spriteNameEl.style.visibility = "hidden"
         textBodyEl.style.visibility = "visible"
-
         textBodyEl.style.width = "65%"
         textBodyEl.style.left = "17.5%"
         textBodyEl.style.textAlign = "center"
@@ -115,7 +114,141 @@ function toggleBox(arg) {
 }
 
 
+function slideBoxY(arg) {
+    const boxEl = document.getElementById("sandbox-dialogue-box");
+    const spriteEl = document.getElementById("sandbox-dialogue-sprite");
+    const spriteNameEl = document.getElementById("sandbox-dialogue-name");
+    const textBodyEl = document.querySelector(".text-body");
+    if (arg === "sprite") {
+        boxEl.src = "/display/assets/dialogue/DialogueSpriteBox.png";
+        boxEl.classList.remove(...outs)
+        textBodyEl.classList.remove(...outs)
+        spriteNameEl.classList.remove(...outs)
+        spriteEl.classList.remove(...outs)
+
+        boxEl.classList.add("slide-up")
+        textBodyEl.classList.add("slide-up")
+        spriteNameEl.classList.add("slide-up");
+        spriteEl.classList.add("slide-up")
+
+        spriteEl.style.visibility = "visible";
+        spriteNameEl.style.visibility = "visible";
+        textBodyEl.style.visibility = "visible";
+    } else if (arg === "dialogue") {
+        boxEl.src = "/display/assets/dialogue/DialogueBox.png";
+        boxEl.classList.remove(...outs)
+
+        boxEl.classList.add("slide-up")
+        textBodyEl.classList.add("slide-up")
+        textBodyEl.style.visibility = "visible";
+    } else if (arg === "none") {
+        // boxEl.src = "";
+        boxEl.classList.remove(...ins)
+        textBodyEl.classList.remove(...ins)
+        spriteNameEl.classList.remove(...ins)
+        spriteEl.classList.remove(...ins)
+        boxEl.classList.add("slide-down")
+        textBodyEl.classList.add("slide-down")
+        spriteNameEl.classList.add("slide-down");
+        spriteEl.classList.add("slide-down")
+        setTimeout(clearText, 500); // Ensure text clears after animation
+    }
+}
+
+
+
+
+function slideBoxX(arg) {
+    const boxEl = document.getElementById("sandbox-dialogue-box");
+    const spriteEl = document.getElementById("sandbox-dialogue-sprite");
+    const spriteNameEl = document.getElementById("sandbox-dialogue-name");
+    const textBodyEl = document.querySelector(".text-body");
+    if (arg === "sprite") {
+        boxEl.src = "/display/assets/dialogue/DialogueSpriteBox.png";
+        boxEl.classList.remove(...outs)
+        textBodyEl.classList.remove(...outs)
+        spriteNameEl.classList.remove(...outs)
+        spriteEl.classList.remove(...outs)
+
+        boxEl.classList.add("slide-in-fast")
+        textBodyEl.classList.add("slide-in-fast")
+        spriteNameEl.classList.add("slide-in-fast");
+        spriteEl.classList.add("slide-in-fast")
+
+        spriteEl.style.visibility = "visible";
+        spriteNameEl.style.visibility = "visible";
+        textBodyEl.style.visibility = "visible";
+    } else if (arg === "dialogue") {
+        boxEl.src = "/display/assets/dialogue/DialogueBox.png";
+        boxEl.classList.remove(...outs)
+
+        boxEl.classList.add("slide-in-fast")
+        textBodyEl.classList.add("slide-in-fast")
+        textBodyEl.style.visibility = "visible";
+    } else if (arg === "none") {
+        // boxEl.src = "";
+        boxEl.classList.remove(...ins)
+        textBodyEl.classList.remove(...ins)
+        spriteNameEl.classList.remove(...ins)
+        spriteEl.classList.remove(...ins)
+        boxEl.classList.add("slide-out-fast")
+        textBodyEl.classList.add("slide-out-fast")
+        spriteNameEl.classList.add("slide-out-fast");
+        spriteEl.classList.add("slide-out-fast")
+        setTimeout(clearText, 500); // Ensure text clears after animation
+    }
+}
+
+
+
+
+function fadeBox(arg) {
+    const boxEl = document.getElementById("sandbox-dialogue-box");
+    const spriteEl = document.getElementById("sandbox-dialogue-sprite");
+    const spriteNameEl = document.getElementById("sandbox-dialogue-name");
+    const textBodyEl = document.querySelector(".text-body");
+
+    if (arg === "sprite") {
+        boxEl.src = "/display/assets/dialogue/DialogueSpriteBox.png";
+
+        boxEl.classList.remove(...outs)
+        textBodyEl.classList.remove(...outs)
+        spriteNameEl.classList.remove(...outs)
+        spriteEl.classList.remove(...outs)
+
+        boxEl.classList.add("fade-in-fast")
+        textBodyEl.classList.add("fade-in-fast")
+        spriteNameEl.classList.add("fade-in-fast");
+        spriteEl.classList.add("fade-in-fast")
+
+
+    } else if (arg === "dialogue") {
+        boxEl.src = "/display/assets/dialogue/DialogueBox.png";
+        boxEl.classList.remove(...outs)
+        boxEl.classList.add("fade-in-fast")
+        textBodyEl.classList.add("fade-in-fast")
+
+        spriteEl.style.visibility = "hidden";
+        spriteNameEl.style.visibility = "hidden";
+        textBodyEl.style.visibility = "visible";
+    } else if (arg === "none") {
+        // boxEl.src = "";
+        boxEl.classList.remove(...ins)
+        textBodyEl.classList.remove(...ins)
+        spriteNameEl.classList.remove(...ins)
+        spriteEl.classList.remove(...ins)
+        boxEl.classList.add("fade-out-fast")
+        textBodyEl.classList.add("fade-out-fast")
+        spriteNameEl.classList.add("fade-out-fast");
+        spriteEl.classList.add("fade-out-fast")
+        setTimeout(clearText, 500); // Ensure text clears after animation
+    }
+}
+
+
+
+
+
 function clearText() {
     textBodyElGlobal.innerHTML = ""
-    console.log("test")
 }

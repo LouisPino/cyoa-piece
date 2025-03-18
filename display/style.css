@@ -97,6 +97,30 @@ body {
     animation: slideOut 1s ease-in-out forwards;
 }
 
+.slide-up {
+    animation: slideUp .4s ease-in-out forwards;
+}
+
+.slide-down {
+    animation: slideDown .4s ease-in-out forwards;
+}
+
+.slide-in-fast {
+    animation: slideIn .4s ease-in-out forwards;
+}
+
+.slide-out-fast {
+    animation: slideOut .4s ease-in-out forwards;
+}
+
+.fade-in-fast {
+    animation: fadein 1s ease-in-out forwards;
+}
+
+.fade-out-fast {
+    animation: fadeOut 1s ease-in-out forwards;
+}
+
 @keyframes slideIn {
     0% {
         transform: translateX(-100%);
@@ -117,6 +141,48 @@ body {
     }
 }
 
+@keyframes slideDown {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(100vh);
+        /* Moves element below the viewport */
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(100vh);
+        /* Start from below the viewport */
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
 
 
 
@@ -133,6 +199,8 @@ body {
     height: 40%;
     line-height: 2.5rem;
     font-size: 1.5rem;
+    transition: left 500ms ease-in-out;
+    transition: opacity 500ms ease-in-out;
 }
 
 /* Container for the background images */
@@ -150,6 +218,7 @@ body {
 #sandbox-dialogue-box,
 #sandbox-dialogue-sprite-box {
     z-index: 1;
+    transition: left 500ms ease-in-out;
     /* behind your other content */
 }
 

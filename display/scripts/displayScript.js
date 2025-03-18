@@ -82,6 +82,15 @@ document.addEventListener("DOMContentLoaded", function () {
           else if (msg.data.name === "toggle-box") {
             toggleBox(msg.data.value)
           }
+          else if (msg.data.name === "slide-boxX") {
+            slideBoxX(msg.data.value)
+          }
+          else if (msg.data.name === "slide-boxY") {
+            slideBoxY(msg.data.value)
+          }
+          else if (msg.data.name === "fade-box") {
+            fadeBox(msg.data.value)
+          }
           else if (msg.data.name === "clear-text") {
             clearText()
           }
@@ -170,7 +179,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //health is in %
   function punchBadGuy(bossHealth) {
-    console.log(bossHealth)
     let healthBar = document.getElementById("health-bar")
     healthBar.style.width = bossHealth * 100 + "%"
     if (bossHealth === 0) {

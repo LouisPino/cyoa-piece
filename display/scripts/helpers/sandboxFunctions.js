@@ -64,7 +64,6 @@ function typeTextManual(texts, textBodyEl) {
 }
 
 function nextLine() {
-    console.log("hit")
     const text = textsArr[iManual];
     let j = 0; // Index for characters in the current text
 
@@ -76,12 +75,9 @@ function nextLine() {
         } else {
             textBodyElGlobal.innerHTML += "<br> <br>"; // Add a line break after the text
             iManual++;
-            //ADD AN ON MESSAGE FROM MAX TO SERVE THAT CALLD TYPETEXTMANUAL FUNCTION AGAIN
         }
     }
-
     typeCharacter(); // Start typing the current text
-
 }
 
 
@@ -110,10 +106,10 @@ function toggleBox(arg) {
         spriteNameEl.style.visibility = "hidden"
         textBodyEl.style.visibility = "hidden"
     }
+}
 
 
-
-    //remove sprite stuff
-    //add  class of dialogue box then toggle between dialogue box and sprite box
-    // make name change possible
+function clearText() {
+    textBodyElGlobal.innerHTML = ""
+    console.log("test")
 }

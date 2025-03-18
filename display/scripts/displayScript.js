@@ -82,6 +82,9 @@ document.addEventListener("DOMContentLoaded", function () {
           else if (msg.data.name === "toggle-box") {
             toggleBox(msg.data.value)
           }
+          else if (msg.data.name === "clear-text") {
+            clearText()
+          }
           break;
       }
     };

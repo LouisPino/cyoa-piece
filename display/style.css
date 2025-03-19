@@ -293,24 +293,36 @@ body {
 
 .vote-bg {
     z-index: 1;
+    background-color: rgb(175, 145, 189);
 }
 
 .vote-heading,
-#vote-prompt,
-.vote-selection {
+.vote-banner,
+.vote-selection-bg {
     z-index: 2;
 }
 
-#vote-prompt {
-    top: 100%;
-    transition: top .2s ease-in;
+.vote-selection-img {
+    z-index: 20;
+}
+
+.vote-banner-text {
+    top: 8.5vh;
+    color: white;
+    z-index: 10;
+    position: absolute;
+    left: 13vw;
+    /* border: 1px solid red; */
+    width: 74vw;
+    height: 6vh;
+    font-size: 32px;
+    text-align: center;
+    line-height: 2.5rem;
 }
 
 
 .vote-time-div {
     position: relative;
-    /* This is crucial for z-index to work */
-
     background-color: var(--sylvan-light);
     width: 100%;
     height: 5vh;

@@ -9,10 +9,10 @@ const locations = {
   },
   intro: {
     name: "intro",
-    paths: ["kingdom", "kingdom"],
+    paths: ["forestNorth", "forestSouth"],
     choicePrompt:
-      "intro",
-    choices: ["intro", "intro"],
+      "You encounter a cliff at the edge of the kingdom! What do you do?",
+    choices: ["north", "south"],
     html: {},
   },
   kingdom: {
@@ -20,14 +20,14 @@ const locations = {
     paths: ["forestNorth", "forestSouth"],
     choicePrompt:
       "You encounter a cliff at the edge of the kingdom! What do you do?",
-    choices: ["climb mountains", "swim in the ocean"],
+    choices: ["north", "south"],
     html: {},
   },
   forestNorth: {
     name: "forestNorth",
     paths: ["cave", "river"],
     choicePrompt: "You've hit a fork in the road! Where will you go?",
-    choices: ["Left", "Right"],
+    choices: ["cave", "river"],
     html: {},
   },
   forestSouth: {

@@ -191,7 +191,7 @@ function handleVote(vote) {
 function triggerVote() {
     voting = true
     sendToWebClients({ type: "vote", data: { type: "path" } })
-    sendToDisplay({ type: "vote", data: { type: "path" } }) // in display, make visible the choice prompt + image
+    sendToDisplay({ type: "vote", data: { type: "path", currentLocation: currentLocation } }) // in display, make visible the choice prompt + image
     setTimeout(() => {
         endVote(tallyVotes())
     }, voteLength)

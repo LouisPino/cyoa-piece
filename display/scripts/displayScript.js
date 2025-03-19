@@ -27,12 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
           extras = msg.data.extras;
           scripts = msg.data.scripts;
           locationScripts = msg.data["locationScripts"]
-
-          // for (script of scripts) {
-          //   // run helper function declarations
-          //   if (["characterSelectAnimation", "qrcode.min.js", "voteHelpers"].includes(script.name))
-          //     runSetupScript(script.name)
-          // }
           break;
         case "section":
           sectionChange(locations[msg.data.name]);
@@ -47,7 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
           revealCharacter(msg.data);
           break;
         case "vote":
-
           switch (msg.data.type) {
             case "skin":
               promptVote(mainEl, extras)
@@ -62,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
             case "path":
               promptVote(mainEl, extras)
               setTimeout(() => {
-                displayVote(mainEl, extras, voteLength);
+                displayVote(mainEl, extras, voteLength, msg.data.currentLocation);
               }, promptVoteTime)
           }
           break;

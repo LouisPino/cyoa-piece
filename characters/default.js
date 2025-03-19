@@ -20,11 +20,11 @@ const skinOptionsPeen = {
         choices: [
             {
                 label: "Gray",
-                img: "https://www.rd.com/wp-content/uploads/2023/04/GettyImages-1212822618.jpg?fit=700,700"
+                img: "/display/assets/vote/character/W1A press.png"
             },
             {
                 label: "Tuxedo",
-                img: "https://rawznaturalpetfood.com/wp-content/uploads/tuxedo-cats.jpg"
+                img: "/display/assets/vote/character/W1B press.png"
             }],
         character: "wizard"
     },

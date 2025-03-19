@@ -60,6 +60,15 @@ const locations = {
     html: {},
     movingSprites: true,
   },
+  batMadlib: {
+    name: "batMadlib",
+    paths: ["chatBats", "fightBats"],
+    choicePrompt:
+      "Sensing hostility!! They get defensive. Do we fight them or try to talk to them? ",
+    choices: ["Chat", "Fight"],
+    html: {},
+    movingSprites: true,
+  },
   bugs: {
     name: "bugs",
     paths: ["chatBugs", "fightBugs"],

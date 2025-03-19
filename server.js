@@ -215,6 +215,8 @@ function endVote(winner) {
 }
 
 function skinVoting() {
+    console.log("hit")
+
     Object.entries(skinOptions).forEach(([k, v], index) => {
         setTimeout(() => {
             triggerSkinVote(k, v);
@@ -248,6 +250,7 @@ function tallyVotes() {
 }
 
 function triggerSkinVote(name, obj) {
+    console.log("hit")
     voting = true;
     sendToWebClients({ type: "vote", data: { type: "skin", item: obj } });
     sendToDisplay({ type: "vote", data: { type: "skin", item: obj } }); // Display the choice prompt + image

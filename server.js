@@ -227,12 +227,14 @@ function skinVoting(character) {
             triggerSkinVote(k, v);
         }, index * voteLength * 2);
 
-        // Move this logic outside the loop so it only runs once after all voting rounds
-        if (index === Object.keys(skinOptions).length - 1) {
-            setTimeout(() => {
-                oscClient.send("/switch", "intro");
-                voting = false;
-            }, (index + 1) * voteLength * 2); // Ensure this runs after the last vote
+        if (character === "j") { //IF JAZ IS SECOND, THIS IS AFTER
+            // Move this logic outside the loop so it only runs once after all voting rounds
+            if (index === Object.keys(skinOptions).length - 1) {
+                setTimeout(() => {
+                    oscClient.send("/switch", "intro");
+                    voting = false;
+                }, (index + 1) * voteLength * 2); // Ensure this runs after the last vote
+            }
         }
     });
 }

@@ -109,18 +109,6 @@ button {
 
 
 /***** skin votes */
-
-.skin-choices {
-    display: flex;
-    width: 100vw;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.skin-choice {
-    width: 100px;
-}
-
 .skin-winner {
     transition: 800ms;
     width: 800px;

@@ -215,8 +215,6 @@ function endVote(winner) {
 }
 
 function skinVoting() {
-    console.log("hit")
-
     Object.entries(skinOptions).forEach(([k, v], index) => {
         setTimeout(() => {
             triggerSkinVote(k, v);

@@ -17,7 +17,7 @@ function displayVote(mainEl, extras, voteLength, currentLocation) {
     voteBImg.src = `display/assets/vote/location/${currentLocation.choices[1]}/up.PNG`
     voteTimeDiv.style.animation = `voteTimer ${voteLength / 1000}s linear`;
     let voteEls = [voteAImg, voteBImg, voteBGs[0], voteBGs[1]]
-    setTimeout(() => { flashVotes(voteEls) }, flashTime)
+    setTimeout(() => { flashVotes(voteEls) }, flashTime * 2)
     const countdown = setInterval(() => {
         seconds -= 1;
         if (seconds < 0) {

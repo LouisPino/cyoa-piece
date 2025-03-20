@@ -44,8 +44,22 @@ function flashOnce(voteEls) {
             el.src = el.src.replace("down", "up"); // Change back if needed
         }, flashTime);
     });
-
 }
+
+
+function flashCtrl(choice) {
+    let voteEls = []
+    if (choice === "choice1") {
+        voteEls.push(document.getElementById("vote-a-img"))
+        voteEls.push(document.getElementById(".vote-a-bg"))
+    } else if (choice === "choice2") {
+        voteEls.push(document.getElementById("vote-b-img"))
+        voteEls.push(document.getElementById(".vote-b-bg"))
+    }
+    flashOnce(voteEls)
+}
+
+
 
 function flashVotes(voteEls) {
     setTimeout(() => flashOnce(voteEls), flashTime)

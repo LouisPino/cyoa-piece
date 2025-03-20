@@ -185,6 +185,8 @@ let choices = { choice1: 0, choice2: 0, choice3: 0, choice4: 0, choice5: 0, }
 function handleVote(vote) {
     console.log(vote)
     choices[vote] += 1
+    sendToDisplay({ type: "vote", data: { type: "vote-cast", choice: vote } }) // in display, make visible the choice prompt + image
+
 }
 
 

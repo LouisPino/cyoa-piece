@@ -57,6 +57,10 @@ document.addEventListener("DOMContentLoaded", function () {
               setTimeout(() => {
                 displayVote(mainEl, extras, voteLength, msg.data.currentLocation);
               }, promptVoteTime)
+              break;
+            case "vote-cast":
+              flashCtrl(msg.data.choice)
+              break;
           }
           break;
         case "game-score":

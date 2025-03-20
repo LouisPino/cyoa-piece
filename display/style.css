@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+@font-face {
+    font-family: Jazfont-Regular;
+    src: url("./fonts/Jazfont-RegularOTF.otf") format("opentype"),
+        url("/fonts/Jazfont-RegularTTF.ttf") format("truetype");
+}
+
 
 /***** general */
 :root {
@@ -17,7 +23,8 @@ html {
     overflow: hidden;
     height: 100vh;
     touch-action: manipulation;
-    font-family: "Press Start 2P", serif;
+    /* font-family: "Press Start 2P", serif; */
+    font-family: "Jazfont-Regular", serif !important;
     /* border: 5px solid green; */
     padding: 0;
 }
@@ -190,17 +197,21 @@ body {
 .text-body {
     /* background-color: #aeadcf; */
     position: absolute;
-    left: 45%;
+    left: 40%;
     top: 48%;
     /* border: 1px solid red; */
     color: white;
     z-index: 3;
-    width: 38%;
-    height: 40%;
-    line-height: 2.5rem;
-    font-size: 1.5rem;
+    max-width: 40%;
+    min-width: 40%;
+    height: 35%;
+    line-height: 3.5rem;
+    font-size: 3rem;
     transition: left 500ms ease-in-out;
     transition: opacity 500ms ease-in-out;
+    font-weight: 400;
+
+    padding: 0 20px;
 }
 
 /* Container for the background images */

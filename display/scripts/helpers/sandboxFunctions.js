@@ -90,12 +90,14 @@ function toggleBox(arg) {
     spriteNameEl.classList.remove(...outs)
     spriteEl.classList.remove(...outs)
     if (arg === "sprite") {
+        console.log("hit")
         boxEl.src = "/display/assets/dialogue/DialogueSpriteBox.png"
         spriteEl.style.visibility = "visible"
         spriteNameEl.style.visibility = "visible"
         textBodyEl.style.visibility = "visible"
-        textBodyEl.style.width = "38%"
-        textBodyEl.style.left = "45%"
+        textBodyEl.style.minWidth = "42%"
+        textBodyEl.style.maxWidth = "42%"
+        textBodyEl.style.left = "43%"
     } else if (arg === "dialogue") {
         boxEl.src = "/display/assets/dialogue/DialogueBox.png"
         spriteEl.style.visibility = "hidden"

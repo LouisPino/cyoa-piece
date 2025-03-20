@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 2595.0, 476.0, 861.0, 880.0 ],
+		"rect" : [ 2116.0, 85.0, 409.0, 1272.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -106,7 +106,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 40.0, 959.399998366832733, 180.0, 22.0 ],
-					"presentation_linecount" : 2,
 					"text" : "sandbox change-bg BGTest.png"
 				}
 
@@ -143,7 +142,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 691.0, 955.400000154972076, 162.0, 22.0 ],
-					"presentation_linecount" : 2,
 					"text" : "sandbox slide-boxX dialogue"
 				}
 
@@ -216,7 +214,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 527.666666666666742, 896.399998366832733, 162.0, 22.0 ],
-					"presentation_linecount" : 2,
 					"text" : "sandbox toggle-box dialogue"
 				}
 
@@ -288,7 +285,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 603.5, 41.0, 229.0, 62.0 ],
+					"patching_rect" : [ 570.5, 31.0, 229.0, 62.0 ],
 					"text" : "Starts at welcome, \nmanually move to intro,\nmanually move to character custom,\nthen to map screen"
 				}
 
@@ -2389,7 +2386,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 102.0, 6.0, 78.0, 36.0 ],
-					"text" : "/switch kingdom"
+					"text" : "/switch forestSouth"
 				}
 
 			}
@@ -4034,13 +4031,6 @@
 				"name" : "ChamberVerb.amxd",
 				"bootpath" : "C74:/packages/Max for Live/patchers/Max Audio Effect/Chamberverb",
 				"type" : "amxd",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "GolemGuys.txt",
-				"bootpath" : "~/Desktop/sylvanscenese",
-				"patcherrelativepath" : "../../Desktop/sylvanscenese",
-				"type" : "TEXT",
 				"implicit" : 1
 			}
  ],

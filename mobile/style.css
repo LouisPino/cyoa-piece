@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+@font-face {
+    font-family: Jazfont-Regular;
+    src: url("/fonts/Jazfont-RegularOTF.otf") format("opentype"),
+        url("/fonts/Jazfont-RegularTTF.ttf") format("truetype");
+}
+
 /***** general */
 :root {
     --sylvan-light: #e9ecd9;
@@ -29,7 +35,9 @@ html {
 html,
 body {
     /* touch-action: manipulation; */
-    font-family: "Press Start 2P", serif;
+    /* font-family: "Press Start 2P", serif; */
+    font-family: "Jazfont-Regular", serif !important;
+
     padding: 0;
     margin: 0;
 }

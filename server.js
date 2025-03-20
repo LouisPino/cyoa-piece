@@ -216,7 +216,12 @@ function endVote(winner) {
     resetChoices()
 }
 
-function skinVoting() {
+function skinVoting(character) {
+    if (character === "p") {
+        console.log("voting for pino")
+    } else {
+        console.log("voting for jaz")
+    }
     Object.entries(skinOptions).forEach(([k, v], index) => {
         setTimeout(() => {
             triggerSkinVote(k, v);
@@ -225,7 +230,7 @@ function skinVoting() {
         // Move this logic outside the loop so it only runs once after all voting rounds
         if (index === Object.keys(skinOptions).length - 1) {
             setTimeout(() => {
-                oscClient.send("/switch", "kingdom");
+                oscClient.send("/switch", "intro");
                 voting = false;
             }, (index + 1) * voteLength * 2); // Ensure this runs after the last vote
         }
@@ -240,9 +245,6 @@ function resetChoices() {
 const choiceMap = {
     choice1: 0,
     choice2: 1,
-    choice3: 2,
-    choice4: 3,
-    choice5: 4,
 }
 
 function tallyVotes() {
@@ -250,7 +252,6 @@ function tallyVotes() {
 }
 
 function triggerSkinVote(name, obj) {
-    console.log("hit")
     voting = true;
     sendToWebClients({ type: "vote", data: { type: "skin", item: obj } });
     sendToDisplay({ type: "vote", data: { type: "skin", item: obj } }); // Display the choice prompt + image
@@ -308,8 +309,11 @@ oscServer.on('message', (msg, rinfo) => {
                 case "path":
                     triggerVote()
                     break
-                case "skin":
-                    skinVoting()
+                case "skinPeen":
+                    skinVoting("p")
+                    break
+                case "skinJaz":
+                    skinVoting("j")
                     break
             }
             break

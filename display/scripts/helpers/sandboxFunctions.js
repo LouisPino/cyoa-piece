@@ -254,3 +254,21 @@ function fadeBox(arg) {
 function clearText() {
     textBodyElGlobal.innerHTML = ""
 }
+
+
+
+
+function locationBanner(location) {
+    console.log(location)
+    const bannerEl = document.getElementById("sandbox-location-banner")
+    const bannerElText = document.getElementById("sandbox-location-banner-text")
+    bannerElText.innerHTML = location
+    bannerElText.style.left = "0%"
+    bannerEl.style.left = "0%"
+    setTimeout(() => {
+        bannerEl.style.left = "100%"
+        bannerElText.style.left = "100%"
+
+    }, 3000);
+
+}

@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 2116.0, 85.0, 409.0, 1272.0 ],
+		"rect" : [ 2064.0, 85.0, 461.0, 1272.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,6 +39,30 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-66",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 398.0, 1105.0, 40.0, 22.0 ],
+					"text" : "CAVE"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-55",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 256.0, 1139.0, 157.0, 22.0 ],
+					"text" : "sandbox location-banner $1"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-73",
 					"maxclass" : "message",
@@ -262,7 +286,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 366.666666666666686, 872.399998366832733, 159.0, 22.0 ],
-					"text" : "sandbox toggle-box sprite"
+					"text" : "sandbox toggle-box none"
 				}
 
 			}
@@ -438,7 +462,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 89.0, 868.400001287460327, 50.0, 22.0 ],
+					"patching_rect" : [ 81.5, 899.978948354721069, 50.0, 22.0 ],
 					"text" : "0"
 				}
 
@@ -2386,7 +2410,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 102.0, 6.0, 78.0, 36.0 ],
-					"text" : "/switch forestSouth"
+					"text" : "/switch forestNorth"
 				}
 
 			}
@@ -3709,6 +3733,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-84", 0 ],
+					"source" : [ "obj-55", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-44", 1 ],
 					"order" : 0,
 					"source" : [ "obj-56", 0 ]
@@ -3800,6 +3831,13 @@
 					"destination" : [ "obj-77", 1 ],
 					"order" : 1,
 					"source" : [ "obj-65", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-55", 0 ],
+					"source" : [ "obj-66", 0 ]
 				}
 
 			}
@@ -4031,6 +4069,13 @@
 				"name" : "ChamberVerb.amxd",
 				"bootpath" : "C74:/packages/Max for Live/patchers/Max Audio Effect/Chamberverb",
 				"type" : "amxd",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "GolemGuys.txt",
+				"bootpath" : "~/Desktop/sylvanscenese",
+				"patcherrelativepath" : "../../Desktop/sylvanscenese",
+				"type" : "TEXT",
 				"implicit" : 1
 			}
  ],

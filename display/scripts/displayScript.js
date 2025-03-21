@@ -91,6 +91,9 @@ document.addEventListener("DOMContentLoaded", function () {
           else if (msg.data.name === "clear-text") {
             clearText()
           }
+          else if (msg.data.name === "location-banner") {
+            locationBanner(msg.data.value)
+          }
           break;
       }
     };

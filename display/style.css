@@ -60,6 +60,27 @@ body {
     min-height: 200px;
 }
 
+
+/* characters */
+
+.character {
+    width: 280px;
+    height: 500px;
+    position: relative;
+}
+
+.character-part {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+
+#wizard-hat {
+    z-index: 100;
+}
+
+
 /* INTRO PAGE SWITCHER */
 #intro-gif,
 #intro-qr-page,
@@ -260,6 +281,20 @@ body {
     z-index: 2;
 }
 
+#sandbox-location-banner,
+#sandbox-location-banner-text {
+    left: -100vw;
+    transition: left 1.5s ease-in-out;
+}
+
+#sandbox-location-banner-text {
+    font-size: 5em;
+    color: white;
+    text-align: center;
+    padding-left: 120px;
+    padding-top: 20px;
+    z-index: 100;
+}
 
 /*****Display Welcome  */
 .instructions-scroll-ctr {

@@ -29,6 +29,8 @@ const locations = {
     choicePrompt: "You've hit a fork in the road! Where will you go?",
     choices: ["cave", "river"],
     html: {},
+    voteBg: "/display/assets/backgrounds/ForestTest.jpg",
+    voteBgBlur: "/display/assets/backgrounds/BgBlur.png"
   },
   forestSouth: {
     name: "forestSouth",

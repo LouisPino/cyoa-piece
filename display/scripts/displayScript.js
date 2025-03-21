@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
               displaySkinChoice(msg.data.item, msg.data.winner);
               break;
             case "path":
-              promptVote(mainEl, extras)
+              promptVote(mainEl, extras, msg.data.currentLocation)
               setTimeout(() => {
                 displayVote(mainEl, extras, voteLength, msg.data.currentLocation);
               }, promptVoteTime)
@@ -193,6 +193,4 @@ document.addEventListener("DOMContentLoaded", function () {
       healthBar.style.width = "0"
     }
   }
-
-
 });

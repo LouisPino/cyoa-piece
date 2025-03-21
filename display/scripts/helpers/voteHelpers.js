@@ -12,6 +12,8 @@ function displayVote(mainEl, extras, voteLength, currentLocation) {
     const voteAImg = document.getElementById("vote-a-img")
     const voteBImg = document.getElementById("vote-b-img")
     const voteBGs = document.querySelectorAll(".vote-selection-bg")
+    const backgroundEl = document.querySelector(".vote-bg")
+    backgroundEl.src = currentLocation.voteBgBlur
     voteBannerText.innerHTML = currentLocation.choicePrompt
     voteAImg.src = `display/assets/vote/location/${currentLocation.choices[0]}/up.PNG`
     voteBImg.src = `display/assets/vote/location/${currentLocation.choices[1]}/up.PNG`
@@ -26,11 +28,13 @@ function displayVote(mainEl, extras, voteLength, currentLocation) {
     }, 1000);
 }
 
-function promptVote(mainEl, extras) {
+function promptVote(mainEl, extras, currentLocation) {
     const html = extras.filter(
         (extra) => extra.name === "votePrompt"
     )[0].content;
     mainEl.innerHTML += html
+    const backgroundEl = document.querySelector("#location-bg")
+    backgroundEl.src = currentLocation.voteBgBlur
     setTimeout(() => { document.getElementById("vote-prompt").style.top = "0px" }, 10)
 }
 

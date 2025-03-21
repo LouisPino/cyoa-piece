@@ -219,19 +219,18 @@ body {
     /* background-color: #aeadcf; */
     position: absolute;
     left: 40%;
-    top: 48%;
+    top: 45%;
     /* border: 1px solid red; */
-    color: white;
+    color: #ffbd92;
     z-index: 3;
     max-width: 40%;
     min-width: 40%;
-    height: 35%;
+    height: 40%;
     line-height: 3.5rem;
     font-size: 3rem;
     transition: left 500ms ease-in-out;
     transition: opacity 500ms ease-in-out;
     font-weight: 400;
-
     padding: 0 20px;
 }
 
@@ -339,7 +338,8 @@ body {
 
 .vote-bg {
     z-index: 1;
-    background-color: rgb(175, 145, 189);
+    object-fit: fill;
+    /* background-color: rgb(175, 145, 189); */
 }
 
 .vote-heading,

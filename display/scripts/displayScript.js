@@ -6,6 +6,14 @@ document.addEventListener("DOMContentLoaded", function () {
   let extras;
   let scripts;
   let locationScripts;
+  let characters = {
+    pino: {
+
+    },
+    jaz: {
+      hat: 3
+    }
+  }
   initializeWebSocket(location.hostname);
   function initializeWebSocket(ip) {
     const socket = new WebSocket(`ws://${ip}:8000/display`);
@@ -77,16 +85,16 @@ document.addEventListener("DOMContentLoaded", function () {
             changeDialogueSprite(msg.data.value)
           }
           else if (msg.data.name === "toggle-box") {
-            toggleBox(msg.data.value)
+            toggleBox(msg.data.value, characters)
           }
           else if (msg.data.name === "slide-boxX") {
-            slideBoxX(msg.data.value)
+            slideBoxX(msg.data.value, characters)
           }
           else if (msg.data.name === "slide-boxY") {
-            slideBoxY(msg.data.value)
+            slideBoxY(msg.data.value, characters)
           }
           else if (msg.data.name === "fade-box") {
-            fadeBox(msg.data.value)
+            fadeBox(msg.data.value, characters)
           }
           else if (msg.data.name === "clear-text") {
             clearText()

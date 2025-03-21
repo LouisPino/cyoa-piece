@@ -80,7 +80,7 @@ function nextLine() {
 const outs = ["slide-down", "slide-out", "slide-out-fast", "fade-out-fast",]
 const ins = ["slide-up", "slide-in", "slide-in-fast", "fade-in-fast"]
 
-function toggleBox(arg) {
+function toggleBox(arg, characters) {
     const boxEl = document.getElementById("sandbox-dialogue-box")
     const spriteEl = document.getElementById("sandbox-dialogue-sprite")
     const spriteNameEl = document.getElementById("sandbox-dialogue-name")
@@ -91,30 +91,37 @@ function toggleBox(arg) {
     spriteEl.classList.remove(...outs)
     if (arg === "sprite") {
         console.log("hit")
-        boxEl.src = "/display/assets/dialogue/DialogueSpriteBox.png"
+        boxEl.src = "/display/assets/dialogue/boxes/SpriteBox.png"
         spriteEl.style.visibility = "visible"
         spriteNameEl.style.visibility = "visible"
         textBodyEl.style.visibility = "visible"
         textBodyEl.style.minWidth = "42%"
         textBodyEl.style.maxWidth = "42%"
         textBodyEl.style.left = "43%"
-    } else if (arg === "dialogue") {
-        boxEl.src = "/display/assets/dialogue/DialogueBox.png"
-        spriteEl.style.visibility = "hidden"
-        spriteNameEl.style.visibility = "hidden"
-        textBodyEl.style.visibility = "visible"
-        textBodyEl.style.width = "65%"
-        textBodyEl.style.left = "17.5%"
-        textBodyEl.style.textAlign = "center"
     } else if (arg === "none") {
         boxEl.src = ""
         spriteEl.style.visibility = "hidden"
         spriteNameEl.style.visibility = "hidden"
         textBodyEl.style.visibility = "hidden"
         clearText()
+    } else {
+        let newSrc = "/display/assets/dialogue/boxes/DialogueBox.png"
+        if (arg === "pino") {
+            newSrc = "/display/assets/dialogue/boxes/PinoDialogueBox.png"
+        } else if (arg === "duo") {
+            newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox${characters.jaz.hat}.png`
+        } else if (arg === "jaz") {
+            newSrc = `/display/assets/dialogue/boxes/JazDialogueBox${characters.jaz.hat}.png`
+        }
+        boxEl.src = newSrc
+        spriteEl.style.visibility = "hidden"
+        spriteNameEl.style.visibility = "hidden"
+        textBodyEl.style.visibility = "visible"
+        textBodyEl.style.width = "65%"
+        textBodyEl.style.left = "17.5%"
+        textBodyEl.style.textAlign = "center"
     }
 }
-
 
 function slideBoxY(arg) {
     const boxEl = document.getElementById("sandbox-dialogue-box");
@@ -122,7 +129,7 @@ function slideBoxY(arg) {
     const spriteNameEl = document.getElementById("sandbox-dialogue-name");
     const textBodyEl = document.querySelector(".text-body");
     if (arg === "sprite") {
-        boxEl.src = "/display/assets/dialogue/DialogueSpriteBox.png";
+        boxEl.src = "/display/assets/dialogue/boxes/SpriteBox.png";
         boxEl.classList.remove(...outs)
         textBodyEl.classList.remove(...outs)
         spriteNameEl.classList.remove(...outs)
@@ -137,7 +144,7 @@ function slideBoxY(arg) {
         spriteNameEl.style.visibility = "visible";
         textBodyEl.style.visibility = "visible";
     } else if (arg === "dialogue") {
-        boxEl.src = "/display/assets/dialogue/DialogueBox.png";
+        boxEl.src = "/display/assets/dialogue/boxes/DialogueBox.png";
         boxEl.classList.remove(...outs)
 
         boxEl.classList.add("slide-up")
@@ -166,7 +173,7 @@ function slideBoxX(arg) {
     const spriteNameEl = document.getElementById("sandbox-dialogue-name");
     const textBodyEl = document.querySelector(".text-body");
     if (arg === "sprite") {
-        boxEl.src = "/display/assets/dialogue/DialogueSpriteBox.png";
+        boxEl.src = "/display/assets/dialogue/boxes/SpriteBox.png";
         boxEl.classList.remove(...outs)
         textBodyEl.classList.remove(...outs)
         spriteNameEl.classList.remove(...outs)
@@ -181,7 +188,7 @@ function slideBoxX(arg) {
         spriteNameEl.style.visibility = "visible";
         textBodyEl.style.visibility = "visible";
     } else if (arg === "dialogue") {
-        boxEl.src = "/display/assets/dialogue/DialogueBox.png";
+        boxEl.src = "/display/assets/dialogue/boxes/DialogueBox.png";
         boxEl.classList.remove(...outs)
 
         boxEl.classList.add("slide-in-fast")
@@ -211,7 +218,7 @@ function fadeBox(arg) {
     const textBodyEl = document.querySelector(".text-body");
 
     if (arg === "sprite") {
-        boxEl.src = "/display/assets/dialogue/DialogueSpriteBox.png";
+        boxEl.src = "/display/assets/dialogue/boxes/SpriteBox.png";
 
         boxEl.classList.remove(...outs)
         textBodyEl.classList.remove(...outs)
@@ -225,7 +232,7 @@ function fadeBox(arg) {
 
 
     } else if (arg === "dialogue") {
-        boxEl.src = "/display/assets/dialogue/DialogueBox.png";
+        boxEl.src = "/display/assets/dialogue/boxes/DialogueBox.png";
         boxEl.classList.remove(...outs)
         boxEl.classList.add("fade-in-fast")
         textBodyEl.classList.add("fade-in-fast")
@@ -259,7 +266,6 @@ function clearText() {
 
 
 function locationBanner(location) {
-    console.log(location)
     const bannerEl = document.getElementById("sandbox-location-banner")
     const bannerElText = document.getElementById("sandbox-location-banner-text")
     bannerElText.innerHTML = location

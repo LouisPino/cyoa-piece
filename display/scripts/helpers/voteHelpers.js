@@ -35,7 +35,19 @@ function promptVote(mainEl, extras, currentLocation) {
     mainEl.innerHTML += html
     const backgroundEl = document.querySelector("#location-bg")
     backgroundEl.src = currentLocation.voteBgBlur
-    setTimeout(() => { document.getElementById("vote-prompt").style.top = "0px" }, 10)
+    // setTimeout(() => { document.getElementById("vote-prompt").style.top = "0px" }, 10)
+}
+
+function displayWinner(winner, extras, mainEl, currentLocation) {
+    const html = extras.filter(
+        (extra) => extra.name === "voteWin"
+    )[0].content;
+    mainEl.innerHTML = html
+    const backgroundEl = document.querySelector(".vote-bg")
+    backgroundEl.src = currentLocation.voteBgBlur
+    const winnerEl = document.getElementById("vote-winner")
+    winnerEl.innerHTML = `THE WINNER IS ${currentLocation.paths[winner].toUpperCase()}`
+    console.log(`THE WINNER IS ${currentLocation.paths[winner].toUpperCase()}`)
 }
 
 function flashOnce(voteEls) {

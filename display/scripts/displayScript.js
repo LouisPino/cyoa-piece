@@ -1,6 +1,7 @@
 let ipAddress;
-const promptVoteTime = 3000
 let voteLength
+let winnerLength
+let promptLength
 document.addEventListener("DOMContentLoaded", function () {
   let locations;
   let extras;
@@ -30,7 +31,9 @@ document.addEventListener("DOMContentLoaded", function () {
           ipAddress = msg.data;
           break;
         case `initialFileServe`:
-          voteLength = msg.data["voteLength"] - promptVoteTime
+          voteLength = msg.data["voteLength"]
+          winnerLength = msg.data["winnerLength"]
+          promptLength = msg.data["promptLength"]
           locations = msg.data["locations"];
           extras = msg.data.extras;
           scripts = msg.data.scripts;
@@ -55,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
               setTimeout(() => {
                 displayVote(mainEl, extras, voteLength);
                 toggleSkinHTML(msg.data.item);
-              }, promptVoteTime)
+              }, promptLength)
               break;
             case "skinChoice":
               displaySkinChoice(msg.data.item, msg.data.winner);
@@ -64,10 +67,13 @@ document.addEventListener("DOMContentLoaded", function () {
               promptVote(mainEl, extras, msg.data.currentLocation)
               setTimeout(() => {
                 displayVote(mainEl, extras, voteLength, msg.data.currentLocation);
-              }, promptVoteTime)
+              }, promptLength)
               break;
             case "vote-cast":
               flashCtrl(msg.data.choice)
+              break;
+            case "winner":
+              displayWinner(msg.data.winner, extras, mainEl, msg.data.currentLocation)
               break;
           }
           break;

@@ -8,6 +8,8 @@ const [locations, mobileExtras, displayExtras, displayScripts, mobileScripts, mo
 const [skinOptions, characters] = require("./characters/default.js")
 let currentLocation = locations["welcome"]
 const voteLength = 10000
+const winnerLength = 5000
+const promptLength = 5000
 let gameScores = []
 let history = {
     locationsVisited: [],
@@ -108,7 +110,7 @@ wss.on('connection', (ws, req) => {
     connectedClients.push(ws)
     if (locationPath === "/display") {
         ws.send(JSON.stringify({ type: 'ip-address', data: IP4 }));
-        sendToDisplay({ type: 'initialFileServe', data: { locations: locations, extras: displayExtras, scripts: displayScripts, locationScripts: displayLocationScripts, voteLength: voteLength } })
+        sendToDisplay({ type: 'initialFileServe', data: { locations: locations, extras: displayExtras, scripts: displayScripts, locationScripts: displayLocationScripts, voteLength: voteLength, winnerLength: winnerLength, promptLength: promptLength } })
         sendToDisplay({ type: "section", data: currentLocation })
     } else {
         ws.send(JSON.stringify({ type: 'initialFileServe', data: { locations: locations, extras: mobileExtras, scripts: mobileScripts, voteLength: voteLength, locationScripts: mobileLocationScripts } }))
@@ -180,7 +182,7 @@ function sendSectionChange(location) {
 
 
 ////////////////////////voting
-let choices = { choice1: 0, choice2: 0, choice3: 0, choice4: 0, choice5: 0, }
+let choices = { choice1: 0, choice2: 0 }
 
 function handleVote(vote) {
     console.log(vote)
@@ -195,11 +197,18 @@ function triggerVote() {
     sendToWebClients({ type: "vote", data: { type: "path" } })
     sendToDisplay({ type: "vote", data: { type: "path", currentLocation: currentLocation } }) // in display, make visible the choice prompt + image
     setTimeout(() => {
+        displayWinner(tallyVotes())
+    }, voteLength + promptLength)
+    setTimeout(() => {
         endVote(tallyVotes())
-    }, voteLength)
+    }, voteLength + promptLength + winnerLength)
 }
-
+function displayWinner(winner) {
+    sendToDisplay({ type: "vote", data: { type: "winner", winner: winner, currentLocation: currentLocation } }) // in display, make visible the choice prompt + image
+    sendToWebClients({ type: "vote", data: { type: "lookup" } })
+}
 function endVote(winner) {
+    console.log("end", winner)
     switch (winner) {
         case (0):
             // choice 1

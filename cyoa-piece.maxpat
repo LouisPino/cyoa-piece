@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 2064.0, 85.0, 461.0, 1272.0 ],
+		"rect" : [ 1920.0, 85.0, 605.0, 1272.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -60,18 +60,6 @@
 					"patching_rect" : [ 108.0, 569.395173251628876, 202.0, 22.0 ],
 					"presentation_linecount" : 2,
 					"text" : "sandbox dialogue-sprite Frog/Happy"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-93",
-					"maxclass" : "slider",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 350.602422595024109, -3.614457964897156, 20.0, 140.0 ]
 				}
 
 			}
@@ -396,7 +384,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 366.666666666666686, 872.399998366832733, 159.0, 22.0 ],
-					"text" : "sandbox toggle-box sprite"
+					"text" : "sandbox toggle-box none"
 				}
 
 			}
@@ -549,7 +537,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 352.666666666666742, 676.000000417232513, 131.0, 22.0 ],
-					"text" : "symbol next-line"
+					"text" : "toggle-box none"
 				}
 
 			}
@@ -2514,13 +2502,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-20",
-					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 102.0, 6.0, 78.0, 36.0 ],
-					"text" : "/switch chatBats"
+					"patching_rect" : [ 102.0, 6.0, 78.0, 22.0 ],
+					"text" : "/switch cave"
 				}
 
 			}

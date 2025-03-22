@@ -19,6 +19,9 @@ function initializeWebSocket() {
         let msg = JSON.parse(event.data)
         switch (msg.type) {
             case `initialFileServe`:
+                voteLength = msg.data["voteLength"]
+                winnerLength = msg.data["winnerLength"]
+                promptLength = msg.data["promptLength"]
                 locations = msg.data["locations"]
                 extras = msg.data["extras"]
                 scripts = msg.data["scripts"]
@@ -41,6 +44,10 @@ function initializeWebSocket() {
                     case "skin":
                         currentLocation = "skin"
                         startSkinVote(msg.data.item)
+                        break
+                    case "lookup":
+                        lookUp()
+                        console.log(20)
                         break
                 }
                 break
@@ -79,10 +86,6 @@ function sectionChange(section) {
     currentLocation = section
     toggleHTML()
     runLocationScript(currentLocation.name)
-}
-
-function lookUp() {
-    mainEl.innerHTML = '<h1 class="look-up">↑</h1>'
 }
 
 function runLocationScript(locationName) {

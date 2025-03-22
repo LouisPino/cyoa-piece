@@ -337,7 +337,7 @@ body {
 }
 
 .vote-bg {
-    z-index: 1;
+    z-index: -1;
     object-fit: fill;
     /* background-color: rgb(175, 145, 189); */
 }

@@ -52,6 +52,12 @@ function handleVote(vote) {
     mainEl.innerHTML = extras.filter((extra) => (extra.name === "thank"))[0].content
 }
 
+function lookUp() {
+    const imgEl = document.getElementById("thank-img")
+    imgEl.src = "/mobile/assets/vote/LookUp.png"
+    console.log("hit lookup")
+}
+
 function flashOnce(voteEls) {
     voteEls.forEach((el) => {
         setTimeout(() => {

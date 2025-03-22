@@ -37,7 +37,7 @@ body {
     /* touch-action: manipulation; */
     /* font-family: "Press Start 2P", serif; */
     font-family: "Jazfont-Regular", serif !important;
-
+    --sylvan-indigo: #444573;
     padding: 0;
     margin: 0;
 }
@@ -92,6 +92,10 @@ button {
 
 
 /* mobile displays */
+#mobile-bg {
+    z-index: -1;
+}
+
 .sprite {
     position: absolute;
     width: 100px;

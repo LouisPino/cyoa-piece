@@ -30,7 +30,7 @@ const locations = {
     choices: ["cave", "river"],
     html: {},
     voteBg: "/display/assets/backgrounds/ForestTest.jpg",
-    voteBgBlur: "/display/assets/backgrounds/BgBlur.png"
+    voteBgBlur: "/display/assets/backgrounds/forest.png"
   },
   forestSouth: {
     name: "forestSouth",

@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let locationScripts;
   let characters = {
     pino: {
-
     },
     jaz: {
       hat: 3

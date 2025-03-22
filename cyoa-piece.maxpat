@@ -58,7 +58,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 108.0, 569.395173251628876, 202.0, 22.0 ],
-					"presentation_linecount" : 2,
 					"text" : "sandbox dialogue-sprite Frog/Happy"
 				}
 
@@ -107,7 +106,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 494.5, 1062.399998366832733, 137.0, 22.0 ],
-					"presentation_linecount" : 2,
 					"text" : "sandbox toggle-box duo"
 				}
 
@@ -477,7 +475,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 198.0, 325.0, 92.0, 22.0 ],
+					"patching_rect" : [ 198.0, 239.0, 92.0, 22.0 ],
 					"text" : "s sendToServer"
 				}
 
@@ -489,7 +487,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 198.0, 239.0, 57.0, 22.0 ],
+					"patching_rect" : [ 198.0, 215.0, 57.0, 22.0 ],
 					"text" : "scene $1"
 				}
 
@@ -4222,13 +4220,6 @@
 				"name" : "ChamberVerb.amxd",
 				"bootpath" : "C74:/packages/Max for Live/patchers/Max Audio Effect/Chamberverb",
 				"type" : "amxd",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "GolemGuys.txt",
-				"bootpath" : "~/Desktop/sylvanscenese",
-				"patcherrelativepath" : "../../Desktop/sylvanscenese",
-				"type" : "TEXT",
 				"implicit" : 1
 			}
  ],

@@ -1,7 +1,7 @@
 function river() {
     console.log("river")
-    console.log(characters)
-    testConsole()
+    renderPino(characters)
+
 }
 
 river()

@@ -9,9 +9,15 @@ document.addEventListener("DOMContentLoaded", function () {
   let locationScripts;
   let characters = {
     pino: {
+      face: "A",
+      hands: "A",
+      hat: "B",
+      robe: "B",
     },
     jaz: {
-      hat: 3
+      hat: "A",
+      collar: "B",
+      face: "A",
     }
   }
   initializeWebSocket(location.hostname);

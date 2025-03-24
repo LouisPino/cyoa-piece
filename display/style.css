@@ -62,7 +62,6 @@ body {
 
 
 /* characters */
-
 .character {
     width: 280px;
     height: 500px;
@@ -78,6 +77,12 @@ body {
 
 #wizard-hat {
     z-index: 100;
+}
+
+.char-div img {
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 

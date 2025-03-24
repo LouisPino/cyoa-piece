@@ -10,9 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let characters = {
     pino: {
       face: "A",
-      hands: "A",
       hat: "B",
-      robe: "B",
+      robe: "A",
     },
     jaz: {
       hat: "A",
@@ -53,8 +52,18 @@ document.addEventListener("DOMContentLoaded", function () {
         case "bossHealth":
           punchBadGuy(msg.data);
           break;
-        case "character":
+        case "characterSelect":
           revealCharacter(msg.data);
+          break;
+        case "character":
+          switch (msg.data.name) {
+            case "toggle-animation":
+              toggleAnimation(msg.data.value)
+              break
+            case "characterData":
+              storeCharacters(characters)
+              break
+          }
           break;
         case "vote":
           switch (msg.data.type) {

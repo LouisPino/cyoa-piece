@@ -328,6 +328,9 @@ oscServer.on('message', (msg, rinfo) => {
                     break
             }
             break
+        case "characters":
+            sendToDisplay({ type: "character", data: { name: msg[1], value: msg[2] } })
+            break
         case "sandbox":
             sendToDisplay({ type: "sandbox", data: { name: msg[1], value: msg[2] ? msg[2] : "" } })
             break

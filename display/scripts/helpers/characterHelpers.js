@@ -21,12 +21,12 @@ jazBody.style.zIndex = "97"
 jazCollarLine.style.zIndex = "96"
 jazFace.style.zIndex = "95"
 
-pinoFaceLine.style.zIndex = "100"
-pinoLine.style.zIndex = "99"
-pinoRobe.style.zIndex = "98"
-pinoHands.style.zIndex = "97"
-pinoHat.style.zIndex = "96"
-pinoFace.style.zIndex = "95"
+pinoFaceLine.style.zIndex = "94"
+pinoLine.style.zIndex = "93"
+pinoRobe.style.zIndex = "92"
+pinoHands.style.zIndex = "91"
+pinoHat.style.zIndex = "90"
+pinoFace.style.zIndex = "89"
 
 
 pinoDiv.classList.add("char-div")

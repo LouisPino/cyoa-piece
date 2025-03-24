@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let locationScripts;
   let characters = {
     pino: {
-      face: "A",
-      hat: "B",
+      face: "B",
+      hat: "A",
       robe: "A",
     },
     jaz: {
@@ -55,13 +55,23 @@ document.addEventListener("DOMContentLoaded", function () {
         case "characterSelect":
           revealCharacter(msg.data);
           break;
-        case "character":
-          switch (msg.data.name) {
+        case "characters":
+          switch (msg.data[1]) {
             case "toggle-animation":
-              toggleAnimation(msg.data.value)
+              toggleAnimation(msg.data[2])
               break
             case "characterData":
+              console.log(characters)
               storeCharacters(characters)
+              break
+            case "jump":
+              jumpChar(msg.data[2], msg.data[3], msg.data[4])
+              break
+            case "fade":
+              fadeChar(msg.data[2], msg.data[3], msg.data[4], msg.data[5], msg.data[6])
+              break
+            case "slide":
+              slideChar(msg.data[2], msg.data[3], msg.data[4], msg.data[5])
               break
           }
           break;

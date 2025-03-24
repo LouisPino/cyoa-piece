@@ -15,17 +15,18 @@ const jazCollarLine = document.createElement("img")
 
 
 jazFaceLine.style.zIndex = "100"
-jazFace.style.zIndex = "95"
 jazHat.style.zIndex = "99"
 jazCollar.style.zIndex = "98"
 jazBody.style.zIndex = "97"
 jazCollarLine.style.zIndex = "96"
+jazFace.style.zIndex = "95"
+
 pinoFaceLine.style.zIndex = "100"
-pinoFace.style.zIndex = "95"
+pinoLine.style.zIndex = "99"
+pinoRobe.style.zIndex = "98"
 pinoHands.style.zIndex = "97"
 pinoHat.style.zIndex = "96"
-pinoRobe.style.zIndex = "98"
-pinoLine.style.zIndex = "99"
+pinoFace.style.zIndex = "95"
 
 
 pinoDiv.classList.add("char-div")
@@ -131,6 +132,71 @@ function toggleAnimation(animation) {
 }
 
 
+function jumpChar(char, x, y) {
+    switch (char) {
+        case "pino":
 
-renderJaz()
-renderPino()
+            pinoDiv.style.left = `${x}px`;
+            pinoDiv.style.top = `${y}px`;
+            break;
+        case "jaz":
+            console.log("jump", char, x, y);
+            break;
+        case "duo":
+            console.log("jump", char, x, y);
+            break;
+    }
+}
+
+function slideChar(char, x, y, time) {
+    switch (char) {
+        case "pino":
+            moveDivSmoothly(pinoDiv, x, y, time); // Moves pinoDiv to (200, 300) over 1 second
+            break;
+        case "jaz":
+            console.log("slide", char, x, y, time);
+            break;
+        case "duo":
+            console.log("slide", char, x, y, time);
+            break;
+    }
+}
+
+function fadeChar(char, x, y, inTime, outTime) {
+    switch (char) {
+        case "pino":
+            console.log("slide", char, x, y, inTime, outTime)
+            break
+        case "jaz":
+            console.log("slide", char, x, y, inTime, outTime)
+            break
+        case "duo":
+            console.log("slide", char, x, y, inTime, outTime)
+            break
+    }
+}
+
+
+function moveDivSmoothly(element, x, y, duration) {
+    const startX = parseInt(element.style.left) || 0;
+    const startY = parseInt(element.style.top) || 0;
+    const startTime = performance.now();
+
+    function animate(currentTime) {
+        const elapsedTime = currentTime - startTime;
+        const progress = Math.min(elapsedTime / duration, 1); // Ensures we don't overshoot
+
+        // Linear interpolation (LERP) for smooth movement
+        const newX = startX + (x - startX) * progress;
+        const newY = startY + (y - startY) * progress;
+
+        element.style.left = `${newX}px`;
+        element.style.top = `${newY}px`;
+
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        }
+    }
+
+    requestAnimationFrame(animate);
+}

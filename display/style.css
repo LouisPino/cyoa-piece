@@ -81,14 +81,24 @@ body {
 
 .char-div img {
     position: absolute;
-    left: 0;
     top: 0;
-    transition: 500ms;
+    transition: transform 500ms;
 }
 
 #pino-char,
 #jaz-char {
     position: absolute;
+}
+
+
+#pino-char img {
+    transform-origin: 200px;
+    /* Flips around the vertical line at 200px from the left */
+}
+
+#jaz-char img {
+    transform-origin: 535px;
+    /* Flips around the vertical line at 535px from the left */
 }
 
 /* INTRO PAGE SWITCHER */

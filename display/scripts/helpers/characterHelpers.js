@@ -19,8 +19,8 @@ const assetPartStrs = ["jazBody", "jazCollar", "jazCollarLine", "jazFaceLine", "
 jazFaceLine.style.zIndex = "100"
 jazHat.style.zIndex = "99"
 jazCollarLine.style.zIndex = "98"
-jazBody.style.zIndex = "97"
-jazCollar.style.zIndex = "96"
+jazCollar.style.zIndex = "97"
+jazBody.style.zIndex = "96"
 jazFace.style.zIndex = "95"
 
 pinoFaceLine.style.zIndex = "94"
@@ -42,9 +42,6 @@ function storeCharacters(newCharacters) {
     characters = newCharacters
     toggleAnimation("front")
 }
-
-
-
 
 
 function renderPino() {
@@ -97,11 +94,8 @@ async function toggleAnimation(animation) {
         const key = part.replace(character, "").toLowerCase(); // Extracts the property name (e.g., "faceLine" -> "faceLine")
         const pngPath = `/display/assets/characters/${character}/${key}/${animation}/${characters[character][key]}.png`;
         const gifPath = `/display/assets/characters/${character}/${key}/${animation}/${characters[character][key]}.gif`;
-
         assetPartEls[i].src = await fileExists(pngPath) ? pngPath : gifPath;
     }
-
-
 }
 
 
@@ -109,17 +103,57 @@ async function toggleAnimation(animation) {
 function jumpChar(char, x, y) {
     switch (char) {
         case "pino":
-
             pinoDiv.style.left = `${x}px`;
             pinoDiv.style.top = `${y}px`;
             break;
         case "jaz":
-            console.log("jump", char, x, y);
+            jazDiv.style.left = `${x}px`;
+            jazDiv.style.top = `${y}px`;
             break;
         case "duo":
-            console.log("jump", char, x, y);
+            pinoDiv.style.left = `${x}px`;
+            pinoDiv.style.top = `${y}px`;
+            jazDiv.style.left = `${x}px`;
+            jazDiv.style.top = `${y}px`;
             break;
     }
+}
+
+
+
+function fadeChar(char, x, y, outTime, inTime) {
+    let elements = [];
+
+    switch (char) {
+        case "pino":
+            elements.push(pinoDiv);
+            break;
+        case "jaz":
+            elements.push(jazDiv);
+            break;
+        case "duo":
+            elements.push(pinoDiv, jazDiv);
+            break;
+        default:
+            return;
+    }
+
+    elements.forEach(element => {
+        if (!element) return;
+        // Fade out
+        element.style.transition = `opacity ${outTime}ms`;
+        element.style.opacity = 0;
+
+        setTimeout(() => {
+            // Move the element
+            element.style.left = `${x}px`;
+            element.style.top = `${y}px`;
+
+            // Fade in
+            element.style.transition = `opacity ${inTime}ms`;
+            element.style.opacity = 1;
+        }, outTime);
+    });
 }
 
 function slideChar(char, x, y, time) {
@@ -128,29 +162,14 @@ function slideChar(char, x, y, time) {
             moveDivSmoothly(pinoDiv, x, y, time); // Moves pinoDiv to (200, 300) over 1 second
             break;
         case "jaz":
-            console.log("slide", char, x, y, time);
+            moveDivSmoothly(jazDiv, x, y, time); // Moves pinoDiv to (200, 300) over 1 second
             break;
         case "duo":
-            console.log("slide", char, x, y, time);
+            moveDivSmoothly(pinoDiv, x, y, time); // Moves pinoDiv to (200, 300) over 1 second
+            moveDivSmoothly(jazDiv, x, y, time); // Moves pinoDiv to (200, 300) over 1 second
             break;
     }
 }
-
-function fadeChar(char, x, y, inTime, outTime) {
-    switch (char) {
-        case "pino":
-            console.log("slide", char, x, y, inTime, outTime)
-            break
-        case "jaz":
-            console.log("slide", char, x, y, inTime, outTime)
-            break
-        case "duo":
-            console.log("slide", char, x, y, inTime, outTime)
-            break
-    }
-}
-
-
 function moveDivSmoothly(element, x, y, duration) {
     const startX = parseInt(element.style.left) || 0;
     const startY = parseInt(element.style.top) || 0;
@@ -171,6 +190,5 @@ function moveDivSmoothly(element, x, y, duration) {
             requestAnimationFrame(animate);
         }
     }
-
     requestAnimationFrame(animate);
 }

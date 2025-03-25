@@ -12,11 +12,17 @@ document.addEventListener("DOMContentLoaded", function () {
       face: "B",
       hat: "A",
       robe: "A",
+      bodyline: "bodyLine",
+      get hands() { return this.face; },
+      get faceline() { return this.face; }
     },
     jaz: {
       hat: "A",
       collar: "B",
       face: "A",
+      body: "body",
+      collarline: "collarLine",
+      get faceline() { return this.face; }
     }
   }
   initializeWebSocket(location.hostname);

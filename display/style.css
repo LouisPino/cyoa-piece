@@ -83,12 +83,12 @@ body {
     position: absolute;
     left: 0;
     top: 0;
+    transition: 500ms;
 }
 
 #pino-char,
 #jaz-char {
     position: absolute;
-    transition: transform 0;
 }
 
 /* INTRO PAGE SWITCHER */

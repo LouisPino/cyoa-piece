@@ -2,7 +2,7 @@ const jazBody = document.createElement("img")
 const jazCollar = document.createElement("img")
 const jazHat = document.createElement("img")
 const jazFace = document.createElement("img")
-const pinoLine = document.createElement("img")
+const pinoBodyLine = document.createElement("img")
 const pinoRobe = document.createElement("img")
 const jazDiv = document.createElement("div")
 const jazFaceLine = document.createElement("img")
@@ -13,6 +13,8 @@ const pinoFace = document.createElement("img")
 const pinoHat = document.createElement("img")
 const jazCollarLine = document.createElement("img")
 
+const assetPartEls = [jazBody, jazCollar, jazCollarLine, jazFaceLine, jazFace, jazHat, pinoBodyLine, pinoRobe, pinoFaceLine, pinoHands, pinoFace, pinoHat]
+const assetPartStrs = ["jazBody", "jazCollar", "jazCollarLine", "jazFaceLine", "jazFace", "jazHat", "pinoBodyLine", "pinoRobe", "pinoFaceLine", "pinoHands", "pinoFace", "pinoHat"]
 
 jazFaceLine.style.zIndex = "100"
 jazHat.style.zIndex = "99"
@@ -22,7 +24,7 @@ jazCollarLine.style.zIndex = "96"
 jazFace.style.zIndex = "95"
 
 pinoFaceLine.style.zIndex = "94"
-pinoLine.style.zIndex = "93"
+pinoBodyLine.style.zIndex = "93"
 pinoRobe.style.zIndex = "92"
 pinoHands.style.zIndex = "91"
 pinoHat.style.zIndex = "90"
@@ -38,19 +40,7 @@ let characters
 
 function storeCharacters(newCharacters) {
     characters = newCharacters
-    pinoFaceLine.src = `/display/assets/characters/pino/faceLine/${characters.pino.face}.png`
-    pinoFace.src = `/display/assets/characters/pino/face/${characters.pino.face}.png`
-    pinoHands.src = `/display/assets/characters/pino/hands/${characters.pino.face}.png`
-    pinoHat.src = `/display/assets/characters/pino/hat/${characters.pino.hat}.png`
-    pinoRobe.src = `/display/assets/characters/pino/robe/${characters.pino.robe}.png`
-    pinoLine.src = `/display/assets/characters/pino/static/bodyLine.png`
-
-    jazFaceLine.src = `/display/assets/characters/jaz/faceLine/${characters.jaz.face}.png`
-    jazFace.src = `/display/assets/characters/jaz/face/${characters.jaz.face}.png`
-    jazHat.src = `/display/assets/characters/jaz/hat/${characters.jaz.hat}.png`
-    jazCollar.src = `/display/assets/characters/jaz/collar/${characters.jaz.collar}.png`
-    jazBody.src = `/display/assets/characters/jaz/static/body.png`
-    jazCollarLine.src = `/display/assets/characters/jaz/static/collarLine.png`
+    toggleAnimation("front")
 }
 
 
@@ -59,7 +49,7 @@ function storeCharacters(newCharacters) {
 
 function renderPino() {
     pinoDiv.appendChild(pinoFaceLine)
-    pinoDiv.appendChild(pinoLine)
+    pinoDiv.appendChild(pinoBodyLine)
     pinoDiv.appendChild(pinoRobe)
     pinoDiv.appendChild(pinoHands)
     pinoDiv.appendChild(pinoHat)
@@ -77,59 +67,43 @@ function renderJaz() {
     jazDiv.appendChild(jazFace)
     document.body.appendChild(jazDiv)
 }
-
-
-
-
-function toggleAnimation(animation) {
-    switch (animation) {
-        case "run":
-            pinoFaceLine.src = `/display/assets/characters/pino/faceLine/${characters.pino.face}run.png`
-            pinoFace.src = `/display/assets/characters/pino/face/${characters.pino.face}run.png`
-            pinoHands.src = `/display/assets/characters/pino/hands/${characters.pino.face}run.gif`
-            pinoHat.src = `/display/assets/characters/pino/hat/${characters.pino.hat}run.png`
-            pinoRobe.src = `/display/assets/characters/pino/robe/${characters.pino.robe}run.gif`
-            pinoLine.src = `/display/assets/characters/pino/static/bodyLineRun.gif`
-
-            jazFaceLine.src = `/display/assets/characters/jaz/faceLine/${characters.jaz.face}run.png`
-            jazFace.src = `/display/assets/characters/jaz/face/${characters.jaz.face}run.png`
-            jazHat.src = `/display/assets/characters/jaz/hat/${characters.jaz.hat}run.png`
-            jazCollar.src = `/display/assets/characters/jaz/collar/${characters.jaz.collar}run.png`
-            jazBody.src = `/display/assets/characters/jaz/static/bodyRun.gif`
-            jazCollarLine.src = `/display/assets/characters/jaz/static/collarLineRun.png`
-            break;
-        case "walk":
-            pinoFaceLine.src = `/display/assets/characters/pino/faceLine/${characters.pino.face}.png`
-            pinoFace.src = `/display/assets/characters/pino/face/${characters.pino.face}.png`
-            pinoHands.src = `/display/assets/characters/pino/hands/${characters.pino.face}.gif`
-            pinoHat.src = `/display/assets/characters/pino/hat/${characters.pino.hat}.png`
-            pinoRobe.src = `/display/assets/characters/pino/robe/${characters.pino.robe}.gif`
-            pinoLine.src = `/display/assets/characters/pino/static/bodyLine.gif`
-
-            jazFaceLine.src = `/display/assets/characters/jaz/faceLine/${characters.jaz.face}.png`
-            jazFace.src = `/display/assets/characters/jaz/face/${characters.jaz.face}.png`
-            jazHat.src = `/display/assets/characters/jaz/hat/${characters.jaz.hat}.png`
-            jazCollar.src = `/display/assets/characters/jaz/collar/${characters.jaz.collar}.png`
-            jazBody.src = `/display/assets/characters/jaz/static/body.gif`
-            jazCollarLine.src = `/display/assets/characters/jaz/static/collarLine.png`
-            break;
-        case "stand":
-            pinoFaceLine.src = `/display/assets/characters/pino/faceLine/${characters.pino.face}.png`
-            pinoFace.src = `/display/assets/characters/pino/face/${characters.pino.face}.png`
-            pinoHands.src = `/display/assets/characters/pino/hands/${characters.pino.face}.png`
-            pinoHat.src = `/display/assets/characters/pino/hat/${characters.pino.hat}.png`
-            pinoRobe.src = `/display/assets/characters/pino/robe/${characters.pino.robe}.png`
-            pinoLine.src = `/display/assets/characters/pino/static/bodyLine.png`
-
-            jazFaceLine.src = `/display/assets/characters/jaz/faceLine/${characters.jaz.face}.png`
-            jazFace.src = `/display/assets/characters/jaz/face/${characters.jaz.face}.png`
-            jazHat.src = `/display/assets/characters/jaz/hat/${characters.jaz.hat}.png`
-            jazCollar.src = `/display/assets/characters/jaz/collar/${characters.jaz.collar}.png`
-            jazBody.src = `/display/assets/characters/jaz/static/body.png`
-            jazCollarLine.src = `/display/assets/characters/jaz/static/collarLine.png`
-            break;
+async function fileExists(url) {
+    try {
+        const response = await fetch(url, { method: 'HEAD' });
+        return response.status === 200; // Explicitly check for 200 instead of using response.ok
+    } catch {
+        return false; // Suppresses all errors, including 404s
     }
 }
+
+
+async function toggleAnimation(animation) {
+    if (animation === "left") {
+        for (el of assetPartEls) {
+            el.style.transform = "scaleX(-1)"
+        }
+        return
+    }
+    else if (animation === "right") {
+        for (el of assetPartEls) {
+            el.style.transform = "scaleX(1)"
+        }
+        return
+    }
+
+    for (let i = 0; i < assetPartEls.length; i++) {
+        const part = assetPartStrs[i]; // e.g., "jazBody"
+        const character = part.startsWith("jaz") ? "jaz" : "pino";
+        const key = part.replace(character, "").toLowerCase(); // Extracts the property name (e.g., "faceLine" -> "faceLine")
+        const pngPath = `/display/assets/characters/${character}/${key}/${animation}/${characters[character][key]}.png`;
+        const gifPath = `/display/assets/characters/${character}/${key}/${animation}/${characters[character][key]}.gif`;
+
+        assetPartEls[i].src = await fileExists(pngPath) ? pngPath : gifPath;
+    }
+
+
+}
+
 
 
 function jumpChar(char, x, y) {

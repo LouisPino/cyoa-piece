@@ -18,9 +18,9 @@ const assetPartStrs = ["jazBody", "jazCollar", "jazCollarLine", "jazFaceLine", "
 
 jazFaceLine.style.zIndex = "100"
 jazHat.style.zIndex = "99"
-jazCollar.style.zIndex = "98"
+jazCollarLine.style.zIndex = "98"
 jazBody.style.zIndex = "97"
-jazCollarLine.style.zIndex = "96"
+jazCollar.style.zIndex = "96"
 jazFace.style.zIndex = "95"
 
 pinoFaceLine.style.zIndex = "94"

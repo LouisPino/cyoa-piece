@@ -143,17 +143,6 @@ document.addEventListener("DOMContentLoaded", function () {
     };
   }
 
-  // function runSetupScript(scriptName) {
-  //   const scriptObj = scripts.find(script => script.name === scriptName);
-  //   if (!scriptObj) {
-  //     console.error(`Script with name "${scriptName}" not found.`);
-  //     return;
-  //   }
-  //   const scriptTag = document.createElement('script');
-  //   scriptTag.textContent = scriptObj.content;
-  //   document.head.appendChild(scriptTag);
-  // }
-
   function runSectionScript(scriptName) {
     const scriptObj = locationScripts.find(script => script.name === scriptName);
     if (!scriptObj) {
@@ -171,8 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   function sectionChange(section) {
-    console.log(section)
-    sceneTransition(section.transition.type, section.transition.time) //replace fade with section.transition, house transition info in new locations json
+    sceneTransition(section.transition.type, section.transition.time)
     setTimeout(() => {
       toggleHTML(section)
       runSectionScript(section.name)
@@ -217,9 +205,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // function intermissionStart() {
-  //   console.log("it is intermission now");
-  // }
 
   //health is in %
   function punchBadGuy(bossHealth) {

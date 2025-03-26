@@ -1,4 +1,4 @@
-function startVote(section) {
+function startVote(type, data) {
     mainEl.innerHTML = extras.filter((extra) => (extra.name === "vote"))[0].content//get vote html
     let voteAImgEl = document.getElementById('vote-a-img')
     let voteBImgEl = document.getElementById('vote-b-img')
@@ -6,8 +6,6 @@ function startVote(section) {
     let voteBBgEl = document.getElementById('vote-b-bg')
     let prompt = document.getElementById('vote-banner-text')
     prompt.innerHTML = section.choicePrompt
-    voteAImgEl.src = `/mobile/assets/vote/location/${section.choices[0]}/up.PNG`
-    voteBImgEl.src = `/mobile/assets/vote/location/${section.choices[1]}/up.PNG`
     voteAImgEl.addEventListener('click', () => handleVote("choice1"));
     voteBImgEl.addEventListener('click', () => handleVote("choice2"));
     voteAImgEl.addEventListener("touchstart", () => {
@@ -31,6 +29,17 @@ function startVote(section) {
     });
 
 
+
+    switch (type) {
+        case "section":
+            voteAImgEl.src = `/mobile/assets/vote/location/${data.choices[0]}/up.PNG`
+            voteBImgEl.src = `/mobile/assets/vote/location/${data.choices[1]}/up.PNG`
+            break
+        case "charcter":
+            voteAImgEl.src = `/mobile/assets/vote/character/${data.choices[0]}/up.PNG`
+            voteBImgEl.src = `/mobile/assets/vote/character/${data.choices[1]}/up.PNG`
+            break
+    }
 }
 
 

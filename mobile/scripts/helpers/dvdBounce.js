@@ -1,4 +1,6 @@
 function dvdBounce() {
+    renderPino();
+    renderJaz();
     const container = document.getElementById('dvd-container');
     const sprites = document.querySelectorAll('.char-div');
 
@@ -56,6 +58,5 @@ function dvdBounce() {
         requestAnimationFrame(animate);
     });
 
-    renderPino();
-    renderJaz();
+
 }

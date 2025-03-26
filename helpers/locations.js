@@ -15,7 +15,7 @@ const locations = {
       "You encounter a cliff at the edge of the kingdom! What do you do?",
     choices: ["north", "south"],
     html: {},
-    transition: { type: "pixelate-no-blur", time: 3000 }
+    transition: { type: "pixelate-no-blur", time: 1000 }
   },
   kingdom: {
     name: "kingdom",
@@ -35,7 +35,7 @@ const locations = {
     html: {},
     voteBg: "/display/assets/backgrounds/ForestTest.jpg",
     voteBgBlur: "/display/assets/backgrounds/forest.png",
-    transition: { type: "pixelate", time: 5000 }
+    transition: { type: "pixelate", time: 1000 }
 
   },
   forestSouth: {
@@ -61,7 +61,8 @@ const locations = {
     paths: ["bugs", "fish"],
     choicePrompt: "Should we go right or left?",
     choices: ["Left", "Right"],
-    html: {}, transition: { type: "pull", time: 3000 }
+    html: {},
+    transition: { type: "pull", time: 2000 }
 
   },
   bats: {
@@ -81,7 +82,8 @@ const locations = {
       "Sensing hostility!! They get defensive. Do we fight them or try to talk to them? ",
     choices: ["Chat", "Fight"],
     html: {},
-    movingSprites: true, transition: { type: "fade", time: 3000 }
+    movingSprites: true,
+    transition: { type: "fade", time: 1000 }
 
   },
   bugs: {
@@ -90,7 +92,8 @@ const locations = {
     choicePrompt:
       "Sensing hostility!! They get defensive. Do we fight them or try to talk to them? ", choices: ["Chat", "Fight"],
     choices: ["Chat", "Fight"],
-    html: {}, transition: { type: "pull", time: 6000 }
+    html: {},
+    transition: { type: "pull", time: 2000 }
 
   },
   fish: {
@@ -99,7 +102,7 @@ const locations = {
     choicePrompt:
       "Sensing hostility!! They get defensive. Do we fight them or try to talk to them? ", choices: ["Chat", "Fight"],
     choices: ["Chat", "Fight"],
-    html: {}, transition: { type: "fade", time: 3000 }
+    html: {}, transition: { type: "fade", time: 1000 }
 
   },
   chatFish: {
@@ -107,7 +110,7 @@ const locations = {
     paths: ["pacifist", "pacifist"],
     choicePrompt: "The creatures open up to you on how they’re really nervous and stressed out. They’re having difficulty writing a story for their local creative writing festival. Can you help them? ",
     choices: ["Left", "Right"],
-    html: {}, transition: { type: "fade", time: 3000 }
+    html: {}, transition: { type: "fade", time: 1000 }
 
   },
   fightFish: {
@@ -115,7 +118,7 @@ const locations = {
     paths: ["spaceBuff", "oceanBuff"],
     choicePrompt: "A rousing battle between the adventurers and the creature!! (ouch dude what the heck was that for, I’m leaving). Two pieces of loot (that provide buffs) are available but only one can be taken. What will you choose?",
     choices: ["Space Weapon", "Ocean Weapon"],
-    html: {}, transition: { type: "fade", time: 3000 }
+    html: {}, transition: { type: "fade", time: 1000 }
 
   },
   chatBats: {
@@ -123,7 +126,7 @@ const locations = {
     paths: ["pacifist", "pacifist"],
     choicePrompt: "The creatures open up to you on how they’re really nervous and stressed out. They’re having difficulty writing a story for their local creative writing festival. Can you help them? ",
     choices: ["Left", "Right"],
-    html: {}, transition: { type: "fade", time: 3000 }
+    html: {}, transition: { type: "fade", time: 1000 }
 
   },
   fightBats: {
@@ -131,7 +134,7 @@ const locations = {
     paths: ["spaceBuff", "oceanBuff"],
     choicePrompt: "A rousing battle between the adventurers and the creature!! (ouch dude what the heck was that for, I’m leaving). Two pieces of loot (that provide buffs) are available but only one can be taken. What will you choose?",
     choices: ["Space Weapon", "Ocean Weapon"],
-    html: {}, transition: { type: "fade", time: 3000 }
+    html: {}, transition: { type: "fade", time: 1000 }
 
   },
   chatBugs: {
@@ -139,7 +142,7 @@ const locations = {
     paths: ["pacifist", "pacifist"],
     choicePrompt: "The creatures open up to you on how they’re really nervous and stressed out. They’re having difficulty writing a story for their local creative writing festival. Can you help them?",
     choices: ["Left", "Right"],
-    html: {}, transition: { type: "fade", time: 3000 }
+    html: {}, transition: { type: "fade", time: 1000 }
 
   },
   fightBugs: {
@@ -147,7 +150,7 @@ const locations = {
     paths: ["spaceBuff", "oceanBuff"],
     choicePrompt: "A rousing battle between the adventurers and the creature!! (ouch dude what the heck was that for, I’m leaving). Two pieces of loot (that provide buffs) are available but only one can be taken. What will you choose?",
     choices: ["Space Weapon", "Ocean Weapon"],
-    html: {}, transition: { type: "fade", time: 3000 }
+    html: {}, transition: { type: "fade", time: 1000 }
 
   },
   spaceBuff: {

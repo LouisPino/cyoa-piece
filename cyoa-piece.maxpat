@@ -40,6 +40,18 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-26",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 93.0, 407.0, 35.0, 22.0 ],
+					"text" : "bugs"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-273",
 					"maxclass" : "newobj",
 					"numinlets" : 5,
@@ -5703,6 +5715,13 @@
 					"destination" : [ "obj-68", 0 ],
 					"order" : 0,
 					"source" : [ "obj-259", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-86", 0 ],
+					"source" : [ "obj-26", 0 ]
 				}
 
 			}

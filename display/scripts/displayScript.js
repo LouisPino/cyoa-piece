@@ -169,20 +169,16 @@ document.addEventListener("DOMContentLoaded", function () {
     mainEl.innerHTML = section.html.display;
   }
 
-  let sceneTransitionTime = 2000
 
   function sectionChange(section) {
     console.log(section)
     sceneTransition(section.transition.type, section.transition.time) //replace fade with section.transition, house transition info in new locations json
-    if (section.name != "welcome") { //fucks with qr code stuff if not immediately rendered
-      setTimeout(() => {
-        toggleHTML(section);
-      }
-        , section.transition.time / 2
-      )
-    } else {
+    setTimeout(() => {
       toggleHTML(section)
+      runSectionScript(section.name)
     }
+      , section.transition.time / 2
+    )
     let texts = [
       // ENTER YOUR SCENE'S TEXT HERE AS AN ARRAY OF STRINGS ONE PER LINE
       "*grumble grumble*",
@@ -195,7 +191,6 @@ document.addEventListener("DOMContentLoaded", function () {
       "We think this portal will take you where you need to go next…."
     ]
     const textBodyEl = document.querySelector(".text-body")
-    runSectionScript(section.name)
     typeTextManual(texts, textBodyEl);
     setCharacterSprites(section.movingSprites);
   }

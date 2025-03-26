@@ -64,6 +64,17 @@ function renderJaz() {
     jazDiv.appendChild(jazFace)
     document.body.appendChild(jazDiv)
 }
+
+
+function removePino() {
+    pinoDiv.remove()
+}
+
+
+function removeJaz() {
+    jazDiv.remove()
+
+}
 async function fileExists(url) {
     try {
         const response = await fetch(url, { method: 'HEAD' });

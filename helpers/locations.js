@@ -14,7 +14,7 @@ const locations = {
       "You encounter a cliff at the edge of the kingdom! What do you do?",
     choices: ["north", "south"],
     html: {},
-    transition: { type: "fade", time: 3000 }
+    transition: { type: "pixelate-no-blur", time: 3000 }
   },
   kingdom: {
     name: "kingdom",
@@ -34,7 +34,7 @@ const locations = {
     html: {},
     voteBg: "/display/assets/backgrounds/ForestTest.jpg",
     voteBgBlur: "/display/assets/backgrounds/forest.png",
-    transition: { type: "fade", time: 3000 }
+    transition: { type: "pixelate", time: 5000 }
 
   },
   forestSouth: {
@@ -43,7 +43,7 @@ const locations = {
     choicePrompt: "You've hit a fork in the road! Where will you go?",
     choices: ["Left", "Right"],
     html: {},
-    transition: { type: "fade", time: 3000 }
+    transition: { type: "blur", time: 1000 }
 
   },
   cave: {
@@ -52,7 +52,7 @@ const locations = {
     choicePrompt: "Should we go right or left?",
     choices: ["Left", "Right"],
     html: {},
-    transition: { type: "fade", time: 3000 }
+    transition: { type: "blur", time: 1000 }
 
   },
   river: {
@@ -70,7 +70,7 @@ const locations = {
       "Sensing hostility!! They get defensive. Do we fight them or try to talk to them? ",
     choices: ["Chat", "Fight"],
     html: {},
-    movingSprites: true, transition: { type: "fade", time: 3000 }
+    movingSprites: true, transition: { type: "blur", time: 1000 }
 
   },
   batMadlib: {
@@ -89,7 +89,7 @@ const locations = {
     choicePrompt:
       "Sensing hostility!! They get defensive. Do we fight them or try to talk to them? ", choices: ["Chat", "Fight"],
     choices: ["Chat", "Fight"],
-    html: {}, transition: { type: "fade", time: 3000 }
+    html: {}, transition: { type: "pull", time: 3000 }
 
   },
   fish: {

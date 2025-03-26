@@ -109,6 +109,20 @@ button {
 }
 
 
+.char-div img {
+    position: absolute;
+    top: 0;
+    transition: transform 500ms;
+    width: 15vw;
+}
+
+#pino-char,
+#jaz-char {
+    position: absolute;
+    width: 15vw;
+    height: 26vh;
+}
+
 
 .complete-screen-img {
     position: absolute;
@@ -232,6 +246,7 @@ button {
     overflow: visible;
     /* border: 1px solid red; */
 }
+
 
 
 .fitted-image {

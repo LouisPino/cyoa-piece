@@ -330,6 +330,7 @@ oscServer.on('message', (msg, rinfo) => {
             break
         case "characters":
             sendToDisplay({ type: "characters", data: msg })
+            sendToWebClients({ type: "characters", data: msg })
             break
         case "sandbox":
             sendToDisplay({ type: "sandbox", data: { name: msg[1], value: msg[2] ? msg[2] : "" } })

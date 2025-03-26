@@ -40,6 +40,30 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-30",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "bang", "" ],
+					"patching_rect" : [ 848.780508041381836, 928.048802614212036, 41.0, 22.0 ],
+					"text" : "sel 99"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-25",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 4,
+					"outlettype" : [ "int", "int", "int", "int" ],
+					"patching_rect" : [ 863.414654731750488, 852.439044713973999, 50.5, 22.0 ],
+					"text" : "key"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-26",
 					"maxclass" : "message",
 					"numinlets" : 2,
@@ -4573,7 +4597,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 567.027097880840529, 300.701108872890472, 50.0, 22.0 ],
-					"text" : "0"
+					"text" : "2"
 				}
 
 			}
@@ -5610,6 +5634,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-30", 0 ],
+					"source" : [ "obj-25", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-205", 0 ],
 					"order" : 1,
 					"source" : [ "obj-250", 0 ]
@@ -5916,6 +5947,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-86", 0 ],
 					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-241", 0 ],
+					"source" : [ "obj-30", 0 ]
 				}
 
 			}
@@ -6331,6 +6369,13 @@
 		}
 ,
 		"dependency_cache" : [ 			{
+				"name" : "GolemGuys.txt",
+				"bootpath" : "~/Desktop/sylvanscenese",
+				"patcherrelativepath" : "../../Desktop/sylvanscenese",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "bd+hh.aiff",
 				"bootpath" : "C74:/docs/tutorial-patchers/msp-tut",
 				"type" : "AIFF",

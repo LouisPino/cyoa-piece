@@ -79,8 +79,7 @@ function sceneTransition(type, time) {
             squareTransition(time)
             break;
         case "pull":
-            renderPino()
-            renderJaz()
+            pull(time)
             break
     }
 }
@@ -135,12 +134,12 @@ function squareTransition(time) {
     // Fade out: reverse order, staggered over the second half.
     squares.forEach((square, idx) => {
         const rank = order.indexOf(idx);
-        const appearDelay = (rank * (time / 2)) / squares.length;
+        const appearDelay = (rank * (time / 2.25)) / squares.length;
         setTimeout(() => {
             square.style.opacity = "1";
         }, appearDelay);
 
-        const disappearDelay = time / 2 + ((squares.length - 1 - rank) * (time / 2)) / squares.length;
+        const disappearDelay = time / 2.25 + ((squares.length - 1 - rank) * (time / 2.25)) / squares.length;
         setTimeout(() => {
             square.style.opacity = "0";
         }, disappearDelay);
@@ -216,5 +215,72 @@ function squareTransitionNoBlur(time) {
     // Remove the container after the full time has elapsed.
     setTimeout(() => {
         container.remove();
+    }, time);
+}
+
+function pull(time) {
+    toggleAnimation("walk");
+    renderPino();
+    renderJaz();
+
+    // Create the overlay
+    const overlay = document.createElement("div");
+    overlay.style.position = "fixed";
+    overlay.style.zIndex = "50";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100vw";
+    overlay.style.height = "100vh";
+    overlay.style.backgroundColor = "black";
+    overlay.style.transition = `transform ${time}ms linear`;
+    // Start completely offscreen to the left by an extra 19vw
+    overlay.style.transform = "translateX(-119vw)";
+    document.body.appendChild(overlay);
+
+    // Position the character divs relative to the viewport.
+    // pinoDiv will appear 19vw to the left of overlay's left edge.
+    // jazDiv will appear 19vw to the right of overlay's right edge.
+    if (pinoDiv && jazDiv) {
+        pinoDiv.style.position = "fixed";
+        jazDiv.style.position = "fixed";
+
+        // pinoDiv: starting 19vw to the left of the overlay’s left edge.
+        // Overlay's left edge (after transform) is at -119vw.
+        // So pinoDiv is placed at -119vw - 19vw = -138vw.
+        pinoDiv.style.left = "calc(-100vw - 40vw)"; // -138vw
+        pinoDiv.style.top = "200px";
+        pinoDiv.style.transform = "translateY(-50%)"; // initial vertical centering
+
+        // jazDiv: starting 19vw to the right of the overlay’s right edge.
+        // With overlay starting at -119vw and width 100vw, its right edge is at -19vw.
+        // 19vw to the right means 0vw.
+        jazDiv.style.left = "-40vw";
+        jazDiv.style.top = "200px";
+        jazDiv.style.transform = "translateY(-50%)";
+
+        // Ensure they animate along with the overlay.
+        pinoDiv.style.transition = `transform ${time}ms linear`;
+        jazDiv.style.transition = `transform ${time}ms linear`;
+    }
+
+    // Force reflow so the browser registers the initial positions.
+    overlay.getBoundingClientRect();
+
+    // Animate overlay and characters together
+    requestAnimationFrame(() => {
+        // Move overlay from -119vw to 119vw (a total shift of 238vw)
+        overlay.style.transform = "translateX(119vw)";
+        if (pinoDiv && jazDiv) {
+            // Apply the same 238vw translation to both characters.
+            pinoDiv.style.transform = "translateY(-50%) translateX(238vw)";
+            jazDiv.style.transform = "translateY(-50%) translateX(238vw)";
+        }
+    });
+
+    // Clean up after the animation
+    setTimeout(() => {
+        overlay.remove();
+        removePino();
+        removeJaz();
     }, time);
 }

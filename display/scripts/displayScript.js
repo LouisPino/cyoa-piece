@@ -158,12 +158,15 @@ document.addEventListener("DOMContentLoaded", function () {
     mainEl.innerHTML = section.html.display;
   }
 
-
+  let textBodyEl
   function sectionChange(section) {
     sceneTransition(section.transition.type, section.transition.time)
     setTimeout(() => {
       toggleHTML(section)
       runSectionScript(section.name)
+      textBodyEl = document.querySelector(".text-body")
+      typeTextManual(texts, textBodyEl);
+
     }
       , section.transition.time / 2
     )
@@ -178,8 +181,6 @@ document.addEventListener("DOMContentLoaded", function () {
       "*grumble* Thank you for your time… Let us help you with your journey…*grumble* come over here…",
       "We think this portal will take you where you need to go next…."
     ]
-    const textBodyEl = document.querySelector(".text-body")
-    typeTextManual(texts, textBodyEl);
     setCharacterSprites(section.movingSprites);
   }
 

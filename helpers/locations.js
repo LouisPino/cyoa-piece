@@ -5,6 +5,7 @@ const locations = {
     choicePrompt:
       "sandbox",
     choices: ["sandbox", "sandbox"],
+    transition: { type: "pixelate-no-blur", time: 1000 },
     html: {},
   },
   intro: {
@@ -23,7 +24,7 @@ const locations = {
       "You encounter a cliff at the edge of the kingdom! What do you do?",
     choices: ["north", "south"],
     html: {},
-    transition: { type: "fade", time: 6000 }
+    transition: { type: "jump", time: 0 }
 
   },
   forestNorth: {
@@ -60,7 +61,7 @@ const locations = {
     paths: ["bugs", "fish"],
     choicePrompt: "Should we go right or left?",
     choices: ["Left", "Right"],
-    html: {}, transition: { type: "fade", time: 3000 }
+    html: {}, transition: { type: "pull", time: 3000 }
 
   },
   bats: {
@@ -89,7 +90,7 @@ const locations = {
     choicePrompt:
       "Sensing hostility!! They get defensive. Do we fight them or try to talk to them? ", choices: ["Chat", "Fight"],
     choices: ["Chat", "Fight"],
-    html: {}, transition: { type: "pull", time: 3000 }
+    html: {}, transition: { type: "pull", time: 6000 }
 
   },
   fish: {

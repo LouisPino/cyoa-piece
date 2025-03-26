@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1795.0, 85.0, 730.0, 1272.0 ],
+		"rect" : [ 2063.0, 85.0, 462.0, 1272.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,6 +39,18 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-27",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 187.791204333305359, 336.334079444408417, 81.0, 22.0 ],
+					"text" : "explainSpace"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-30",
 					"maxclass" : "newobj",
@@ -69,7 +81,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 93.0, 407.0, 35.0, 22.0 ],
+					"patching_rect" : [ 38.5, 415.169242560863495, 35.0, 22.0 ],
 					"text" : "bugs"
 				}
 
@@ -4439,12 +4451,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-40",
-					"linecount" : 7,
+					"linecount" : 8,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 287.50275444984436, 351.334079444408417, 135.593402028083801, 103.0 ],
-					"text" : "Starts at welcome, \nmanually move to intro,\nmanually move to character custom for each character individually,\nthen to map screen"
+					"patching_rect" : [ 287.50275444984436, 351.334079444408417, 135.593402028083801, 117.0 ],
+					"text" : "Starts at welcome, \nmanually move to intro,\nmanually move to character custom for each character individually,\nmanually move to / map\nthen to map screen"
 				}
 
 			}
@@ -4525,7 +4537,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 91.291204333305359, 377.389031589031219, 57.0, 22.0 ],
+					"patching_rect" : [ 119.520933091641609, 443.389031589031219, 57.0, 22.0 ],
 					"text" : "scene $1"
 				}
 
@@ -4597,7 +4609,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 567.027097880840529, 300.701108872890472, 50.0, 22.0 ],
-					"text" : "2"
+					"text" : "0"
 				}
 
 			}
@@ -4770,7 +4782,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 91.291204333305359, 351.334079444408417, 75.0, 22.0 ],
+					"patching_rect" : [ 38.5, 351.334079444408417, 75.0, 22.0 ],
 					"text" : "river"
 				}
 
@@ -5800,6 +5812,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-86", 0 ],
+					"source" : [ "obj-27", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-230", 0 ],
 					"source" : [ "obj-270", 0 ]
 				}
@@ -6369,13 +6388,6 @@
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "GolemGuys.txt",
-				"bootpath" : "~/Desktop/sylvanscenese",
-				"patcherrelativepath" : "../../Desktop/sylvanscenese",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
 				"name" : "bd+hh.aiff",
 				"bootpath" : "C74:/docs/tutorial-patchers/msp-tut",
 				"type" : "AIFF",

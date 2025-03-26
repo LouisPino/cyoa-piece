@@ -55,11 +55,12 @@ function initializeWebSocket() {
             case "vote":
                 switch (msg.data.type) {
                     case "path":
-                        startVote(currentLocation)
+                        startVote("section", currentLocation)
                         break
                     case "skin":
                         currentLocation = "skin"
-                        startSkinVote(msg.data.item)
+                        startVote("character", currentLocation)
+                        // startSkinVote(msg.data.item)
                         break
                     case "lookup":
                         lookUp()

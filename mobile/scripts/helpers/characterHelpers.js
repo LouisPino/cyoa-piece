@@ -17,23 +17,25 @@ const pinoFaceLine = document.createElement("img")
 const pinoHands = document.createElement("img")
 const pinoFace = document.createElement("img")
 const pinoHat = document.createElement("img")
+const pinoHelmet = document.createElement("img")
 const jazCollarLine = document.createElement("img")
 
 const assetPartEls = [jazBody, jazCollar, jazCollarLine, jazFaceLine, jazFace, jazHat, pinoBodyLine, pinoRobe, pinoFaceLine, pinoHands, pinoFace, pinoHat]
 const assetPartStrs = ["jazBody", "jazCollar", "jazCollarLine", "jazFaceLine", "jazFace", "jazHat", "pinoBodyLine", "pinoRobe", "pinoFaceLine", "pinoHands", "pinoFace", "pinoHat"]
 
-jazFaceLine.style.zIndex = "100"
-jazHat.style.zIndex = "99"
+jazHat.style.zIndex = "100"
+jazFaceLine.style.zIndex = "99"
 jazCollarLine.style.zIndex = "98"
 jazCollar.style.zIndex = "97"
 jazBody.style.zIndex = "96"
 jazFace.style.zIndex = "95"
 
+pinoHelmet.style.zIndex = "94"
+pinoHat.style.zIndex = "90"
 pinoFaceLine.style.zIndex = "94"
 pinoBodyLine.style.zIndex = "93"
 pinoRobe.style.zIndex = "92"
 pinoHands.style.zIndex = "91"
-pinoHat.style.zIndex = "90"
 pinoFace.style.zIndex = "89"
 
 
@@ -46,7 +48,7 @@ let characters
 
 function storeCharacters(newCharacters) {
     characters = newCharacters
-    toggleAnimation("front")
+    toggleAnimation("dvd")
 }
 
 
@@ -93,6 +95,25 @@ async function toggleAnimation(animation) {
         for (el of assetPartEls) {
             el.style.transform = "scaleX(1)"
         }
+        return
+    }
+    else if (animation === "dvd") {
+        console.log(currentLocation)
+        jazFaceLine.src = `/display/assets/characters/jaz/faceline/dvd/${characters.jaz.faceline}.png`
+        jazHat.src = `/display/assets/characters/jaz/hat/dvd/${characters.jaz.hat}${currentLocation.name.toLowerCase().includes("ocean") ? "ocean" : "space"}.png` //WORK ON ME
+        jazCollarLine.style.zIndex = `/display/assets/characters/jaz/collarline/dvd/collarLine.png`
+        jazCollar.src = `/display/assets/characters/jaz/collar/dvd/${characters.jaz.collar}.png`
+        jazBody.src = `/display/assets/characters/jaz/body/dvd/body.png`
+        jazFace.src = `/display/assets/characters/jaz/face/dvd/${characters.jaz.face}.png`
+
+        pinoFaceLine.src = `/display/assets/characters/pino/faceline/dvd/${characters.pino.faceline}.png`
+        pinoBodyLine.src = `/display/assets/characters/pino/bodyline/dvd/bodyLine.png`
+        pinoRobe.src = `/display/assets/characters/pino/robe/dvd/${characters.pino.robe}.png`
+        pinoHands.src = `/display/assets/characters/pino/hands/dvd/${characters.pino.hands}.png`
+        pinoHat.src = `/display/assets/characters/pino/hat/dvd/${characters.pino.hat}.png`
+        pinoFace.src = `/display/assets/characters/pino/face/dvd/${characters.pino.face}.png`
+        pinoHelmet.src = `/display/assets/characters/pino/helmet/${currentLocation.name.toLowerCase().includes("ocean") ? "ocean" : "space"}.png`
+        pinoDiv.appendChild(pinoHelmet)
         return
     }
 

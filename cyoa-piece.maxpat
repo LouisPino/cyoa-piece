@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 2063.0, 85.0, 462.0, 1272.0 ],
+		"rect" : [ 2037.0, 85.0, 488.0, 1272.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,6 +39,98 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-35",
+					"linecount" : 2,
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 406.458558738232341, 121.0, 52.0, 36.0 ],
+					"presentation_linecount" : 2,
+					"text" : "skin pDevice"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-37",
+					"linecount" : 2,
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 406.458558738232341, 97.0, 44.0, 36.0 ],
+					"presentation_linecount" : 2,
+					"text" : "skin pColor"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-42",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 406.458558738232341, 65.0, 59.0, 22.0 ],
+					"presentation_linecount" : 2,
+					"text" : "skin pHat"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-44",
+					"linecount" : 2,
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 406.458558738232341, 34.0, 44.0, 36.0 ],
+					"presentation_linecount" : 2,
+					"text" : "skin pRobe"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-31",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 331.104411423207466, 121.0, 73.0, 22.0 ],
+					"presentation_linecount" : 2,
+					"text" : "skin jDevice"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-32",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 331.104411423207466, 97.0, 65.0, 22.0 ],
+					"text" : "skin jColor"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-28",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 331.104411423207466, 65.0, 55.0, 22.0 ],
+					"text" : "skin jHat"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-27",
 					"maxclass" : "message",
@@ -4395,8 +4487,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 370.568685293197632, 229.202207982540131, 30.0, 22.0 ],
-					"text" : "skin"
+					"patching_rect" : [ 331.104411423207466, 41.0, 67.0, 22.0 ],
+					"text" : "skin jCollar"
 				}
 
 			}
@@ -4853,8 +4945,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 287.50275444984436, 312.265179514884949, 58.0, 22.0 ],
-					"text" : "vote $1"
+					"patching_rect" : [ 287.50275444984436, 323.265179514884949, 65.0, 22.0 ],
+					"text" : "vote $1 $2"
 				}
 
 			}
@@ -4925,7 +5017,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 289.50275444984436, 229.202207982540131, 58.0, 22.0 ],
+					"patching_rect" : [ 287.50275444984436, 231.334079444408417, 58.0, 22.0 ],
 					"text" : "path"
 				}
 
@@ -4933,12 +5025,13 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-20",
+					"linecount" : 3,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 106.0, 17.0, 78.0, 22.0 ],
-					"text" : "/switch cave"
+					"patching_rect" : [ 106.0, 17.0, 78.0, 50.0 ],
+					"text" : "/switch thermosphere"
 				}
 
 			}
@@ -5957,6 +6050,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"source" : [ "obj-28", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-84", 0 ],
 					"source" : [ "obj-29", 0 ]
 				}
@@ -5978,6 +6078,20 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"source" : [ "obj-31", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"source" : [ "obj-32", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-17", 0 ],
 					"source" : [ "obj-33", 0 ]
 				}
@@ -5992,8 +6106,22 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"source" : [ "obj-35", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-84", 0 ],
 					"source" : [ "obj-36", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"source" : [ "obj-37", 0 ]
 				}
 
 			}
@@ -6036,8 +6164,22 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"source" : [ "obj-42", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-84", 0 ],
 					"source" : [ "obj-43", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"source" : [ "obj-44", 0 ]
 				}
 
 			}
@@ -6388,6 +6530,13 @@
 		}
 ,
 		"dependency_cache" : [ 			{
+				"name" : "GolemGuys.txt",
+				"bootpath" : "~/Desktop/sylvanscenese",
+				"patcherrelativepath" : "../../Desktop/sylvanscenese",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "bd+hh.aiff",
 				"bootpath" : "C74:/docs/tutorial-patchers/msp-tut",
 				"type" : "AIFF",

@@ -199,7 +199,7 @@ function triggerVote(type, item) {
         sendToDisplay({ type: "vote", data: { type: "path", currentLocation: currentLocation } }) // in display, make visible the choice prompt + image
     } else if (type === "skin") {
         sendToWebClients({ type: "vote", data: { type: "skin", item: item } })
-        sendToDisplay({ type: "vote", data: { type: "path", currentLocation: currentLocation } }) // in display, make visible the choice prompt + image
+        sendToDisplay({ type: "vote", data: { type: "skin", item: item } }) // in display, make visible the choice prompt + image
     }
     setTimeout(() => {
         displayWinner(tallyVotes())

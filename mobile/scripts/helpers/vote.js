@@ -5,7 +5,7 @@ function startVote(type, data) {
     let voteABgEl = document.getElementById('vote-a-bg')
     let voteBBgEl = document.getElementById('vote-b-bg')
     let prompt = document.getElementById('vote-banner-text')
-    prompt.innerHTML = section.choicePrompt
+    // prompt.innerHTML = data.choicePrompt
     voteAImgEl.addEventListener('click', () => handleVote("choice1"));
     voteBImgEl.addEventListener('click', () => handleVote("choice2"));
     voteAImgEl.addEventListener("touchstart", () => {
@@ -29,13 +29,12 @@ function startVote(type, data) {
     });
 
 
-
     switch (type) {
         case "section":
             voteAImgEl.src = `/mobile/assets/vote/location/${data.choices[0]}/up.PNG`
             voteBImgEl.src = `/mobile/assets/vote/location/${data.choices[1]}/up.PNG`
             break
-        case "charcter":
+        case "character":
             voteAImgEl.src = `/mobile/assets/vote/character/${data.choices[0]}/up.PNG`
             voteBImgEl.src = `/mobile/assets/vote/character/${data.choices[1]}/up.PNG`
             break
@@ -78,4 +77,15 @@ function flashOnce(voteEls) {
         }, flashTime);
     });
 
+}
+
+const skinChoices = {
+    pRobe: ["pino/robe/A", "pino/robe/B"],
+    pHat: ["pino/hat/A", "pino/hat/B"],
+    pColor: ["pino/color/A", "pino/color/B"],
+    pDevice: ["pino/device/A", "pino/device/B"],
+    jCollar: ["jaz/collar/A", "jaz/collar/B"],
+    jHat: ["jaz/hat/A", "jaz/hat/B"],
+    jColor: ["jaz/color/A", "jaz/color/B"],
+    jDevice: ["jaz/device/A", "jaz/device/B"]
 }

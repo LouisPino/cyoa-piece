@@ -192,10 +192,15 @@ function handleVote(vote) {
 }
 
 
-function triggerVote() {
+function triggerVote(type, item) {
     voting = true
-    sendToWebClients({ type: "vote", data: { type: "path" } })
-    sendToDisplay({ type: "vote", data: { type: "path", currentLocation: currentLocation } }) // in display, make visible the choice prompt + image
+    if (type === "path") {
+        sendToWebClients({ type: "vote", data: { type: "path" } })
+        sendToDisplay({ type: "vote", data: { type: "path", currentLocation: currentLocation } }) // in display, make visible the choice prompt + image
+    } else if (type === "skin") {
+        sendToWebClients({ type: "vote", data: { type: "skin", item: item } })
+        sendToDisplay({ type: "vote", data: { type: "path", currentLocation: currentLocation } }) // in display, make visible the choice prompt + image
+    }
     setTimeout(() => {
         displayWinner(tallyVotes())
     }, voteLength + promptLength)
@@ -203,10 +208,14 @@ function triggerVote() {
         endVote(tallyVotes())
     }, voteLength + promptLength + winnerLength)
 }
+
+
+
 function displayWinner(winner) {
     sendToDisplay({ type: "vote", data: { type: "winner", winner: winner, currentLocation: currentLocation } }) // in display, make visible the choice prompt + image
     sendToWebClients({ type: "vote", data: { type: "lookup" } })
 }
+
 function endVote(winner) {
     console.log("end", winner)
     switch (winner) {
@@ -225,28 +234,28 @@ function endVote(winner) {
     resetChoices()
 }
 
-function skinVoting(character) {
-    if (character === "p") {
-        console.log("voting for pino")
-    } else {
-        console.log("voting for jaz")
-    }
-    Object.entries(skinOptions).forEach(([k, v], index) => {
-        setTimeout(() => {
-            triggerSkinVote(k, v);
-        }, index * voteLength * 2);
+// function skinVoting(character) {
+//     if (character === "p") {
+//         console.log("voting for pino")
+//     } else {
+//         console.log("voting for jaz")
+//     }
+//     Object.entries(skinOptions).forEach(([k, v], index) => {
+//         setTimeout(() => {
+//             triggerSkinVote(k, v);
+//         }, index * voteLength * 2);
 
-        if (character === "j") { //IF JAZ IS SECOND, THIS IS AFTER
-            // Move this logic outside the loop so it only runs once after all voting rounds
-            if (index === Object.keys(skinOptions).length - 1) {
-                setTimeout(() => {
-                    oscClient.send("/switch", "intro");
-                    voting = false;
-                }, (index + 1) * voteLength * 2); // Ensure this runs after the last vote
-            }
-        }
-    });
-}
+//         if (character === "j") { //IF JAZ IS SECOND, THIS IS AFTER
+//             // Move this logic outside the loop so it only runs once after all voting rounds
+//             if (index === Object.keys(skinOptions).length - 1) {
+//                 setTimeout(() => {
+//                     oscClient.send("/switch", "intro");
+//                     voting = false;
+//                 }, (index + 1) * voteLength * 2); // Ensure this runs after the last vote
+//             }
+//         }
+//     });
+// }
 
 function resetChoices() {
     for (let key in choices) {
@@ -262,15 +271,15 @@ function tallyVotes() {
     return choiceMap[Object.keys(choices).reduce((a, b) => choices[a] >= choices[b] ? a : b)]
 }
 
-function triggerSkinVote(name, obj) {
-    voting = true;
-    sendToWebClients({ type: "vote", data: { type: "skin", item: obj } });
-    sendToDisplay({ type: "vote", data: { type: "skin", item: obj } }); // Display the choice prompt + image
+// function triggerSkinVote(name, obj) {
+//     voting = true;
+//     sendToWebClients({ type: "vote", data: { type: "skin", item: obj } });
+//     sendToDisplay({ type: "vote", data: { type: "skin", item: obj } }); // Display the choice prompt + image
 
-    setTimeout(() => {
-        endSkinVote(tallyVotes(), name, obj)
-    }, voteLength - 10); // Ensure this runs close to the end of voteLength
-}
+//     setTimeout(() => {
+//         endSkinVote(tallyVotes(), name, obj)
+//     }, voteLength - 10); // Ensure this runs close to the end of voteLength
+// }
 
 
 function endSkinVote(winner, name, obj) {
@@ -318,10 +327,10 @@ oscServer.on('message', (msg, rinfo) => {
         case "vote":
             switch (msg[1]) {
                 case "path":
-                    triggerVote()
+                    triggerVote("path")
                     break
-                case "skinPeen":
-                    skinVoting("p")
+                case "skin":
+                    triggerVote("skin", msg[2])
                     break
                 case "skinJaz":
                     skinVoting("j")

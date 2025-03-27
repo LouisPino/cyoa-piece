@@ -179,10 +179,12 @@ button {
 
 #vote-b-img {
     clip-path: inset(0 0 0 50%);
+    z-index: 100;
 }
 
 #vote-a-img {
     clip-path: inset(0 50% 0 0);
+    z-index: 100;
 }
 
 /***** Game */

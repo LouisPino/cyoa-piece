@@ -59,12 +59,10 @@ function initializeWebSocket() {
                         break
                     case "skin":
                         currentLocation = "skin"
-                        startVote("character", currentLocation)
-                        // startSkinVote(msg.data.item)
+                        startVote("character", { item: msg.data.item, choices: skinChoices[msg.data.item] })
                         break
                     case "lookup":
                         lookUp()
-                        console.log(20)
                         break
                 }
                 break

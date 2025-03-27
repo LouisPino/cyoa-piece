@@ -84,19 +84,19 @@ document.addEventListener("DOMContentLoaded", function () {
         case "vote":
           switch (msg.data.type) {
             case "skin":
-              promptVote(mainEl, extras)
+              promptVote(mainEl, extras, msg.data, "skin")
               setTimeout(() => {
-                displayVote(mainEl, extras, voteLength);
-                toggleSkinHTML(msg.data.item);
+                displayVote(mainEl, extras, voteLength, msg.data, "skin");
+                // toggleSkinHTML(msg.data.item);
               }, promptLength)
               break;
             case "skinChoice":
               displaySkinChoice(msg.data.item, msg.data.winner);
               break;
             case "path":
-              promptVote(mainEl, extras, msg.data.currentLocation)
+              promptVote(mainEl, extras, msg.data, "path")
               setTimeout(() => {
-                displayVote(mainEl, extras, voteLength, msg.data.currentLocation);
+                displayVote(mainEl, extras, voteLength, msg.data, "path");
               }, promptLength)
               break;
             case "vote-cast":

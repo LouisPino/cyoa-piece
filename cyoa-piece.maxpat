@@ -46,7 +46,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 406.458558738232341, 121.0, 52.0, 36.0 ],
+					"patching_rect" : [ 406.458558738232341, 132.501109302043915, 52.0, 36.0 ],
 					"presentation_linecount" : 2,
 					"text" : "skin pDevice"
 				}
@@ -73,7 +73,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 406.458558738232341, 65.0, 59.0, 22.0 ],
+					"patching_rect" : [ 406.458558738232341, 73.0, 59.0, 22.0 ],
 					"presentation_linecount" : 2,
 					"text" : "skin pHat"
 				}
@@ -87,7 +87,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 406.458558738232341, 34.0, 44.0, 36.0 ],
+					"patching_rect" : [ 406.458558738232341, 33.0, 44.0, 36.0 ],
 					"presentation_linecount" : 2,
 					"text" : "skin pRobe"
 				}
@@ -100,7 +100,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 331.104411423207466, 121.0, 73.0, 22.0 ],
+					"patching_rect" : [ 331.104411423207466, 111.0, 73.0, 22.0 ],
 					"presentation_linecount" : 2,
 					"text" : "skin jDevice"
 				}
@@ -113,7 +113,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 331.104411423207466, 97.0, 65.0, 22.0 ],
+					"patching_rect" : [ 331.104411423207466, 87.273953676223755, 65.0, 22.0 ],
 					"text" : "skin jColor"
 				}
 

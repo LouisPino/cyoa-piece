@@ -6,7 +6,7 @@ const locations = {
       "sandbox",
     choices: ["sandbox", "sandbox"],
     transition: { type: "pixelate-no-blur", time: 1000 },
-    html: {},
+    html: {}, voteBgBlur: "/display/assets/backgrounds/forest.png",
   },
   intro: {
     name: "intro",
@@ -15,7 +15,7 @@ const locations = {
       "You encounter a cliff at the edge of the kingdom! What do you do?",
     choices: ["north", "south"],
     html: {},
-    transition: { type: "pixelate-no-blur", time: 1000 }
+    transition: { type: "pixelate-no-blur", time: 1000 }, voteBgBlur: "/display/assets/backgrounds/forest.png",
   },
   kingdom: {
     name: "kingdom",
@@ -24,7 +24,8 @@ const locations = {
       "You encounter a cliff at the edge of the kingdom! What do you do?",
     choices: ["north", "south"],
     html: {},
-    transition: { type: "jump", time: 0 }
+    transition: { type: "jump", time: 0 }, voteBgBlur: "/display/assets/backgrounds/forest.png",
+
 
   },
   forestNorth: {
@@ -35,7 +36,7 @@ const locations = {
     html: {},
     voteBg: "/display/assets/backgrounds/ForestTest.jpg",
     voteBgBlur: "/display/assets/backgrounds/forest.png",
-    transition: { type: "pixelate", time: 1000 }
+    transition: { type: "pixelate", time: 1000 }, voteBgBlur: "/display/assets/backgrounds/forest.png",
 
   },
   forestSouth: {
@@ -44,7 +45,7 @@ const locations = {
     choicePrompt: "You've hit a fork in the road! Where will you go?",
     choices: ["Left", "Right"],
     html: {},
-    transition: { type: "blur", time: 1000 }
+    transition: { type: "blur", time: 1000 }, voteBgBlur: "/display/assets/backgrounds/forest.png",
 
   },
   cave: {
@@ -53,7 +54,7 @@ const locations = {
     choicePrompt: "Should we go right or left?",
     choices: ["Left", "Right"],
     html: {},
-    transition: { type: "blur", time: 1000 }
+    transition: { type: "blur", time: 1000 }, voteBgBlur: "/display/assets/backgrounds/forest.png",
 
   },
   river: {
@@ -62,7 +63,7 @@ const locations = {
     choicePrompt: "Should we go right or left?",
     choices: ["Left", "Right"],
     html: {},
-    transition: { type: "pull", time: 2000 }
+    transition: { type: "pull", time: 2000 }, voteBgBlur: "/display/assets/backgrounds/forest.png",
 
   },
   bats: {
@@ -72,7 +73,7 @@ const locations = {
       "Sensing hostility!! They get defensive. Do we fight them or try to talk to them? ",
     choices: ["Chat", "Fight"],
     html: {},
-    movingSprites: true, transition: { type: "blur", time: 1000 }
+    movingSprites: true, transition: { type: "blur", time: 1000 }, voteBgBlur: "/display/assets/backgrounds/forest.png",
 
   },
   batMadlib: {
@@ -83,7 +84,7 @@ const locations = {
     choices: ["Chat", "Fight"],
     html: {},
     movingSprites: true,
-    transition: { type: "fade", time: 1000 }
+    transition: { type: "fade", time: 1000 }, voteBgBlur: "/display/assets/backgrounds/forest.png",
 
   },
   bugs: {
@@ -93,7 +94,7 @@ const locations = {
       "Sensing hostility!! They get defensive. Do we fight them or try to talk to them? ", choices: ["Chat", "Fight"],
     choices: ["Chat", "Fight"],
     html: {},
-    transition: { type: "pull", time: 2000 }
+    transition: { type: "pull", time: 2000 }, voteBgBlur: "/display/assets/backgrounds/forest.png",
 
   },
   fish: {

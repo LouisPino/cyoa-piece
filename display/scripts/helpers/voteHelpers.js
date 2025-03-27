@@ -2,7 +2,18 @@
 
 const flashTime = 250
 
-function displayVote(mainEl, extras, voteLength, currentLocation) {
+const choices = {
+    pColor: ["pino/color/A", "pino/color/B", "Which cat?"],
+    pHat: ["pino/hat/A", "pino/hat/B", "Which hat design?"],
+    pDevice: ["pino/device/A", "pino/device/B", "Pick a thing."],
+    pRobe: ["pino/robe/A", "pino/robe/B", "What color robe?"],
+    jColor: ["jaz/color/A", "jaz/color/B", "Which cat?"],
+    jCollar: ["jaz/collar/A", "jaz/collar/B", "What color collar?"],
+    jHat: ["jaz/hat/A", "jaz/hat/B", "How pointy of a hat?"],
+    jDevice: ["jaz/device/A", "jaz/device/B", "Which is more annoying?"],
+}
+
+function displayVote(mainEl, extras, voteLength, data, type) {
     let seconds = voteLength / 1000 - 1;
     mainEl.innerHTML = extras.filter(
         (extra) => extra.name === "vote"
@@ -13,12 +24,22 @@ function displayVote(mainEl, extras, voteLength, currentLocation) {
     const voteBImg = document.getElementById("vote-b-img")
     const voteBGs = document.querySelectorAll(".vote-selection-bg")
     const backgroundEl = document.querySelector(".vote-bg")
-    backgroundEl.src = currentLocation.voteBgBlur
-    voteBannerText.innerHTML = currentLocation.choicePrompt
-    voteAImg.src = `display/assets/vote/location/${currentLocation.choices[0]}/up.PNG`
-    voteBImg.src = `display/assets/vote/location/${currentLocation.choices[1]}/up.PNG`
     voteTimeDiv.style.animation = `voteTimer ${voteLength / 1000}s linear`;
     let voteEls = [voteAImg, voteBImg, voteBGs[0], voteBGs[1]]
+    switch (type) {
+        case "path":
+            backgroundEl.src = data.currentLocation.voteBgBlur
+            voteBannerText.innerHTML = data.currentLocation.choicePrompt
+            voteAImg.src = `display/assets/vote/location/${data.currentLocation.choices[0]}/up.PNG`
+            voteBImg.src = `display/assets/vote/location/${data.currentLocation.choices[1]}/up.PNG`
+            break
+        case "skin":
+            backgroundEl.src = "display/assets/backgrounds/test.gif"
+            voteBannerText.innerHTML = choices[data.item][2]
+            voteAImg.src = `display/assets/vote/character/${choices[data.item][0]}/up.PNG`
+            voteBImg.src = `display/assets/vote/character/${choices[data.item][1]}/up.PNG`
+            break
+    }
     setTimeout(() => { flashVotes(voteEls) }, flashTime * 2)
     const countdown = setInterval(() => {
         seconds -= 1;
@@ -28,13 +49,23 @@ function displayVote(mainEl, extras, voteLength, currentLocation) {
     }, 1000);
 }
 
-function promptVote(mainEl, extras, currentLocation) {
+function promptVote(mainEl, extras, data, type) {
+    console.log(type)
     const html = extras.filter(
         (extra) => extra.name === "votePrompt"
     )[0].content;
     mainEl.innerHTML += html
-    const backgroundEl = document.querySelector("#location-bg")
-    backgroundEl.src = currentLocation.voteBgBlur
+    switch (type) {
+        case "path":
+            const backgroundEl = document.querySelector("#location-bg")
+            if (backgroundEl) {
+                backgroundEl.src = data.currentLocation.voteBgBlur
+            }
+            break;
+        case "skin":
+
+            break
+    }
     // setTimeout(() => { document.getElementById("vote-prompt").style.top = "0px" }, 10)
 }
 

@@ -1,16 +1,21 @@
 const characters = {
-    wizard: {
-        wizardFace: "",
-        robe: "",
+    p: {
+        face: "",
         hat: "",
-        wizardDevice: ""
+        robe: "",
+        device: "",
+        bodyline: "bodyLine",
+        get hands() { return this.face; },
+        get faceline() { return this.face; }
     },
-
-    jester: {
-        jesterFace: "",
-        points: 0,
-        color: "",
-        jesterDevice: ""
+    j: {
+        hat: "",
+        collar: "",
+        face: "",
+        device: "",
+        body: "body",
+        collarline: "collarLine",
+        get faceline() { return this.face; }
     }
 }
 
@@ -138,5 +143,5 @@ const skinOptionsJaz = {
 }
 
 module.exports = [
-    skinOptionsJaz, skinOptionsPeen, characters
+    characters, skinOptionsJaz, skinOptionsPeen,
 ]

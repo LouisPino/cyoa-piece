@@ -71,9 +71,9 @@ function initializeWebSocket() {
                 sectionChange(currentLocation)
                 break
             case "characters":
-                switch (msg.data[1]) {
+                switch (msg.data.route) {
                     case "characterData":
-                        storeCharacters(characters);
+                        storeCharacters(msg.data.characters);
                         break;
                 }
             case "bossFight":

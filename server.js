@@ -5,11 +5,11 @@ const WebSocket = require('ws');
 const url = require('url');
 const IP4 = require('./helpers/ip4.js')
 const [locations, mobileExtras, displayExtras, displayScripts, mobileScripts, mobileLocationScripts, displayLocationScripts] = require("./helpers/fileLoader.js")
-const [skinOptions, characters] = require("./characters/default.js")
+const [characters] = require("./characters/default.js")
 let currentLocation = locations["welcome"]
-const voteLength = 4000
-const winnerLength = 5000
-const promptLength = 5000
+const voteLength = 2000
+const winnerLength = 2000
+const promptLength = 2000
 let gameScores = []
 let history = {
     locationsVisited: [],
@@ -188,7 +188,6 @@ function handleVote(vote) {
     console.log(vote)
     choices[vote] += 1
     sendToDisplay({ type: "vote", data: { type: "vote-cast", choice: vote } }) // in display, make visible the choice prompt + image
-
 }
 
 
@@ -205,7 +204,7 @@ function triggerVote(type, item) {
         displayWinner(tallyVotes())
     }, voteLength + promptLength)
     setTimeout(() => {
-        endVote(tallyVotes())
+        endVote(type, item, tallyVotes())
     }, voteLength + promptLength + winnerLength)
 }
 
@@ -216,18 +215,26 @@ function displayWinner(winner) {
     sendToWebClients({ type: "vote", data: { type: "lookup" } })
 }
 
-function endVote(winner) {
-    console.log("end", winner)
-    switch (winner) {
-        case (0):
-            // choice 1
-            oscClient.send("/switch", currentLocation.paths[0])
-            console.log("CHOICE 1 WINS", choices["choice1"])
+function endVote(type, item, winner) {
+    switch (type) {
+        case "skin":
+            characters[item[0]][item.slice(1).toLowerCase()] = winner === 0 ? "A" : "B"
+            sendToWebClients({ type: "characters", data: { route: "characterData", characters: characters } })
+            oscClient.send("/characters", "voted")
             break
-        case (1):
-            // choice 2
-            oscClient.send("/switch", currentLocation.paths[1])
-            console.log("CHOICE 2 WINS", choices["choice2"])
+        case "path":
+            switch (winner) {
+                case (0):
+                    // choice 1
+                    oscClient.send("/switch", currentLocation.paths[0])
+                    console.log("CHOICE 1 WINS", choices["choice1"])
+                    break
+                case (1):
+                    // choice 2
+                    oscClient.send("/switch", currentLocation.paths[1])
+                    console.log("CHOICE 2 WINS", choices["choice2"])
+                    break
+            }
             break
     }
     voting = false;
@@ -363,21 +370,8 @@ function renderGameLeaderboard() {
             ...player,
             rank: index + 1
         }));
-
     sendToDisplay({ type: "game-score", data: sortedScores.slice(0, 5) })
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

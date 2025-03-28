@@ -48,7 +48,8 @@ let characters
 
 function storeCharacters(newCharacters) {
     characters = newCharacters
-    toggleAnimation("dvd")
+    console.log(characters)
+    // toggleAnimation("dvd")
 }
 
 
@@ -98,22 +99,22 @@ async function toggleAnimation(animation) {
         return
     }
     else if (animation === "dvd") {
-        console.log(currentLocation)
-        jazFaceLine.src = `/display/assets/characters/jaz/faceline/dvd/${characters.jaz.faceline}.png`
-        jazHat.src = `/display/assets/characters/jaz/hat/dvd/${characters.jaz.hat}${currentLocation.name.toLowerCase().includes("ocean") ? "ocean" : "space"}.png` //WORK ON ME
-        jazCollarLine.style.zIndex = `/display/assets/characters/jaz/collarline/dvd/collarLine.png`
-        jazCollar.src = `/display/assets/characters/jaz/collar/dvd/${characters.jaz.collar}.png`
-        jazBody.src = `/display/assets/characters/jaz/body/dvd/body.png`
-        jazFace.src = `/display/assets/characters/jaz/face/dvd/${characters.jaz.face}.png`
+        // console.log(currentLocation)
+        // jazFaceLine.src = `/display/assets/characters/jaz/faceline/dvd/${characters.jaz.faceline}.png`
+        // jazHat.src = `/display/assets/characters/jaz/hat/dvd/${characters.jaz.hat}${currentLocation.name.toLowerCase().includes("ocean") ? "ocean" : "space"}.png` //WORK ON ME
+        // jazCollarLine.style.zIndex = `/display/assets/characters/jaz/collarline/dvd/collarLine.png`
+        // jazCollar.src = `/display/assets/characters/jaz/collar/dvd/${characters.jaz.collar}.png`
+        // jazBody.src = `/display/assets/characters/jaz/body/dvd/body.png`
+        // jazFace.src = `/display/assets/characters/jaz/face/dvd/${characters.jaz.face}.png`
 
-        pinoFaceLine.src = `/display/assets/characters/pino/faceline/dvd/${characters.pino.faceline}.png`
-        pinoBodyLine.src = `/display/assets/characters/pino/bodyline/dvd/bodyLine.png`
-        pinoRobe.src = `/display/assets/characters/pino/robe/dvd/${characters.pino.robe}.png`
-        pinoHands.src = `/display/assets/characters/pino/hands/dvd/${characters.pino.hands}.png`
-        pinoHat.src = `/display/assets/characters/pino/hat/dvd/${characters.pino.hat}.png`
-        pinoFace.src = `/display/assets/characters/pino/face/dvd/${characters.pino.face}.png`
-        pinoHelmet.src = `/display/assets/characters/pino/helmet/${currentLocation.name.toLowerCase().includes("ocean") ? "ocean" : "space"}.png`
-        pinoDiv.appendChild(pinoHelmet)
+        // pinoFaceLine.src = `/display/assets/characters/pino/faceline/dvd/${characters.pino.faceline}.png`
+        // pinoBodyLine.src = `/display/assets/characters/pino/bodyline/dvd/bodyLine.png`
+        // pinoRobe.src = `/display/assets/characters/pino/robe/dvd/${characters.pino.robe}.png`
+        // pinoHands.src = `/display/assets/characters/pino/hands/dvd/${characters.pino.hands}.png`
+        // pinoHat.src = `/display/assets/characters/pino/hat/dvd/${characters.pino.hat}.png`
+        // pinoFace.src = `/display/assets/characters/pino/face/dvd/${characters.pino.face}.png`
+        // pinoHelmet.src = `/display/assets/characters/pino/helmet/${currentLocation.name.toLowerCase().includes("ocean") ? "ocean" : "space"}.png`
+        // pinoDiv.appendChild(pinoHelmet)
         return
     }
 

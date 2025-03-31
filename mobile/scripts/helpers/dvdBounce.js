@@ -57,6 +57,5 @@ function dvdBounce() {
 
         requestAnimationFrame(animate);
     });
-
-
+    toggleAnimation("dvd")
 }

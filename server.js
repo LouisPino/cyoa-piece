@@ -353,13 +353,10 @@ oscServer.on('message', (msg, rinfo) => {
             break
         case "intermission":
             intermissionTrigger()
-
     }
     const msgObj = { type: msg[0], data: msg[1] }
     sendToWebClients(msgObj);
 });
-
-
 
 
 //////////////////////////intro game
@@ -372,9 +369,6 @@ function renderGameLeaderboard() {
         }));
     sendToDisplay({ type: "game-score", data: sortedScores.slice(0, 5) })
 }
-
-
-
 
 
 module.exports = [

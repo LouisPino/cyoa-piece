@@ -50,8 +50,11 @@ function handleVote(vote) {
 
 function lookUp() {
     const imgEl = document.getElementById("thank-img")
-    imgEl.src = "/mobile/assets/vote/LookUp.png"
-    console.log("hit lookup")
+    if (imgEl) {
+        imgEl.src = "/mobile/assets/vote/LookUp.png"
+    } else {
+
+    }
 }
 
 function flashOnce(voteEls) {

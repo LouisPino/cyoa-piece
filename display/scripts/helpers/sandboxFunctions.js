@@ -106,10 +106,10 @@ function toggleBox(arg, characters) {
             newSrc = "/display/assets/dialogue/boxes/PinoDialogueBox.png"
             newColor = "#c5abfc"
         } else if (arg === "duo") {
-            newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox${characters.jaz.hat}.png`
+            newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox${characters.j.hat}.png`
             newColor = "#c5abfc"
         } else if (arg === "jaz") {
-            newSrc = `/display/assets/dialogue/boxes/JazDialogueBox${characters.jaz.hat}.png`
+            newSrc = `/display/assets/dialogue/boxes/JazDialogueBox${characters.j.hat}.png`
             newColor = "#c5abfc"
         }
         boxEl.src = newSrc
@@ -158,10 +158,10 @@ function slideBoxY(arg, characters) {
             newSrc = "/display/assets/dialogue/boxes/PinoDialogueBox.png"
             newColor = "#c5abfc"
         } else if (arg === "duo") {
-            newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox${characters.jaz.hat}.png`
+            newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox${characters.j.hat}.png`
             newColor = "#c5abfc"
         } else if (arg === "jaz") {
-            newSrc = `/display/assets/dialogue/boxes/JazDialogueBox${characters.jaz.hat}.png`
+            newSrc = `/display/assets/dialogue/boxes/JazDialogueBox${characters.j.hat}.png`
             newColor = "#c5abfc"
         }
         boxEl.src = newSrc
@@ -219,10 +219,10 @@ function slideBoxX(arg, characters) {
             newSrc = "/display/assets/dialogue/boxes/PinoDialogueBox.png"
             newColor = "#c5abfc"
         } else if (arg === "duo") {
-            newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox${characters.jaz.hat}.png`
+            newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox${characters.j.hat}.png`
             newColor = "#c5abfc"
         } else if (arg === "jaz") {
-            newSrc = `/display/assets/dialogue/boxes/JazDialogueBox${characters.jaz.hat}.png`
+            newSrc = `/display/assets/dialogue/boxes/JazDialogueBox${characters.j.hat}.png`
             newColor = "#c5abfc"
         }
         boxEl.src = newSrc
@@ -279,10 +279,10 @@ function fadeBox(arg, characters) {
             newSrc = "/display/assets/dialogue/boxes/PinoDialogueBox.png"
             newColor = "#c5abfc"
         } else if (arg === "duo") {
-            newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox${characters.jaz.hat}.png`
+            newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox${characters.j.hat}.png`
             newColor = "#c5abfc"
         } else if (arg === "jaz") {
-            newSrc = `/display/assets/dialogue/boxes/JazDialogueBox${characters.jaz.hat}.png`
+            newSrc = `/display/assets/dialogue/boxes/JazDialogueBox${characters.j.hat}.png`
             newColor = "#c5abfc"
         }
         boxEl.src = newSrc

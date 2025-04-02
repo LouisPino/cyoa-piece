@@ -40,7 +40,8 @@ let characters
 
 function storeCharacters(newCharacters) {
     characters = newCharacters
-    toggleAnimation("front")
+    console.log(characters)
+    // toggleAnimation("front")
 }
 
 

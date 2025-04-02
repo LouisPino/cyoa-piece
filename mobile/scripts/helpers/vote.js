@@ -53,7 +53,11 @@ function lookUp() {
     if (imgEl) {
         imgEl.src = "/mobile/assets/vote/LookUp.png"
     } else {
-
+        const newBg = document.createElement("img")
+        newBg.classList.add("complete-screen-img")
+        newBg.style.zIndex = 100
+        newBg.src = "/mobile/assets/vote/LookUp.png"
+        mainEl.appendChild(newBg)
     }
 }
 

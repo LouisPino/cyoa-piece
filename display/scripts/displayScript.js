@@ -48,9 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
             case "toggle-animation":
               toggleAnimation(msg.data[2])
               break
-            case "characterData":
-              console.log(msg.data.characters)
-              storeCharacters(msg.data.characters)
+            case "characterData":              storeCharacters(msg.data.characters)
               break
             case "jump":
               jumpChar(msg.data[2], msg.data[3], msg.data[4])

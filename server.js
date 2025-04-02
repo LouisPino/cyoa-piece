@@ -257,23 +257,6 @@ function tallyVotes() {
     return choiceMap[Object.keys(choices).reduce((a, b) => choices[a] >= choices[b] ? a : b)]
 }
 
-// function triggerSkinVote(name, obj) {
-//     voting = true;
-//     sendToWebClients({ type: "vote", data: { type: "skin", item: obj } });
-//     sendToDisplay({ type: "vote", data: { type: "skin", item: obj } }); // Display the choice prompt + image
-
-//     setTimeout(() => {
-//         endSkinVote(tallyVotes(), name, obj)
-//     }, voteLength - 10); // Ensure this runs close to the end of voteLength
-// }
-
-
-function endSkinVote(winner, name, obj) {
-    characters[obj.character][name] = skinOptions[name].choices[winner]
-    sendToDisplay({ type: "vote", data: { type: "skinChoice", item: obj, winner: winner } }); // Display the choice prompt + image
-    resetChoices()
-}
-
 function intermissionTrigger() {
     sendToWebClients({ type: "intermission" });
     sendToDisplay({ type: "intermission" }); // Display the choice prompt + image

@@ -44,13 +44,13 @@ document.addEventListener("DOMContentLoaded", function () {
           revealCharacter(msg.data);
           break;
         case "characters":
-          switch (msg.data[1]) {
+          switch (msg.data.route) {
             case "toggle-animation":
               toggleAnimation(msg.data[2])
               break
             case "characterData":
-              console.log(characters)
-              storeCharacters(characters)
+              console.log(msg.data.characters)
+              storeCharacters(msg.data.characters)
               break
             case "jump":
               jumpChar(msg.data[2], msg.data[3], msg.data[4])

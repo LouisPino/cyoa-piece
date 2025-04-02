@@ -220,6 +220,7 @@ function endVote(type, item, winner) {
         case "skin":
             characters[item[0]][item.slice(1).toLowerCase()] = winner === 0 ? "A" : "B"
             sendToWebClients({ type: "characters", data: { route: "characterData", characters: characters } })
+            sendToDisplay({ type: "characters", data: { route: "characterData", characters: characters } })
             oscClient.send("/characters", "voted")
             break
         case "path":
@@ -241,28 +242,6 @@ function endVote(type, item, winner) {
     resetChoices()
 }
 
-// function skinVoting(character) {
-//     if (character === "p") {
-//         console.log("voting for pino")
-//     } else {
-//         console.log("voting for jaz")
-//     }
-//     Object.entries(skinOptions).forEach(([k, v], index) => {
-//         setTimeout(() => {
-//             triggerSkinVote(k, v);
-//         }, index * voteLength * 2);
-
-//         if (character === "j") { //IF JAZ IS SECOND, THIS IS AFTER
-//             // Move this logic outside the loop so it only runs once after all voting rounds
-//             if (index === Object.keys(skinOptions).length - 1) {
-//                 setTimeout(() => {
-//                     oscClient.send("/switch", "intro");
-//                     voting = false;
-//                 }, (index + 1) * voteLength * 2); // Ensure this runs after the last vote
-//             }
-//         }
-//     });
-// }
 
 function resetChoices() {
     for (let key in choices) {
@@ -338,9 +317,6 @@ oscServer.on('message', (msg, rinfo) => {
                     break
                 case "skin":
                     triggerVote("skin", msg[2])
-                    break
-                case "skinJaz":
-                    skinVoting("j")
                     break
             }
             break

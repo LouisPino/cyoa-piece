@@ -84,6 +84,8 @@ function renderSelection(winner) {
 
 function sectionChange(section) {
     currentLocation = section
+    removePino()
+    removeJaz()
     toggleHTML()
     runLocationScript(currentLocation.name)
 }

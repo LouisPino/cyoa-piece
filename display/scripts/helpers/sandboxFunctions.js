@@ -43,7 +43,6 @@ function changeBg(newSrc) {
 function changeDialogueSprite(newSrc) {
     const spriteEl = document.getElementById("sandbox-dialogue-sprite");
     spriteEl.src = `/display/assets/dialogue/sprites/${newSrc}.png`
-    console.log(newSrc)
 }
 
 

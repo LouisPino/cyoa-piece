@@ -58,7 +58,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 174.309558987617493, 165.301109135150909, 50.0, 22.0 ],
-					"text" : "6"
+					"text" : "2"
 				}
 
 			}
@@ -82,7 +82,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 406.458558738232341, 132.501109302043915, 52.0, 35.0 ],
+					"patching_rect" : [ 406.458558738232341, 121.0, 52.0, 35.0 ],
 					"text" : "skin pDevice"
 				}
 

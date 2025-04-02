@@ -1,5 +1,4 @@
 function startVote(type, data) {
-    console.log(data)
     mainEl.innerHTML = extras.filter((extra) => (extra.name === "vote"))[0].content//get vote html
     let voteAImgEl = document.getElementById('vote-a-img')
     let voteBImgEl = document.getElementById('vote-b-img')

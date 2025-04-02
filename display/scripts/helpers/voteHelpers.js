@@ -50,7 +50,6 @@ function displayVote(mainEl, extras, voteLength, data, type) {
 }
 
 function promptVote(mainEl, extras, data, type) {
-    console.log(type)
     const html = extras.filter(
         (extra) => extra.name === "votePrompt"
     )[0].content;

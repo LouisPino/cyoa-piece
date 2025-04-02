@@ -41,8 +41,6 @@ let characters
 function storeCharacters(newCharacters) {
     characters = newCharacters
     console.log(characters)
-    // toggleAnimation("front")
-    // renderPino()
 }
 
 
@@ -78,7 +76,6 @@ function removeJaz() {
 
 }
 async function fileExists(url) {
-    console.log(url)
     try {
         const response = await fetch(url, { method: 'HEAD' });
         return response.status === 200; // Explicitly check for 200 instead of using response.ok
@@ -103,7 +100,6 @@ async function toggleAnimation(animation) {
     }
     
     for (let i = 0; i < assetPartEls.length; i++) {
-        console.log("hit2")
         const part = assetPartStrs[i]; // e.g., "jazBody"
         const character = part.startsWith("jaz") ? "jaz" : "pino";
         const key = part.replace(character, "").toLowerCase(); // Extracts the property name (e.g., "faceLine" -> "faceLine")

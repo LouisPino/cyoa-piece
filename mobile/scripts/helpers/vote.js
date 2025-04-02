@@ -1,11 +1,11 @@
 function startVote(type, data) {
+    console.log(data)
     mainEl.innerHTML = extras.filter((extra) => (extra.name === "vote"))[0].content//get vote html
     let voteAImgEl = document.getElementById('vote-a-img')
     let voteBImgEl = document.getElementById('vote-b-img')
     let voteABgEl = document.getElementById('vote-a-bg')
     let voteBBgEl = document.getElementById('vote-b-bg')
     let prompt = document.getElementById('vote-banner-text')
-    // prompt.innerHTML = data.choicePrompt
     voteAImgEl.addEventListener('click', () => handleVote("choice1"));
     voteBImgEl.addEventListener('click', () => handleVote("choice2"));
     voteAImgEl.addEventListener("touchstart", () => {
@@ -31,11 +31,12 @@ function startVote(type, data) {
 
     switch (type) {
         case "section":
+            prompt.innerHTML = data.choicePrompt
             voteAImgEl.src = `/mobile/assets/vote/location/${data.choices[0]}/up.PNG`
             voteBImgEl.src = `/mobile/assets/vote/location/${data.choices[1]}/up.PNG`
             break
         case "character":
-            console.log(data)
+            prompt.innerHTML = data.choices[2]
             voteAImgEl.src = `/mobile/assets/vote/character/${data.choices[0]}/up.PNG`
             voteBImgEl.src = `/mobile/assets/vote/character/${data.choices[1]}/up.PNG`
             break
@@ -75,12 +76,12 @@ function flashOnce(voteEls) {
 }
 
 const skinChoices = {
-    pRobe: ["pino/robe/A", "pino/robe/B"],
-    pHat: ["pino/hat/A", "pino/hat/B"],
-    pFace: ["pino/color/A", "pino/color/B"],
-    pDevice: ["pino/device/A", "pino/device/B"],
-    jCollar: ["jaz/collar/A", "jaz/collar/B"],
-    jHat: ["jaz/hat/A", "jaz/hat/B"],
-    jFace: ["jaz/color/A", "jaz/color/B"],
-    jDevice: ["jaz/device/A", "jaz/device/B"]
+    pColor: ["pino/color/A", "pino/color/B", "Which cat?"],
+    pHat: ["pino/hat/A", "pino/hat/B", "Which hat design?"],
+    pDevice: ["pino/device/A", "pino/device/B", "Pick a thing."],
+    pRobe: ["pino/robe/A", "pino/robe/B", "What color robe?"],
+    jColor: ["jaz/color/A", "jaz/color/B", "Which cat?"],
+    jCollar: ["jaz/collar/A", "jaz/collar/B", "What color collar?"],
+    jHat: ["jaz/hat/A", "jaz/hat/B", "How pointy of a hat?"],
+    jDevice: ["jaz/device/A", "jaz/device/B", "Which is more annoying?"]
 }

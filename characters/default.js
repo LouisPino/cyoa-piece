@@ -1,21 +1,26 @@
 const characters = {
     p: {
-        face: "",
+        color: "",
         hat: "",
         robe: "",
         device: "",
         bodyline: "bodyLine",
-        get hands() { return this.face; },
-        get faceline() { return this.face; }
+        get hands() { return this.color; },
+        get faceline() { return this.color; },
+        get face() { return this.color; },
+
     },
     j: {
+        color: "",
         hat: "",
         collar: "",
-        face: "",
         device: "",
         body: "body",
         collarline: "collarLine",
-        get faceline() { return this.face; }
+        get faceline() { return this.face; },
+        get face() { return this.color; },
+
+
     }
 }
 

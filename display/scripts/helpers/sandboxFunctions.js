@@ -52,8 +52,6 @@ let iManual = 0; // Index for texts array
 let textsArr
 let textBodyElGlobal
 
-
-
 function typeTextManual(texts, textBodyEl) {
     textsArr = texts
     textBodyElGlobal = textBodyEl

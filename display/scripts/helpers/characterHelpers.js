@@ -86,6 +86,8 @@ async function fileExists(url) {
 
 
 async function toggleAnimation(animation) {
+
+    console.log(animation)
     if (animation === "left") {
         for (el of assetPartEls) {
             el.style.transform = "scaleX(-1)"

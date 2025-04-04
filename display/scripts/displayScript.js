@@ -62,6 +62,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 renderJaz()
               }
               break
+            case "reveal":
+                revealCharacter(msg.data[0], extras)
+              break
             case "characterData": 
               storeCharacters(msg.characters)
               break

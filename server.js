@@ -219,8 +219,8 @@ function endVote(type, item, winner) {
     switch (type) {
         case "skin":
             characters[item[0]][item.slice(1).toLowerCase()] = winner === 0 ? "A" : "B"
-            sendToWebClients({ type: "characters", data: { route: "characterData", characters: characters } })
-            sendToDisplay({ type: "characters", data: { route: "characterData", characters: characters } })
+            sendToWebClients({ type: "characters", route: "characterData", characters: characters } )
+            sendToDisplay({ type: "characters", route: "characterData", characters: characters } )
             oscClient.send("/characters", "voted")
             break
         case "path":
@@ -304,7 +304,7 @@ oscServer.on('message', (msg, rinfo) => {
             }
             break
         case "characters":
-            sendToDisplay({ type: "characters", data: msg })
+            sendToDisplay({ type: "characters", route: msg[1], data: msg.slice(2)})
             sendToWebClients({ type: "characters", data: msg })
             break
         case "sandbox":

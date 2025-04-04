@@ -44,21 +44,21 @@ document.addEventListener("DOMContentLoaded", function () {
           revealCharacter(msg.data);
           break;
         case "characters":
-          switch (msg.data.route) {
+          switch (msg.route) {
             case "toggle-animation":
-              toggleAnimation(msg.data[2])
+              toggleAnimation(msg.data[0])
               break
             case "characterData": 
-            storeCharacters(msg.data.characters)
+              storeCharacters(msg.characters)
               break
             case "jump":
-              jumpChar(msg.data[2], msg.data[3], msg.data[4])
+              jumpChar(msg.data[0], msg.data[1], msg.data[2])
               break
             case "fade":
-              fadeChar(msg.data[2], msg.data[3], msg.data[4], msg.data[5], msg.data[6])
+              fadeChar(msg.data[0], msg.data[1], msg.data[2], msg.data[3], msg.data[4])
               break
             case "slide":
-              slideChar(msg.data[2], msg.data[3], msg.data[4], msg.data[5])
+              slideChar(msg.data[0], msg.data[1], msg.data[2], msg.data[3])
               break
           }
           break;
@@ -162,30 +162,30 @@ document.addEventListener("DOMContentLoaded", function () {
       "*grumble* Thank you for your time… Let us help you with your journey…*grumble* come over here…",
       "We think this portal will take you where you need to go next…."
     ]
-    setCharacterSprites(section.movingSprites);
+    // setCharacterSprites(section.movingSprites);
   }
 
 
 
-  function setCharacterSprites(moving) {
-    const wizardEl = document.getElementById("wizardSprite");
-    const jesterEl = document.getElementById("jesterSprite");
-    if (moving) {
-      if (wizardEl) {
-        wizardEl.src = "../characters/wizard.gif";
-      }
-      if (jesterEl) {
-        jesterEl.src = "../characters/jester.gif";
-      }
-    } else {
-      if (wizardEl) {
-        wizardEl.src = "../characters/wizard.jpg";
-      }
-      if (jesterEl) {
-        jesterEl.src = "../characters/jester.jpg";
-      }
-    }
-  }
+  // function setCharacterSprites(moving) {
+  //   const wizardEl = document.getElementById("wizardSprite");
+  //   const jesterEl = document.getElementById("jesterSprite");
+  //   if (moving) {
+  //     if (wizardEl) {
+  //       wizardEl.src = "../characters/wizard.gif";
+  //     }
+  //     if (jesterEl) {
+  //       jesterEl.src = "../characters/jester.gif";
+  //     }
+  //   } else {
+  //     if (wizardEl) {
+  //       wizardEl.src = "../characters/wizard.jpg";
+  //     }
+  //     if (jesterEl) {
+  //       jesterEl.src = "../characters/jester.jpg";
+  //     }
+  //   }
+  // }
 
 
   //health is in %

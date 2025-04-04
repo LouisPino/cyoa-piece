@@ -109,15 +109,15 @@ async function toggleAnimation(animation) {
         pinoHelmet.src = `/display/assets/characters/pino/helmet/${currentLocation.name.toLowerCase().includes("ocean") ? "ocean" : "space"}.png`
         pinoDiv.appendChild(pinoHelmet)
         return
-    }
-
-    for (let i = 0; i < assetPartEls.length; i++) {
-        const part = assetPartStrs[i];
-        const character = part.startsWith("jaz") ? "jaz" : "pino";
-        const key = part.replace(character, "").toLowerCase(); // Extracts the property name (e.g., "faceLine" -> "faceLine")
-        const pngPath = `/display/assets/characters/${character}/${key}/${animation}/${characters[character][key]}.png`;
-        const gifPath = `/display/assets/characters/${character}/${key}/${animation}/${characters[character][key]}.gif`;
-        assetPartEls[i].src = await fileExists(pngPath) ? pngPath : gifPath;
+    }else{
+        for (let i = 0; i < assetPartEls.length; i++) {
+            const part = assetPartStrs[i];
+            const character = part.startsWith("jaz") ? "jaz" : "pino";
+            const key = part.replace(character, "").toLowerCase(); // Extracts the property name (e.g., "faceLine" -> "faceLine")
+            const pngPath = `/display/assets/characters/${character}/${key}/${animation}/${characters[character][key]}.png`;
+            const gifPath = `/display/assets/characters/${character}/${key}/${animation}/${characters[character][key]}.gif`;
+            assetPartEls[i].src = await fileExists(pngPath) ? pngPath : gifPath;
+        }
     }
 }
 

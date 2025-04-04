@@ -362,6 +362,10 @@ body {
     /* background-color: rgb(175, 145, 189); */
 }
 
+#vote-prompt{
+    z-index: 999;
+}
+
 .vote-heading,
 .vote-banner,
 .vote-selection-bg {

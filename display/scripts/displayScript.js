@@ -48,6 +48,20 @@ document.addEventListener("DOMContentLoaded", function () {
             case "toggle-animation":
               toggleAnimation(msg.data[0])
               break
+            case "remove":
+              if (msg.data[0] === "pino"){
+                removePino()
+              } else if(msg.data[0] === "jaz"){
+                removeJaz()
+              }
+              break
+            case "render":
+              if (msg.data[0] === "pino"){
+                renderPino()
+              } else if(msg.data[0] === "jaz"){
+                renderJaz()
+              }
+              break
             case "characterData": 
               storeCharacters(msg.characters)
               break

@@ -1,5 +1,4 @@
 function sceneTransition(type, time) {
-    console.log(type, time);
     switch (type) {
         case "fade":
             const overlay = document.createElement("div");

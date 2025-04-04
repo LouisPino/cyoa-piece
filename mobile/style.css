@@ -137,7 +137,7 @@ button {
 /***** skin votes */
 .skin-winner {
     transition: 800ms;
-    width: 800px;
+    width: 150vw;
 }
 
 

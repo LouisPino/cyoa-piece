@@ -87,41 +87,44 @@ function revealCharacter(charObj) {
     }
 }
 
-
-
-function toggleSkinHTML(item) {
-    mainEl.innerHTML = extras.filter(
-        (extra) => extra.name === "character"
-    )[0].content;
-    const choice1El = document.getElementById("skin-choice1");
-    const choice2El = document.getElementById("skin-choice2");
-    const choice3El = document.getElementById("skin-choice3");
-    const choice4El = document.getElementById("skin-choice4");
-    const choice5El = document.getElementById("skin-choice5");
-    const promptEl = document.getElementById("skin-prompt");
-    choice1El.src = item.choices[0].img;
-    choice2El.src = item.choices[1].img;
-    choice3El.src = item.choices[2] ? item.choices[2].img : "";
-    choice4El.src = item.choices[3] ? item.choices[3].img : "";
-    choice5El.src = item.choices[4] ? item.choices[4].img : "";
-    promptEl.innerHTML = item.prompt;
+function displaySkinChoice(winner) {
+    console.log("hit")
+    //REWRITE ME TO REMOVE LOSER IMG, THROW CONFETTI, MOVE IMAGE LEFT OR RIGHT DEPENDING ON WINNER TO CENTER, ENLARGE IMG
+    const choice1El = document.getElementById("vote-a-img");
+    const choice2El = document.getElementById("vote-b-img");
+    const choice1BgEl = document.getElementById("vote-a-bg");
+    const choice2BgEl = document.getElementById("vote-b-bg");
+    const removableEls = document.querySelectorAll(".vote-banner, .vote-time-div, .vote-banner-text")
+for (el of removableEls){
+    el.remove()
 }
+    if(winner === 0){
+        choice1El.style.transition = "1000ms"
+        choice1BgEl.style.transition = "1000ms"
+        choice1El.style.width = "150vw"
+        choice1BgEl.style.width = "150vw"
+        choice1El.style.height = "150vh"
+        choice1BgEl.style.height = "150vh"
+                choice1El.style.top = "-40vh"
+        choice1BgEl.style.top = "-40vh"
+        choice2El.remove();
+        choice2BgEl.remove()
+    }else{
+        choice2El.style.transition = "1000ms"
+        choice2BgEl.style.transition = "1000ms"
+        choice2El.style.width = "150vw"
+        choice2BgEl.style.width = "150vw"
+        choice2El.style.height = "150vh"
+        choice2BgEl.style.height = "150vh"
+        choice2El.style.left = "-50vw"
+        choice2BgEl.style.left = "-50vw"
+        choice2El.style.top = "-50vh"
+        choice2BgEl.style.top = "-50vh"
+        choice1El.remove();
+        choice1BgEl.remove();
+    }
 
-
-function displaySkinChoice(item, winner) {
-    const choice1El = document.getElementById("skin-choice1");
-    choice1El.src = item.choices[winner].img;
-    choice1El.classList.add("skin-winner");
-    const choice2El = document.getElementById("skin-choice2");
-    const choice3El = document.getElementById("skin-choice3");
-    const choice4El = document.getElementById("skin-choice4");
-    const choice5El = document.getElementById("skin-choice5");
-    choice2El.remove();
-    choice3El.remove();
-    choice4El.remove();
-    choice5El.remove();
 }
-
 
 
 function flashImages(assetsArr, oldImage, newImage) {

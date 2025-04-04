@@ -40,7 +40,6 @@ function renderPino() {
     document.body.appendChild(pinoDiv)
 }
 
-
 function renderJaz() {
     jazDiv.appendChild(jazFaceLine)
     jazDiv.appendChild(jazBody)
@@ -61,6 +60,7 @@ function removeJaz() {
     jazDiv.remove()
 
 }
+
 async function fileExists(url) {
     try {
         const response = await fetch(url, { method: 'HEAD' });
@@ -69,7 +69,6 @@ async function fileExists(url) {
         return false; // Suppresses all errors, including 404s
     }
 }
-
 
 async function toggleAnimation(animation) {
     if (animation === "left") {
@@ -136,10 +135,8 @@ function jumpChar(char, x, y) {
 }
 
 
-
 function fadeChar(char, x, y, outTime, inTime) {
     let elements = [];
-
     switch (char) {
         case "pino":
             elements.push(pinoDiv);

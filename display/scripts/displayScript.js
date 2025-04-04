@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
               }, promptLength)
               break;
             case "skinChoice":
-              displaySkinChoice(msg.data.item, msg.data.winner);
+              displaySkinChoice(msg.data.winner);
               break;
             case "path":
               promptVote(mainEl, extras, msg.data, "path")
@@ -99,6 +99,9 @@ document.addEventListener("DOMContentLoaded", function () {
               break;
             case "winner":
               displayWinner(msg.data.winner, extras, mainEl, msg.data.currentLocation)
+              break;
+            case "skin-winner":
+              displaySkinChoice(msg.data.winner)
               break;
           }
           break;

@@ -16,20 +16,7 @@ const jazCollarLine = document.createElement("img")
 const assetPartEls = [jazBody, jazCollar, jazCollarLine, jazFaceLine, jazFace, jazHat, pinoBodyLine, pinoRobe, pinoFaceLine, pinoHands, pinoFace, pinoHat]
 const assetPartStrs = ["jazBody", "jazCollar", "jazCollarLine", "jazFaceLine", "jazFace", "jazHat", "pinoBodyLine", "pinoRobe", "pinoFaceLine", "pinoHands", "pinoFace", "pinoHat"]
 
-jazFaceLine.style.zIndex = "100"
-jazHat.style.zIndex = "99"
-jazCollarLine.style.zIndex = "98"
-jazCollar.style.zIndex = "97"
-jazBody.style.zIndex = "96"
-jazFace.style.zIndex = "95"
-
-pinoFaceLine.style.zIndex = "94"
-pinoBodyLine.style.zIndex = "93"
-pinoRobe.style.zIndex = "92"
-pinoHands.style.zIndex = "91"
-pinoHat.style.zIndex = "90"
-pinoFace.style.zIndex = "89"
-
+defaultZIndex()
 
 pinoDiv.classList.add("char-div")
 pinoDiv.id = "pino-char"
@@ -100,13 +87,21 @@ async function toggleAnimation(animation) {
     if(animation === "froggy"){
         pinoFaceLine.remove()
         pinoHands.remove()
-        jazFaceLine.remove()
+        pinoBodyLine.style.zIndex = "93"
+        pinoRobe.style.zIndex = "91"
+        pinoHat.style.zIndex = "92"
+
+        jazHat.style.zIndex = "100"
+        jazCollarLine.style.zIndex = "99"//Collar Line
+        jazCollar.style.zIndex = "98"//Collar Color
+        jazFaceLine.style.zIndex = "97"//Body Line
+        jazBody.style.zIndex = "96"//Body Color
+        jazFace.style.zIndex = "95"//Chair
     }else{
-        // if(!document.getElementById())
         pinoDiv.appendChild(pinoHands)
         pinoDiv.appendChild(pinoFaceLine)
         jazDiv.appendChild(jazFaceLine)
-
+        defaultZIndex()
     }
     
     for (let i = 0; i < assetPartEls.length; i++) {
@@ -212,4 +207,22 @@ function moveDivSmoothly(element, x, y, duration) {
         }
     }
     requestAnimationFrame(animate);
+}
+
+
+
+function defaultZIndex(){
+    jazFaceLine.style.zIndex = "100"
+    jazHat.style.zIndex = "99"
+    jazCollarLine.style.zIndex = "98"
+    jazCollar.style.zIndex = "97"
+    jazBody.style.zIndex = "96"
+    jazFace.style.zIndex = "95"
+    
+    pinoFaceLine.style.zIndex = "94"
+    pinoBodyLine.style.zIndex = "93"
+    pinoRobe.style.zIndex = "92"
+    pinoHands.style.zIndex = "91"
+    pinoHat.style.zIndex = "90"
+    pinoFace.style.zIndex = "89"
 }

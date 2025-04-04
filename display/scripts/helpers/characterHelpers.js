@@ -97,6 +97,17 @@ async function toggleAnimation(animation) {
         }
         return
     }
+    if(animation === "froggy"){
+        pinoFaceLine.remove()
+        pinoHands.remove()
+        jazFaceLine.remove()
+    }else{
+        // if(!document.getElementById())
+        pinoDiv.appendChild(pinoHands)
+        pinoDiv.appendChild(pinoFaceLine)
+        jazDiv.appendChild(jazFaceLine)
+
+    }
     
     for (let i = 0; i < assetPartEls.length; i++) {
         const part = assetPartStrs[i]; // e.g., "jazBody"

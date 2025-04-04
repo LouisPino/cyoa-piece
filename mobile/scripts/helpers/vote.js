@@ -75,12 +75,12 @@ function flashOnce(voteEls) {
 }
 
 const skinChoices = {
-    pColor: ["pino/color/A", "pino/color/B", "Which cat?"],
-    pHat: ["pino/hat/A", "pino/hat/B", "Which hat design?"],
-    pDevice: ["pino/device/A", "pino/device/B", "Pick a thing."],
-    pRobe: ["pino/robe/A", "pino/robe/B", "What color robe?"],
-    jColor: ["jaz/color/A", "jaz/color/B", "Which cat?"],
-    jCollar: ["jaz/collar/A", "jaz/collar/B", "What color collar?"],
-    jHat: ["jaz/hat/A", "jaz/hat/B", "How pointy of a hat?"],
+    pColor: ["pino/color/A", "pino/color/B", "Pick your favorite cat"],
+    pHat: ["pino/hat/A", "pino/hat/B", "Pick between these patterns"],
+    pDevice: ["pino/device/A", "pino/device/B", "????????"],
+    pRobe: ["pino/robe/A", "pino/robe/B", "Choose your favorite color"],
+    jColor: ["jaz/color/A", "jaz/color/B", "Choose your favorite cat"],
+    jCollar: ["jaz/collar/A", "jaz/collar/B", "???What color collar???"],
+    jHat: ["jaz/hat/A", "jaz/hat/B", " ??? 2 or 4 ????"],
     jDevice: ["jaz/device/A", "jaz/device/B", "Which is more annoying?"]
 }

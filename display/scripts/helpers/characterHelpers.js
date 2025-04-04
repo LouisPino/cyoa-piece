@@ -40,7 +40,6 @@ let characters
 
 function storeCharacters(newCharacters) {
     characters = newCharacters
-    // console.log(characters)
 }
 
 

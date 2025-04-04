@@ -201,7 +201,7 @@ function triggerVote(type, item) {
         sendToDisplay({ type: "vote", data: { type: "skin", item: item } }) // in display, make visible the choice prompt + image
     }
     setTimeout(() => {
-        displayWinner(tallyVotes())
+        displayWinner(type, tallyVotes())
     }, voteLength + promptLength)
     setTimeout(() => {
         endVote(type, item, tallyVotes())
@@ -210,9 +210,16 @@ function triggerVote(type, item) {
 
 
 
-function displayWinner(winner) {
-    sendToDisplay({ type: "vote", data: { type: "winner", winner: winner, currentLocation: currentLocation } }) // in display, make visible the choice prompt + image
+function displayWinner(type, winner) {
     sendToWebClients({ type: "vote", data: { type: "lookup" } })
+    switch (type){
+case "path":
+        sendToDisplay({ type: "vote", data: { type: "winner", winner: winner, currentLocation: currentLocation } }) // in display, make visible the choice prompt + image
+    break
+    case "skin":
+        sendToDisplay({ type: "vote", data: { type: "skin-winner", winner: winner } }) // in display, make visible the choice prompt + image
+        break
+    }
 }
 
 function endVote(type, item, winner) {
@@ -254,7 +261,7 @@ const choiceMap = {
 }
 
 function tallyVotes() {
-    return choiceMap[Object.keys(choices).reduce((a, b) => choices[a] >= choices[b] ? a : b)]
+    return choiceMap[Object.keys(choices).reduce((a, b) => choices[a] >= choices[b] ? a : b)] //I AM REVERSED FOR TESTING RIGHT NOW
 }
 
 function intermissionTrigger() {

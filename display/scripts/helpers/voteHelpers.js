@@ -34,7 +34,7 @@ function displayVote(mainEl, extras, voteLength, data, type) {
             voteBImg.src = `display/assets/vote/location/${data.currentLocation.choices[1]}/up.PNG`
             break
         case "skin":
-            backgroundEl.src = "display/assets/backgrounds/test.gif"
+            backgroundEl.src = "display/assets/backgrounds/testbg.jpg"
             voteBannerText.innerHTML = choices[data.item][2]
             voteAImg.src = `display/assets/vote/character/${choices[data.item][0]}/up.PNG`
             voteBImg.src = `display/assets/vote/character/${choices[data.item][1]}/up.PNG`
@@ -62,7 +62,7 @@ function promptVote(mainEl, extras, data, type) {
             }
             break;
         case "skin":
-
+//CHARACTER SELECT BACKGROUND
             break
     }
     // setTimeout(() => { document.getElementById("vote-prompt").style.top = "0px" }, 10)
@@ -79,7 +79,6 @@ function displayWinner(winner, extras, mainEl, currentLocation) {
     winnerEl.innerHTML = `THE WINNER IS ${currentLocation.paths[winner].toUpperCase()}`
     console.log(`THE WINNER IS ${currentLocation.paths[winner].toUpperCase()}`)
 }
-
 function flashOnce(voteEls) {
     voteEls.forEach((el) => {
         setTimeout(() => {

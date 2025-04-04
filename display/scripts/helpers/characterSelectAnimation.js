@@ -1,7 +1,8 @@
-function revealCharacter(charObj) {
-    mainEl.innerHTML = extras.filter(
+function revealCharacter(charInitial, extras) {
+    document.getElementById("display-main").innerHTML = extras.filter(
         (extra) => extra.name === "characterReveal"
     )[0].content;
+    console.log(characters[charInitial])
     const asset1El = document.getElementById("asset-1");
     const asset2El = document.getElementById("asset-2");
     const asset3El = document.getElementById("asset-3");
@@ -88,8 +89,6 @@ function revealCharacter(charObj) {
 }
 
 function displaySkinChoice(winner) {
-    console.log("hit")
-    //REWRITE ME TO REMOVE LOSER IMG, THROW CONFETTI, MOVE IMAGE LEFT OR RIGHT DEPENDING ON WINNER TO CENTER, ENLARGE IMG
     const choice1El = document.getElementById("vote-a-img");
     const choice2El = document.getElementById("vote-b-img");
     const choice1BgEl = document.getElementById("vote-a-bg");
@@ -105,10 +104,10 @@ for (el of removableEls){
         choice1BgEl.style.width = "150vw"
         choice1El.style.height = "150vh"
         choice1BgEl.style.height = "150vh"
-                choice1El.style.top = "-40vh"
+        choice1El.style.top = "-40vh"
         choice1BgEl.style.top = "-40vh"
-        choice2El.remove();
-        choice2BgEl.remove()
+        choice2El?.remove();
+        choice2BgEl?.remove()
     }else{
         choice2El.style.transition = "1000ms"
         choice2BgEl.style.transition = "1000ms"

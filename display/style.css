@@ -104,10 +104,12 @@ body {
 
 .skin-asset-bg{
     z-index: 3;
+    top: 75vh !important
 }
 
 .skin-asset{
     z-index: 4;
+    top: 75vh !important
 }
 
 

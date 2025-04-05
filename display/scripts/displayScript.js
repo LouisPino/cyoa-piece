@@ -182,30 +182,9 @@ document.addEventListener("DOMContentLoaded", function () {
       "*grumble* Thank you for your time… Let us help you with your journey…*grumble* come over here…",
       "We think this portal will take you where you need to go next…."
     ]
-    // setCharacterSprites(section.movingSprites);
   }
 
 
-
-  // function setCharacterSprites(moving) {
-  //   const wizardEl = document.getElementById("wizardSprite");
-  //   const jesterEl = document.getElementById("jesterSprite");
-  //   if (moving) {
-  //     if (wizardEl) {
-  //       wizardEl.src = "../characters/wizard.gif";
-  //     }
-  //     if (jesterEl) {
-  //       jesterEl.src = "../characters/jester.gif";
-  //     }
-  //   } else {
-  //     if (wizardEl) {
-  //       wizardEl.src = "../characters/wizard.jpg";
-  //     }
-  //     if (jesterEl) {
-  //       jesterEl.src = "../characters/jester.jpg";
-  //     }
-  //   }
-  // }
 
 
   //health is in %

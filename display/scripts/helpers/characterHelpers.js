@@ -206,6 +206,46 @@ function moveDivSmoothly(element, x, y, duration) {
     requestAnimationFrame(animate);
 }
 
+function hopChar(char) {
+    const duration = 700; // 1 second
+    const height = 200; // 300px hop
+    const start = performance.now();
+
+    const divs = [];
+
+    switch (char) {
+        case "pino":
+            divs.push(pinoDiv);
+            break;
+        case "jaz":
+            divs.push(jazDiv);
+            break;
+        case "duo":
+            divs.push(pinoDiv, jazDiv);
+            break;
+    }
+
+    const originalTops = divs.map(div => parseFloat(getComputedStyle(div).top) || 0);
+
+    function animate(time) {
+        const elapsed = time - start;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Ease out then in (simulate gravity): y = -4h * (x - 0.5)^2 + h
+        const yOffset = -4 * height * Math.pow(progress - 0.5, 2) + height;
+
+        divs.forEach((div, i) => {
+            div.style.position = 'absolute';
+            div.style.top = `${originalTops[i] - yOffset}px`;
+        });
+
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        }
+    }
+
+    requestAnimationFrame(animate);
+}
 
 
 function defaultZIndex(){

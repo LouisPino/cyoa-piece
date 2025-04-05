@@ -84,7 +84,14 @@ body {
     top: 0;
     transition: transform 500ms;
 }
+.char-div{
+background-color: black;
+}
 
+.black-mask{
+    mix-blend-mode: multiply;
+    filter: brightness(0);
+}
 #pino-char,
 #jaz-char {
     position: absolute;
@@ -101,7 +108,7 @@ body {
     /* Flips around the vertical line at 535px from the left */
 }
 
-
+/* CHARACTER REVEAL */
 .skin-asset-bg{
     z-index: 3;
     top: 75vh !important;
@@ -113,6 +120,7 @@ body {
     top: 75vh !important;
     transition: top 1000ms;
 }
+
 
 
 

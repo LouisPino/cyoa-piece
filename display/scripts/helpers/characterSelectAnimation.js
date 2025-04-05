@@ -37,7 +37,7 @@ function revealCharacter(charName, extras, confetti) {
         }, 4000)
 }
 
-function displaySkinChoice(winner, confetti) {
+function displayChoice(winner, confetti) {
     const choice1El = document.getElementById("vote-a-img");
     const choice2El = document.getElementById("vote-b-img");
     const choice1BgEl = document.getElementById("vote-a-bg");

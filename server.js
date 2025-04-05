@@ -231,18 +231,21 @@ function endVote(type, item, winner) {
             oscClient.send("/characters", "voted")
             break
         case "path":
-            switch (winner) {
-                case (0):
-                    // choice 1
-                    oscClient.send("/switch", currentLocation.paths[0])
-                    console.log("CHOICE 1 WINS", choices["choice1"])
-                    break
-                case (1):
-                    // choice 2
-                    oscClient.send("/switch", currentLocation.paths[1])
-                    console.log("CHOICE 2 WINS", choices["choice2"])
-                    break
-            }
+            setTimeout(()=>{
+
+                switch (winner) {
+                    case (0):
+                        // choice 1
+                        oscClient.send("/switch", currentLocation.paths[0])
+                        console.log("CHOICE 1 WINS", choices["choice1"])
+                        break
+                        case (1):
+                            // choice 2
+                            oscClient.send("/switch", currentLocation.paths[1])
+                            console.log("CHOICE 2 WINS", choices["choice2"])
+                            break
+                        }
+                    },voteLength)
             break
     }
     voting = false;

@@ -93,9 +93,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 // toggleSkinHTML(msg.data.item);
               }, promptLength)
               break;
-            // case "skinChoice":
-            //   displaySkinChoice(msg.data.winner, confetti);
-            //   break;
             case "path":
               promptVote(mainEl, extras, msg.data, "path")
               setTimeout(() => {
@@ -106,10 +103,10 @@ document.addEventListener("DOMContentLoaded", function () {
               flashCtrl(msg.data.choice)
               break;
             case "winner":
-              displayWinner(msg.data.winner, extras, mainEl, msg.data.currentLocation)
+              displayChoice(msg.data.winner, confetti)
               break;
             case "skin-winner":
-              displaySkinChoice(msg.data.winner, confetti)
+              displayChoice(msg.data.winner, confetti)
               break;
           }
           break;

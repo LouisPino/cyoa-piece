@@ -10,7 +10,6 @@ function revealCharacter(charName, extras) {
     const asset2BgEl = document.getElementById("asset-2-bg");
     const asset3BgEl = document.getElementById("asset-3-bg");
     const assetsEl = document.querySelector(".skin-assets")
-   console.log(charObj)
    const thirdItem = charName === "pino" ? "robe" : "collar"
    asset1El.src = `/display/assets/characterSelect/${charName}/color/${charObj.color}.png`
    asset2El.src = `/display/assets/characterSelect/${charName}/hat/${charObj.hat}.png`

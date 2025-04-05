@@ -1,4 +1,4 @@
-function revealCharacter(charName, extras) {
+function revealCharacter(charName, extras, confetti) {
     document.getElementById("display-main").innerHTML = extras.filter(
         (extra) => extra.name === "characterReveal"
     )[0].content;
@@ -17,7 +17,7 @@ function revealCharacter(charName, extras) {
     asset1El.src = `/display/assets/characterSelect/${charName}/color/${charObj.color}.png`
     asset2El.src = `/display/assets/characterSelect/${charName}/hat/${charObj.hat}.png`
     asset3El.src = `/display/assets/characterSelect/${charName}/collar/${charObj.collar}.png`
- 
+
    }
    
         setTimeout(() => {
@@ -37,7 +37,7 @@ function revealCharacter(charName, extras) {
         }, 4000)
 }
 
-function displaySkinChoice(winner) {
+function displaySkinChoice(winner, confetti) {
     const choice1El = document.getElementById("vote-a-img");
     const choice2El = document.getElementById("vote-b-img");
     const choice1BgEl = document.getElementById("vote-a-bg");
@@ -71,7 +71,15 @@ for (el of removableEls){
         choice1El.remove();
         choice1BgEl.remove();
     }
-
+    setTimeout(()=>{
+        confetti.addConfetti({
+            confettiColors: [
+                '#e9ecd9', '#ae8cbe', '#6d6faa', '#444573', '#aeadcf'
+            ],
+            // emojis: ["🐸","🦇", "🦐", "🪨", "🤡", "🫵"],
+            confettiNumber: 200,
+        })
+    },1000)
 }
 
 

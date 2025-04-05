@@ -3,6 +3,8 @@ let voteLength
 let winnerLength
 let promptLength
 document.addEventListener("DOMContentLoaded", function () {
+  const confetti = new JSConfetti()
+
   let locations;
   let extras;
   let scripts;
@@ -63,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
               }
               break
             case "reveal":
-                revealCharacter(msg.data[0], extras)
+                revealCharacter(msg.data[0], extras, confetti)
               break
             case "characterData": 
               storeCharacters(msg.characters)
@@ -91,9 +93,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 // toggleSkinHTML(msg.data.item);
               }, promptLength)
               break;
-            case "skinChoice":
-              displaySkinChoice(msg.data.winner);
-              break;
+            // case "skinChoice":
+            //   displaySkinChoice(msg.data.winner, confetti);
+            //   break;
             case "path":
               promptVote(mainEl, extras, msg.data, "path")
               setTimeout(() => {
@@ -107,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
               displayWinner(msg.data.winner, extras, mainEl, msg.data.currentLocation)
               break;
             case "skin-winner":
-              displaySkinChoice(msg.data.winner)
+              displaySkinChoice(msg.data.winner, confetti)
               break;
           }
           break;

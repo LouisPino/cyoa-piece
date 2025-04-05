@@ -33,7 +33,7 @@ function revealCharacter(charName, extras, confetti) {
             asset3BgEl.style.setProperty("top", "0vh", "important");
         }, 3000)
         setTimeout(() => {
-   flashImages([asset1El, asset2El, asset3El], charName)
+   flashImages([asset1El, asset2El, asset3El], charName, confetti)
         }, 4000)
 }
 
@@ -83,7 +83,7 @@ for (el of removableEls){
 }
 
 
-function flashImages(assetsArr, charName) {      
+function flashImages(assetsArr, charName, confetti) {      
     let i = 50;
     let characterDiv
     const assetsEl = document.querySelector(".skin-assets")
@@ -114,7 +114,13 @@ function flashImages(assetsArr, charName) {
                 flash();
             }, flashTime); // Increasing delay as i decreases
         }else{
-            // CONFETTI
+            confetti.addConfetti({
+                confettiColors: [
+                    '#e9ecd9', '#ae8cbe', '#6d6faa', '#444573', '#aeadcf'
+                ],
+                // emojis: ["🐸","🦇", "🦐", "🪨", "🤡", "🫵"],
+                confettiNumber: 200,
+            })
             for (const child of characterDiv.children) {
                 child.classList.remove('black-mask');
               }
@@ -130,8 +136,7 @@ function flashImages(assetsArr, charName) {
             setTimeout(() => {
                 toggleAnimation("front")
                 hopChar(charName)
-                //CONFETTI
-            }, 6500) 
+                 }, 6500) 
         }
     }
 

@@ -101,6 +101,17 @@ body {
     /* Flips around the vertical line at 535px from the left */
 }
 
+
+.skin-asset-bg{
+    z-index: 3;
+}
+
+.skin-asset{
+    z-index: 4;
+}
+
+
+
 /* INTRO PAGE SWITCHER */
 #intro-gif,
 #intro-qr-page,

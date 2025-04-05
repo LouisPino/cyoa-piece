@@ -11,88 +11,39 @@ function revealCharacter(charName, extras) {
     const asset3BgEl = document.getElementById("asset-3-bg");
     const assetsEl = document.querySelector(".skin-assets")
    const thirdItem = charName === "pino" ? "robe" : "collar"
-   asset1El.src = `/display/assets/characterSelect/${charName}/color/${charObj.color}.png`
-   asset2El.src = `/display/assets/characterSelect/${charName}/hat/${charObj.hat}.png`
-   asset3El.src = `/display/assets/characterSelect/${charName}/${thirdItem}/${charObj[thirdItem]}.png`
+   if(charName === "pino"){
+    asset1El.src = `/display/assets/characterSelect/${charName}/color/${charObj.color}.png`
+    asset2El.src = `/display/assets/characterSelect/${charName}/robe/${charObj.robe}.png`
+    asset3El.src = `/display/assets/characterSelect/${charName}/hat/${charObj.hat}.png`
+   }else{
+    asset1El.src = `/display/assets/characterSelect/${charName}/color/${charObj.color}.png`
+    asset2El.src = `/display/assets/characterSelect/${charName}/hat/${charObj.hat}.png`
+    asset3El.src = `/display/assets/characterSelect/${charName}/collar/${charObj.collar}.png`
+ 
+   }
    
-   // if (Object.keys(charObj)[0] === "jesterFace") {
-    //     setTimeout(() => {
-    //         asset1El.src = charObj.color.img
-    //         asset1El.style.left = "0px"
-    //         asset1El.style.opacity = 1
-    //     }, 1000)
-    //     setTimeout(() => {
-    //         asset2El.src = charObj.points.img
-    //         asset2El.style.left = `${(assetsEl.getBoundingClientRect().width / 2) - (asset2El.getBoundingClientRect().width / 2)}px`
-    //         asset2El.style.opacity = 1
-    //     }, 2000)
-    //     setTimeout(() => {
-    //         asset3El.src = charObj.jesterDevice.img
-    //         asset3El.style.left = `${assetsEl.getBoundingClientRect().width - asset3El.getBoundingClientRect().width}px`
-    //         asset3El.style.opacity = 1
-    //     }, 3000)
-    //     setTimeout(() => {
-    //         asset4El.src = charObj.jesterFace.img
-    //         asset4El.style.left = `${(assetsEl.getBoundingClientRect().width / 2) - (asset4El.getBoundingClientRect().width / 2)}px`
-    //         asset4El.style.opacity = 1
-    //     }, 4000)
-    //     setTimeout(() => {
-    //         asset1El.style.left = `${(assetsEl.getBoundingClientRect().width / 2) - (asset4El.getBoundingClientRect().width / 2)}px`
-    //         asset1El.style.bottom = "75%"
-    //     }, 5000)
-    //     setTimeout(() => {
-    //         asset2El.style.left = `${(assetsEl.getBoundingClientRect().width / 2) - (asset4El.getBoundingClientRect().width / 2)}px`
-    //         asset2El.style.bottom = "75%"
-    //     }, 6000)
-    //     setTimeout(() => {
-    //         asset3El.style.left = `${(assetsEl.getBoundingClientRect().width / 2) - (asset4El.getBoundingClientRect().width / 2)}px`
-    //         asset3El.style.bottom = "75%"
-    //     }, 7000)
+        setTimeout(() => {
+            asset1El.style.setProperty("top", "0vh", "important");
+            asset1BgEl.style.setProperty("top", "0vh", "important");
+        }, 1000)
+        setTimeout(() => {
+            asset2El.style.setProperty("top", "0vh", "important");
+            asset2BgEl.style.setProperty("top", "0vh", "important");
+        }, 2000)
+        setTimeout(() => {
+            asset3El.style.setProperty("top", "0vh", "important");
+            asset3BgEl.style.setProperty("top", "0vh", "important");
+        }, 3000)
+        setTimeout(() => {
+            if(charName === "pino"){
+                renderPino()
 
-    //     setTimeout(() => {
-    //         let newJester = "https://cdn-images.dzcdn.net/images/artist/7d241d43d2b13779977b6331205bc68d/1900x1900-000000-80-0-0.jpg"
-    //         flashImages([asset1El, asset2El, asset3El], asset4El, newJester)
-    //     }, 8000)
-    // } else {
-    //     setTimeout(() => {
-    //         asset1El.src = charObj.robe.img
-    //         asset1El.style.left = "0px"
-    //         asset1El.style.opacity = 1
-    //     }, 1000)
-    //     setTimeout(() => {
-    //         asset2El.src = charObj.hat.img
-    //         asset2El.style.left = `${(assetsEl.getBoundingClientRect().width / 2) - (asset2El.getBoundingClientRect().width / 2)}px`
-    //         asset2El.style.opacity = 1
-    //     }, 2000)
-    //     setTimeout(() => {
-    //         asset3El.src = charObj.wizardDevice.img
-    //         asset3El.style.left = `${assetsEl.getBoundingClientRect().width - asset3El.getBoundingClientRect().width}px`
-    //         asset3El.style.opacity = 1
-    //     }, 3000)
-    //     setTimeout(() => {
-    //         asset4El.src = charObj.wizardFace.img
-    //         asset4El.style.left = `${(assetsEl.getBoundingClientRect().width / 2) - (asset4El.getBoundingClientRect().width / 2)}px`
-    //         asset4El.style.opacity = 1
-    //     }, 4000)
-    //     setTimeout(() => {
-    //         asset1El.style.left = `${(assetsEl.getBoundingClientRect().width / 2) - (asset4El.getBoundingClientRect().width / 2)}px`
-    //         asset1El.style.bottom = "75%"
-    //     }, 5000)
-    //     setTimeout(() => {
-    //         asset2El.style.left = `${(assetsEl.getBoundingClientRect().width / 2) - (asset4El.getBoundingClientRect().width / 2)}px`
-    //         asset2El.style.bottom = "75%"
-    //     }, 6000)
-    //     setTimeout(() => {
-    //         asset3El.style.left = `${(assetsEl.getBoundingClientRect().width / 2) - (asset4El.getBoundingClientRect().width / 2)}px`
-    //         asset3El.style.bottom = "75%"
-    //     }, 7000)
-
-    //     setTimeout(() => {
-    //         let newChar = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQsLq8jGXoZygQoBD47jVCzB-5nIPLIWGG_A&s"
-    //         flashImages([asset1El, asset2El, asset3El], asset4El, newChar)
-    //     }, 8000)
-
-    // }
+            }else{
+                renderJaz()
+            }
+toggleAnimation("front")         
+   // flashImages([asset1El, asset2El, asset3El], )
+        }, 4000)
 }
 
 function displaySkinChoice(winner) {

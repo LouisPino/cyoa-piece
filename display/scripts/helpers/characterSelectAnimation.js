@@ -9,8 +9,6 @@ function revealCharacter(charName, extras) {
     const asset1BgEl = document.getElementById("asset-1-bg");
     const asset2BgEl = document.getElementById("asset-2-bg");
     const asset3BgEl = document.getElementById("asset-3-bg");
-    const assetsEl = document.querySelector(".skin-assets")
-   const thirdItem = charName === "pino" ? "robe" : "collar"
    if(charName === "pino"){
     asset1El.src = `/display/assets/characterSelect/${charName}/color/${charObj.color}.png`
     asset2El.src = `/display/assets/characterSelect/${charName}/robe/${charObj.robe}.png`
@@ -35,14 +33,7 @@ function revealCharacter(charName, extras) {
             asset3BgEl.style.setProperty("top", "0vh", "important");
         }, 3000)
         setTimeout(() => {
-            if(charName === "pino"){
-                renderPino()
-
-            }else{
-                renderJaz()
-            }
-toggleAnimation("front")         
-   // flashImages([asset1El, asset2El, asset3El], )
+   flashImages([asset1El, asset2El, asset3El], charName)
         }, 4000)
 }
 
@@ -84,24 +75,55 @@ for (el of removableEls){
 }
 
 
-function flashImages(assetsArr, oldImage, newImage) {
+function flashImages(assetsArr, charName) {      
     let i = 50;
-    let oldSrc = oldImage.src;
-
+    let characterDiv
+    const assetsEl = document.querySelector(".skin-assets")
     function flash() {
-        const flashTime = i > 45 ? i * 16 : i ** 2 / 10
+        const flashTime = i > 50 ? i * 16 : i ** 2 / 10
+        for (const asset of assetsArr) {
+            asset.style.transition = "0s";
+        }
         if (i > 1) {
             setTimeout(() => {
-                for (const asset of assetsArr) {
-                    asset.style.transition = "0s";
-                    asset.style.opacity = i % 2 === 0 ? "0" : "1";
+                if (i===50){
+                    if(charName === "pino"){
+                        renderPino()
+                    }else{
+                        renderJaz()
+                    }
+                     characterDiv = document.getElementById(`${charName}-char`)
+                     for (const child of characterDiv.children) {
+                        child.classList.add('black-mask');
+                      }
+                toggleAnimation("front")   
                 }
-                oldImage.src = i % 2 === 0 ? newImage : oldSrc;
+                assetsEl.style.opacity = i % 2 === 0 ? "0" : "1";
+                characterDiv.style.opacity = i % 2 === 1 ? "0" : "1";
                 i--;
 
                 // Recursive call
                 flash();
             }, flashTime); // Increasing delay as i decreases
+        }else{
+            // CONFETTI
+            for (const child of characterDiv.children) {
+                child.classList.remove('black-mask');
+              }
+            setTimeout(() => {
+                hopChar(charName)
+            }, 1000) 
+            setTimeout(() => {
+                toggleAnimation("walk")
+            }, 2500) 
+            setTimeout(() => {
+                toggleAnimation("left")
+            }, 4500) 
+            setTimeout(() => {
+                toggleAnimation("front")
+                hopChar(charName)
+                //CONFETTI
+            }, 6500) 
         }
     }
 

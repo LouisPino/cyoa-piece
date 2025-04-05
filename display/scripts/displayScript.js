@@ -77,6 +77,9 @@ document.addEventListener("DOMContentLoaded", function () {
             case "slide":
               slideChar(msg.data[0], msg.data[1], msg.data[2], msg.data[3])
               break
+            case "hop":
+              hopChar(msg.data[0])
+              break
           }
           break;
         case "vote":

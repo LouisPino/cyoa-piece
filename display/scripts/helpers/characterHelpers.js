@@ -12,6 +12,8 @@ const pinoHands = document.createElement("img")
 const pinoFace = document.createElement("img")
 const pinoHat = document.createElement("img")
 const jazCollarLine = document.createElement("img")
+const pinoHelmet = document.createElement("img")
+pinoHelmet.style.zIndex = "94"
 
 const assetPartEls = [jazBody, jazCollar, jazCollarLine, jazFaceLine, jazFace, jazHat, pinoBodyLine, pinoRobe, pinoFaceLine, pinoHands, pinoFace, pinoHat]
 const assetPartStrs = ["jazBody", "jazCollar", "jazCollarLine", "jazFaceLine", "jazFace", "jazHat", "pinoBodyLine", "pinoRobe", "pinoFaceLine", "pinoHands", "pinoFace", "pinoHat"]
@@ -82,8 +84,28 @@ async function toggleAnimation(animation) {
             el.style.transform = "scaleX(1)"
         }
         return
-    }
-    if(animation === "froggy"){
+    }   if (animation === "dvd") {
+        jazFaceLine.src = `/display/assets/characters/jaz/faceline/dvd/${characters.j.faceline}.png`
+        jazHat.src = `/display/assets/characters/jaz/hat/dvd/${characters.j.hat}${currentLocation.name.toLowerCase().includes("ocean") ? "ocean" : "space"}.png` //WORK ON ME
+        jazCollarLine.style.src = `/display/assets/characters/jaz/collarline/dvd/collarLine.png`
+        jazCollar.src = `/display/assets/characters/jaz/collar/dvd/${characters.j.collar}.png`
+        jazBody.src = `/display/assets/characters/jaz/body/dvd/body.png`
+        jazFace.src = `/display/assets/characters/jaz/face/dvd/${characters.j.face}.png`
+    jazFaceLine.style.zIndex = "99"
+    jazHat.style.zIndex = "100"
+    jazDiv.classList.add("rotating")
+
+        pinoFaceLine.src = `/display/assets/characters/pino/faceline/dvd/${characters.p.faceline}.png`
+        pinoBodyLine.src = `/display/assets/characters/pino/bodyline/dvd/bodyLine.png`
+        pinoRobe.src = `/display/assets/characters/pino/robe/dvd/${characters.p.robe}.png`
+        pinoHands.src = `/display/assets/characters/pino/hands/dvd/${characters.p.hands}.png`
+        pinoHat.src = `/display/assets/characters/pino/hat/dvd/${characters.p.hat}.png`
+        pinoFace.src = `/display/assets/characters/pino/face/dvd/${characters.p.face}.png`
+        pinoHelmet.src = `/display/assets/characters/pino/helmet/${currentLocation.name.toLowerCase().includes("ocean") ? "ocean" : "space"}.png`
+        pinoDiv.appendChild(pinoHelmet)
+        pinoDiv.classList.add("rotating")
+        return
+    } else if(animation === "froggy"){
         pinoFaceLine.remove()
         pinoHands.remove()
         pinoBodyLine.style.zIndex = "93"

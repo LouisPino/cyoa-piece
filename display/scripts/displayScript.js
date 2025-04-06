@@ -2,9 +2,9 @@ let ipAddress;
 let voteLength
 let winnerLength
 let promptLength
+let currentLocation
 document.addEventListener("DOMContentLoaded", function () {
   const confetti = new JSConfetti()
-
   let locations;
   let extras;
   let scripts;
@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
           break;
         case "section":
           sectionChange(locations[msg.data.name]);
+          currentLocation = msg.data
           break;
         case "intermission":
           intermissionStart();

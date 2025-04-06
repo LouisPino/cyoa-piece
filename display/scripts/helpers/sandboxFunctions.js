@@ -42,7 +42,7 @@ function changeBg(newSrc) {
 
 function changeDialogueSprite(newSrc) {
     const spriteEl = document.getElementById("sandbox-dialogue-sprite");
-    spriteEl.src = `/display/assets/dialogue/sprites/${newSrc}.png`
+    spriteEl.src = `/display/assets/npcs/${newSrc}.png`
 }
 
 
@@ -81,11 +81,9 @@ const ins = ["slide-up", "slide-in", "slide-in-fast", "fade-in-fast"]
 function toggleBox(arg, characters) {
     const boxEl = document.getElementById("sandbox-dialogue-box")
     const spriteEl = document.getElementById("sandbox-dialogue-sprite")
-    const spriteNameEl = document.getElementById("sandbox-dialogue-name")
     const textBodyEl = document.querySelector(".text-body")
     boxEl.classList.remove(...outs)
     textBodyEl.classList.remove(...outs)
-    spriteNameEl.classList.remove(...outs)
     spriteEl.classList.remove(...outs)
     if (arg === "sprite") {
         boxEl.src = "/display/assets/dialogue/boxes/SpriteBox.png"
@@ -93,7 +91,6 @@ function toggleBox(arg, characters) {
     } else if (arg === "none") {
         boxEl.src = ""
         spriteEl.style.visibility = "hidden"
-        spriteNameEl.style.visibility = "hidden"
         textBodyEl.style.visibility = "hidden"
         clearText()
     } else {
@@ -118,34 +115,28 @@ function toggleBox(arg, characters) {
 function slideBoxY(arg, characters) {
     const boxEl = document.getElementById("sandbox-dialogue-box");
     const spriteEl = document.getElementById("sandbox-dialogue-sprite");
-    const spriteNameEl = document.getElementById("sandbox-dialogue-name");
     const textBodyEl = document.querySelector(".text-body");
     if (arg === "sprite") {
         boxEl.src = "/display/assets/dialogue/boxes/SpriteBox.png"
         moveText("sprite")
         boxEl.classList.remove(...outs)
         textBodyEl.classList.remove(...outs)
-        spriteNameEl.classList.remove(...outs)
         spriteEl.classList.remove(...outs)
         textBodyEl.style.color = "#ffbd92"
 
         boxEl.classList.add("slide-up")
         textBodyEl.classList.add("slide-up")
-        spriteNameEl.classList.add("slide-up");
         spriteEl.classList.add("slide-up")
 
         spriteEl.style.visibility = "visible";
-        spriteNameEl.style.visibility = "visible";
         textBodyEl.style.visibility = "visible";
     } else if (arg === "none") {
         // boxEl.src = "";
         boxEl.classList.remove(...ins)
         textBodyEl.classList.remove(...ins)
-        spriteNameEl.classList.remove(...ins)
         spriteEl.classList.remove(...ins)
         boxEl.classList.add("slide-down")
         textBodyEl.classList.add("slide-down")
-        spriteNameEl.classList.add("slide-down");
         spriteEl.classList.add("slide-down")
         setTimeout(clearText, 500); // Ensure text clears after animation
     } else {
@@ -179,34 +170,28 @@ function slideBoxY(arg, characters) {
 function slideBoxX(arg, characters) {
     const boxEl = document.getElementById("sandbox-dialogue-box");
     const spriteEl = document.getElementById("sandbox-dialogue-sprite");
-    const spriteNameEl = document.getElementById("sandbox-dialogue-name");
     const textBodyEl = document.querySelector(".text-body");
     if (arg === "sprite") {
         boxEl.src = "/display/assets/dialogue/boxes/SpriteBox.png"
         moveText("sprite")
         boxEl.classList.remove(...outs)
         textBodyEl.classList.remove(...outs)
-        spriteNameEl.classList.remove(...outs)
         spriteEl.classList.remove(...outs)
         textBodyEl.style.color = "#ffbd92"
 
         boxEl.classList.add("slide-in-fast")
         textBodyEl.classList.add("slide-in-fast")
-        spriteNameEl.classList.add("slide-in-fast");
         spriteEl.classList.add("slide-in-fast")
 
         spriteEl.style.visibility = "visible";
-        spriteNameEl.style.visibility = "visible";
         textBodyEl.style.visibility = "visible";
     } else if (arg === "none") {
         // boxEl.src = "";
         boxEl.classList.remove(...ins)
         textBodyEl.classList.remove(...ins)
-        spriteNameEl.classList.remove(...ins)
         spriteEl.classList.remove(...ins)
         boxEl.classList.add("slide-out-fast")
         textBodyEl.classList.add("slide-out-fast")
-        spriteNameEl.classList.add("slide-out-fast");
         spriteEl.classList.add("slide-out-fast")
         setTimeout(clearText, 500); // Ensure text clears after animation
     } else {
@@ -240,7 +225,6 @@ function slideBoxX(arg, characters) {
 function fadeBox(arg, characters) {
     const boxEl = document.getElementById("sandbox-dialogue-box");
     const spriteEl = document.getElementById("sandbox-dialogue-sprite");
-    const spriteNameEl = document.getElementById("sandbox-dialogue-name");
     const textBodyEl = document.querySelector(".text-body");
 
     if (arg === "sprite") {
@@ -249,11 +233,9 @@ function fadeBox(arg, characters) {
         textBodyEl.style.color = "#ffbd92"
         boxEl.classList.remove(...outs)
         textBodyEl.classList.remove(...outs)
-        spriteNameEl.classList.remove(...outs)
         spriteEl.classList.remove(...outs)
         boxEl.classList.add("fade-in-fast")
         textBodyEl.classList.add("fade-in-fast")
-        spriteNameEl.classList.add("fade-in-fast");
         spriteEl.classList.add("fade-in-fast")
 
 
@@ -261,11 +243,9 @@ function fadeBox(arg, characters) {
         // boxEl.src = "";
         boxEl.classList.remove(...ins)
         textBodyEl.classList.remove(...ins)
-        spriteNameEl.classList.remove(...ins)
         spriteEl.classList.remove(...ins)
         boxEl.classList.add("fade-out-fast")
         textBodyEl.classList.add("fade-out-fast")
-        spriteNameEl.classList.add("fade-out-fast");
         spriteEl.classList.add("fade-out-fast")
         setTimeout(clearText, 500); // Ensure text clears after animation
     }
@@ -288,7 +268,6 @@ function fadeBox(arg, characters) {
         textBodyEl.classList.add("fade-in-fast")
         textBodyEl.style.color = newColor
         spriteEl.style.visibility = "hidden";
-        spriteNameEl.style.visibility = "hidden";
         textBodyEl.style.visibility = "visible";
         moveText("dialogue")
     }
@@ -324,11 +303,9 @@ function locationBanner(location) {
 function moveText(box) {
     const boxEl = document.getElementById("sandbox-dialogue-box")
     const spriteEl = document.getElementById("sandbox-dialogue-sprite")
-    const spriteNameEl = document.getElementById("sandbox-dialogue-name")
     const textBodyEl = document.querySelector(".text-body")
     if (box === "dialogue") {
         spriteEl.style.visibility = "hidden"
-        spriteNameEl.style.visibility = "hidden"
         textBodyEl.style.visibility = "visible"
         textBodyEl.style.minWidth = "65%"
         textBodyEl.style.maxWidth = "65%"
@@ -336,7 +313,6 @@ function moveText(box) {
         textBodyEl.style.textAlign = "center"
     } else if (box === "sprite") {
         spriteEl.style.visibility = "visible"
-        spriteNameEl.style.visibility = "visible"
         textBodyEl.style.visibility = "visible"
         textBodyEl.style.minWidth = "42%"
         textBodyEl.style.maxWidth = "42%"

@@ -1,17 +1,11 @@
 function dvdBounce() {
-    renderPino();
-    renderJaz();
     const container = document.getElementById('dvd-container');
-    const sprites = document.querySelectorAll('.char-div');
+    const sprites = document.querySelectorAll('.floater');
 
     sprites.forEach(sprite => {
-        if (sprite.id === "pino-char") {
-            sprite.style.left = '80vw';
-            sprite.style.top = '50vh';
-        } else {
-            sprite.style.left = sprite.style.left || '100px';
-            sprite.style.top = sprite.style.top || '100px';
-        }
+            sprite.style.left = `${Math.floor(Math.random() * (100))}%`;
+            sprite.style.top = `${Math.floor(Math.random() * (100))}%`;
+
 
         let dx = Math.random() < 0.5 ? 2 : -2;
         let dy = Math.random() < 0.5 ? 2 : -2;
@@ -51,11 +45,8 @@ function dvdBounce() {
 
             sprite.style.left = `${left}px`;
             sprite.style.top = `${top}px`;
-
             requestAnimationFrame(animate);
         }
-
         requestAnimationFrame(animate);
     });
-    toggleAnimation("dvd")
 }

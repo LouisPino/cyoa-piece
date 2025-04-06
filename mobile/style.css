@@ -108,6 +108,11 @@ button {
     height: 100vh;
 }
 
+.floater{
+    position: absolute;
+    width:100px;
+    height: 100px;
+}
 
 .char-div img {
     position: absolute;

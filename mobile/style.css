@@ -138,6 +138,25 @@ button {
 }
 
 
+.vote-bg{
+width: 100vw;
+height: 100vh;
+    background: linear-gradient(90deg, var(--sylvan-blue), var(--sylvan-purple), var(--sylvan-light), var(--sylvan-indigo), var(--sylvan-lavender));
+    animation: animate 15s linear infinite;
+}
+
+@keyframes animate {
+
+  0%,
+  100% {
+    filter: hue-rotate(0deg);
+  }
+
+  50% {
+    filter: hue-rotate(360deg);
+  }
+}
+
 
 /***** skin votes */
 .skin-winner {

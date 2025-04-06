@@ -73,18 +73,6 @@ const locations = {
     transition: { type: "blur", time: 1000 },
     voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
   },
-  rockField: {
-    name: "cave",
-    paths: ["bats", "bugs"],
-    choicePrompts: {
-      mobile: "",
-      display: "",
-    },
-    choices: ["Left", "Right"],
-    html: {},
-    transition: { type: "blur", time: 1000 },
-    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
-  },
   river: {
     name: "river",
     paths: ["bugs", "fish"],

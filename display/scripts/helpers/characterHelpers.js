@@ -286,3 +286,19 @@ function defaultZIndex(){
     pinoHat.style.zIndex = "90"
     pinoFace.style.zIndex = "89"
 }
+
+
+function shakeChar(char, time) {
+    switch (char) {
+        case "pino":
+pinoDiv.classList.add("shaking")
+setTimeout(()=>{pinoDiv.classList.remove("shaking")},time)
+break;
+case "jaz":
+                jazDiv.classList.add("shaking")
+                setTimeout(()=>{jazDiv.classList.remove("shaking")},time)
+            break;
+        case "duo":
+            break;
+    }
+}

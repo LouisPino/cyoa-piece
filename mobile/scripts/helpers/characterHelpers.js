@@ -192,6 +192,7 @@ function slideChar(char, x, y, time) {
             break;
     }
 }
+
 function moveDivSmoothly(element, x, y, duration) {
     const startX = parseInt(element.style.left) || 0;
     const startY = parseInt(element.style.top) || 0;
@@ -214,3 +215,5 @@ function moveDivSmoothly(element, x, y, duration) {
     }
     requestAnimationFrame(animate);
 }
+
+

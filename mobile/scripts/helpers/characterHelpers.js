@@ -28,7 +28,7 @@ jazCollar.style.zIndex = "97"
 jazBody.style.zIndex = "96"
 jazFace.style.zIndex = "95"
 
-pinoHelmet.style.zIndex = "94"
+pinoHelmet.style.zIndex = "95"
 pinoHat.style.zIndex = "90"
 pinoFaceLine.style.zIndex = "94"
 pinoBodyLine.style.zIndex = "93"
@@ -94,7 +94,7 @@ async function toggleAnimation(animation) {
     if (animation === "dvd") {
         jazFaceLine.src = `/display/assets/characters/jaz/faceline/dvd/${characters.j.faceline}.png`
         jazHat.src = `/display/assets/characters/jaz/hat/dvd/${characters.j.hat}${currentLocation.name.toLowerCase().includes("ocean") ? "ocean" : "space"}.png` //WORK ON ME
-        jazCollarLine.style.zIndex = `/display/assets/characters/jaz/collarline/dvd/collarLine.png`
+        jazCollarLine.style.src = `/display/assets/characters/jaz/collarline/dvd/collarLine.png`
         jazCollar.src = `/display/assets/characters/jaz/collar/dvd/${characters.j.collar}.png`
         jazBody.src = `/display/assets/characters/jaz/body/dvd/body.png`
         jazFace.src = `/display/assets/characters/jaz/face/dvd/${characters.j.face}.png`

@@ -3,14 +3,14 @@
 const flashTime = 250
 
 const skinChoices = {
-    pColor: ["pino/color/A", "pino/color/B", "Pick your favorite cat"],
-    pHat: ["pino/hat/A", "pino/hat/B", "Pick between these patterns"],
-    pDevice: ["pino/device/A", "pino/device/B", "????????"],
-    pRobe: ["pino/robe/A", "pino/robe/B", "Choose your favorite color"],
-    jColor: ["jaz/color/A", "jaz/color/B", "Choose your favorite cat"],
-    jCollar: ["jaz/collar/A", "jaz/collar/B", "???What color collar???"],
-    jHat: ["jaz/hat/A", "jaz/hat/B", " ??? 2 or 4 ????"],
-    jDevice: ["jaz/device/A", "jaz/device/B", "Which is more annoying?"]
+    pColor: ["pino/color/A", "pino/color/B", "Pick a cat"],
+    pHat: ["pino/hat/A", "pino/hat/B", "Which pattern?"],
+    pDevice: ["pino/device/A", "pino/device/B", "Choose one"],
+    pRobe: ["pino/robe/A", "pino/robe/B", "Green or purple?"],
+    jColor: ["jaz/color/A", "jaz/color/B", "Pick a cat"],
+    jCollar: ["jaz/collar/A", "jaz/collar/B", "Which one?"],
+    jHat: ["jaz/hat/A", "jaz/hat/B", "Four or Two?"],
+    jDevice: ["jaz/device/A", "jaz/device/B", "Choose a sound"]
 }
 function displayVote(mainEl, extras, voteLength, data, type) {
     let seconds = voteLength / 1000 - 1;
@@ -28,7 +28,7 @@ function displayVote(mainEl, extras, voteLength, data, type) {
     switch (type) {
         case "path":
             backgroundEl.src = data.currentLocation.voteBgBlur
-            voteBannerText.innerHTML = data.currentLocation.choicePrompt
+            voteBannerText.innerHTML = data.currentLocation.choicePrompts.display
             voteAImg.src = `display/assets/vote/location/${data.currentLocation.choices[0]}/up.PNG`
             voteBImg.src = `display/assets/vote/location/${data.currentLocation.choices[1]}/up.PNG`
             break

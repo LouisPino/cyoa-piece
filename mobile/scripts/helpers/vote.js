@@ -30,7 +30,7 @@ function startVote(type, data) {
 
     switch (type) {
         case "section":
-            prompt.innerHTML = data.choicePrompt
+            prompt.innerHTML = data.choicePrompts.mobile
             voteAImgEl.src = `/mobile/assets/vote/location/${data.choices[0]}/up.PNG`
             voteBImgEl.src = `/mobile/assets/vote/location/${data.choices[1]}/up.PNG`
             break

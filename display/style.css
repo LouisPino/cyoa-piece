@@ -84,14 +84,16 @@ body {
     top: 0;
     transition: transform 500ms;
 }
-.char-div{
-background-color: black;
+
+.char-div {
+    background-color: black;
 }
 
-.black-mask{
+.black-mask {
     mix-blend-mode: multiply;
     filter: brightness(0);
 }
+
 #pino-char,
 #jaz-char {
     position: absolute;
@@ -99,23 +101,26 @@ background-color: black;
 
 
 #pino-char img {
-    transform-origin: 200px;
+    transform-origin: 200px center;
+    /* border: 1px solid red */
     /* Flips around the vertical line at 200px from the left */
 }
 
 #jaz-char img {
-    transform-origin: 535px;
+    transform-origin: 535px center;
+    /* border: 1px solid red */
     /* Flips around the vertical line at 535px from the left */
 }
 
+
 /* CHARACTER REVEAL */
-.skin-asset-bg{
+.skin-asset-bg {
     z-index: 3;
     top: 75vh !important;
     transition: top 1000ms;
 }
 
-.skin-asset{
+.skin-asset {
     z-index: 4;
     top: 75vh !important;
     transition: top 1000ms;
@@ -192,7 +197,7 @@ background-color: black;
     animation: fadeOut 1s ease-in-out forwards;
 }
 
-.shaking{
+.shaking {
     animation: shake 100ms linear infinite;
 }
 
@@ -200,16 +205,20 @@ background-color: black;
     0% {
         transform: translateX(0);
     }
+
     25% {
         transform: translateX(10px);
     }
-    50%{
+
+    50% {
         transform: translateX(0);
 
     }
+
     75% {
         transform: translateX(-10px);
     }
+
     100% {
         transform: translateX(0);
     }
@@ -336,6 +345,8 @@ background-color: black;
     object-fit: contain;
     animation: rotate360 15s linear infinite;
     transition: transform 0ms;
+    transform-origin: 0 !important;
+
 }
 
 .jaz-dvd img {
@@ -345,6 +356,7 @@ background-color: black;
     object-fit: contain;
     animation: rotate360 12s linear infinite;
     transition: transform 0ms;
+    transform-origin: 0 !important
 }
 
 
@@ -434,7 +446,7 @@ background-color: black;
     /* background-color: rgb(175, 145, 189); */
 }
 
-#vote-prompt{
+#vote-prompt {
     z-index: 999;
 }
 
@@ -499,6 +511,11 @@ background-color: black;
 }
 
 @keyframes rotate360 {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

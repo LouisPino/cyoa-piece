@@ -5,14 +5,17 @@ function dvdBounce() {
   const container = document.getElementById("dvd-container");
   const sprites = document.querySelectorAll(".char-div");
 
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
   sprites.forEach((sprite) => {
     if (sprite.id === "pino-char") {
-      sprite.style.left = "80vw";
-      sprite.style.top = "50vh";
+
+      sprite.style.left = `${0.8 * vw}px`;
+      sprite.style.top = `${0.5 * vh}px`;
       sprite.classList.add("pino-dvd");
     } else {
-      sprite.style.left = "100px";
-      sprite.style.top = "100px";
+      sprite.style.left = `${0.1 * vw}px`;
+      sprite.style.top = `${0.1 * vh}px`;
       sprite.classList.add("jaz-dvd");
     }
 
@@ -31,27 +34,13 @@ function dvdBounce() {
       const leftBoundary = left + dx;
       const rightBoundary = left + dx + spriteWidth;
 
-      if (sprite.id === "pino-char") {
-        if (
-          leftBoundary < 0 ||
-          leftBoundary + spriteWidth / 2 > containerWidth
-        ) {
-          dx = -dx;
-        }
-      } else if (sprite.id === "jaz-char") {
-        if (
-          rightBoundary - spriteWidth / 2 < 0 ||
-          rightBoundary > containerWidth
-        ) {
-          dx = -dx;
-        }
-      } else {
-        if (leftBoundary < 0 || rightBoundary > containerWidth) {
-          dx = -dx;
-        }
+
+
+      if (leftBoundary - 100 < 0 || rightBoundary + 100 > containerWidth) {
+        dx = -dx;
       }
 
-      if (top + dy < 0 || top + dy + spriteHeight > containerHeight) {
+      if (top + dy < 0 || top + dy + spriteHeight + 100 > containerHeight - 200) {
         dy = -dy;
       }
 
@@ -60,7 +49,6 @@ function dvdBounce() {
 
       sprite.style.left = `${left}px`;
       sprite.style.top = `${top}px`;
-      console.log(inDVD)
       if (inDVD) {
         requestAnimationFrame(animate);
       } else {

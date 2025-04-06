@@ -306,6 +306,32 @@ background-color: black;
     top: 0;
 }
 
+.pino-dvd img {
+    position: absolute;
+    width: 15vw;
+    height: 26vh;
+    object-fit: contain;
+    animation: rotate360 15s linear infinite;
+    transition: transform 0ms;
+}
+
+.jaz-dvd img {
+    position: absolute;
+    width: 15vw;
+    height: 26vh;
+    object-fit: contain;
+    animation: rotate360 12s linear infinite;
+    transition: transform 0ms;
+}
+
+
+#dvd-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+
 /* Background images */
 #sandbox-bg {
     position: absolute;
@@ -453,14 +479,3 @@ background-color: black;
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
   }
-  
-  #pino-char img.rotating {
-    transform-origin: 200px center;
-    animation: rotate360 2s linear infinite;
-  }
-  
-  #jaz-char img.rotating {
-    transform-origin: 535px center;
-    animation: rotate360 2s linear infinite;
-  }
-  

@@ -3,12 +3,14 @@ let voteLength
 let winnerLength
 let promptLength
 let currentLocation
+let inDVD = false
 document.addEventListener("DOMContentLoaded", function () {
   const confetti = new JSConfetti()
   let locations;
   let extras;
   let scripts;
   let locationScripts;
+
   initializeWebSocket(location.hostname);
   function initializeWebSocket(ip) {
     const socket = new WebSocket(`ws://${ip}:8000/display`);
@@ -34,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
           locationScripts = msg.data["locationScripts"]
           break;
         case "section":
+          inDVD = false
           sectionChange(locations[msg.data.name]);
           currentLocation = msg.data
           break;
@@ -53,8 +56,10 @@ document.addEventListener("DOMContentLoaded", function () {
               break
             case "remove":
               if (msg.data[0] === "pino"){
+                document.getElementById("pino-char").classList.remove("pino-dvd");
                 removePino()
               } else if(msg.data[0] === "jaz"){
+                document.getElementById("jaz-char").classList.remove("jaz-dvd");
                 removeJaz()
               }
               break

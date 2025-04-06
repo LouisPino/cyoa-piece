@@ -87,13 +87,12 @@ async function toggleAnimation(animation) {
     }   if (animation === "dvd") {
         jazFaceLine.src = `/display/assets/characters/jaz/faceline/dvd/${characters.j.faceline}.png`
         jazHat.src = `/display/assets/characters/jaz/hat/dvd/${characters.j.hat}${currentLocation.name.toLowerCase().includes("ocean") ? "ocean" : "space"}.png` //WORK ON ME
-        jazCollarLine.style.src = `/display/assets/characters/jaz/collarline/dvd/collarLine.png`
+        jazCollarLine.src = `/display/assets/characters/jaz/collarline/dvd/collarLine.png`
         jazCollar.src = `/display/assets/characters/jaz/collar/dvd/${characters.j.collar}.png`
         jazBody.src = `/display/assets/characters/jaz/body/dvd/body.png`
         jazFace.src = `/display/assets/characters/jaz/face/dvd/${characters.j.face}.png`
-    jazFaceLine.style.zIndex = "99"
-    jazHat.style.zIndex = "100"
-    jazDiv.classList.add("rotating")
+        jazFaceLine.style.zIndex = "99"
+        jazHat.style.zIndex = "100"
 
         pinoFaceLine.src = `/display/assets/characters/pino/faceline/dvd/${characters.p.faceline}.png`
         pinoBodyLine.src = `/display/assets/characters/pino/bodyline/dvd/bodyLine.png`
@@ -103,7 +102,6 @@ async function toggleAnimation(animation) {
         pinoFace.src = `/display/assets/characters/pino/face/dvd/${characters.p.face}.png`
         pinoHelmet.src = `/display/assets/characters/pino/helmet/${currentLocation.name.toLowerCase().includes("ocean") ? "ocean" : "space"}.png`
         pinoDiv.appendChild(pinoHelmet)
-        pinoDiv.classList.add("rotating")
         return
     } else if(animation === "froggy"){
         pinoFaceLine.remove()
@@ -118,11 +116,14 @@ async function toggleAnimation(animation) {
         jazFaceLine.style.zIndex = "97"//Body Line
         jazBody.style.zIndex = "96"//Body Color
         jazFace.style.zIndex = "95"//Chair
+        pinoHelmet.remove()
     }else{
         pinoDiv.appendChild(pinoHands)
         pinoDiv.appendChild(pinoFaceLine)
         jazDiv.appendChild(jazFaceLine)
         defaultZIndex()
+        pinoHelmet.remove()
+
     }
     
     for (let i = 0; i < assetPartEls.length; i++) {

@@ -1,5 +1,3 @@
-//need to get vote and b images or folder names, need vote banner text
-
 const flashTime = 250
 
 const skinChoices = {
@@ -61,7 +59,7 @@ function promptVote(mainEl, extras, data, type) {
             }
             break;
         case "skin":
-//CHARACTER SELECT BACKGROUND
+            //CHARACTER SELECT BACKGROUND
             break
     }
     // setTimeout(() => { document.getElementById("vote-prompt").style.top = "0px" }, 10)

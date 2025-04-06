@@ -15,7 +15,7 @@ const jazCollarLine = document.createElement("img")
 const pinoHelmet = document.createElement("img")
 pinoHelmet.style.zIndex = "94"
 
-const assetPartEls = [jazBody, jazCollar, jazCollarLine, jazFaceLine, jazFace, jazHat, pinoBodyLine, pinoRobe, pinoFaceLine, pinoHands, pinoFace, pinoHat]
+const assetPartEls = [jazBody, jazCollar, jazCollarLine, jazFaceLine, jazFace, jazHat, pinoBodyLine, pinoRobe, pinoFaceLine, pinoHands, pinoFace, pinoHat, pinoHelmet]
 const assetPartStrs = ["jazBody", "jazCollar", "jazCollarLine", "jazFaceLine", "jazFace", "jazHat", "pinoBodyLine", "pinoRobe", "pinoFaceLine", "pinoHands", "pinoFace", "pinoHat"]
 
 defaultZIndex()
@@ -84,7 +84,7 @@ async function toggleAnimation(animation) {
             el.style.transform = "scaleX(1)"
         }
         return
-    }   if (animation === "dvd") {
+    } if (animation === "dvd") {
         jazFaceLine.src = `/display/assets/characters/jaz/faceline/dvd/${characters.j.faceline}.png`
         jazHat.src = `/display/assets/characters/jaz/hat/dvd/${characters.j.hat}${currentLocation.name.toLowerCase().includes("ocean") ? "ocean" : "space"}.png` //WORK ON ME
         jazCollarLine.src = `/display/assets/characters/jaz/collarline/dvd/collarLine.png`
@@ -103,7 +103,7 @@ async function toggleAnimation(animation) {
         pinoHelmet.src = `/display/assets/characters/pino/helmet/${currentLocation.name.toLowerCase().includes("ocean") ? "ocean" : "space"}.png`
         pinoDiv.appendChild(pinoHelmet)
         return
-    } else if(animation === "froggy"){
+    } else if (animation === "froggy") {
         pinoFaceLine.remove()
         pinoHands.remove()
         pinoBodyLine.style.zIndex = "93"
@@ -117,7 +117,7 @@ async function toggleAnimation(animation) {
         jazBody.style.zIndex = "96"//Body Color
         jazFace.style.zIndex = "95"//Chair
         pinoHelmet.remove()
-    }else{
+    } else {
         pinoDiv.appendChild(pinoHands)
         pinoDiv.appendChild(pinoFaceLine)
         jazDiv.appendChild(jazFaceLine)
@@ -125,7 +125,7 @@ async function toggleAnimation(animation) {
         pinoHelmet.remove()
 
     }
-    
+
     for (let i = 0; i < assetPartEls.length; i++) {
         const part = assetPartStrs[i]; // e.g., "jazBody"
         const character = part.startsWith("jaz") ? "jaz" : "pino";
@@ -271,14 +271,14 @@ function hopChar(char) {
 }
 
 
-function defaultZIndex(){
+function defaultZIndex() {
     jazFaceLine.style.zIndex = "100"
     jazHat.style.zIndex = "99"
     jazCollarLine.style.zIndex = "98"
     jazCollar.style.zIndex = "97"
     jazBody.style.zIndex = "96"
     jazFace.style.zIndex = "95"
-    
+
     pinoFaceLine.style.zIndex = "94"
     pinoBodyLine.style.zIndex = "93"
     pinoRobe.style.zIndex = "92"
@@ -291,14 +291,18 @@ function defaultZIndex(){
 function shakeChar(char, time) {
     switch (char) {
         case "pino":
-pinoDiv.classList.add("shaking")
-setTimeout(()=>{pinoDiv.classList.remove("shaking")},time)
-break;
-case "jaz":
-                jazDiv.classList.add("shaking")
-                setTimeout(()=>{jazDiv.classList.remove("shaking")},time)
+            pinoDiv.classList.add("shaking")
+            setTimeout(() => { pinoDiv.classList.remove("shaking") }, time)
+            break;
+        case "jaz":
+            jazDiv.classList.add("shaking")
+            setTimeout(() => { jazDiv.classList.remove("shaking") }, time)
             break;
         case "duo":
+            shakeChar("pino", time)
+            shakeChar("jaz", time)
             break;
+        case "npc":
+            break
     }
 }

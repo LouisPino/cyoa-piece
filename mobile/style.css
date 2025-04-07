@@ -108,9 +108,9 @@ button {
     height: 100vh;
 }
 
-.floater{
+.floater {
     position: absolute;
-    width:100px;
+    width: 100px;
     height: 100px;
 }
 
@@ -138,25 +138,29 @@ button {
 }
 
 
-.vote-bg{
-width: 100vw;
-height: 100vh;
-    background: linear-gradient(90deg, var(--sylvan-blue), var(--sylvan-purple), var(--sylvan-light), var(--sylvan-indigo), var(--sylvan-lavender));
+.vote-bg {
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at 20% 30%, var(--sylvan-blue), transparent 40%),
+        radial-gradient(circle at 70% 20%, var(--sylvan-purple), transparent 50%),
+        radial-gradient(circle at 50% 70%, var(--sylvan-light), transparent 50%),
+        radial-gradient(circle at 80% 80%, var(--sylvan-indigo), transparent 40%),
+        radial-gradient(circle at 30% 60%, var(--sylvan-lavender), transparent 50%);
+    background-blend-mode: screen;
     animation: animate 15s linear infinite;
 }
 
 @keyframes animate {
 
-  0%,
-  100% {
-    filter: hue-rotate(0deg);
-  }
+    0%,
+    100% {
+        filter: hue-rotate(0deg) blur(10px);
+    }
 
-  50% {
-    filter: hue-rotate(360deg);
-  }
+    50% {
+        filter: hue-rotate(90deg) blur(20px);
+    }
 }
-
 
 /***** skin votes */
 .skin-winner {

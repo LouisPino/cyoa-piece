@@ -7,9 +7,9 @@ const IP4 = require('./helpers/ip4.js')
 const [locations, mobileExtras, displayExtras, displayScripts, mobileScripts, mobileLocationScripts, displayLocationScripts] = require("./helpers/fileLoader.js")
 const [characters] = require("./characters/default.js")
 let currentLocation = locations["welcome"]
-const voteLength = 200
-const winnerLength = 200
-const promptLength = 200
+const voteLength = 2000
+const winnerLength = 2000
+const promptLength = 2000
 let gameScores = []
 let history = {
     locationsVisited: [],
@@ -212,13 +212,13 @@ function triggerVote(type, item) {
 
 function displayWinner(type, winner) {
     sendToWebClients({ type: "vote", data: { type: "lookup" } })
-    switch (type){
-case "path":
-        sendToDisplay({ type: "vote", data: { type: "winner", winner: winner, currentLocation: currentLocation } }) // in display, make visible the choice prompt + image
-    break
-    case "skin":
-        sendToDisplay({ type: "vote", data: { type: "skin-winner", winner: winner } }) // in display, make visible the choice prompt + image
-        break
+    switch (type) {
+        case "path":
+            sendToDisplay({ type: "vote", data: { type: "winner", winner: winner, currentLocation: currentLocation } }) // in display, make visible the choice prompt + image
+            break
+        case "skin":
+            sendToDisplay({ type: "vote", data: { type: "skin-winner", winner: winner } }) // in display, make visible the choice prompt + image
+            break
     }
 }
 
@@ -226,12 +226,12 @@ function endVote(type, item, winner) {
     switch (type) {
         case "skin":
             characters[item[0]][item.slice(1).toLowerCase()] = winner === 0 ? "A" : "B"
-            sendToWebClients({ type: "characters", route: "characterData", characters: characters } )
-            sendToDisplay({ type: "characters", route: "characterData", characters: characters } )
+            sendToWebClients({ type: "characters", route: "characterData", characters: characters })
+            sendToDisplay({ type: "characters", route: "characterData", characters: characters })
             oscClient.send("/characters", "voted")
             break
         case "path":
-            setTimeout(()=>{
+            setTimeout(() => {
 
                 switch (winner) {
                     case (0):
@@ -239,13 +239,13 @@ function endVote(type, item, winner) {
                         oscClient.send("/switch", currentLocation.paths[0])
                         console.log("CHOICE 1 WINS", choices["choice1"])
                         break
-                        case (1):
-                            // choice 2
-                            oscClient.send("/switch", currentLocation.paths[1])
-                            console.log("CHOICE 2 WINS", choices["choice2"])
-                            break
-                        }
-                    },voteLength)
+                    case (1):
+                        // choice 2
+                        oscClient.send("/switch", currentLocation.paths[1])
+                        console.log("CHOICE 2 WINS", choices["choice2"])
+                        break
+                }
+            }, voteLength)
             break
     }
     voting = false;
@@ -314,7 +314,7 @@ oscServer.on('message', (msg, rinfo) => {
             }
             break
         case "characters":
-            sendToDisplay({ type: "characters", route: msg[1], data: msg.slice(2)})
+            sendToDisplay({ type: "characters", route: msg[1], data: msg.slice(2) })
             sendToWebClients({ type: "characters", data: msg })
             break
         case "sandbox":

@@ -279,6 +279,14 @@ function pull(time) {
     // Clean up after the animation
     setTimeout(() => {
         overlay.remove();
+        pinoDiv.style.position = "absolute";
+        jazDiv.style.position = "absolute";
+        jazDiv.style.left = "0vw";
+        jazDiv.style.top = "0px";
+        jazDiv.style.transform = "translateY(0) translateX(0)";
+        pinoDiv.style.left = "0vw";
+        pinoDiv.style.top = "0px";
+        pinoDiv.style.transform = "translateY(0) translateX(0)";
         removePino();
         removeJaz();
     }, time);

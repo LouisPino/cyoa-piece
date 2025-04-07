@@ -62,7 +62,7 @@ body {
 
 
 /* characters */
-.character {
+/* .character {
     width: 280px;
     height: 500px;
     position: relative;
@@ -73,7 +73,7 @@ body {
     width: 100%;
     height: 100%;
     top: 0;
-}
+} */
 
 #wizard-hat {
     z-index: 100;
@@ -101,13 +101,13 @@ body {
 
 
 #pino-char img {
-    transform-origin: 200px center;
+    transform-origin: 25%;
     /* border: 1px solid red */
     /* Flips around the vertical line at 200px from the left */
 }
 
 #jaz-char img {
-    transform-origin: 535px center;
+    transform-origin: 75%;
     /* border: 1px solid red */
     /* Flips around the vertical line at 535px from the left */
 }
@@ -117,16 +117,28 @@ body {
 .skin-asset-bg {
     z-index: 3;
     top: 75vh !important;
-    transition: top 1000ms;
+    transition: 1000ms;
 }
 
 .skin-asset {
     z-index: 4;
     top: 75vh !important;
-    transition: top 1000ms;
+    transition: 1000ms;
 }
 
+#asset-1 {
+    z-index: 5;
+}
 
+.pino-reveal img {
+    width: 1000px;
+    left: 675px;
+}
+
+.jaz-reveal img {
+    width: 1000px;
+    left: 175px;
+}
 
 
 /* INTRO PAGE SWITCHER */
@@ -345,7 +357,7 @@ body {
     object-fit: contain;
     animation: rotate360 15s linear infinite;
     transition: transform 0ms;
-    transform-origin: 0 !important;
+    /* transform-origin: 0 !important; */
 
 }
 
@@ -356,7 +368,7 @@ body {
     object-fit: contain;
     animation: rotate360 12s linear infinite;
     transition: transform 0ms;
-    transform-origin: 0 !important
+    /* transform-origin: 0 !important */
 }
 
 

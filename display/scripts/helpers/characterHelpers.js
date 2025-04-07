@@ -73,18 +73,7 @@ async function fileExists(url) {
 }
 
 async function toggleAnimation(animation) {
-    if (animation === "left") {
-        for (el of assetPartEls) {
-            el.style.transform = "scaleX(-1)"
-        }
-        return
-    }
-    else if (animation === "right") {
-        for (el of assetPartEls) {
-            el.style.transform = "scaleX(1)"
-        }
-        return
-    } if (animation === "dvd") {
+    if (animation === "dvd") {
         jazFaceLine.src = `/display/assets/characters/jaz/faceline/dvd/${characters.j.faceline}.png`
         jazHat.src = `/display/assets/characters/jaz/hat/dvd/${characters.j.hat}${currentLocation.name.toLowerCase().includes("ocean") ? "ocean" : "space"}.png` //WORK ON ME
         jazCollarLine.src = `/display/assets/characters/jaz/collarline/dvd/collarLine.png`
@@ -229,6 +218,54 @@ function moveDivSmoothly(element, x, y, duration) {
     requestAnimationFrame(animate);
 }
 
+function flipChar(direction, char) {
+    switch (char) {
+        case "pino":
+            if (direction === "left") {
+                for (el of assetPartEls) {
+                    el.style.transform = "scaleX(-1)"
+                }
+            }
+            else if (direction === "right") {
+                for (el of assetPartEls) {
+                    el.style.transform = "scaleX(1)"
+                }
+            } break;
+        case "jaz":
+            if (direction === "left") {
+                for (el of assetPartEls) {
+                    el.style.transform = "scaleX(-1)"
+                }
+            }
+            else if (direction === "right") {
+                for (el of assetPartEls) {
+                    el.style.transform = "scaleX(1)"
+                }
+            }
+            break;
+        case "duo":
+            if (direction === "left") {
+                for (el of assetPartEls) {
+                    el.style.transform = "scaleX(-1)"
+                }
+            }
+            else if (direction === "right") {
+                for (el of assetPartEls) {
+                    el.style.transform = "scaleX(1)"
+                }
+            }
+            break;
+        case "npc":
+            let npcEl = document.getElementById("sandbox-dialogue-sprite")
+            if (direction === "left") {
+                npcEl.style.transform = "scaleX(-1)"
+            } else {
+                npcEl.style.transform = "scaleX(1)"
+            }
+            return
+    }
+}
+
 function hopChar(char) {
     const duration = 700; // 1 second
     const height = 200; // 300px hop
@@ -245,6 +282,9 @@ function hopChar(char) {
             break;
         case "duo":
             divs.push(pinoDiv, jazDiv);
+            break;
+        case "npc":
+            divs.push(document.getElementById("sandbox-dialogue-sprite"));
             break;
     }
 
@@ -303,6 +343,9 @@ function shakeChar(char, time) {
             shakeChar("jaz", time)
             break;
         case "npc":
+            const npcEl = document.getElementById("sandbox-dialogue-sprite")
+            npcEl.classList.add("shaking")
+            setTimeout(() => { npcEl.classList.remove("shaking") }, time)
             break
     }
 }

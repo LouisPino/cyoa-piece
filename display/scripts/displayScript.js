@@ -99,6 +99,12 @@ document.addEventListener("DOMContentLoaded", function () {
             case "slide":
               slideChar(msg.data[0], msg.data[1], msg.data[2], msg.data[3]);
               break;
+            case "left":
+              flipChar(msg.route, msg.data[0]);
+              break;
+            case "right":
+              flipChar(msg.route, msg.data[0]);
+              break;
             case "shake":
               shakeChar(msg.data[0], msg.data[1]);
               break;

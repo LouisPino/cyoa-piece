@@ -394,6 +394,7 @@ body {
 #sandbox-dialogue-sprite,
 #sandbox-dialogue-name {
     z-index: 2;
+    transition: transform ease-in-out 500ms;
 }
 
 #sandbox-location-banner,

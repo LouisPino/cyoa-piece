@@ -221,47 +221,27 @@ function moveDivSmoothly(element, x, y, duration) {
 function flipChar(direction, char) {
     switch (char) {
         case "pino":
-            if (direction === "left") {
-                for (el of assetPartEls) {
-                    el.style.transform = "scaleX(-1)"
+            for (el of assetPartEls) {
+                if (el.src.includes("pino")) {
+                    el.style.transform = `scaleX(${direction === "left" ? -1 : 1})`
                 }
             }
-            else if (direction === "right") {
-                for (el of assetPartEls) {
-                    el.style.transform = "scaleX(1)"
-                }
-            } break;
+            break;
         case "jaz":
-            if (direction === "left") {
-                for (el of assetPartEls) {
-                    el.style.transform = "scaleX(-1)"
-                }
-            }
-            else if (direction === "right") {
-                for (el of assetPartEls) {
-                    el.style.transform = "scaleX(1)"
+            for (el of assetPartEls) {
+                if (el.src.includes("jaz")) {
+                    el.style.transform = `scaleX(${direction === "left" ? -1 : 1})`
                 }
             }
             break;
         case "duo":
-            if (direction === "left") {
-                for (el of assetPartEls) {
-                    el.style.transform = "scaleX(-1)"
-                }
-            }
-            else if (direction === "right") {
-                for (el of assetPartEls) {
-                    el.style.transform = "scaleX(1)"
-                }
+            for (el of assetPartEls) {
+                el.style.transform = `scaleX(${direction === "left" ? -1 : 1})`
             }
             break;
         case "npc":
             let npcEl = document.getElementById("sandbox-dialogue-sprite")
-            if (direction === "left") {
-                npcEl.style.transform = "scaleX(-1)"
-            } else {
-                npcEl.style.transform = "scaleX(1)"
-            }
+            npcEl.style.transform = `scaleX(${direction === "left" ? -1 : 1})`
             return
     }
 }

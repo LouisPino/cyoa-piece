@@ -357,8 +357,6 @@ function shakeChar(char, time, intensity = 10) {
 }
 
 
-
-
 function changeSize(char, time, targetSize) {
     let els = [];
     switch (char) {

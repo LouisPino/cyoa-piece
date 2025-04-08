@@ -1,3 +1,4 @@
+const dvdSpeed = 5
 function dvdBounce() {
   inDVD = true;
   renderPino();
@@ -19,8 +20,8 @@ function dvdBounce() {
       sprite.classList.add("jaz-dvd");
     }
 
-    let dx = Math.random() < 0.5 ? 1 : -1;
-    let dy = Math.random() < 0.5 ? 1 : -1;
+    let dx = Math.random() < 0.5 ? dvdSpeed : dvdSpeed;
+    let dy = Math.random() < 0.5 ? dvdSpeed : dvdSpeed;
 
     function animate() {
       let left = parseFloat(sprite.style.left);
@@ -36,7 +37,7 @@ function dvdBounce() {
 
 
 
-      if (leftBoundary - 100 < 0 || rightBoundary + 100 > containerWidth) {
+      if (leftBoundary - 100 < 0 || rightBoundary + 300 > containerWidth) {
         dx = -dx;
       }
 

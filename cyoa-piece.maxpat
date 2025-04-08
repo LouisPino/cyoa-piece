@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1282.0, 132.0, 927.0, 1156.0 ],
+		"rect" : [ 1981.0, 85.0, 544.0, 1272.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -1004,7 +1004,7 @@
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-													"text" : "114"
+													"text" : "99"
 												}
 
 											}
@@ -1523,7 +1523,6 @@
 					}
 ,
 					"patching_rect" : [ 712.516047120094527, 1340.520910143852234, 106.0, 22.0 ],
-					"presentation_linecount" : 2,
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -2084,7 +2083,7 @@
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-													"text" : "114"
+													"text" : "99"
 												}
 
 											}
@@ -2757,7 +2756,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 877.109063982963562, 728.115122139453888, 78.0, 22.0 ],
-					"presentation_linecount" : 2,
 					"text" : "jump duo 0 0"
 				}
 
@@ -2781,7 +2779,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 770.485595643520583, 1111.105136215686798, 280.087283968925476, 20.0 ],
-					"presentation_linecount" : 2,
 					"text" : "P              J          NPC              Time     intensity"
 				}
 
@@ -3009,7 +3006,6 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 390.244123756885983, 334.553191184997559, 93.0, 22.0 ],
-									"presentation_linecount" : 2,
 									"text" : "shake jaz $1 $2"
 								}
 
@@ -3254,7 +3250,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1101.80762720108055, 591.327683448791504, 113.0, 22.0 ],
-					"presentation_linecount" : 2,
 					"text" : "slide npc $1 $2 200"
 				}
 
@@ -3279,7 +3274,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 51.041204333305359, 1236.187909066677094, 45.0, 22.0 ],
-					"presentation_linecount" : 2,
 					"text" : "shrimp"
 				}
 
@@ -3304,7 +3298,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 50.934821248054504, 1181.680696547031403, 44.0, 22.0 ],
-					"presentation_linecount" : 2,
 					"text" : "isopod"
 				}
 
@@ -3329,7 +3322,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 8.541204333305359, 1207.358121931552887, 41.0, 22.0 ],
-					"presentation_linecount" : 2,
 					"text" : "golem"
 				}
 
@@ -3534,7 +3526,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-									"text" : "114"
+									"text" : "99"
 								}
 
 							}
@@ -4437,7 +4429,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 451.060063302517165, 882.176470994949341, 55.0, 22.0 ],
-					"presentation_linecount" : 2,
 					"text" : "hop pino"
 				}
 
@@ -4738,7 +4729,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 205.309558987617493, 165.301109135150909, 33.0, 22.0 ],
-					"text" : "2"
+					"text" : "9"
 				}
 
 			}
@@ -10993,13 +10984,6 @@
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "GolemGuys.txt",
-				"bootpath" : "~/Desktop/sylvanscenese",
-				"patcherrelativepath" : "../../Desktop/sylvanscenese",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
 				"name" : "bd+hh.aiff",
 				"bootpath" : "C74:/docs/tutorial-patchers/msp-tut",
 				"type" : "AIFF",

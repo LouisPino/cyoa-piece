@@ -106,10 +106,16 @@ document.addEventListener("DOMContentLoaded", function () {
               flipChar(msg.route, msg.data[0]);
               break;
             case "shake":
-              shakeChar(msg.data[0], msg.data[1]);
+              shakeChar(msg.data[0], msg.data[1], msg.data[2]);
               break;
             case "hop":
               hopChar(msg.data[0]);
+              break;
+            case "changeSize":
+              changeSize(msg.data[0], msg.data[1], msg.data[2]);
+              break;
+            case "conga":
+              congaLine(msg.data[0], msg.data[1], msg.data[2]);
               break;
           }
           break;
@@ -149,6 +155,8 @@ document.addEventListener("DOMContentLoaded", function () {
             changeBg(msg.data.value);
           } else if (msg.data.name === "dialogue-sprite") {
             changeDialogueSprite(msg.data.value);
+          } else if (msg.data.name === "npc") {
+            changeNPCSrc(msg.data.value);
           } else if (msg.data.name === "toggle-box") {
             toggleBox(msg.data.value, characters);
           } else if (msg.data.name === "slide-boxX") {

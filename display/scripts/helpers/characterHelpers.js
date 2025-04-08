@@ -112,7 +112,16 @@ async function toggleAnimation(animation) {
         jazDiv.appendChild(jazFaceLine)
         defaultZIndex()
         pinoHelmet.remove()
+    }
 
+    if (animation === "run") {
+        for (const child of jazDiv.childNodes) {
+            child.style.transformOrigin = "60%"
+        }
+    } else {
+        for (const child of jazDiv.childNodes) {
+            child.style.transformOrigin = "75%"
+        }
     }
 
     for (let i = 0; i < assetPartEls.length; i++) {
@@ -143,6 +152,10 @@ function jumpChar(char, x, y) {
             jazDiv.style.left = `${x}px`;
             jazDiv.style.top = `${y}px`;
             break;
+        case "npc":
+            document.getElementById("npc").style.left = `${x}px`;
+            document.getElementById("npc").style.top = `${y}px`;
+            break;
     }
 }
 
@@ -159,8 +172,9 @@ function fadeChar(char, x, y, outTime, inTime) {
         case "duo":
             elements.push(pinoDiv, jazDiv);
             break;
-        default:
-            return;
+        case "npc":
+            elements.push(document.getElementById("npc"));
+            break;
     }
 
     elements.forEach(element => {
@@ -192,6 +206,9 @@ function slideChar(char, x, y, time) {
         case "duo":
             moveDivSmoothly(pinoDiv, x, y, time); // Moves pinoDiv to (200, 300) over 1 second
             moveDivSmoothly(jazDiv, x, y, time); // Moves pinoDiv to (200, 300) over 1 second
+            break;
+        case "npc":
+            moveDivSmoothly(document.getElementById("npc"), x, y, time); // Moves pinoDiv to (200, 300) over 1 second
             break;
     }
 }
@@ -240,7 +257,7 @@ function flipChar(direction, char) {
             }
             break;
         case "npc":
-            let npcEl = document.getElementById("sandbox-dialogue-sprite")
+            let npcEl = document.getElementById("npc")
             npcEl.style.transform = `scaleX(${direction === "left" ? -1 : 1})`
             return
     }
@@ -264,7 +281,7 @@ function hopChar(char) {
             divs.push(pinoDiv, jazDiv);
             break;
         case "npc":
-            divs.push(document.getElementById("sandbox-dialogue-sprite"));
+            divs.push(document.getElementById("npc"));
             break;
     }
 
@@ -291,6 +308,149 @@ function hopChar(char) {
 }
 
 
+
+function shakeChar(char, time, intensity = 10) {
+    const styleId = `shake-style-${intensity}`;
+
+    // Only create a new style element if it doesn't exist
+    if (!document.getElementById(styleId)) {
+        const style = document.createElement('style');
+        style.id = styleId;
+        style.innerHTML = `
+            @keyframes shake-${intensity} {
+                0% { transform: translateX(0); }
+                25% { transform: translateX(${intensity}px); }
+                50% { transform: translateX(0); }
+                75% { transform: translateX(-${intensity}px); }
+                100% { transform: translateX(0); }
+            }
+            .shaking-${intensity} {
+                animation: shake-${intensity} 100ms linear infinite;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    function applyShake(el) {
+        const className = `shaking-${intensity}`;
+        el.classList.add(className);
+        setTimeout(() => {
+            el.classList.remove(className);
+        }, time);
+    }
+
+    switch (char) {
+        case "pino":
+            applyShake(pinoDiv);
+            break;
+        case "jaz":
+            applyShake(jazDiv);
+            break;
+        case "duo":
+            shakeChar("pino", time, intensity);
+            shakeChar("jaz", time, intensity);
+            break;
+        case "npc":
+            applyShake(document.getElementById("npc"));
+            break;
+    }
+}
+
+
+
+
+function changeSize(char, time, targetSize) {
+    let els = [];
+    switch (char) {
+        case "pino":
+            els = Array.from(pinoDiv.querySelectorAll("img"));
+            break;
+        case "jaz":
+            els = Array.from(jazDiv.querySelectorAll("img"));
+            break;
+        case "duo":
+            els = Array.from(pinoDiv.querySelectorAll("img"))
+                .concat(Array.from(jazDiv.querySelectorAll("img")));
+            break;
+        case "npc":
+            els = [document.getElementById("npc")];
+            break;
+    }
+
+    els.forEach(el => {
+        el.style.transition = `transform ${time}ms ease-in-out`;
+        el.style.transform = `scale(${targetSize})`;
+    });
+
+    setTimeout(() => {
+        els.forEach(el => {
+            el.style.transition = "";
+        });
+    }, time);
+}
+
+let congaRunning = false;
+let congaInterval;
+let npcClones = [];
+let trail = [];
+
+function congaLine(state, amount, speed) {
+    const container = document.body;
+    const originalNpc = document.getElementById("npc");
+
+    if (state === 1 && !congaRunning) {
+        congaRunning = true;
+
+        // Create clones
+        for (let i = 0; i < amount; i++) {
+            const clone = originalNpc.cloneNode(true);
+            clone.id = `npcClone${i}`;
+            clone.style.position = 'absolute';
+            clone.style.top = `${originalNpc.offsetTop}px`;
+            clone.style.left = `${originalNpc.offsetLeft}px`;
+            clone.style.pointerEvents = "none";
+            container.appendChild(clone);
+            npcClones.push(clone);
+        }
+
+        const trailSpacing = Math.floor(speed * 2); // controls how spaced they are in time
+        trail = [];
+
+        congaInterval = setInterval(() => {
+            // Record current position of original NPC
+            const npcPos = {
+                top: originalNpc.offsetTop,
+                left: originalNpc.offsetLeft
+            };
+            trail.unshift(npcPos);
+
+            // Limit trail size
+            const maxTrailLength = amount * trailSpacing + 1;
+            if (trail.length > maxTrailLength) {
+                trail.pop();
+            }
+
+            // Move each clone to a past position
+            npcClones.forEach((clone, i) => {
+                const index = (i + 1) * trailSpacing;
+                if (trail[index]) {
+                    clone.style.top = `${trail[index].top}px`;
+                    clone.style.left = `${trail[index].left}px`;
+                }
+            });
+        }, 16); // ~60fps
+    }
+
+    else if (state === 0 && congaRunning) {
+        congaRunning = false;
+        clearInterval(congaInterval);
+        npcClones.forEach(clone => clone.remove());
+        npcClones = [];
+        trail = [];
+    }
+}
+
+
 function defaultZIndex() {
     jazFaceLine.style.zIndex = "100"
     jazHat.style.zIndex = "99"
@@ -305,27 +465,4 @@ function defaultZIndex() {
     pinoHands.style.zIndex = "91"
     pinoHat.style.zIndex = "90"
     pinoFace.style.zIndex = "89"
-}
-
-
-function shakeChar(char, time) {
-    switch (char) {
-        case "pino":
-            pinoDiv.classList.add("shaking")
-            setTimeout(() => { pinoDiv.classList.remove("shaking") }, time)
-            break;
-        case "jaz":
-            jazDiv.classList.add("shaking")
-            setTimeout(() => { jazDiv.classList.remove("shaking") }, time)
-            break;
-        case "duo":
-            shakeChar("pino", time)
-            shakeChar("jaz", time)
-            break;
-        case "npc":
-            const npcEl = document.getElementById("sandbox-dialogue-sprite")
-            npcEl.classList.add("shaking")
-            setTimeout(() => { npcEl.classList.remove("shaking") }, time)
-            break
-    }
 }

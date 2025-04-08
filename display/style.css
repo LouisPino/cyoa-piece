@@ -82,7 +82,7 @@ body {
 .char-div img {
     position: absolute;
     top: 0;
-    transition: transform 500ms;
+    transition: transform 100ms, top 500ms;
 }
 
 .char-div {
@@ -315,8 +315,8 @@ body {
     height: 40%;
     line-height: 3.5rem;
     font-size: 3rem;
-    transition: left 500ms ease-in-out;
-    transition: opacity 500ms ease-in-out;
+    transition: left 500ms ease-in-out, opacity 500ms ease-in-out;
+
     font-weight: 400;
     padding: 0 20px;
 }
@@ -340,6 +340,13 @@ body {
     /* behind your other content */
 }
 
+#npc {
+    z-index: 5;
+    transition: transform 500ms ease-in-out, top 500ms ease-in-out;
+
+
+}
+
 /* Background images */
 .complete-screen-img {
     position: absolute;
@@ -357,8 +364,6 @@ body {
     object-fit: contain;
     animation: rotate360 15s linear infinite;
     transition: transform 0ms;
-    /* transform-origin: 0 !important; */
-
 }
 
 .jaz-dvd img {
@@ -368,7 +373,6 @@ body {
     object-fit: contain;
     animation: rotate360 12s linear infinite;
     transition: transform 0ms;
-    /* transform-origin: 0 !important */
 }
 
 

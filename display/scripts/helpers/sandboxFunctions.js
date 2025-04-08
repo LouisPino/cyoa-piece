@@ -45,6 +45,18 @@ function changeDialogueSprite(newSrc) {
     spriteEl.src = `/display/assets/npcs/${newSrc}.png`
 }
 
+function changeNPCSrc(npcName) {
+    const npcEl = document.getElementById("npc");
+    if (npcName === "none") {
+        npcEl.style.visibility = "hidden"
+        return
+    } else {
+        npcEl.style.visibility = "visible"
+
+    }
+    npcEl.src = `/display/assets/npcs/${npcName}/full.png`
+}
+
 
 
 
@@ -85,14 +97,16 @@ function toggleBox(arg, characters) {
     boxEl.classList.remove(...outs)
     textBodyEl.classList.remove(...outs)
     spriteEl.classList.remove(...outs)
-    if (arg === "sprite") {
-        boxEl.src = "/display/assets/dialogue/boxes/SpriteBox.png"
-        moveText("sprite")
-    } else if (arg === "none") {
-        boxEl.src = ""
+    if (arg === "none") {
+        boxEl.style.visibility = "hidden"
         spriteEl.style.visibility = "hidden"
         textBodyEl.style.visibility = "hidden"
         clearText()
+        return
+    }
+    if (arg === "sprite") {
+        boxEl.src = "/display/assets/dialogue/boxes/SpriteBox.png"
+        moveText("sprite")
     } else {
         let newSrc = "/display/assets/dialogue/boxes/DialogueBox.png"
         let newColor = "#ffbd92"
@@ -116,6 +130,7 @@ function slideBoxY(arg, characters) {
     const boxEl = document.getElementById("sandbox-dialogue-box");
     const spriteEl = document.getElementById("sandbox-dialogue-sprite");
     const textBodyEl = document.querySelector(".text-body");
+
     if (arg === "sprite") {
         boxEl.src = "/display/assets/dialogue/boxes/SpriteBox.png"
         moveText("sprite")
@@ -226,7 +241,6 @@ function fadeBox(arg, characters) {
     const boxEl = document.getElementById("sandbox-dialogue-box");
     const spriteEl = document.getElementById("sandbox-dialogue-sprite");
     const textBodyEl = document.querySelector(".text-body");
-
     if (arg === "sprite") {
         boxEl.src = "/display/assets/dialogue/boxes/SpriteBox.png"
         moveText("sprite")

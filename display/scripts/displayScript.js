@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
               shakeChar(msg.data[0], msg.data[1], msg.data[2]);
               break;
             case "hop":
-              hopChar(msg.data[0]);
+              hopChar(msg.data[0], msg.data[1], msg.data[2]);
               break;
             case "changeSize":
               changeSize(msg.data[0], msg.data[1], msg.data[2]);

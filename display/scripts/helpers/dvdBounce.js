@@ -1,8 +1,25 @@
-const dvdSpeed = 5
+const dvdSpeed = 1
 function dvdBounce() {
   inDVD = true;
-  renderPino();
-  renderJaz();
+  removePino();
+  removeJaz();
+  pinoDiv.appendChild(pinoFaceLine)
+  pinoDiv.appendChild(pinoBodyLine)
+  pinoDiv.appendChild(pinoRobe)
+  pinoDiv.appendChild(pinoHands)
+  pinoDiv.appendChild(pinoHat)
+  pinoDiv.appendChild(pinoFace)
+  document.body.appendChild(pinoDiv)
+
+
+  jazDiv.appendChild(jazFaceLine)
+  jazDiv.appendChild(jazBody)
+  jazDiv.appendChild(jazCollarLine)
+  jazDiv.appendChild(jazCollar)
+  jazDiv.appendChild(jazHat)
+  jazDiv.appendChild(jazFace)
+  document.body.appendChild(jazDiv)
+
   const container = document.getElementById("dvd-container");
   const sprites = document.querySelectorAll(".char-div");
 
@@ -10,11 +27,12 @@ function dvdBounce() {
   const vh = window.innerHeight;
   sprites.forEach((sprite) => {
     if (sprite.id === "pino-char") {
-
-      sprite.style.left = `${0.8 * vw}px`;
+      sprite.style.position = "absolute"
+      sprite.style.left = `${0.6 * vw}px`;
       sprite.style.top = `${0.5 * vh}px`;
       sprite.classList.add("pino-dvd");
     } else {
+      sprite.style.position = "absolute"
       sprite.style.left = `${0.1 * vw}px`;
       sprite.style.top = `${0.1 * vh}px`;
       sprite.classList.add("jaz-dvd");
@@ -37,7 +55,7 @@ function dvdBounce() {
 
 
 
-      if (leftBoundary - 100 < 0 || rightBoundary + 300 > containerWidth) {
+      if (leftBoundary - 100 < 0 || rightBoundary + 100 > containerWidth) {
         dx = -dx;
       }
 
@@ -53,10 +71,21 @@ function dvdBounce() {
       if (inDVD) {
         requestAnimationFrame(animate);
       } else {
+        sprites.forEach((sprite) => {
+          sprite.classList.remove("pino-dvd");
+          sprite.classList.remove("jaz-dvd");
+          sprite.style.left = `0`;
+          sprite.style.top = `0`;
+        })
+        pinoDiv.remove()
+        jazDiv.remove()
+        removePino();
+        removeJaz();
         return;
       }
     }
     requestAnimationFrame(animate);
+
   });
   toggleAnimation("dvd");
 }

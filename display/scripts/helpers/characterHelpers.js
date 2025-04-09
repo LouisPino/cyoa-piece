@@ -15,6 +15,14 @@ const jazCollarLine = document.createElement("img")
 const pinoHelmet = document.createElement("img")
 pinoHelmet.style.zIndex = "94"
 
+const pinoCharSizeCtr = document.createElement("div")
+pinoCharSizeCtr.classList.add("char-size-ctr")
+pinoCharSizeCtr.id = "pino-size-ctr"
+const jazCharSizeCtr = document.createElement("div")
+jazCharSizeCtr.classList.add("char-size-ctr")
+jazCharSizeCtr.id = "jaz-size-ctr"
+
+
 const assetPartEls = [jazBody, jazCollar, jazCollarLine, jazFaceLine, jazFace, jazHat, pinoBodyLine, pinoRobe, pinoFaceLine, pinoHands, pinoFace, pinoHat, pinoHelmet]
 const assetPartStrs = ["jazBody", "jazCollar", "jazCollarLine", "jazFaceLine", "jazFace", "jazHat", "pinoBodyLine", "pinoRobe", "pinoFaceLine", "pinoHands", "pinoFace", "pinoHat"]
 
@@ -39,7 +47,9 @@ function renderPino() {
     pinoDiv.appendChild(pinoHands)
     pinoDiv.appendChild(pinoHat)
     pinoDiv.appendChild(pinoFace)
-    document.body.appendChild(pinoDiv)
+    pinoCharSizeCtr.appendChild(pinoDiv)
+    document.getElementById("display-main").appendChild(pinoCharSizeCtr)
+
 }
 
 function renderJaz() {
@@ -49,18 +59,18 @@ function renderJaz() {
     jazDiv.appendChild(jazCollar)
     jazDiv.appendChild(jazHat)
     jazDiv.appendChild(jazFace)
-    document.body.appendChild(jazDiv)
+    jazCharSizeCtr.appendChild(jazDiv)
+    document.getElementById("display-main").appendChild(jazCharSizeCtr)
 }
 
 
 function removePino() {
-    pinoDiv.remove()
+    pinoCharSizeCtr.remove()
 }
 
 
 function removeJaz() {
-    jazDiv.remove()
-
+    jazCharSizeCtr.remove()
 }
 
 async function fileExists(url) {
@@ -139,18 +149,18 @@ async function toggleAnimation(animation) {
 function jumpChar(char, x, y) {
     switch (char) {
         case "pino":
-            pinoDiv.style.left = `${x}px`;
-            pinoDiv.style.top = `${y}px`;
+            pinoCharSizeCtr.style.left = `${x}px`;
+            pinoCharSizeCtr.style.top = `${y}px`;
             break;
         case "jaz":
-            jazDiv.style.left = `${x}px`;
-            jazDiv.style.top = `${y}px`;
+            jazCharSizeCtr.style.left = `${x}px`;
+            jazCharSizeCtr.style.top = `${y}px`;
             break;
         case "duo":
-            pinoDiv.style.left = `${x}px`;
-            pinoDiv.style.top = `${y}px`;
-            jazDiv.style.left = `${x}px`;
-            jazDiv.style.top = `${y}px`;
+            pinoCharSizeCtr.style.left = `${x}px`;
+            pinoCharSizeCtr.style.top = `${y}px`;
+            jazCharSizeCtr.style.left = `${x}px`;
+            jazCharSizeCtr.style.top = `${y}px`;
             break;
         case "npc":
             document.getElementById("npc").style.left = `${x}px`;
@@ -164,13 +174,13 @@ function fadeChar(char, x, y, outTime, inTime) {
     let elements = [];
     switch (char) {
         case "pino":
-            elements.push(pinoDiv);
+            elements.push(pinoCharSizeCtr);
             break;
         case "jaz":
-            elements.push(jazDiv);
+            elements.push(jazCharSizeCtr);
             break;
         case "duo":
-            elements.push(pinoDiv, jazDiv);
+            elements.push(pinoCharSizeCtr, jazCharSizeCtr);
             break;
         case "npc":
             elements.push(document.getElementById("npc"));
@@ -198,14 +208,14 @@ function fadeChar(char, x, y, outTime, inTime) {
 function slideChar(char, x, y, time) {
     switch (char) {
         case "pino":
-            moveDivSmoothly(pinoDiv, x, y, time); // Moves pinoDiv to (200, 300) over 1 second
+            moveDivSmoothly(pinoCharSizeCtr, x, y, time); // Moves pinoDiv to (200, 300) over 1 second
             break;
         case "jaz":
-            moveDivSmoothly(jazDiv, x, y, time); // Moves pinoDiv to (200, 300) over 1 second
+            moveDivSmoothly(jazCharSizeCtr, x, y, time); // Moves pinoDiv to (200, 300) over 1 second
             break;
         case "duo":
-            moveDivSmoothly(pinoDiv, x, y, time); // Moves pinoDiv to (200, 300) over 1 second
-            moveDivSmoothly(jazDiv, x, y, time); // Moves pinoDiv to (200, 300) over 1 second
+            moveDivSmoothly(pinoCharSizeCtr, x, y, time); // Moves pinoDiv to (200, 300) over 1 second
+            moveDivSmoothly(jazCharSizeCtr, x, y, time); // Moves pinoDiv to (200, 300) over 1 second
             break;
         case "npc":
             moveDivSmoothly(document.getElementById("npc"), x, y, time); // Moves pinoDiv to (200, 300) over 1 second
@@ -272,13 +282,13 @@ function hopChar(char) {
 
     switch (char) {
         case "pino":
-            divs.push(pinoDiv);
+            divs.push(pinoCharSizeCtr);
             break;
         case "jaz":
-            divs.push(jazDiv);
+            divs.push(jazCharSizeCtr);
             break;
         case "duo":
-            divs.push(pinoDiv, jazDiv);
+            divs.push(pinoCharSizeCtr, jazCharSizeCtr);
             break;
         case "npc":
             divs.push(document.getElementById("npc"));
@@ -341,10 +351,10 @@ function shakeChar(char, time, intensity = 10) {
 
     switch (char) {
         case "pino":
-            applyShake(pinoDiv);
+            applyShake(pinoCharSizeCtr);
             break;
         case "jaz":
-            applyShake(jazDiv);
+            applyShake(jazCharSizeCtr);
             break;
         case "duo":
             shakeChar("pino", time, intensity);
@@ -361,24 +371,24 @@ function changeSize(char, time, targetSize) {
     let els = [];
     switch (char) {
         case "pino":
-            els = Array.from(pinoDiv.querySelectorAll("img"));
+            el = pinoCharSizeCtr
             break;
         case "jaz":
-            els = Array.from(jazDiv.querySelectorAll("img"));
+            el = jazCharSizeCtr
             break;
         case "duo":
-            els = Array.from(pinoDiv.querySelectorAll("img"))
-                .concat(Array.from(jazDiv.querySelectorAll("img")));
+            changeSize("pino", time, targetSize)
+            changeSize("jaz", time, targetSize)
             break;
         case "npc":
-            els = [document.getElementById("npc")];
+            el = document.getElementById("npc")
             break;
     }
 
-    els.forEach(el => {
-        el.style.transition = `transform ${time}ms ease-in-out`;
-        el.style.transform = `scale(${targetSize})`;
-    });
+
+    el.style.transition = `transform ${time}ms ease-in-out`;
+    el.style.transform = `scale(${targetSize})`;
+
 
     setTimeout(() => {
         els.forEach(el => {

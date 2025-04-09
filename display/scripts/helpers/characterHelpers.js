@@ -273,9 +273,7 @@ function flipChar(direction, char) {
     }
 }
 
-function hopChar(char) {
-    const duration = 700; // 1 second
-    const height = 200; // 300px hop
+function hopChar(char, height = 200, duration = 700) {
     const start = performance.now();
 
     const divs = [];

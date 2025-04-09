@@ -7,9 +7,9 @@ const IP4 = require('./helpers/ip4.js')
 const [locations, mobileExtras, displayExtras, displayScripts, mobileScripts, mobileLocationScripts, displayLocationScripts] = require("./helpers/fileLoader.js")
 const [characters] = require("./characters/default.js")
 let currentLocation = locations["welcome"]
-const voteLength = 200
-const winnerLength = 200
-const promptLength = 200
+const voteLength = 1000
+const winnerLength = 1000
+const promptLength = 1000
 let gameScores = []
 let history = {
     locationsVisited: [],

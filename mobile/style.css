@@ -94,7 +94,7 @@ button {
 /* mobile displays */
 #mobile-bg {
     z-index: -1;
-    object-fit: contain;
+    object-fit: fill;
 }
 
 .sprite {
@@ -113,6 +113,7 @@ button {
     position: absolute;
     width: 100px;
     height: 100px;
+    object-fit: contain;
 }
 
 .char-div img {

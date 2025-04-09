@@ -38,8 +38,8 @@ function dvdBounce() {
       sprite.classList.add("jaz-dvd");
     }
 
-    let dx = Math.random() < 0.5 ? dvdSpeed : dvdSpeed;
-    let dy = Math.random() < 0.5 ? dvdSpeed : dvdSpeed;
+    let dx = Math.random() < 0.5 ? dvdSpeed : -1 * dvdSpeed;
+    let dy = Math.random() < 0.5 ? dvdSpeed : -1 * dvdSpeed;
 
     function animate() {
       let left = parseFloat(sprite.style.left);

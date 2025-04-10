@@ -193,6 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let textBodyEl;
   function sectionChange(section) {
+    console.log(section)
     sceneTransition(section.transition.type, section.transition.time);
     setTimeout(() => {
       toggleHTML(section);

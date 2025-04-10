@@ -85,7 +85,7 @@ async function fileExists(url) {
 async function toggleAnimation(animation) {
     if (animation === "dvd") {
         jazFaceLine.src = `/display/assets/characters/jaz/faceline/dvd/${characters.j.faceline}.png`
-        jazHat.src = `/display/assets/characters/jaz/hat/dvd/${characters.j.hat}${currentLocation.name.toLowerCase().includes("ocean") ? "ocean" : "space"}.png` //WORK ON ME
+        jazHat.src = `/display/assets/characters/jaz/hat/dvd/${characters.j.hat}${currentLocation.name === "twilight" ? "ocean" : "space"}.png` //WORK ON ME
         jazCollarLine.src = `/display/assets/characters/jaz/collarline/dvd/collarLine.png`
         jazCollar.src = `/display/assets/characters/jaz/collar/dvd/${characters.j.collar}.png`
         jazBody.src = `/display/assets/characters/jaz/body/dvd/body.png`
@@ -99,7 +99,7 @@ async function toggleAnimation(animation) {
         pinoHands.src = `/display/assets/characters/pino/hands/dvd/${characters.p.hands}.png`
         pinoHat.src = `/display/assets/characters/pino/hat/dvd/${characters.p.hat}.png`
         pinoFace.src = `/display/assets/characters/pino/face/dvd/${characters.p.face}.png`
-        pinoHelmet.src = `/display/assets/characters/pino/helmet/${currentLocation.name.toLowerCase().includes("ocean") ? "ocean" : "space"}.png`
+        pinoHelmet.src = `/display/assets/characters/pino/helmet/${currentLocation.name === "twilight" ? "ocean" : "space"}.png`
         pinoDiv.appendChild(pinoHelmet)
         return
     } else if (animation === "froggy") {

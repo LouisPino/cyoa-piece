@@ -11,6 +11,20 @@ const locations = {
     html: {},
     voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
   },
+
+
+  welcome: {
+    name: "welcome",
+    paths: ["intro", "intro"],
+    choicePrompts: {
+      mobile: "",
+      display: "",
+    },
+    choices: [
+    ],
+    html: {},
+    transition: { type: "fade", time: 3000 },
+  },
   intro: {
     name: "intro",
     paths: ["forestNorth", "forestSouth"],
@@ -23,21 +37,9 @@ const locations = {
     transition: { type: "pixelate-no-blur", time: 1000 },
     voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
   },
-  kingdom: {
-    name: "kingdom",
-    paths: ["forestNorth", "forestSouth"],
-    choicePrompts: {
-      mobile: "How should they leave?",
-      display: "How should they leave?",
-    },
-    choices: ["north", "south"],
-    html: {},
-    transition: { type: "jump", time: 0 },
-    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
-  },
   forestNorth: {
     name: "forestNorth",
-    paths: ["cave", "river"],
+    paths: ["rockField", "golems"],
     choicePrompts: {
       mobile: "Which way should they go?",
       display: "Which way should we go?",
@@ -49,9 +51,51 @@ const locations = {
     transition: { type: "pixelate", time: 1000 },
     voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
   },
+  rockField: {
+    name: "rockField",
+    paths: ["cave", "cave"],
+    choicePrompts: {
+      mobile: "",
+      display: "",
+    },
+    choices: ["", ""],
+    html: {},
+    voteBg: "/display/assets/backgrounds/ForestTest.jpg",
+    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
+    transition: { type: "pixelate", time: 1000 },
+    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
+  },
+  frogs: {
+    name: "frogs",
+    paths: ["cave", "cave"],
+    choicePrompts: {
+      mobile: "",
+      display: "",
+    },
+    choices: ["", ""],
+    html: {},
+    voteBg: "/display/assets/backgrounds/ForestTest.jpg",
+    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
+    transition: { type: "pixelate", time: 1000 },
+    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
+  },
+  waterfall: {
+    name: "waterfall",
+    paths: ["river", "river"],
+    choicePrompts: {
+      mobile: "",
+      display: "",
+    },
+    choices: ["", ""],
+    html: {},
+    voteBg: "/display/assets/backgrounds/ForestTest.jpg",
+    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
+    transition: { type: "pixelate", time: 1000 },
+    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
+  },
   forestSouth: {
     name: "forestSouth",
-    paths: ["river", "cave"],
+    paths: ["waterfall", "frogs"],
     choicePrompts: {
       mobile: "Which way should they go?",
       display: "Which way should we go?",
@@ -63,10 +107,10 @@ const locations = {
   },
   cave: {
     name: "cave",
-    paths: ["bats", "bugs"],
+    paths: ["bats", "isopods"],
     choicePrompts: {
-      mobile: "",
-      display: "",
+      mobile: "Which way should they go?",
+      display: "Which way should we go?",
     },
     choices: ["Left", "Right"],
     html: {},
@@ -75,278 +119,220 @@ const locations = {
   },
   river: {
     name: "river",
-    paths: ["bugs", "fish"],
+    paths: ["bats", "rats"],
     choicePrompts: {
-      mobile: "",
-      display: "",
+      mobile: "Which way should they go?",
+      display: "Which way should we go?",
     },
     choices: ["Left", "Right"],
     html: {},
     transition: { type: "pull", time: 2000 },
     voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
   },
+  chat: {
+    name: "chat",
+    paths: ["pacifistClouds", "pacifistShores"],
+    choicePrompts: {
+      mobile: "where should they travel?",
+      display: " where should we travel?",
+    },
+    choices: ["space", "ocean"],
+    html: {},
+    movingSprites: true,
+    transition: { type: "fade", time: 1000 },
+    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
+  },
+  fight: {
+    name: "fight",
+    paths: ["clouds", "shores"],
+    choicePrompts: {
+      mobile: "Which loot should they take?",
+      display: "Which loot should we take?",
+    },
+    choices: ["vacuum", "fork"],
+    html: {},
+    movingSprites: true,
+    transition: { type: "fade", time: 1000 },
+    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
+  },
+  isopods: {
+    name: "isopods",
+    paths: ["fight", "chat"],
+    choicePrompts: {
+      mobile: "What should they do?",
+      display: "What do we do??",
+    },
+    choices: ["fight", "chat"],
+    html: {},
+    transition: { type: "pull", time: 2000 },
+    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
+  },
+  rats: {
+    name: "rats",
+    paths: ["fight", "chat"],
+    choicePrompts: {
+      mobile: "What should they do?",
+      display: "What do we do??",
+    },
+    choices: ["fight", "chat"],
+    html: {},
+    transition: { type: "fade", time: 1000 },
+  },
   bats: {
     name: "bats",
-    paths: ["chatBats", "fightBats"],
+    paths: ["fight", "chat"],
     choicePrompts: {
-      mobile: "",
-      display: "",
+      mobile: "What should they do?",
+      display: "What do we do??",
     },
-    choices: ["Chat", "Fight"],
+    choices: ["fight", "chat"],
     html: {},
     movingSprites: true,
     transition: { type: "blur", time: 1000 },
     voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
   },
-  batMadlib: {
-    name: "batMadlib",
-    paths: ["chatBats", "fightBats"],
+
+
+  // act 2
+  shores: {
+    name: "shores",
+    paths: ["fightShrimp", "explainShrimp"],
     choicePrompts: {
       mobile: "",
       display: "",
     },
-    choices: ["Chat", "Fight"],
-    html: {},
-    movingSprites: true,
-    transition: { type: "fade", time: 1000 },
-    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
-  },
-  bugs: {
-    name: "bugs",
-    paths: ["chatBugs", "fightBugs"],
-    choicePrompts: {
-      mobile: "",
-      display: "",
-    },
-    choices: ["Chat", "Fight"],
-    html: {},
-    transition: { type: "pull", time: 2000 },
-    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
-  },
-  fish: {
-    name: "fish",
-    paths: ["chatFish", "fightFish"],
-    choicePrompts: {
-      mobile: "",
-      display: "",
-    },
-    choices: ["Chat", "Fight"],
-    html: {},
-    transition: { type: "fade", time: 1000 },
-  },
-  chatFish: {
-    name: "chatFish",
-    paths: ["pacifist", "pacifist"],
-    choicePrompts: {
-      mobile: "",
-      display: "",
-    },
-    choices: ["Left", "Right"],
-    html: {},
-    transition: { type: "fade", time: 1000 },
-  },
-  fightFish: {
-    name: "fightFish",
-    paths: ["spaceBuff", "oceanBuff"],
-    choicePrompts: {
-      mobile: "",
-      display: "",
-    },
-    choices: ["Space Weapon", "Ocean Weapon"],
-    html: {},
-    transition: { type: "fade", time: 1000 },
-  },
-  chatBats: {
-    name: "chatBats",
-    paths: ["pacifist", "pacifist"],
-    choicePrompts: {
-      mobile: "",
-      display: "",
-    },
-    choices: ["Left", "Right"],
-    html: {},
-    transition: { type: "fade", time: 1000 },
-  },
-  fightBats: {
-    name: "fightBats",
-    paths: ["spaceBuff", "oceanBuff"],
-    choicePrompts: {
-      mobile: "",
-      display: "",
-    },
-    choices: ["Space Weapon", "Ocean Weapon"],
-    html: {},
-    transition: { type: "fade", time: 1000 },
-  },
-  chatBugs: {
-    name: "chatBugs",
-    paths: ["pacifist", "pacifist"],
-    choicePrompts: {
-      mobile: "",
-      display: "",
-    },
-    choices: ["Left", "Right"],
-    html: {},
-    transition: { type: "fade", time: 1000 },
-  },
-  fightBugs: {
-    name: "fightBugs",
-    paths: ["spaceBuff", "oceanBuff"],
-    choicePrompts: {
-      mobile: "",
-      display: "",
-    },
-    choices: ["Space Weapon", "Ocean Weapon"],
-    html: {},
-    transition: { type: "fade", time: 1000 },
-  },
-  spaceBuff: {
-    name: "spaceBuff",
-    paths: ["fightSpace", "explainSpace"],
-    choicePrompts: {
-      mobile: "",
-      display: "",
-    },
-    choices: ["Fight", "Explain yourself"],
+    choices: ["fight", "chat"],
     html: {},
     transition: { type: "fade", time: 3000 },
   },
-  oceanBuff: {
-    name: "oceanBuff",
-    paths: ["fightOcean", "explainOcean"],
+  clouds: {
+    name: "clouds",
+    paths: ["fightClouds", "explainClouds"],
     choicePrompts: {
       mobile: "",
       display: "",
     },
-    choices: ["Fight", "Explain yourself"],
+    choices: ["fight", "chat"],
     html: {},
+    transition: { type: "fade", time: 3000 },
+
   },
-  pacifist: {
-    name: "pacifist",
-    paths: ["thermosphere", "mesopelagic"],
+  pacifistClouds: {
+    name: "pacifistClouds",
+    paths: ["thermosphere", "twilight"],
+    choicePrompts: {
+      mobile: "",
+      display: "",
+    },
+    choices: ["space", "ocean"],
+
+    html: {},
+    transition: { type: "fade", time: 3000 },
+  },
+  pacifistShores: {
+    name: "pacifistShores",
+    paths: ["twilight", "twilight"],
     choicePrompts: {
       mobile: "",
       display: "",
     },
     choices: [
-      "To the THERMOSPHERE, amidst the Aurora Borealis.",
-      "To the MESOPELAGIC ZONE, the ocean's twilight zone.",
+
     ],
     html: {},
     transition: { type: "fade", time: 3000 },
   },
-  fightSpace: {
-    name: "fightSpace",
-    paths: ["thermosphere", "mesopelagic"],
+  fightClouds: {
+    name: "fightClouds",
+    paths: ["thermosphere", "thermosphere"],
     choicePrompts: {
       mobile: "",
       display: "",
     },
     choices: [
-      "To the THERMOSPHERE, amidst the Aurora Borealis.",
-      "To the MESOPELAGIC ZONE, the ocean's twilight zone.",
+
     ],
     html: {},
     transition: { type: "fade", time: 3000 },
   },
-  explainSpace: {
-    name: "explainSpace",
-    paths: ["thermosphere", "mesopelagic"],
+  explainClouds: {
+    name: "explainClouds",
+    paths: ["thermosphere", "thermosphere"],
     choicePrompts: {
       mobile: "",
       display: "",
     },
     choices: [
-      "To the THERMOSPHERE, amidst the Aurora Borealis.",
-      "To the MESOPELAGIC ZONE, the ocean's twilight zone.",
+
     ],
     html: {},
     transition: { type: "fade", time: 3000 },
   },
-  fightOcean: {
-    name: "fightOcean",
-    paths: ["thermosphere", "mesopelagic"],
+  fightShrimp: {
+    name: "fightShrimp",
+    paths: ["twilight", "twilight"],
     choicePrompts: {
       mobile: "",
       display: "",
     },
     choices: [
-      "To the THERMOSPHERE, amidst the Aurora Borealis.",
-      "To the MESOPELAGIC ZONE, the ocean's twilight zone.",
+
     ],
     html: {},
     transition: { type: "fade", time: 3000 },
   },
-  explainOcean: {
-    name: "explainOcean",
-    paths: ["thermosphere", "mesopelagic"],
+  explainShrimp: {
+    name: "explainShrimp",
+    paths: ["twilight", "twilight"],
     choicePrompts: {
       mobile: "",
       display: "",
     },
     choices: [
-      "To the THERMOSPHERE, amidst the Aurora Borealis.",
-      "To the MESOPELAGIC ZONE, the ocean's twilight zone.",
+
     ],
     html: {},
     transition: { type: "fade", time: 3000 },
   },
   thermosphere: {
     name: "thermosphere",
-    paths: ["thermosphere", "mesopelagic"],
+    paths: ["credits", "credits"],
     choicePrompts: {
       mobile: "",
       display: "",
     },
     choices: [
-      "To the THERMOSPHERE, amidst the Aurora Borealis.",
-      "To the MESOPELAGIC ZONE, the ocean's twilight zone.",
+
     ],
     html: {},
     transition: { type: "fade", time: 3000 },
   },
-  mesopelagic: {
-    name: "mesopelagic",
-    paths: ["thermosphere", "mesopelagic"],
+  twilight: {
+    name: "twilight",
+    paths: ["credits", "credits"],
     choicePrompts: {
       mobile: "",
       display: "",
     },
     choices: [
-      "To the THERMOSPHERE, amidst the Aurora Borealis.",
-      "To the MESOPELAGIC ZONE, the ocean's twilight zone.",
+
     ],
     html: {},
     transition: { type: "fade", time: 3000 },
   },
-  sampletest: {
-    name: "sampletest",
-    paths: ["thermosphere", "mesopelagic"],
+
+  credits: {
+    name: "credits",
+    paths: ["", ""],
     choicePrompts: {
       mobile: "",
       display: "",
     },
     choices: [
-      "To the THERMOSPHERE, amidst the Aurora Borealis.",
-      "To the MESOPELAGIC ZONE, the ocean's twilight zone.",
     ],
     html: {},
     transition: { type: "fade", time: 3000 },
-  },
-  welcome: {
-    name: "welcome",
-    paths: ["thermosphere", "mesopelagic"],
-    choicePrompts: {
-      mobile: "",
-      display: "",
-    },
-    choices: [
-      "To the THERMOSPHERE, amidst the Aurora Borealis.",
-      "To the MESOPELAGIC ZONE, the ocean's twilight zone.",
-    ],
-    html: {},
-    transition: { type: "fade", time: 3000 },
-  },
+  }
 };
 
 module.exports = locations;

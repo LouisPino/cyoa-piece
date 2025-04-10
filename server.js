@@ -300,8 +300,17 @@ const oscServer = new Server(8001, '127.0.0.1'); // Replace with your port and I
 oscServer.on('message', (msg, rinfo) => {
     switch (msg[0]) {
         case "scene":
-            let location = locations[msg[1]];
-            sendSectionChange(location)
+            switch (msg[1]) {
+                case "advance":
+                    if (currentLocation.paths[0] === currentLocation.paths[1]) {
+                        sendSectionChange(locations[currentLocation.paths[0]])
+                    } else {
+                        triggerVote("path")
+                    }
+                    break;
+                default:
+                    sendSectionChange(locations[msg[1]])
+            }
             break
         case "vote":
             switch (msg[1]) {

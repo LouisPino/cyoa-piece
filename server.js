@@ -264,13 +264,12 @@ const choiceMap = {
 }
 
 function tallyVotes() {
-    return choiceMap[Object.keys(choices).reduce((a, b) => choices[a] >= choices[b] ? a : b)] //I AM REVERSED FOR TESTING RIGHT NOW
+    return choiceMap[Object.keys(choices).reduce((a, b) => choices[a] >= choices[b] ? a : b)]
 }
 
 function intermissionTrigger() {
     sendToWebClients({ type: "intermission" });
     sendToDisplay({ type: "intermission" }); // Display the choice prompt + image
-
 }
 
 function handleAttack(attackType) {

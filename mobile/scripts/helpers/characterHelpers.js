@@ -50,6 +50,7 @@ function storeCharacters(newCharacters) {
 
 
 function renderPino() {
+    console.log("hit")
     pinoDiv.appendChild(pinoFaceLine)
     pinoDiv.appendChild(pinoBodyLine)
     pinoDiv.appendChild(pinoRobe)
@@ -108,7 +109,7 @@ async function toggleAnimation(animation) {
         pinoHelmet.src = `/display/assets/characters/pino/helmet/${currentLocation.name.toLowerCase().includes("ocean") ? "ocean" : "space"}.png`
         pinoDiv.appendChild(pinoHelmet)
         return
-    }else{
+    } else {
         for (let i = 0; i < assetPartEls.length; i++) {
             const part = assetPartStrs[i];
             const character = part.startsWith("jaz") ? "jaz" : "pino";

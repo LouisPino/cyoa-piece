@@ -1,15 +1,20 @@
-const dvdSpeedMax = 2
+const dvdSpeedMax = 1
+const dvdSpeed = 1
 
 function dvdBounce() {
+    renderPino()
+    renderJaz()
+    toggleAnimation("dvd")
     const container = document.getElementById('dvd-container');
-    const sprites = document.querySelectorAll('.floater');
+    const sprites = document.querySelectorAll('.char-div');
+    // const sprites = document.querySelectorAll('.floater, .char-div');
     const vw = window.innerWidth;
     const vh = window.innerHeight;
     sprites.forEach(sprite => {
         sprite.style.left = `${(((Math.random() * .5 + .2) * vw))}px`;
         sprite.style.top = `${(((Math.random() * .3 + .2) * vh))}px`;
-
-        let dvdSpeed = Math.floor(Math.random() * dvdSpeedMax) + 1
+        sprite.style.animation = "rotate360 5s linear infinite"
+        // let dvdSpeed = Math.floor(Math.random() * dvdSpeedMax) + 1
         let dx = Math.random() < 0.5 ? dvdSpeed : -1 * dvdSpeed;
         let dy = Math.random() < 0.5 ? dvdSpeed : -1 * dvdSpeed;
 
@@ -61,5 +66,3 @@ function dvdBounce() {
         });
     });
 }
-
-

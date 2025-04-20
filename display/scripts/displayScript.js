@@ -87,6 +87,9 @@ document.addEventListener("DOMContentLoaded", function () {
             case "jump":
               jumpChar(msg.data[0], msg.data[1], msg.data[2]);
               break;
+            case "land":
+              landChar(msg.data[0], msg.data[1], msg.data[2]);
+              break;
             case "fade":
               fadeChar(
                 msg.data[0],
@@ -113,6 +116,9 @@ document.addEventListener("DOMContentLoaded", function () {
               break;
             case "changeSize":
               changeSize(msg.data[0], msg.data[1], msg.data[2]);
+              break;
+            case "flyIn":
+              flyInRotateChar(msg.data[0], msg.data[1], msg.data[2]);
               break;
             case "conga":
               congaLine(msg.data[0], msg.data[1], msg.data[2]);

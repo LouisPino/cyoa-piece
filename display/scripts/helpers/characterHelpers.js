@@ -170,6 +170,8 @@ function jumpChar(char, x, y) {
 }
 
 
+
+
 function fadeChar(char, x, y, outTime, inTime) {
     let elements = [];
     switch (char) {
@@ -205,6 +207,191 @@ function fadeChar(char, x, y, outTime, inTime) {
     });
 }
 
+
+function landCharBounce(char, x, y, startYArg) {
+    let elements = [];
+
+    switch (char) {
+        case "pino":
+            elements.push(pinoCharSizeCtr);
+            break;
+        case "jaz":
+            elements.push(jazCharSizeCtr);
+            break;
+        case "duo":
+            elements.push(pinoCharSizeCtr, jazCharSizeCtr);
+            break;
+        case "npc":
+            elements.push(document.getElementById("npc"));
+            break;
+    }
+
+    elements.forEach(element => {
+        if (!element) return;
+
+        // Start above the screen
+        const startY = startYArg ? startYArg : y - 300;
+
+        // Reset
+        element.style.transition = "none";
+        // element.style.transform = "none";
+        element.style.opacity = 1;
+        element.style.left = `${x}px`;
+        element.style.top = `${startY}px`;
+
+        // Trigger reflow
+        void element.offsetWidth;
+
+        // Fall to the target position
+        element.style.transition = "top 400ms ease-in";
+        element.style.top = `${y}px`;
+
+        // Begin bounce after landing
+        setTimeout(() => {
+            // Helper to bounce down/up with diminishing distance
+            const bounceSequence = [
+                { offset: 30, duration: 150 },
+                { offset: 20, duration: 100 },
+                { offset: 10, duration: 80 },
+                { offset: 5, duration: 60 }
+            ];
+
+            let totalDelay = 0;
+
+            bounceSequence.forEach(({ offset, duration }, i) => {
+                setTimeout(() => {
+                    element.style.transition = `transform ${duration}ms ease-out`;
+                    element.style.transform = `${element.style.transform || ""} translateY(-${offset}px)`.trim();
+
+
+                    setTimeout(() => {
+                        element.style.transition = `transform ${duration}ms ease-in`;
+                        element.style.transform = `${element.style.transform || ""} translateY(${offset}px)`.trim();
+                    }, duration);
+                }, totalDelay);
+
+                totalDelay += duration * 2;
+            });
+
+        }, 400); // wait for initial fall
+    });
+}
+
+function landChar(char, x, y) {
+    let elements = [];
+
+    switch (char) {
+        case "pino":
+            elements.push(pinoCharSizeCtr);
+            break;
+        case "jaz":
+            elements.push(jazCharSizeCtr);
+            break;
+        case "duo":
+            elements.push(pinoCharSizeCtr, jazCharSizeCtr);
+            break;
+        case "npc":
+            elements.push(document.getElementById("npc"));
+            break;
+    }
+
+    elements.forEach(element => {
+        if (!element) return;
+
+        // Start above the screen
+        const startY = -600;
+
+        // Reset transform and opacity
+        element.style.transition = "none";
+        element.style.transform = "none";
+        element.style.opacity = 1;
+        element.style.left = `${x}px`;
+        element.style.top = `${startY}px`;
+
+        // Trigger reflow
+        void element.offsetWidth;
+
+        // Drop to target position
+        element.style.transition = "top 400ms ease-in";
+        element.style.top = `${y}px`;
+
+        // Begin wobble after landing
+        setTimeout(() => {
+            const wobbleSequence = [
+                { scaleX: 1.2, scaleY: 0.8, duration: 150 },
+                { scaleX: 0.9, scaleY: 1.1, duration: 125 },
+                { scaleX: 1.05, scaleY: 0.95, duration: 100 },
+                { scaleX: 1, scaleY: 1, duration: 75 }
+            ];
+
+            let totalDelay = 0;
+
+            wobbleSequence.forEach(({ scaleX, scaleY, duration }) => {
+                setTimeout(() => {
+                    element.style.transition = `transform ${duration}ms ease`;
+                    element.style.transform = `scale(${scaleX}, ${scaleY})`;
+                }, totalDelay);
+
+                totalDelay += duration;
+            });
+
+        }, 400); // after fall completes
+    });
+}
+
+
+function flyInRotateChar(char, x, y) {
+    let elements = [];
+
+    switch (char) {
+        case "pino":
+            elements.push(pinoCharSizeCtr);
+            break;
+        case "jaz":
+            elements.push(jazCharSizeCtr);
+            break;
+        case "duo":
+            elements.push(pinoCharSizeCtr, jazCharSizeCtr);
+            break;
+        case "npc":
+            elements.push(document.getElementById("npc"));
+            break;
+    }
+
+    elements.forEach(element => {
+        if (!element) return;
+
+        // Get current position
+        const currentX = parseInt(element.style.left || 0);
+        const startY = y - 300;
+
+        // Set initial position
+        element.style.transition = "none";
+        console.log(element.style.transform)
+        // element.style.animation = "";
+        element.style.left = `${currentX}px`;
+        element.style.top = `${startY}px`;
+
+        // Trigger reflow
+        void element.offsetWidth;
+        element.style.transition = "left 2000ms ease-in-out, transform 2000ms ease-in-out";
+        let originalTransform = element.style.transform
+        element.style.transform = `${originalTransform || ""} rotate(1080deg)`.trim();
+
+        // Move horizontally and rotate
+        element.style.left = `${x}px`;
+        // element.style.animation = "rotate360 .5s linear infinite";
+
+        // After horizontal movement, move up to final y
+        setTimeout(() => {
+            // element.style.animation = "";
+            landCharBounce(char, x, y, startY)
+        }, 2000);
+    });
+}
+
+
+
 function slideChar(char, x, y, time) {
     switch (char) {
         case "pino":
@@ -222,6 +409,7 @@ function slideChar(char, x, y, time) {
             break;
     }
 }
+
 function moveDivSmoothly(element, x, y, duration) {
     const startX = parseInt(element.style.left) || 0;
     const startY = parseInt(element.style.top) || 0;
@@ -349,10 +537,10 @@ function shakeChar(char, time, intensity = 10) {
 
     switch (char) {
         case "pino":
-            applyShake(pinoCharSizeCtr);
+            applyShake(pinoDiv);
             break;
         case "jaz":
-            applyShake(jazCharSizeCtr);
+            applyShake(jazDiv);
             break;
         case "duo":
             shakeChar("pino", time, intensity);

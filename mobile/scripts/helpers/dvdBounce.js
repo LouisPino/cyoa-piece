@@ -56,8 +56,8 @@ function dvdBounce() {
             requestAnimationFrame(animate);
         }
         requestAnimationFrame(animate);
-        const floaterEls = document.querySelectorAll(".floater")
-        floaterEls.forEach((el) => {
+        const soundIconEls = document.querySelectorAll(".sound-icon")
+        soundIconEls.forEach((el) => {
             el.addEventListener("click", () => {
                 console.log(el)
                 const val = el.dataset.sample; // e.g., data-sample="drum 1"

@@ -465,7 +465,7 @@ function hopChar(char, height = 200, duration = 700) {
     const start = performance.now();
 
     const divs = [];
-
+    console.log(height)
     switch (char) {
         case "pino":
             divs.push(pinoCharSizeCtr);

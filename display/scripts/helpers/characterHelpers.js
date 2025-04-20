@@ -34,6 +34,8 @@ jazDiv.classList.add("char-div")
 jazDiv.id = "jaz-char"
 
 let characters
+let currentAnimation
+let previousAnimation
 
 function storeCharacters(newCharacters) {
     characters = newCharacters
@@ -83,6 +85,8 @@ async function fileExists(url) {
 }
 
 async function toggleAnimation(animation) {
+    previousAnimation = currentAnimation
+    currentAnimation = animation
     if (animation === "dvd") {
         jazFaceLine.src = `/display/assets/characters/jaz/faceline/dvd/${characters.j.faceline}.png`
         jazHat.src = `/display/assets/characters/jaz/hat/dvd/${characters.j.hat}${currentLocation.name === "twilight" ? "ocean" : "space"}.png` //WORK ON ME
@@ -342,7 +346,10 @@ function landChar(char, x, y) {
 
 function flyInRotateChar(char, x, y) {
     let elements = [];
-
+    toggleAnimation("jump")
+    setTimeout(() => {
+        toggleAnimation(previousAnimation)
+    }, 2400)
     switch (char) {
         case "pino":
             elements.push(pinoCharSizeCtr);
@@ -461,9 +468,14 @@ function flipChar(direction, char) {
     }
 }
 
-function hopChar(char, height = 200, duration = 700) {
+function hopChar(char, height = 200, duration = 700, jump = false) {
     const start = performance.now();
-
+    if (jump) {
+        toggleAnimation("jump")
+        setTimeout(() => {
+            toggleAnimation(previousAnimation)
+        }, duration)
+    }
     const divs = [];
     console.log(height)
     switch (char) {
@@ -501,6 +513,7 @@ function hopChar(char, height = 200, duration = 700) {
     }
 
     requestAnimationFrame(animate);
+
 }
 
 

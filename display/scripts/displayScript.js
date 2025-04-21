@@ -52,7 +52,14 @@ document.addEventListener("DOMContentLoaded", function () {
         case "characters":
           switch (msg.route) {
             case "toggle-animation":
-              toggleAnimation(msg.data[0]);
+              let charName
+              if (msg.data[1]) {
+                charName = msg.data[1]
+                console.log(charName)
+              } else {
+                charName = "duo"
+              }
+              toggleAnimation(msg.data[0], charName);
               break;
             case "remove":
               if (msg.data[0] === "pino") {

@@ -84,48 +84,64 @@ async function fileExists(url) {
     }
 }
 
-async function toggleAnimation(animation) {
+async function toggleAnimation(animation, charName) {
     previousAnimation = currentAnimation
     currentAnimation = animation
-    if (animation === "dvd") {
-        jazFaceLine.src = `/display/assets/characters/jaz/faceline/dvd/${characters.j.faceline}.png`
-        jazHat.src = `/display/assets/characters/jaz/hat/dvd/${characters.j.hat}${currentLocation.name === "twilight" ? "ocean" : "space"}.png` //WORK ON ME
-        jazCollarLine.src = `/display/assets/characters/jaz/collarline/dvd/collarLine.png`
-        jazCollar.src = `/display/assets/characters/jaz/collar/dvd/${characters.j.collar}.png`
-        jazBody.src = `/display/assets/characters/jaz/body/dvd/body.png`
-        jazFace.src = `/display/assets/characters/jaz/face/dvd/${characters.j.face}.png`
-        jazFaceLine.style.zIndex = "99"
-        jazHat.style.zIndex = "100"
 
-        pinoFaceLine.src = `/display/assets/characters/pino/faceline/dvd/${characters.p.faceline}.png`
-        pinoBodyLine.src = `/display/assets/characters/pino/bodyline/dvd/bodyLine.png`
-        pinoRobe.src = `/display/assets/characters/pino/robe/dvd/${characters.p.robe}.png`
-        pinoHands.src = `/display/assets/characters/pino/hands/dvd/${characters.p.hands}.png`
-        pinoHat.src = `/display/assets/characters/pino/hat/dvd/${characters.p.hat}.png`
-        pinoFace.src = `/display/assets/characters/pino/face/dvd/${characters.p.face}.png`
-        pinoHelmet.src = `/display/assets/characters/pino/helmet/${currentLocation.name === "twilight" ? "ocean" : "space"}.png`
-        pinoDiv.appendChild(pinoHelmet)
+    let charNames = []
+    if (charName != "pino" && charName != "jaz") {
+        charNames = ["pino", "jaz"]
+    } else {
+        charNames = [charName]
+    }
+    if (animation === "dvd") {
+        if (charNames.includes("jaz")) {
+            jazFaceLine.src = `/display/assets/characters/jaz/faceline/dvd/${characters.j.faceline}.png`
+            jazHat.src = `/display/assets/characters/jaz/hat/dvd/${characters.j.hat}${currentLocation.name === "twilight" ? "ocean" : "space"}.png` //WORK ON ME
+            jazCollarLine.src = `/display/assets/characters/jaz/collarline/dvd/collarLine.png`
+            jazCollar.src = `/display/assets/characters/jaz/collar/dvd/${characters.j.collar}.png`
+            jazBody.src = `/display/assets/characters/jaz/body/dvd/body.png`
+            jazFace.src = `/display/assets/characters/jaz/face/dvd/${characters.j.face}.png`
+            jazFaceLine.style.zIndex = "99"
+            jazHat.style.zIndex = "100"
+        }
+        if (charNames.includes("pino")) {
+
+            pinoFaceLine.src = `/display/assets/characters/pino/faceline/dvd/${characters.p.faceline}.png`
+            pinoBodyLine.src = `/display/assets/characters/pino/bodyline/dvd/bodyLine.png`
+            pinoRobe.src = `/display/assets/characters/pino/robe/dvd/${characters.p.robe}.png`
+            pinoHands.src = `/display/assets/characters/pino/hands/dvd/${characters.p.hands}.png`
+            pinoHat.src = `/display/assets/characters/pino/hat/dvd/${characters.p.hat}.png`
+            pinoFace.src = `/display/assets/characters/pino/face/dvd/${characters.p.face}.png`
+            pinoHelmet.src = `/display/assets/characters/pino/helmet/${currentLocation.name === "twilight" ? "ocean" : "space"}.png`
+            pinoDiv.appendChild(pinoHelmet)
+        }
         return
     } else if (animation === "froggy") {
-        pinoFaceLine.remove()
-        pinoHands.remove()
-        pinoBodyLine.style.zIndex = "93"
-        pinoRobe.style.zIndex = "91"
-        pinoHat.style.zIndex = "92"
+        if (charNames.includes("jaz")) {
 
-        jazHat.style.zIndex = "100"
-        jazCollarLine.style.zIndex = "99"//Collar Line
-        jazCollar.style.zIndex = "98"//Collar Color
-        jazFaceLine.style.zIndex = "97"//Body Line
-        jazBody.style.zIndex = "96"//Body Color
-        jazFace.style.zIndex = "95"//Chair
-        pinoHelmet.remove()
+            pinoFaceLine.remove()
+            pinoHands.remove()
+            pinoBodyLine.style.zIndex = "93"
+            pinoRobe.style.zIndex = "91"
+            pinoHat.style.zIndex = "92"
+            pinoHelmet.remove()
+        }
+        if (charNames.includes("jaz")) {
+
+            jazHat.style.zIndex = "100"
+            jazCollarLine.style.zIndex = "99"//Collar Line
+            jazCollar.style.zIndex = "98"//Collar Color
+            jazFaceLine.style.zIndex = "97"//Body Line
+            jazBody.style.zIndex = "96"//Body Color
+            jazFace.style.zIndex = "95"//Chair
+        }
     } else {
         pinoDiv.appendChild(pinoHands)
         pinoDiv.appendChild(pinoFaceLine)
+        pinoHelmet.remove()
         jazDiv.appendChild(jazFaceLine)
         defaultZIndex()
-        pinoHelmet.remove()
     }
 
     if (animation === "run") {
@@ -141,6 +157,12 @@ async function toggleAnimation(animation) {
     for (let i = 0; i < assetPartEls.length; i++) {
         const part = assetPartStrs[i]; // e.g., "jazBody"
         const character = part.startsWith("jaz") ? "jaz" : "pino";
+        if (character === "jaz" && !charNames.includes("jaz")) {
+            continue
+        }
+        if (character === "pino" && !charNames.includes("pino")) {
+            continue
+        }
         const key = part.replace(character, "").toLowerCase(); // Extracts the property name (e.g., "faceLine" -> "faceLine")
         const pngPath = `/display/assets/characters/${character}/${key}/${animation}/${characters[character[0]][key]}.png`;
         const gifPath = `/display/assets/characters/${character}/${key}/${animation}/${characters[character[0]][key]}.gif`;
@@ -267,7 +289,6 @@ function landCharBounce(char, x, y, startYArg) {
                     element.style.transition = `transform ${duration}ms ease-out`;
                     element.style.transform = `${element.style.transform || ""} translateY(-${offset}px)`.trim();
 
-
                     setTimeout(() => {
                         element.style.transition = `transform ${duration}ms ease-in`;
                         element.style.transform = `${element.style.transform || ""} translateY(${offset}px)`.trim();
@@ -280,8 +301,7 @@ function landCharBounce(char, x, y, startYArg) {
         }, 400); // wait for initial fall
     });
 }
-
-function landChar(char, x, y) {
+function landChar(char, x, y, startYArg) {
     let elements = [];
 
     switch (char) {
@@ -302,46 +322,64 @@ function landChar(char, x, y) {
     elements.forEach(element => {
         if (!element) return;
 
-        // Start above the screen
-        const startY = -600;
+        // Get current transform values
+        const computedStyle = getComputedStyle(element);
+        const transform = computedStyle.transform;
+        let scaleX = 1, scaleY = 1;
+        let otherTransforms = '';
 
-        // Reset transform and opacity
+        if (transform && transform !== 'none') {
+            const match = transform.match(/matrix\(([^)]+)\)/);
+            if (match) {
+                const values = match[1].split(',').map(parseFloat);
+                scaleX = values[0];
+                scaleY = values[3];
+            } else {
+                // if using something like rotate(...) scale(...) translate(...)
+                otherTransforms = transform;
+            }
+        }
+
+        const startY = startYArg ? startYArg : y - 600;
+
+        // Set starting position
         element.style.transition = "none";
-        element.style.transform = "none";
-        element.style.opacity = 1;
         element.style.left = `${x}px`;
         element.style.top = `${startY}px`;
 
         // Trigger reflow
         void element.offsetWidth;
 
-        // Drop to target position
+        // Fall down to final Y position
         element.style.transition = "top 400ms ease-in";
         element.style.top = `${y}px`;
 
-        // Begin wobble after landing
+        // Wobble after landing
         setTimeout(() => {
             const wobbleSequence = [
-                { scaleX: 1.2, scaleY: 0.8, duration: 150 },
-                { scaleX: 0.9, scaleY: 1.1, duration: 125 },
-                { scaleX: 1.05, scaleY: 0.95, duration: 100 },
-                { scaleX: 1, scaleY: 1, duration: 75 }
+                { sx: 1.2, sy: 0.8, duration: 150 },
+                { sx: 0.9, sy: 1.1, duration: 125 },
+                { sx: 1.05, sy: 0.95, duration: 100 },
+                { sx: 1, sy: 1, duration: 75 }
             ];
 
-            let totalDelay = 0;
+            let delay = 0;
 
-            wobbleSequence.forEach(({ scaleX, scaleY, duration }) => {
+            wobbleSequence.forEach(({ sx, sy, duration }) => {
                 setTimeout(() => {
                     element.style.transition = `transform ${duration}ms ease`;
-                    element.style.transform = `scale(${scaleX}, ${scaleY})`;
-                }, totalDelay);
-
-                totalDelay += duration;
+                    if (otherTransforms) {
+                        element.style.transform = `${otherTransforms} scale(${scaleX * sx}, ${scaleY * sy})`;
+                    } else {
+                        element.style.transform = `scale(${scaleX * sx}, ${scaleY * sy})`;
+                    }
+                }, delay);
+                delay += duration;
             });
-
-        }, 400); // after fall completes
+        }, 400);
     });
 }
+
 
 
 function flyInRotateChar(char, x, y) {
@@ -392,7 +430,7 @@ function flyInRotateChar(char, x, y) {
         // After horizontal movement, move up to final y
         setTimeout(() => {
             // element.style.animation = "";
-            landCharBounce(char, x, y, startY)
+            landChar(char, x, y, startY)
         }, 2000);
     });
 }

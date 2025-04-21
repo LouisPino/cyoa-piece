@@ -50,7 +50,6 @@ function storeCharacters(newCharacters) {
 
 
 function renderPino() {
-    console.log("hit")
     pinoDiv.appendChild(pinoFaceLine)
     pinoDiv.appendChild(pinoBodyLine)
     pinoDiv.appendChild(pinoRobe)

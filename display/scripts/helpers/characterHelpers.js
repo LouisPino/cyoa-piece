@@ -13,7 +13,13 @@ const pinoFace = document.createElement("img")
 const pinoHat = document.createElement("img")
 const jazCollarLine = document.createElement("img")
 const pinoHelmet = document.createElement("img")
+const pinoWeapon = document.createElement("img")
+const jazWeapon = document.createElement("img")
 pinoHelmet.style.zIndex = "94"
+pinoWeapon.src = "/display/assets/characters/pino/weapon.png"
+pinoWeapon.style.zIndex = "101"
+jazWeapon.src = "/display/assets/characters/jaz/weapon.png"
+jazWeapon.style.zIndex = "101"
 
 const pinoCharSizeCtr = document.createElement("div")
 pinoCharSizeCtr.classList.add("char-size-ctr")
@@ -24,7 +30,7 @@ jazCharSizeCtr.id = "jaz-size-ctr"
 
 
 const assetPartEls = [jazBody, jazCollar, jazCollarLine, jazFaceLine, jazFace, jazHat, pinoBodyLine, pinoRobe, pinoFaceLine, pinoHands, pinoFace, pinoHat, pinoHelmet]
-const assetPartStrs = ["jazBody", "jazCollar", "jazCollarLine", "jazFaceLine", "jazFace", "jazHat", "pinoBodyLine", "pinoRobe", "pinoFaceLine", "pinoHands", "pinoFace", "pinoHat"]
+const assetPartStrs = ["jazBody", "jazCollar", "jazCollarLine", "jazFaceLine", "jazFace", "jazHat", "pinoBodyLine", "pinoRobe", "pinoFaceLine", "pinoHands", "pinoFace", "pinoHat", "pinoHelmet"]
 
 defaultZIndex()
 
@@ -85,7 +91,7 @@ async function fileExists(url) {
 }
 
 async function toggleAnimation(animation, charName) {
-    console.log(charName)
+
     previousAnimation = currentAnimation
     currentAnimation = animation
     let charNames = []
@@ -94,6 +100,9 @@ async function toggleAnimation(animation, charName) {
     } else {
         charNames = [charName]
     }
+
+
+
     if (animation === "dvd") {
         if (charNames.includes("jaz")) {
             jazFaceLine.src = `/display/assets/characters/jaz/faceline/dvd/${characters.j.faceline}.png`
@@ -118,7 +127,6 @@ async function toggleAnimation(animation, charName) {
         return
     } else if (animation === "froggy") {
         if (charNames.includes("jaz")) {
-
             pinoFaceLine.remove()
             pinoHands.remove()
             pinoBodyLine.style.zIndex = "93"
@@ -126,8 +134,7 @@ async function toggleAnimation(animation, charName) {
             pinoHat.style.zIndex = "92"
             pinoHelmet.remove()
         }
-        if (charNames.includes("jaz")) {
-
+        if (charNames.includes("pino")) {
             jazHat.style.zIndex = "100"
             jazCollarLine.style.zIndex = "99"//Collar Line
             jazCollar.style.zIndex = "98"//Collar Color
@@ -166,7 +173,30 @@ async function toggleAnimation(animation, charName) {
         const pngPath = `/display/assets/characters/${character}/${key}/${animation}/${characters[character[0]][key]}.png`;
         const gifPath = `/display/assets/characters/${character}/${key}/${animation}/${characters[character[0]][key]}.gif`;
         assetPartEls[i].src = await fileExists(pngPath) ? pngPath : gifPath;
+        if (!assetPartEls[i].src) {
+            assetPartEls[i]?.remove()
+        }
     }
+
+
+    if (animation === "weapon") {
+        if (charNames.includes("jaz")) {
+            jazDiv.appendChild(jazWeapon)
+        }
+        if (charNames.includes("pino")) {
+            pinoDiv.appendChild(pinoWeapon)
+            pinoHands.remove()
+
+        }
+    } else {
+        if (charNames.includes("jaz")) {
+            jazWeapon.remove()
+        }
+        if (charNames.includes("pino")) {
+            pinoWeapon.remove()
+        }
+    }
+
 }
 
 
@@ -411,7 +441,6 @@ function flyInRotateChar(char, x, y) {
 
         // Set initial position
         element.style.transition = "none";
-        console.log(element.style.transform)
         // element.style.animation = "";
         element.style.left = `${currentX}px`;
         element.style.top = `${startY}px`;
@@ -483,6 +512,9 @@ function flipChar(direction, char) {
             for (el of assetPartEls) {
                 if (el.src.includes("pino")) {
                     el.style.transform = `scaleX(${direction === "left" ? -1 : 1})`
+                    if (currentAnimation === "weapon") {
+                        pinoWeapon.style.transform = `scaleX(${direction === "left" ? -1 : 1})`
+                    }
                 }
             }
             break;
@@ -490,6 +522,9 @@ function flipChar(direction, char) {
             for (el of assetPartEls) {
                 if (el.src.includes("jaz")) {
                     el.style.transform = `scaleX(${direction === "left" ? -1 : 1})`
+                    if (currentAnimation === "weapon") {
+                        jazWeapon.style.transform = `scaleX(${direction === "left" ? -1 : 1})`
+                    }
                 }
             }
             break;
@@ -514,7 +549,6 @@ function hopChar(char, height = 200, duration = 700, jump = false) {
         }, duration)
     }
     const divs = [];
-    console.log(height)
     switch (char) {
         case "pino":
             divs.push(pinoCharSizeCtr);

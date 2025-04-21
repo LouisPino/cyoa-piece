@@ -55,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
               let charName
               if (msg.data[1]) {
                 charName = msg.data[1]
-                console.log(charName)
               } else {
                 charName = "duo"
               }
@@ -206,7 +205,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let textBodyEl;
   function sectionChange(section) {
-    console.log(section)
     sceneTransition(section.transition.type, section.transition.time);
     setTimeout(() => {
       toggleHTML(section);

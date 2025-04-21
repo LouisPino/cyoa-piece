@@ -10,7 +10,6 @@ function dvdBounce(location) {
     renderJaz()
     toggleAnimation("dvd")
     let randNum = Math.floor(Math.random() * 3)
-    console.log(options[location][randNum], options[location][(randNum + 1) % 3])
     const container = document.getElementById('dvd-container');
     const sprites = document.querySelectorAll('.char-div');
     // const sprites = document.querySelectorAll('.floater, .char-div');
@@ -101,7 +100,6 @@ function dvdBounce(location) {
         const soundIconEls = document.querySelectorAll(".sound-icon")
         soundIconEls.forEach((el) => {
             el.addEventListener("click", () => {
-                // console.log(el)
                 const val = el.dataset.sample; // e.g., data-sample="drum 1"
                 sendToServer({ type: "sample", val });
             });

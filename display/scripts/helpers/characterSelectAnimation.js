@@ -90,6 +90,8 @@ function displayChoice(winner, confetti) {
 
 
 function flashImages(assetsArr, charName, confetti) {
+    flipChar("right", "duo")
+
     let i = 50;
     let characterDiv
     const assetsEl = document.querySelector(".skin-assets")
@@ -133,13 +135,13 @@ function flashImages(assetsArr, charName, confetti) {
                 child.classList.remove('black-mask');
             }
             setTimeout(() => {
-                hopChar(charName)
+                hopChar(charName, 200, 700, true)
             }, 1000)
             setTimeout(() => {
                 toggleAnimation("walk")
             }, 2500)
             setTimeout(() => {
-                toggleAnimation("left")
+                flipChar("left", "duo")
             }, 4500)
             setTimeout(() => {
                 toggleAnimation("front")

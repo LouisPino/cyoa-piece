@@ -109,6 +109,23 @@ button {
     height: 100vh;
 }
 
+.sound-icon-bg {
+    z-index: 200;
+}
+
+#sound-icon-1 {
+    clip-path: inset(0 50% 0 0);
+
+    z-index: 201;
+}
+
+#sound-icon-2 {
+    clip-path: inset(0 0 0 50%);
+    z-index: 201;
+}
+
+
+
 .floater {
     position: absolute;
     width: 100px;

@@ -85,9 +85,9 @@ async function fileExists(url) {
 }
 
 async function toggleAnimation(animation, charName) {
+    console.log(charName)
     previousAnimation = currentAnimation
     currentAnimation = animation
-
     let charNames = []
     if (charName != "pino" && charName != "jaz") {
         charNames = ["pino", "jaz"]
@@ -106,7 +106,6 @@ async function toggleAnimation(animation, charName) {
             jazHat.style.zIndex = "100"
         }
         if (charNames.includes("pino")) {
-
             pinoFaceLine.src = `/display/assets/characters/pino/faceline/dvd/${characters.p.faceline}.png`
             pinoBodyLine.src = `/display/assets/characters/pino/bodyline/dvd/bodyLine.png`
             pinoRobe.src = `/display/assets/characters/pino/robe/dvd/${characters.p.robe}.png`
@@ -509,7 +508,7 @@ function flipChar(direction, char) {
 function hopChar(char, height = 200, duration = 700, jump = false) {
     const start = performance.now();
     if (jump) {
-        toggleAnimation("jump")
+        toggleAnimation("jump", char)
         setTimeout(() => {
             toggleAnimation(previousAnimation)
         }, duration)

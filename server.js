@@ -328,8 +328,13 @@ oscServer.on('message', (msg, rinfo) => {
         case "sandbox":
             sendToDisplay({ type: "sandbox", data: { name: msg[1], value: msg[2] ? msg[2] : "" } })
             break
-        case "intermission":
-            intermissionTrigger()
+        // case "intermission":
+        //     intermissionTrigger()
+        //     break
+        case "map":
+            sendToDisplay({ type: "map", route: msg[1], data: msg.slice(2) })
+            sendToWebClients({ type: "map", data: { type: msg[1] } })
+            break
     }
     const msgObj = { type: msg[0], data: msg[1] }
     sendToWebClients(msgObj);

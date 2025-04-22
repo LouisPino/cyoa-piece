@@ -373,6 +373,18 @@ body {
     top: 0;
 }
 
+
+#map {
+    z-index: 50;
+}
+
+#map-border {
+    z-index: 51;
+}
+
+
+
+
 .pino-dvd,
 .jaz-dvd {
     position: absolute;

@@ -49,7 +49,6 @@ const locations = {
     voteBg: "/display/assets/backgrounds/ForestTest.jpg",
     voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
     transition: { type: "pixelate", time: 1000 },
-    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
   },
   rockField: {
     name: "rockField",
@@ -60,10 +59,9 @@ const locations = {
     },
     choices: ["", ""],
     html: {},
-    voteBg: "/display/assets/backgrounds/ForestTest.jpg",
+    voteBg: "/display/assets/backgrounds/rock.jpg",
     voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
     transition: { type: "pixelate", time: 1000 },
-    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
   },
   frogs: {
     name: "frogs",
@@ -88,7 +86,7 @@ const locations = {
     },
     choices: ["", ""],
     html: {},
-    voteBg: "/display/assets/backgrounds/ForestTest.jpg",
+    voteBg: "/display/assets/backgrounds/waterfall.jpg",
     voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
     transition: { type: "pixelate", time: 1000 },
     voteBgBlur: "/display/assets/backgrounds/forestBLur.png",

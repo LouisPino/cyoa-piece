@@ -183,6 +183,20 @@ document.addEventListener("DOMContentLoaded", function () {
             locationBanner(msg.data.value);
           }
           break;
+        case "map":
+          switch (msg.route) {
+            case "render":
+              console.log(characters)
+              renderMap(characters.p.device)
+              break
+            case "remove":
+              removeMap()
+              break
+            case "change":
+              changeMapSrc(msg.data[0])
+              break
+          }
+          break;
       }
     };
   }

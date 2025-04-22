@@ -182,11 +182,13 @@ async function toggleAnimation(animation, charName) {
     if (animation === "weapon") {
         if (charNames.includes("jaz")) {
             jazDiv.appendChild(jazWeapon)
+            jazCharSizeCtr.style.transformOrigin = "50% 50%"
+
         }
         if (charNames.includes("pino")) {
             pinoDiv.appendChild(pinoWeapon)
             pinoHands.remove()
-
+            pinoCharSizeCtr.style.transformOrigin = "50% 50%"
         }
     } else {
         if (charNames.includes("jaz")) {
@@ -197,9 +199,31 @@ async function toggleAnimation(animation, charName) {
         }
     }
 
+
+    if (animation === "weapon" || animation === "weaponWalk") {
+        if (charNames.includes("jaz")) {
+            setTransformOrigin(jazDiv, "50% 50%");
+        }
+        if (charNames.includes("pino")) {
+            setTransformOrigin(pinoDiv, "50% 50%");
+        }
+    } else {
+        if (charNames.includes("jaz")) {
+            setTransformOrigin(jazDiv, "75%");
+        }
+        if (charNames.includes("pino")) {
+            setTransformOrigin(pinoDiv, "25%");
+        }
+    }
+
 }
 
 
+function setTransformOrigin(div, origin) {
+    [...div.children].forEach(child => {
+        child.style.transformOrigin = origin;
+    });
+}
 
 function jumpChar(char, x, y) {
     switch (char) {

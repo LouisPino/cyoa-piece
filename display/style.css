@@ -358,9 +358,8 @@ body {
 
 #npc {
     z-index: 5;
-    transition: transform 250ms ease-in-out, top 500ms ease-in-out;
-
-
+    /* transition: transform 250ms ease-in-out, top 500ms ease-in-out; */
+    transition: transform 250ms ease-in-out;
 }
 
 /* Background images */

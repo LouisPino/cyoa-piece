@@ -66,9 +66,8 @@ function changeNPCSrc(npcName) {
         return
     } else {
         npcEl.style.visibility = "visible"
-
     }
-    npcEl.src = `/display/assets/npcs/${npcName}/full.png`
+    npcEl.src = `/display/assets/npcs/${npcName}`
 }
 
 

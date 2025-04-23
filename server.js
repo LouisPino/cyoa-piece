@@ -19,7 +19,7 @@ let history = {
 }
 let voting = false
 
-const bossMaxHealth = 15
+const bossMaxHealth = 7
 let bossHealth = bossMaxHealth
 
 

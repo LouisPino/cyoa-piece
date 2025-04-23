@@ -45,9 +45,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 258.02686530351707, 1332.416300773620605, 183.0, 22.0 ],
+					"patching_rect" : [ 258.02686530351707, 1332.416300773620605, 193.0, 22.0 ],
 					"presentation_linecount" : 2,
-					"text" : "characters changeSize npc 1 0.3"
+					"text" : "characters changeSize npc 1000 1"
 				}
 
 			}
@@ -60,7 +60,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1456.626559853553772, 828.915693283081055, 50.0, 36.0 ],
-					"text" : "1400 433"
+					"text" : "-1975 -1103"
 				}
 
 			}
@@ -793,8 +793,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 649.060063302517165, 977.219536066055298, 145.0, 22.0 ],
-					"text" : "changeSize duo 2000 0.5"
+					"patching_rect" : [ 649.060063302517165, 977.219536066055298, 135.0, 22.0 ],
+					"text" : "changeSize duo 2000 1"
 				}
 
 			}
@@ -841,8 +841,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 889.831147372722853, 576.0, 97.0, 22.0 ],
-					"text" : "land jaz 500 200"
+					"patching_rect" : [ 889.831147372722853, 576.0, 83.0, 22.0 ],
+					"text" : "land jaz 500 0"
 				}
 
 			}
@@ -2432,7 +2432,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1064.711349010467075, 717.486774027347565, 50.0, 22.0 ],
-					"text" : "127"
+					"text" : "0"
 				}
 
 			}
@@ -2658,7 +2658,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1324.247059266360111, 419.845358908176422, 50.0, 22.0 ],
-					"text" : "2007"
+					"text" : "2265"
 				}
 
 			}
@@ -2718,7 +2718,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1317.836803238184757, 446.20250004529953, 50.0, 22.0 ],
-					"text" : "439"
+					"text" : "337"
 				}
 
 			}
@@ -6120,8 +6120,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 726.408964455127716, 806.2176154255867, 127.0, 22.0 ],
-					"text" : "slide duo 2000 0 3000"
+					"patching_rect" : [ 726.408964455127716, 806.2176154255867, 133.0, 22.0 ],
+					"text" : "slide duo 2000 0 10000"
 				}
 
 			}
@@ -12976,6 +12976,13 @@
 		}
 ,
 		"dependency_cache" : [ 			{
+				"name" : "GolemGuys.txt",
+				"bootpath" : "~/Desktop/sylvanscenese",
+				"patcherrelativepath" : "../../Desktop/sylvanscenese",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "bd+hh.aiff",
 				"bootpath" : "C74:/docs/tutorial-patchers/msp-tut",
 				"type" : "AIFF",

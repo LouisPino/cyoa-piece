@@ -1,44 +1,58 @@
 function changeBg(newSrc) {
     const container = document.getElementById("sandbox-bg-container");
-    // Grab the current background image (if any)
-    const oldImg = container.querySelector("sandbox-bg");
 
-    // Create the new image element
-    const newImg = document.createElement("img");
-    newImg.classList.add("sandbox-bg");
-    newImg.id = "sandbox-bg"
-    // Start off invisible and heavily blurred
-    newImg.style.opacity = 0;
-    newImg.style.filter = "blur(10px)";
-    newImg.src = `display/assets/backgrounds/${newSrc}`;
-    // Append the new image into the container (above the old image)
-    container.appendChild(newImg);
+    // Grab the current background element (img or video)
+    const oldEl = container.querySelector(".sandbox-bg");
 
-    // Force a reflow to ensure the initial state is applied
-    newImg.getBoundingClientRect();
+    // Determine the type of element to create
+    const isVideo = newSrc.match(/\.(mp4|webm|ogg)$/i);
+    const newEl = isVideo ? document.createElement("video") : document.createElement("img");
 
-    // Slight delay before starting the transition
+    newEl.classList.add("sandbox-bg");
+    newEl.id = "sandbox-bg";
+    newEl.style.opacity = 0;
+    newEl.style.filter = "blur(10px)";
+    newEl.style.position = "absolute";
+    newEl.style.top = 0;
+    newEl.style.left = 0;
+    newEl.style.width = "100%";
+    newEl.style.height = "100%";
+    newEl.style.objectFit = "cover";
+    newEl.style.transition = "opacity 1s ease, filter 1s ease";
+
+    if (isVideo) {
+        newEl.src = `display/assets/backgrounds/${newSrc}`;
+        newEl.autoplay = true;
+        newEl.loop = true;
+        newEl.muted = true;
+        newEl.playsInline = true;
+    } else {
+        newEl.src = `display/assets/backgrounds/${newSrc}`;
+    }
+
+    container.appendChild(newEl);
+
+    // Force reflow
+    newEl.getBoundingClientRect();
+
     setTimeout(() => {
-        // Fade in and remove blur on the new image
-        newImg.style.opacity = 1;
-        newImg.style.filter = "blur(0)";
+        newEl.style.opacity = 1;
+        newEl.style.filter = "blur(0)";
 
-        // Fade out and add blur on the old image (if it exists)
-        if (oldImg) {
-            oldImg.style.opacity = 0;
-            oldImg.style.filter = "blur(10px)";
+        if (oldEl) {
+            oldEl.style.opacity = 0;
+            oldEl.style.filter = "blur(10px)";
         }
-    }, 50); // 50ms delay helps ensure the browser applies the initial styles
+    }, 50);
 
-    // After the transition ends on the new image, remove the old image
-    newImg.addEventListener("transitionend", function handler(e) {
-        // Check that the opacity transition finished
-        if (e.propertyName === "opacity" && oldImg) {
-            container.removeChild(oldImg);
-            newImg.removeEventListener("transitionend", handler);
+    newEl.addEventListener("transitionend", function handler(e) {
+        if (e.propertyName === "opacity" && oldEl) {
+            container.removeChild(oldEl);
+            newEl.removeEventListener("transitionend", handler);
         }
     });
 }
+
 
 function changeDialogueSprite(newSrc) {
     const spriteEl = document.getElementById("sandbox-dialogue-sprite");

@@ -567,10 +567,13 @@ function flipChar(direction, char) {
 function hopChar(char, height = 200, duration = 700, jump = false) {
     const start = performance.now();
     if (jump) {
-        toggleAnimation("jump", char)
-        setTimeout(() => {
-            toggleAnimation(previousAnimation)
-        }, duration)
+        if (jump != "false") {
+            toggleAnimation("jump", char)
+            setTimeout(() => {
+                toggleAnimation(previousAnimation)
+            }, duration)
+        }
+
     }
     const divs = [];
     switch (char) {

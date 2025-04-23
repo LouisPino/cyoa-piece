@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
               shakeChar(msg.data[0], msg.data[1], msg.data[2]);
               break;
             case "hop":
-              hopChar(msg.data[0], msg.data[1], msg.data[2], msg.data[2]);
+              hopChar(msg.data[0], msg.data[1], msg.data[2], msg.data[3]);
               break;
             case "changeSize":
               changeSize(msg.data[0], msg.data[1], msg.data[2]);
@@ -194,6 +194,12 @@ document.addEventListener("DOMContentLoaded", function () {
               break
             case "change":
               changeMapSrc(msg.data[0])
+              break
+            case "move":
+              moveMap(msg.data[0], msg.data[1])
+              break
+            case "fade":
+              fadeMap(msg.data[0])
               break
           }
           break;

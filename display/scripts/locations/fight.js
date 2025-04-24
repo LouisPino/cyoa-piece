@@ -7,9 +7,14 @@ function fight() {
     changeSize("npc", 1, .7)
     jumpChar("duo", 0, 50)
     changeSize("duo", 1, .8)
-    throwHats()
-    robeAura()
-    duoAttack()
+    setTimeout(throwHats, 1000)
+    // throwHats()
+    // robeAura()
+    // deviceDrop()
+    // noisyBonk()
+    // collarRoll()
+    // hatSpike()
+    // duoAttack()
 }
 
 fight()

@@ -571,3 +571,35 @@ body {
         transform: rotate(360deg);
     }
 }
+
+
+@keyframes spin-smacked {
+    0% {
+        transform: rotateY(0deg) rotateZ(25deg);
+        /* Initial position with tilt */
+    }
+
+    10% {
+        transform: rotateY(720deg) rotateZ(25deg);
+        /* Fast spin with tilt */
+    }
+
+    30% {
+        transform: rotateY(1440deg) rotateZ(25deg);
+        /* More spinning with tilt */
+    }
+
+    60% {
+        transform: rotateY(1800deg) rotateZ(25deg);
+        /* Slowing down with tilt */
+    }
+
+    100% {
+        transform: rotateY(2160deg) rotateZ(0deg);
+        /* Returning to original position */
+    }
+}
+
+.smacked-spin {
+    animation: spin-smacked 1.8s ease-out forwards;
+}

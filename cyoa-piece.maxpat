@@ -40,13 +40,39 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-269",
+					"linecount" : 2,
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 391.627050697804179, 1025.906125247478485, 187.0, 36.0 ],
+					"presentation_linecount" : 2,
+					"text" : "characters toggle-animation map pino"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-268",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 626.250091016292799, 771.982482075691223, 32.0, 22.0 ],
+					"text" : "map"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-98",
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 91.291204333305359, 399.334079444408417, 29.5, 22.0 ],
-					"text" : "rat"
+					"text" : "rats"
 				}
 
 			}
@@ -5781,7 +5807,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 205.309558987617493, 165.301109135150909, 33.0, 22.0 ],
-					"text" : "5"
+					"text" : "4"
 				}
 
 			}
@@ -10063,7 +10089,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 106.270933091641609, 17.0, 117.08072251081353, 22.0 ],
-					"text" : "/switch fight"
+					"text" : "/characters voted"
 				}
 
 			}
@@ -11402,6 +11428,20 @@
 				"patchline" : 				{
 					"destination" : [ "obj-184", 0 ],
 					"source" : [ "obj-267", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-206", 0 ],
+					"source" : [ "obj-268", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-230", 0 ],
+					"source" : [ "obj-269", 0 ]
 				}
 
 			}

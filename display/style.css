@@ -356,7 +356,8 @@ body {
     /* behind your other content */
 }
 
-#npc {
+#npc,
+#npc-size-ctr {
     z-index: 5;
     /* transition: transform 250ms ease-in-out, top 500ms ease-in-out; */
     transition: transform 250ms ease-in-out;
@@ -602,4 +603,39 @@ body {
 
 .smacked-spin {
     animation: spin-smacked 1.8s ease-out forwards;
+}
+
+
+@keyframes flatten-squash {
+    0% {
+        transform: scaleY(1);
+        /* Normal size */
+        transform-origin: bottom;
+        /* Squash from the bottom */
+    }
+
+    30% {
+        transform: scaleY(0.2);
+        /* Flatten towards the bottom */
+        transform-origin: bottom;
+        /* Keep squashing from the bottom */
+    }
+
+    60% {
+        transform: scaleY(1.2);
+        /* Stretch a bit above normal size */
+        transform-origin: bottom;
+        /* Keep the bounce effect from the bottom */
+    }
+
+    100% {
+        transform: scaleY(1);
+        /* Return to normal size */
+        transform-origin: bottom;
+        /* Ensure the final position stays normal */
+    }
+}
+
+.flatten-squash {
+    animation: flatten-squash 1s ease-out forwards;
 }

@@ -14,10 +14,18 @@ const pinoHat = document.createElement("img")
 const jazCollarLine = document.createElement("img")
 const pinoHelmet = document.createElement("img")
 const pinoWeapon = document.createElement("img")
+const ipadEl = document.createElement("img")
+const ipadLineEl = document.createElement("img")
 const jazWeapon = document.createElement("img")
 pinoHelmet.style.zIndex = "94"
 pinoWeapon.src = "/display/assets/characters/pino/weapon.png"
 pinoWeapon.style.zIndex = "101"
+
+ipadEl.style.zIndex = "101"
+ipadLineEl.style.zIndex = "102"
+
+ipadLineEl.src = `/display/assets/characters/pino/ipad/line.png`
+
 jazWeapon.src = "/display/assets/characters/jaz/weapon.png"
 jazWeapon.style.zIndex = "101"
 
@@ -199,8 +207,21 @@ async function toggleAnimation(animation, charName) {
         }
     }
 
+    if (animation === "map") {
+        if (charNames.includes("pino")) {
+            ipadEl.src = `/display/assets/characters/pino/ipad/${characters.p.device}.png`
+            pinoDiv.appendChild(ipadEl)
+            pinoDiv.appendChild(ipadLineEl)
+        }
+    } else {
+        if (charNames.includes("pino")) {
+            ipadEl.remove()
+            ipadLineEl.remove()
+        }
+    }
 
-    if (animation === "weapon" || animation === "weaponWalk") {
+
+    if (animation === "weapon" || animation === "weaponWalk" || animation === "map") {
         if (charNames.includes("jaz")) {
             setTransformOrigin(jazDiv, "50% 50%");
         }
@@ -242,8 +263,8 @@ function jumpChar(char, x, y) {
             jazCharSizeCtr.style.top = `${y}px`;
             break;
         case "npc":
-            document.getElementById("npc").style.left = `${x}px`;
-            document.getElementById("npc").style.top = `${y}px`;
+            document.getElementById("npc-size-ctr").style.left = `${x}px`;
+            document.getElementById("npc-size-ctr").style.top = `${y}px`;
             break;
     }
 }
@@ -502,7 +523,7 @@ function slideChar(char, x, y, time) {
             moveDivSmoothly(jazCharSizeCtr, x, y, time); // Moves pinoDiv to (200, 300) over 1 second
             break;
         case "npc":
-            moveDivSmoothly(document.getElementById("npc"), x, y, time); // Moves pinoDiv to (200, 300) over 1 second
+            moveDivSmoothly(document.getElementById("npc-size-ctr"), x, y, time); // Moves pinoDiv to (200, 300) over 1 second
             break;
     }
 }
@@ -678,7 +699,7 @@ function changeSize(char, time, targetSize) {
             changeSize("jaz", time, targetSize)
             break;
         case "npc":
-            el = document.getElementById("npc")
+            el = document.getElementById("npc-size-ctr")
             break;
     }
 

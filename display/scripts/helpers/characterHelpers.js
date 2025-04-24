@@ -325,6 +325,10 @@ function landCharBounce(char, x, y, startYArg) {
         case "npc":
             elements.push(document.getElementById("npc"));
             break;
+        default:
+            elements.push(char)
+            console.log(char)
+            break;
     }
 
     elements.forEach(element => {

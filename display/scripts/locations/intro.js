@@ -40,21 +40,21 @@ function intro() {
         scene3()
     }, 3000 * multiplier)
 
-    // setTimeout(() => {
-    //     scene4()
-    // }, 3000 * multiplier)
+    setTimeout(() => {
+        scene4()
+    }, 5000 * multiplier)
 
-    // setTimeout(() => {
-    //     scene5()
-    // }, 4000 * multiplier)
+    setTimeout(() => {
+        scene5()
+    }, 6000 * multiplier)
 
-    // setTimeout(() => {
-    //     scene6()
-    // }, 5000 * multiplier)
+    setTimeout(() => {
+        scene6()
+    }, 7000 * multiplier)
 
-    // setTimeout(() => {
-    //     scene7()
-    // }, 8000 * multiplier)
+    setTimeout(() => {
+        scene7()
+    }, 10000 * multiplier)
 
 
 
@@ -77,7 +77,6 @@ function scene2() {
     castleBackEl.style.visibility = "hidden"
     castleFrontEl.style.visibility = "hidden"
     tillyGifEl.style.visibility = "hidden"
-
     yarnEl.style.visibility = "visible"
     napsEl.style.visibility = "visible"
     guttersEl.style.visibility = "visible"
@@ -111,10 +110,19 @@ function scene3() {
     yarnEl.style.visibility = "hidden"
     napsEl.style.visibility = "hidden"
     guttersEl.style.visibility = "hidden"
+    changeBg("cardboard.jpg")
 
     loafEl.style.visibility = "visible"
     box1El.style.visibility = "visible"
     box2El.style.visibility = "visible"
+
+    setTimeout(() => {
+        landCharBounce(box1El, 0, 0, -900)
+    }, 300 * multiplier)
+    setTimeout(() => {
+
+        landCharBounce(box2El, 0, 0, -900)
+    }, 900 * multiplier)
 
 }
 
@@ -122,7 +130,7 @@ function scene4() {
     loafEl.style.visibility = "hidden"
     box1El.style.visibility = "hidden"
     box2El.style.visibility = "hidden"
-
+    jumpChar("pino", 800, 0)
     renderPino()
     toggleAnimation("map", "pino")
     floppy1El.style.visibility = "visible"
@@ -146,6 +154,7 @@ function scene6() {
     castleBackEl.style.visibility = "visible"
     tillyImgEl.style.visibility = "visible"
     castleFrontEl.style.visibility = "visible"
+    jumpChar("pino", 0, 0)
     renderPino()
     renderJaz()
     jumpChar("jaz", 2000, 0)

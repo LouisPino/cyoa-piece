@@ -143,6 +143,11 @@ body {
     top: 800px;
 }
 
+#box-1,
+#box-2 {
+    top: -900px;
+}
+
 #yarn,
 #tilly-img {
     transition: left 1000ms ease-in-out;

@@ -1,9 +1,9 @@
 function fight() {
-    console.log(history)
+    console.log(history.locationsVisited[history.locationsVisited.length - 2].name)
     renderPino()
     renderJaz()
     toggleAnimation("front", "duo")
-    changeNPCSrc("isopod/full.png")
+    changeNPCSrc(`${history.locationsVisited[history.locationsVisited.length - 2].name.slice(0, -1)}/full.png`)
 }
 
 fight()

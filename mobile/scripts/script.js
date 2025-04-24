@@ -6,6 +6,7 @@ let scripts
 let locationScripts
 let currentLocation
 let fighting = true
+let history;
 function initializeWebSocket() {
     /////////////////Communcation
     // Confirm connection success
@@ -31,6 +32,9 @@ function initializeWebSocket() {
             case "selection":
                 renderSelection(msg.data)
                 break
+            case "history":
+                history = msg.data
+                break;
             // case "intermission":
             //     intermissionStart()
             //     break

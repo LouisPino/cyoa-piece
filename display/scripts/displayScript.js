@@ -4,6 +4,7 @@ let winnerLength;
 let promptLength;
 let currentLocation;
 let inDVD = false;
+let history;
 document.addEventListener("DOMContentLoaded", function () {
   const confetti = new JSConfetti();
   let locations;
@@ -48,6 +49,9 @@ document.addEventListener("DOMContentLoaded", function () {
           break;
         case "characterSelect":
           revealCharacter(msg.data);
+          break;
+        case "history":
+          history = msg.data
           break;
         case "characters":
           switch (msg.route) {

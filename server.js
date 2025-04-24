@@ -175,6 +175,8 @@ function sendSectionChange(location) {
     history.locationsVisited.push(location)
     sendToWebClients({ type: "section", data: location })
     sendToDisplay({ type: "section", data: location })
+    sendToWebClients({ type: "history", data: history })
+    sendToDisplay({ type: "history", data: history })
 }
 
 

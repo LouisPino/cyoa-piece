@@ -93,11 +93,13 @@ body {
 
 #jaz-size-ctr {
     transform-origin: 40% 50%;
+    z-index: 100;
 }
 
 .char-div {
     width: 100%;
     height: 50%;
+    z-index: 100;
 }
 
 .char-div img {
@@ -123,7 +125,41 @@ body {
     filter: brightness(0);
 }
 
+/* intro stuff */
 
+.intro-img {
+    visibility: hidden;
+}
+
+#yarn {
+    left: -800px;
+}
+
+#naps {
+    left: 800px;
+}
+
+#gutters {
+    top: 800px;
+}
+
+#yarn,
+#tilly-img {
+    transition: left 1000ms ease-in-out;
+}
+
+#castle-back {
+    z-index: 10;
+}
+
+#tilly-gif,
+#tilly-img {
+    z-index: 11;
+}
+
+#castle-front {
+    z-index: 12;
+}
 
 
 

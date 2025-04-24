@@ -305,7 +305,7 @@ function fadeBox(arg, characters) {
 
 
 function clearText() {
-    textBodyElGlobal.innerHTML = ""
+    document.querySelector(".text-body").innerHTML = ""
 }
 
 

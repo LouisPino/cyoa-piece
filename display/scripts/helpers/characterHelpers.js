@@ -212,6 +212,7 @@ async function toggleAnimation(animation, charName) {
             ipadEl.src = `/display/assets/characters/pino/ipad/${characters.p.device}.png`
             pinoDiv.appendChild(ipadEl)
             pinoDiv.appendChild(ipadLineEl)
+            pinoHands.remove()
         }
     } else {
         if (charNames.includes("pino")) {
@@ -458,7 +459,7 @@ function landChar(char, x, y, startYArg) {
 
 function flyInRotateChar(char, x, y) {
     let elements = [];
-    toggleAnimation("jump")
+    toggleAnimation("jump", char)
     setTimeout(() => {
         toggleAnimation(previousAnimation)
     }, 2400)

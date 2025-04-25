@@ -278,6 +278,9 @@ function jumpChar(char, x, y) {
             document.getElementById("npc-size-ctr").style.left = `${x}px`;
             document.getElementById("npc-size-ctr").style.top = `${y}px`;
             break;
+        default:
+            char.style.left = `${x}px`;
+            char.style.top = `${y}px`;
     }
 }
 

@@ -21,6 +21,7 @@ const deviceEl = document.getElementById("device")
 const floppy2El = document.getElementById("floppy-2")
 const mapBlackEl = document.getElementById("map-black-bg")
 const tillyImgEl = document.getElementById("tilly-img")
+const mapVideoEl = document.getElementById("map-video")
 
 let textBodyEl = document.querySelector(".text-body")
 deviceEl.src = `/display/assets/intro/device${characters.p.device}.png`
@@ -38,12 +39,10 @@ textsArr = [
 
 
 function intro() {
-    // textIdx = 7
+    // textIdx = 6
     scene1()
-    // scene4()
     setTimeout(() => {
         scene2()
-
     }, 28000 * multiplier)
 
     setTimeout(() => {
@@ -56,22 +55,20 @@ function intro() {
 
     setTimeout(() => {
         scene5()
-    }, 90000 * multiplier)
+    }, 95000 * multiplier)
 
-    // setTimeout(() => {
-    //     scene6()
-    // }, 50000 * multiplier)
+    setTimeout(() => {
+        scene6()
+    }, 160000 * multiplier)
 
-    // setTimeout(() => {
-    //     scene7()
-    // }, 50000 * multiplier)
+    setTimeout(() => {
+        scene7()
+    }, 175000 * multiplier)
 
-    // setTimeout(() => {
-    //     scene8()
-    // }, 50000 * multiplier)
+    setTimeout(() => {
+        scene8()
+    }, 181000 * multiplier)
 }
-
-
 
 
 
@@ -134,7 +131,7 @@ function scene2() {
         guttersEl.style.top = "0"
     }, 9500 * multiplier)
     setTimeout(() => {
-        guttersEl.style.top = "800px"
+        guttersEl.style.top = "900px"
         napsEl.style.left = "800px"
         yarnEl.style.left = "-800px"
         slideBoxY("none")
@@ -208,14 +205,58 @@ function scene4() {
 function scene5() {
     floppy1El.style.visibility = "hidden"
     removePino()
-    toggleAnimation("front", "pino")
     deviceEl.style.visibility = "visible"
     floppy2El.style.visibility = "visible"
     mapBlackEl.style.visibility = "visible"
+    setTimeout(() => {
+        hopChar(floppy2El)
+        floppy2El.style.transition = "transform 500ms ease-in-out";
+        floppy2El.style.transform = "rotate(-450deg)";
+    }, 500)
+    setTimeout(() => {
+        slideChar(floppy2El, 300, 0, 2000)
+    }, 2000)
+    setTimeout(() => {
+        mapVideoEl.style.visibility = "visible"
+        let flickerTime = 0;
+        let interval = 500; // start slow
+        let flickerDuration = 10000; // total time in ms
+        let startTime = Date.now();
+
+        const flickerInterval = setInterval(() => {
+            // Toggle opacity between 0 and 1
+            mapVideoEl.style.opacity = mapVideoEl.style.opacity === "1" ? "0" : "1";
+            flickerTime = Date.now() - startTime;
+
+            // Gradually decrease interval to increase flicker speed
+            if (interval > 50) interval -= 30;
+
+            // After 10 seconds, stop flickering and fade in permanently
+            if (flickerTime >= flickerDuration) {
+                clearInterval(flickerInterval);
+                mapVideoEl.style.transition = "opacity 2s ease";
+                mapVideoEl.style.opacity = "1";
+            }
+        }, interval);
+        slideBoxY("dialogue")
+        setTimeout(nextLine, 500)
+    }, 4000);
+    setTimeout(() => {
+        mapVideoEl.play()
+        slideBoxY("none")
+    }, 14000);
+    setTimeout(() => {
+        slideBoxY("dialogue")
+        setTimeout(nextLine, 500)
+    }, 42000);
 
 }
 
 function scene6() {
+    mapVideoEl.style.opacity = "0"
+
+    toggleAnimation("front", "duo")
+    changeSize("duo", 1, .8)
     deviceEl.style.visibility = "hidden"
     floppy2El.style.visibility = "hidden"
     mapBlackEl.style.visibility = "hidden"
@@ -223,13 +264,28 @@ function scene6() {
     castleBackEl.style.visibility = "visible"
     tillyImgEl.style.visibility = "visible"
     castleFrontEl.style.visibility = "visible"
-    jumpChar("pino", 0, 0)
+    jumpChar(castleBackEl, 0, 0)
+    jumpChar(tillyImgEl, 0, 0)
+    jumpChar(castleFrontEl, 0, 0)
+    jumpChar("duo", 2000, 0)
+    fadeChar("pino", -75, 0, 1, 3000)
     renderPino()
     renderJaz()
-    jumpChar("jaz", 2000, 0)
     setTimeout(() => {
+        // slideBoxY("dialogue")
+    }, 500 * multiplier)
+    setTimeout(() => {
+        clearText()
+        nextLine(
+        )
+    }, 900 * multiplier)
+    setTimeout(() => {
+        slideBoxY("none")
         flyInRotateChar("jaz", 0, 0)
-    }, 500)
+    }, 10000)
+    setTimeout(() => {
+        hopChar("jaz")
+    }, 13000)
 }
 
 function scene7() {

@@ -639,6 +639,9 @@ function hopChar(char, height = 200, duration = 700, jump = false) {
         case "npc":
             divs.push(document.getElementById("npc"));
             break;
+        default:
+            divs.push(char);
+            break;
     }
 
     const originalTops = divs.map(div => parseFloat(getComputedStyle(div).top) || 0);

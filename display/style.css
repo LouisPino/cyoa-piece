@@ -143,6 +143,26 @@ body {
     width: 80%;
 }
 
+#floppy-2 {
+    transform-origin: 25% 50%;
+    z-index: 32;
+}
+
+#device {
+    z-index: 33;
+}
+
+#map-black-bg {
+    z-index: 34;
+}
+
+#map-video {
+    z-index: 35;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+
+}
+
 #naps {
     left: 800px;
     top: -225px;
@@ -154,7 +174,7 @@ body {
 }
 
 #gutters {
-    top: 800px;
+    top: 900px;
     z-index: 302;
 }
 

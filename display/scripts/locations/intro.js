@@ -74,6 +74,8 @@ function scene1() {
 }
 
 function scene2() {
+    changeBg("cardboard.jpg")
+
     castleBackEl.style.visibility = "hidden"
     castleFrontEl.style.visibility = "hidden"
     tillyGifEl.style.visibility = "hidden"
@@ -110,7 +112,6 @@ function scene3() {
     yarnEl.style.visibility = "hidden"
     napsEl.style.visibility = "hidden"
     guttersEl.style.visibility = "hidden"
-    changeBg("cardboard.jpg")
 
     loafEl.style.visibility = "visible"
     box1El.style.visibility = "visible"
@@ -131,8 +132,8 @@ function scene4() {
     box1El.style.visibility = "hidden"
     box2El.style.visibility = "hidden"
     jumpChar("pino", 800, 0)
-    renderPino()
     toggleAnimation("map", "pino")
+    renderPino()
     floppy1El.style.visibility = "visible"
 }
 
@@ -164,6 +165,7 @@ function scene6() {
 }
 
 function scene7() {
+    changeBg("cardboard.jpg")
     toggleAnimation("walk", "duo")
     flipChar("left", "duo")
     slideChar("duo", -900, 0, 3000)

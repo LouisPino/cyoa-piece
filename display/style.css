@@ -133,14 +133,25 @@ body {
 
 #yarn {
     left: -800px;
+    top: -225px;
+    z-index: 302;
+}
+
+#floppy-1 {
+    top: -2245px;
+    z-index: 302;
+    width: 80%;
 }
 
 #naps {
     left: 800px;
+    top: -225px;
+    z-index: 302;
 }
 
 #gutters {
     top: 800px;
+    z-index: 302;
 }
 
 #box-1,
@@ -458,7 +469,7 @@ body {
 
 #sandbox-dialogue-box,
 #sandbox-dialogue-sprite-box {
-    z-index: 300;
+    z-index: 40;
     transition: left 500ms ease-in-out;
     /* behind your other content */
 }

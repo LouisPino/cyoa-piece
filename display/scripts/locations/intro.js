@@ -1,6 +1,6 @@
 
 let multiplier = 1
-let scene1length = 1000
+let scene1length = 31000
 let scene2length = 1000
 let scene3length = 1000
 let scene4length = 1000
@@ -22,62 +22,55 @@ const floppy2El = document.getElementById("floppy-2")
 const mapBlackEl = document.getElementById("map-black-bg")
 const tillyImgEl = document.getElementById("tilly-img")
 
-
+let textBodyEl = document.querySelector(".text-body")
 deviceEl.src = `/display/assets/intro/device${characters.p.device}.png`
 
-let textsArr = [
-    // ENTER YOUR SCENE'S TEXT HERE AS AN ARRAY OF STRINGS ONE PER LINE
-    "*grumble grumble*",
-    " We… are the golems…Made of earth and mud…",
-    "*grumble* … you…you… YOU . . .  ",
-    "have come by at the perfect moment! *grumble*",
-    "We were just about to rehearse for the Sylvan Forest dance recital *grumble grumble*",
-    "Please, take a moment to watch our performance…",
-    "*grumble* Thank you for your time… Let us help you with your journey…*grumble* come over here…",
-    "We think this portal will take you where you need to go next….",
+textsArr = [
+    "Deep within the Sylvan Forest, there is a humble but well fed kingdom ruled by KING TILLY.",
+    "King Tilly of TillyLand is a lover of loose string, long naps, and in his earlier years, ADVENTURING.",
+    "These days, the king prefers to lounge in the comfort of his castle. However, this hasn’t stopped him from buying a rare treasure map or two…",
+    "On a fine spring day, King Tilly comes across an ancient treasure map that can only be decoded by Ancient Wizard Technology. He decides to consult the local ancient wizard technology specialist, WIZARD PINO",
+    "With the help of the wizard, the map begins to be decoded…",
+    "Holy moly!! Look at all these paths! Is it possible that all these routes lead to treasure? Sounds like an adventure is brewing… preparations will have to be made before entering the unexplored realm of the Sylvan Forest",
+    "Due to the potential dangers, King Tilly sends his strongest court jester, JESTER JAZ, to assist Wizard Pino",
+    "The adventurers bid their sovereign farewell and begin to make their way out of the kingdom.",
 ];
 
 
 function intro() {
-    toggleBox("dialogue", "")
-    nextLine(textsArr)
-
-    scene1()
-
+    // scene1()
+    textIdx = 3
+    scene4()
     setTimeout(() => {
         scene2()
-        nextLine(textsArr)
 
-    }, 1000 * multiplier)
+    }, 50000 * multiplier)
 
     setTimeout(() => {
         scene3()
-        nextLine(textsArr)
-
-    }, 3000 * multiplier)
+    }, 50000 * multiplier)
 
     setTimeout(() => {
         scene4()
-    }, 5000 * multiplier)
+    }, 50000 * multiplier)
 
     setTimeout(() => {
         scene5()
-    }, 6000 * multiplier)
+    }, 50000 * multiplier)
 
     setTimeout(() => {
         scene6()
-    }, 7000 * multiplier)
+    }, 50000 * multiplier)
 
     setTimeout(() => {
         scene7()
-    }, 10000 * multiplier)
+    }, 50000 * multiplier)
 
-
-
+    setTimeout(() => {
+        scene8()
+    }, 50000 * multiplier)
 }
 
-
-intro()
 
 
 
@@ -86,11 +79,19 @@ function scene1() {
     castleBackEl.style.visibility = "visible"
     castleFrontEl.style.visibility = "visible"
     tillyGifEl.style.visibility = "visible"
+    setTimeout(() => {
+        slideBoxY("dialogue")
+    }, 5000)
+    setTimeout(() => {
+        nextLine()
+    }, 6500)
+    setTimeout(() => {
+        slideBoxY("none")
+    }, 20000)
 }
 
 function scene2() {
     changeBg("cardboard.jpg")
-
     castleBackEl.style.visibility = "hidden"
     castleFrontEl.style.visibility = "hidden"
     tillyGifEl.style.visibility = "hidden"
@@ -99,28 +100,41 @@ function scene2() {
     guttersEl.style.visibility = "visible"
 
     setTimeout(() => {
-        yarnEl.style.transition = `left ${300 * multiplier}ms`
+        slideBoxY("dialogue")
+    }, 1000)
+    setTimeout(() => {
+        nextLine()
+    }, 2000)
+
+
+    setTimeout(() => {
+        yarnEl.style.transition = `left ${1000 * multiplier}ms`
         yarnEl.style.left = "0"
-    }, 100 * multiplier)
+    }, 3750 * multiplier)
     setTimeout(() => {
-        yarnEl.style.left = "-800px"
-    }, 500 * multiplier)
+        // yarnEl.style.left = "-800px"
+    }, 5250 * multiplier)
 
     setTimeout(() => {
-        napsEl.style.transition = `left ${300 * multiplier}ms`
+        napsEl.style.transition = `left ${1000 * multiplier}ms`
         napsEl.style.left = "0"
-    }, 600 * multiplier)
+    }, 5000 * multiplier)
     setTimeout(() => {
-        napsEl.style.left = "800px"
-    }, 1100 * multiplier)
+        // napsEl.style.left = "800px"
+    }, 6500 * multiplier)
 
     setTimeout(() => {
-        guttersEl.style.transition = `top ${300 * multiplier}ms`
+        guttersEl.style.transition = `top ${1000 * multiplier}ms`
         guttersEl.style.top = "0"
-    }, 1200 * multiplier)
+    }, 9500 * multiplier)
     setTimeout(() => {
         guttersEl.style.top = "800px"
-    }, 1700 * multiplier)
+        napsEl.style.left = "800px"
+        yarnEl.style.left = "-800px"
+        slideBoxY("none")
+    }, 14000 * multiplier)
+    setTimeout(() => {
+    }, 13500 * multiplier)
 }
 
 function scene3() {
@@ -134,22 +148,48 @@ function scene3() {
 
     setTimeout(() => {
         landCharBounce(box1El, 0, 0, -900)
-    }, 300 * multiplier)
+    }, 1500 * multiplier)
     setTimeout(() => {
 
         landCharBounce(box2El, 0, 0, -900)
-    }, 900 * multiplier)
-
+    }, 3000 * multiplier)
+    setTimeout(() => {
+        slideBoxY("dialogue")
+    }, 8000 * multiplier)
+    setTimeout(() => {
+        nextLine(
+        )
+    }, 6400 * multiplier)
+    setTimeout(() => {
+        slideBoxY("none")
+    }, 24000 * multiplier)
 }
 
 function scene4() {
     loafEl.style.visibility = "hidden"
     box1El.style.visibility = "hidden"
     box2El.style.visibility = "hidden"
-    jumpChar("pino", 800, 0)
-    toggleAnimation("map", "pino")
+    jumpChar("pino", 10000, -15000)
     renderPino()
-    floppy1El.style.visibility = "visible"
+    changeSize("pino", 1, .8)
+    toggleAnimation("map", "pino")
+
+
+    setTimeout(() => {
+        slideBoxY("dialogue")
+    }, 300)
+
+
+    setTimeout(() => {
+        nextLine()
+    }, 600)
+    setTimeout(() => {
+        floppy1El.style.visibility = "visible"
+        fadeChar(floppy1El, 0, -225, 10, 2000)
+    }, 5000)
+    setTimeout(() => {
+        fadeChar("pino", 1000, -150, 10, 2000)
+    }, 13000)
 }
 
 function scene5() {
@@ -187,3 +227,15 @@ function scene7() {
     tillyImgEl.style.transition = `left ${3000 * multiplier}ms`
     tillyImgEl.style.left = "200px"
 }
+
+function scene8() {
+    // fade in map then add box w text
+}
+
+
+
+
+
+
+slideBoxY("none")
+intro()

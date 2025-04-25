@@ -302,6 +302,10 @@ function fadeChar(char, x, y, outTime, inTime) {
         case "npc":
             elements.push(document.getElementById("npc"));
             break;
+        default:
+            elements.push(char);
+            break;
+
     }
 
     elements.forEach(element => {

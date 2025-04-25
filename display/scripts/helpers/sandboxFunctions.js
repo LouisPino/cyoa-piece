@@ -82,11 +82,10 @@ function changeNPCSrc(npcName) {
 //     textBodyElGlobal = textBodyEl
 // }
 
-function nextLine(textsArr) {
+function nextLine() {
     const textBody = document.querySelector(".text-body");
     const text = textsArr[textIdx];
     let j = 0;
-
     function typeCharacter() {
         if (j < text.length) {
             textBody.innerHTML += text[j];
@@ -99,6 +98,8 @@ function nextLine(textsArr) {
     }
 
     if (textBody && text) {
+        console.log(textBody)
+
         typeCharacter();
     }
 }
@@ -143,62 +144,82 @@ function toggleBox(arg, characters) {
         boxEl.src = newSrc
         textBodyEl.style.color = newColor
         moveText("dialogue")
+        box
     }
 }
+
+
 
 function slideBoxY(arg, characters) {
     const boxEl = document.getElementById("sandbox-dialogue-box");
     const spriteEl = document.getElementById("sandbox-dialogue-sprite");
     const textBodyEl = document.querySelector(".text-body");
 
-    if (arg === "sprite") {
-        boxEl.src = "/display/assets/dialogue/boxes/SpriteBox.png"
-        moveText("sprite")
-        boxEl.classList.remove(...outs)
-        textBodyEl.classList.remove(...outs)
-        spriteEl.classList.remove(...outs)
-        textBodyEl.style.color = "#ffbd92"
+    const outs = ["slide-down", "slide-out", "slide-out-fast", "fade-out-fast"];
+    const ins = ["fade-in-fast", "slide-in", "slide-in-fast", "slide-up"];
 
-        boxEl.classList.add("slide-up")
-        textBodyEl.classList.add("slide-up")
-        spriteEl.classList.add("slide-up")
+    // Utility to force reflow
+    function forceReflow(el) {
+        void el.offsetWidth;
+    }
+
+    // Remove transition classes and force reflow
+    function clearTransitions(...elements) {
+        elements.forEach(el => {
+            el.classList.remove(...outs);
+            el.classList.remove(...ins);
+            forceReflow(el);
+        });
+    }
+
+    if (arg === "sprite") {
+        boxEl.src = "/display/assets/dialogue/boxes/SpriteBox.png";
+        moveText("sprite");
+        textBodyEl.style.color = "#ffbd92";
+
+        clearTransitions(boxEl, textBodyEl, spriteEl);
+
+        boxEl.classList.add("slide-up");
+        textBodyEl.classList.add("slide-up");
+        spriteEl.classList.add("slide-up");
 
         spriteEl.style.visibility = "visible";
         textBodyEl.style.visibility = "visible";
+
     } else if (arg === "none") {
-        // boxEl.src = "";
-        boxEl.classList.remove(...ins)
-        textBodyEl.classList.remove(...ins)
-        spriteEl.classList.remove(...ins)
-        boxEl.classList.add("slide-down")
-        textBodyEl.classList.add("slide-down")
-        spriteEl.classList.add("slide-down")
-        setTimeout(clearText, 500); // Ensure text clears after animation
+        clearTransitions(boxEl, textBodyEl, spriteEl);
+
+        boxEl.classList.add("slide-down");
+        textBodyEl.classList.add("slide-down");
+        spriteEl.classList.add("slide-down");
+
+        setTimeout(clearText, 500);
+
     } else {
-        let newSrc = "/display/assets/dialogue/boxes/DialogueBox.png"
-        let newColor = "#ffbd92"
+        let newSrc = "/display/assets/dialogue/boxes/DialogueBox.png";
+        let newColor = "#ffbd92";
+
         if (arg === "pino") {
-            // newSrc = "/display/assets/dialogue/boxes/PinoDialogueBox.png"
-            newSrc = "/display/assets/dialogue/boxes/PinoDialogueBox.gif"
-            newColor = "#c5abfc"
+            newSrc = "/display/assets/dialogue/boxes/PinoDialogueBox.gif";
+            newColor = "#c5abfc";
         } else if (arg === "duo") {
-            // newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox${characters.j.hat}.png`
-            newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox.gif`
-            newColor = "#c5abfc"
+            newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox.gif`;
+            newColor = "#c5abfc";
         } else if (arg === "jaz") {
-            // newSrc = `/display/assets/dialogue/boxes/JazDialogueBox${characters.j.hat}.png`
-            newSrc = `/display/assets/dialogue/boxes/JazDialogueBox.gif`
-            newColor = "#c5abfc"
+            newSrc = `/display/assets/dialogue/boxes/JazDialogueBox.gif`;
+            newColor = "#c5abfc";
         }
-        boxEl.src = newSrc
-        boxEl.classList.remove(...outs)
-        textBodyEl.style.color = newColor
 
-        boxEl.classList.add("slide-up")
-        textBodyEl.classList.add("slide-up")
+        boxEl.src = newSrc;
+        textBodyEl.style.color = newColor;
+
+        clearTransitions(boxEl, textBodyEl, spriteEl);
+
+        boxEl.classList.add("slide-up");
+        textBodyEl.classList.add("slide-up");
+
         textBodyEl.style.visibility = "visible";
-        moveText("dialogue")
-
+        moveText("dialogue");
     }
 }
 
@@ -267,54 +288,67 @@ function fadeBox(arg, characters) {
     const boxEl = document.getElementById("sandbox-dialogue-box");
     const spriteEl = document.getElementById("sandbox-dialogue-sprite");
     const textBodyEl = document.querySelector(".text-body");
-    if (arg === "sprite") {
-        boxEl.src = "/display/assets/dialogue/boxes/SpriteBox.png"
-        moveText("sprite")
-        textBodyEl.style.color = "#ffbd92"
-        boxEl.classList.remove(...outs)
-        textBodyEl.classList.remove(...outs)
-        spriteEl.classList.remove(...outs)
-        boxEl.classList.add("fade-in-fast")
-        textBodyEl.classList.add("fade-in-fast")
-        spriteEl.classList.add("fade-in-fast")
 
+    // Utility to force reflow
+    function forceReflow(el) {
+        void el.offsetWidth;
+    }
+
+    function clearTransitions(...elements) {
+        elements.forEach(el => {
+            el.classList.remove(...outs);
+            el.classList.remove(...ins);
+            forceReflow(el); // ensure next animation triggers
+        });
+    }
+
+    if (arg === "sprite") {
+        boxEl.src = "/display/assets/dialogue/boxes/SpriteBox.png";
+        moveText("sprite");
+        textBodyEl.style.color = "#ffbd92";
+
+        clearTransitions(boxEl, textBodyEl, spriteEl);
+
+        boxEl.classList.add("fade-in-fast");
+        textBodyEl.classList.add("fade-in-fast");
+        spriteEl.classList.add("fade-in-fast");
 
     } else if (arg === "none") {
-        // boxEl.src = "";
-        boxEl.classList.remove(...ins)
-        textBodyEl.classList.remove(...ins)
-        spriteEl.classList.remove(...ins)
-        boxEl.classList.add("fade-out-fast")
-        textBodyEl.classList.add("fade-out-fast")
-        spriteEl.classList.add("fade-out-fast")
-        setTimeout(clearText, 500); // Ensure text clears after animation
-    }
-    else {
-        let newSrc = "/display/assets/dialogue/boxes/DialogueBox.png"
-        let newColor = "#ffbd92"
+        clearTransitions(boxEl, textBodyEl, spriteEl);
+
+        boxEl.classList.add("fade-out-fast");
+        textBodyEl.classList.add("fade-out-fast");
+        spriteEl.classList.add("fade-out-fast");
+
+        setTimeout(clearText, 500);
+
+    } else {
+        let newSrc = "/display/assets/dialogue/boxes/DialogueBox.png";
+        let newColor = "#ffbd92";
+
         if (arg === "pino") {
-            // newSrc = "/display/assets/dialogue/boxes/PinoDialogueBox.png"
-            newSrc = "/display/assets/dialogue/boxes/PinoDialogueBox.gif"
-            newColor = "#c5abfc"
+            newSrc = "/display/assets/dialogue/boxes/PinoDialogueBox.gif";
+            newColor = "#c5abfc";
         } else if (arg === "duo") {
-            // newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox${characters.j.hat}.png`
-            newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox.gif`
-            newColor = "#c5abfc"
+            newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox.gif`;
+            newColor = "#c5abfc";
         } else if (arg === "jaz") {
-            // newSrc = `/display/assets/dialogue/boxes/JazDialogueBox${characters.j.hat}.png`
-            newSrc = `/display/assets/dialogue/boxes/JazDialogueBox.gif`
-            newColor = "#c5abfc"
+            newSrc = `/display/assets/dialogue/boxes/JazDialogueBox.gif`;
+            newColor = "#c5abfc";
         }
-        boxEl.src = newSrc
-        boxEl.classList.remove(...outs)
-        boxEl.classList.add("fade-in-fast")
-        textBodyEl.classList.add("fade-in-fast")
-        textBodyEl.style.color = newColor
+
+        clearTransitions(boxEl, textBodyEl, spriteEl);
+
+        boxEl.src = newSrc;
+        boxEl.classList.add("fade-in-fast");
+        textBodyEl.classList.add("fade-in-fast");
+        textBodyEl.style.color = newColor;
         spriteEl.style.visibility = "hidden";
         textBodyEl.style.visibility = "visible";
-        moveText("dialogue")
+        moveText("dialogue");
     }
 }
+
 
 
 

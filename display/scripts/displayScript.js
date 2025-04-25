@@ -6,7 +6,7 @@ let currentLocation;
 let inDVD = false;
 let history;
 let textIdx = 0; // Index for texts array
-
+let textsArr
 document.addEventListener("DOMContentLoaded", function () {
   const confetti = new JSConfetti();
   let locations;

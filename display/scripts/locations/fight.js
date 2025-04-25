@@ -1,7 +1,7 @@
 function fight() {
     toggleAnimation("side", "jaz")
     toggleAnimation("side", "pino")
-    toggleBox("none")
+    slideBoxY("none")
     jumpChar("npc", 550, 0)
     changeSize("npc", 1, .7)
     jumpChar("duo", 0, 50)

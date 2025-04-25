@@ -174,13 +174,16 @@ function slideBoxY(arg, characters) {
         let newSrc = "/display/assets/dialogue/boxes/DialogueBox.png"
         let newColor = "#ffbd92"
         if (arg === "pino") {
-            newSrc = "/display/assets/dialogue/boxes/PinoDialogueBox.png"
+            // newSrc = "/display/assets/dialogue/boxes/PinoDialogueBox.png"
+            newSrc = "/display/assets/dialogue/boxes/PinoDialogueBox.gif"
             newColor = "#c5abfc"
         } else if (arg === "duo") {
-            newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox${characters.j.hat}.png`
+            // newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox${characters.j.hat}.png`
+            newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox.gif`
             newColor = "#c5abfc"
         } else if (arg === "jaz") {
-            newSrc = `/display/assets/dialogue/boxes/JazDialogueBox${characters.j.hat}.png`
+            // newSrc = `/display/assets/dialogue/boxes/JazDialogueBox${characters.j.hat}.png`
+            newSrc = `/display/assets/dialogue/boxes/JazDialogueBox.gif`
             newColor = "#c5abfc"
         }
         boxEl.src = newSrc
@@ -229,13 +232,16 @@ function slideBoxX(arg, characters) {
         let newSrc = "/display/assets/dialogue/boxes/DialogueBox.png"
         let newColor = "#ffbd92"
         if (arg === "pino") {
-            newSrc = "/display/assets/dialogue/boxes/PinoDialogueBox.png"
+            // newSrc = "/display/assets/dialogue/boxes/PinoDialogueBox.png"
+            newSrc = "/display/assets/dialogue/boxes/PinoDialogueBox.gif"
             newColor = "#c5abfc"
         } else if (arg === "duo") {
-            newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox${characters.j.hat}.png`
+            // newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox${characters.j.hat}.png`
+            newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox.gif`
             newColor = "#c5abfc"
         } else if (arg === "jaz") {
-            newSrc = `/display/assets/dialogue/boxes/JazDialogueBox${characters.j.hat}.png`
+            // newSrc = `/display/assets/dialogue/boxes/JazDialogueBox${characters.j.hat}.png`
+            newSrc = `/display/assets/dialogue/boxes/JazDialogueBox.gif`
             newColor = "#c5abfc"
         }
         boxEl.src = newSrc
@@ -283,13 +289,16 @@ function fadeBox(arg, characters) {
         let newSrc = "/display/assets/dialogue/boxes/DialogueBox.png"
         let newColor = "#ffbd92"
         if (arg === "pino") {
-            newSrc = "/display/assets/dialogue/boxes/PinoDialogueBox.png"
+            // newSrc = "/display/assets/dialogue/boxes/PinoDialogueBox.png"
+            newSrc = "/display/assets/dialogue/boxes/PinoDialogueBox.gif"
             newColor = "#c5abfc"
         } else if (arg === "duo") {
-            newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox${characters.j.hat}.png`
+            // newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox${characters.j.hat}.png`
+            newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox.gif`
             newColor = "#c5abfc"
         } else if (arg === "jaz") {
-            newSrc = `/display/assets/dialogue/boxes/JazDialogueBox${characters.j.hat}.png`
+            // newSrc = `/display/assets/dialogue/boxes/JazDialogueBox${characters.j.hat}.png`
+            newSrc = `/display/assets/dialogue/boxes/JazDialogueBox.gif`
             newColor = "#c5abfc"
         }
         boxEl.src = newSrc

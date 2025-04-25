@@ -73,30 +73,34 @@ function changeNPCSrc(npcName) {
 
 
 
-let iManual = 0; // Index for texts array
-let textsArr
-let textBodyElGlobal
+// let iManual = 0; // Index for texts array
+// let textsArr
+// let textBodyElGlobal
 
-function typeTextManual(texts, textBodyEl) {
-    textsArr = texts
-    textBodyElGlobal = textBodyEl
-}
+// function typeTextManual(texts, textBodyEl) {
+//     textsArr = texts
+//     textBodyElGlobal = textBodyEl
+// }
 
-function nextLine() {
-    const text = textsArr[iManual];
-    let j = 0; // Index for characters in the current text
+function nextLine(textsArr) {
+    const textBody = document.querySelector(".text-body");
+    const text = textsArr[textIdx];
+    let j = 0;
 
     function typeCharacter() {
         if (j < text.length) {
-            textBodyElGlobal.innerHTML += text[j];
+            textBody.innerHTML += text[j];
             j++;
-            setTimeout(typeCharacter, 50); // Type the next character
+            setTimeout(typeCharacter, 50);
         } else {
-            textBodyElGlobal.innerHTML += "<br> <br>"; // Add a line break after the text
-            iManual++;
+            textBody.innerHTML += "<br><br>";
+            textIdx++;
         }
     }
-    typeCharacter(); // Start typing the current text
+
+    if (textBody && text) {
+        typeCharacter();
+    }
 }
 
 
@@ -121,7 +125,7 @@ function toggleBox(arg, characters) {
         boxEl.src = "/display/assets/dialogue/boxes/SpriteBox.png"
         moveText("sprite")
     } else {
-        let newSrc = "/display/assets/dialogue/boxes/DialogueBox.png"
+        let newSrc = "/display/assets/dialogue/boxes/DialogueBox.PNG"
         let newColor = "#ffbd92"
         if (arg === "pino") {
             // newSrc = "/display/assets/dialogue/boxes/PinoDialogueBox.png"

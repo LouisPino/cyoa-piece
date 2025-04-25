@@ -25,19 +25,35 @@ const tillyImgEl = document.getElementById("tilly-img")
 
 deviceEl.src = `/display/assets/intro/device${characters.p.device}.png`
 
-
-
+let textsArr = [
+    // ENTER YOUR SCENE'S TEXT HERE AS AN ARRAY OF STRINGS ONE PER LINE
+    "*grumble grumble*",
+    " We… are the golems…Made of earth and mud…",
+    "*grumble* … you…you… YOU . . .  ",
+    "have come by at the perfect moment! *grumble*",
+    "We were just about to rehearse for the Sylvan Forest dance recital *grumble grumble*",
+    "Please, take a moment to watch our performance…",
+    "*grumble* Thank you for your time… Let us help you with your journey…*grumble* come over here…",
+    "We think this portal will take you where you need to go next….",
+];
 
 
 function intro() {
+    toggleBox("dialogue", "")
+    nextLine(textsArr)
+
     scene1()
 
     setTimeout(() => {
         scene2()
+        nextLine(textsArr)
+
     }, 1000 * multiplier)
 
     setTimeout(() => {
         scene3()
+        nextLine(textsArr)
+
     }, 3000 * multiplier)
 
     setTimeout(() => {
@@ -67,7 +83,6 @@ intro()
 
 
 function scene1() {
-    toggleBox("none")
     castleBackEl.style.visibility = "visible"
     castleFrontEl.style.visibility = "visible"
     tillyGifEl.style.visibility = "visible"

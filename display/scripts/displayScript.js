@@ -5,6 +5,8 @@ let promptLength;
 let currentLocation;
 let inDVD = false;
 let history;
+let textIdx = 0; // Index for texts array
+
 document.addEventListener("DOMContentLoaded", function () {
   const confetti = new JSConfetti();
   let locations;
@@ -227,14 +229,14 @@ document.addEventListener("DOMContentLoaded", function () {
     mainEl.innerHTML = section.html.display;
   }
 
-  let textBodyEl;
   function sectionChange(section) {
+    textIdx = 0
     sceneTransition(section.transition.type, section.transition.time);
     setTimeout(() => {
       toggleHTML(section);
       runSectionScript(section.name);
       textBodyEl = document.querySelector(".text-body");
-      typeTextManual(texts, textBodyEl);
+      // typeTextManual(texts, textBodyEl);
     }, section.transition.time / 2);
     let texts = [
       // ENTER YOUR SCENE'S TEXT HERE AS AN ARRAY OF STRINGS ONE PER LINE

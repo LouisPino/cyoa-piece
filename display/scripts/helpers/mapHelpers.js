@@ -53,18 +53,26 @@ function convertMap() {
     }
 }
 
-function moveMap(x, y) {
-    const mapEl = document.getElementById("map")
-    const mapBorderEl = document.getElementById("map-border")
+function moveMap(x, y, time) {
+    const mapEl = document.getElementById("map");
+    const mapBorderEl = document.getElementById("map-border");
+
+    mapEl.style.transition = `left ${time}ms ease, top ${time}ms ease`;
+    mapBorderEl.style.transition = `left ${time}ms ease, top ${time}ms ease`;
+
     mapEl.style.left = `${x}px`;
     mapEl.style.top = `${y}px`;
     mapBorderEl.style.left = `${x}px`;
     mapBorderEl.style.top = `${y}px`;
 }
 
-function fadeMap(opacity) {
-    const mapEl = document.getElementById("map")
-    const mapBorderEl = document.getElementById("map-border")
-    mapEl.style.opacity = `${opacity}`
-    mapBorderEl.style.opacity = `${opacity}`
+function fadeMap(opacity, time) {
+    const mapEl = document.getElementById("map");
+    const mapBorderEl = document.getElementById("map-border");
+
+    mapEl.style.transition = `opacity ${time}ms ease`;
+    mapBorderEl.style.transition = `opacity ${time}ms ease`;
+
+    mapEl.style.opacity = `${opacity}`;
+    mapBorderEl.style.opacity = `${opacity}`;
 }

@@ -38,37 +38,37 @@ textsArr = [
 
 
 function intro() {
-    // scene1()
-    textIdx = 3
-    scene4()
+    // textIdx = 7
+    scene1()
+    // scene4()
     setTimeout(() => {
         scene2()
 
-    }, 50000 * multiplier)
+    }, 28000 * multiplier)
 
     setTimeout(() => {
         scene3()
-    }, 50000 * multiplier)
+    }, 44000 * multiplier)
 
     setTimeout(() => {
         scene4()
-    }, 50000 * multiplier)
+    }, 70000 * multiplier)
 
     setTimeout(() => {
         scene5()
-    }, 50000 * multiplier)
+    }, 90000 * multiplier)
 
-    setTimeout(() => {
-        scene6()
-    }, 50000 * multiplier)
+    // setTimeout(() => {
+    //     scene6()
+    // }, 50000 * multiplier)
 
-    setTimeout(() => {
-        scene7()
-    }, 50000 * multiplier)
+    // setTimeout(() => {
+    //     scene7()
+    // }, 50000 * multiplier)
 
-    setTimeout(() => {
-        scene8()
-    }, 50000 * multiplier)
+    // setTimeout(() => {
+    //     scene8()
+    // }, 50000 * multiplier)
 }
 
 
@@ -91,10 +91,16 @@ function scene1() {
 }
 
 function scene2() {
-    changeBg("cardboard.jpg")
-    castleBackEl.style.visibility = "hidden"
-    castleFrontEl.style.visibility = "hidden"
-    tillyGifEl.style.visibility = "hidden"
+    changeBg("stills/cardboard.png")
+    slideChar(castleBackEl, 1920, 0, 500)
+    slideChar(castleFrontEl, 1920, 0, 500)
+    slideChar(tillyGifEl, 1920, 0, 500)
+    setTimeout(() => {
+
+        castleBackEl.style.visibility = "hidden"
+        castleFrontEl.style.visibility = "hidden"
+        tillyGifEl.style.visibility = "hidden"
+    }, 500)
     yarnEl.style.visibility = "visible"
     napsEl.style.visibility = "visible"
     guttersEl.style.visibility = "visible"
@@ -143,6 +149,8 @@ function scene3() {
     guttersEl.style.visibility = "hidden"
 
     loafEl.style.visibility = "visible"
+    landChar(loafEl, 0, 0, -900)
+
     box1El.style.visibility = "visible"
     box2El.style.visibility = "visible"
 
@@ -159,7 +167,7 @@ function scene3() {
     setTimeout(() => {
         nextLine(
         )
-    }, 6400 * multiplier)
+    }, 8400 * multiplier)
     setTimeout(() => {
         slideBoxY("none")
     }, 24000 * multiplier)
@@ -190,6 +198,11 @@ function scene4() {
     setTimeout(() => {
         fadeChar("pino", 1000, -150, 10, 2000)
     }, 13000)
+    setTimeout(() => {
+        fadeChar("pino", 5000, -5000, 5000, 2000)
+        fadeChar(floppy1El, 5000, -5000, 5000, 2000)
+        fadeBox("none")
+    }, 20000)
 }
 
 function scene5() {
@@ -220,7 +233,7 @@ function scene6() {
 }
 
 function scene7() {
-    changeBg("cardboard.jpg")
+    changeBg("animated/forest.gif")
     toggleAnimation("walk", "duo")
     flipChar("left", "duo")
     slideChar("duo", -900, 0, 3000)
@@ -230,6 +243,25 @@ function scene7() {
 
 function scene8() {
     // fade in map then add box w text
+    renderMap(characters.p.device)
+    // Defer the opacity change just a tick to let the initial render take effect
+    setTimeout(() => {
+        fadeMap(1, 10000);
+    }, 50);
+    setTimeout(() => {
+        slideBoxY("dialogue")
+    }, 10000)
+
+
+    setTimeout(() => {
+        nextLine()
+    }, 10600)
+
+
+    setTimeout(() => {
+        slideBoxY("none")
+
+    }, 17500)
 }
 
 

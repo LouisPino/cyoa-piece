@@ -413,6 +413,9 @@ function landChar(char, x, y, startYArg) {
         case "npc":
             elements.push(document.getElementById("npc"));
             break;
+        default:
+            elements.push(char)
+            break;
     }
 
     elements.forEach(element => {

@@ -11,6 +11,8 @@ const skinChoices = {
     jDevice: ["jaz/device/A", "jaz/device/B", "Choose a sound"]
 }
 function displayVote(mainEl, extras, voteLength, data, type) {
+    removeMap()
+
     let seconds = voteLength / 1000 - 1;
     mainEl.innerHTML = extras.filter(
         (extra) => extra.name === "vote"
@@ -26,8 +28,9 @@ function displayVote(mainEl, extras, voteLength, data, type) {
     switch (type) {
         case "path":
             backgroundEl.src = data.currentLocation.voteBgBlur
-            voteBannerText.innerHTML = data.currentLocation.choicePrompts.display
+            voteBannerText.innerHTML = currentLocation.choicePrompts.display
             voteAImg.src = `display/assets/vote/location/${data.currentLocation.choices[0]}/up.PNG`
+            console.log(currentLocation.choicePrompts.display)
             voteBImg.src = `display/assets/vote/location/${data.currentLocation.choices[1]}/up.PNG`
             break
         case "skin":
@@ -50,7 +53,7 @@ function promptVote(mainEl, extras, data, type) {
     const html = extras.filter(
         (extra) => extra.name === "votePrompt"
     )[0].content;
-    mainEl.innerHTML += html
+    mainEl.insertAdjacentHTML("beforeend", html);
     switch (type) {
         case "path":
             const backgroundEl = document.querySelector("#location-bg")

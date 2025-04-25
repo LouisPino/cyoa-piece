@@ -66,8 +66,10 @@ function renderPino(location) {
     pinoCharSizeCtr.appendChild(pinoDiv)
     if (!location) {
         document.getElementById("display-main").appendChild(pinoCharSizeCtr)
+        pinoCharSizeCtr.classList.remove("float-only")
+
     } else if (location === "river") {
-        document.getElementById("boat-ctr").appendChild(pinoCharSizeCtr)
+        document.getElementById("boat-rocker").appendChild(pinoCharSizeCtr)
     }
 }
 
@@ -81,8 +83,9 @@ function renderJaz(location) {
     jazCharSizeCtr.appendChild(jazDiv)
     if (!location) {
         document.getElementById("display-main").appendChild(jazCharSizeCtr)
+        jazCharSizeCtr.classList.remove("float-only")
     } else if (location === "river") {
-        const boatDiv = document.getElementById("boat-ctr")
+        const boatDiv = document.getElementById("boat-rocker")
         boatDiv.appendChild(jazCharSizeCtr)
     }
 }
@@ -537,6 +540,10 @@ function slideChar(char, x, y, time) {
         case "npc":
             moveDivSmoothly(document.getElementById("npc-size-ctr"), x, y, time); // Moves pinoDiv to (200, 300) over 1 second
             break;
+        default:
+            moveDivSmoothly(char, x, y, time); // Moves pinoDiv to (200, 300) over 1 second
+            break;
+
     }
 }
 

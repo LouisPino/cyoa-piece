@@ -81,13 +81,14 @@ body {
 
 .char-size-ctr {
     position: absolute;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
 }
 
 #pino-size-ctr {
+    z-index: 100;
     transform-origin: 18% center;
 }
 
@@ -99,7 +100,6 @@ body {
 .char-div {
     width: 100%;
     height: 50%;
-    z-index: 100;
 }
 
 .char-div img {
@@ -167,7 +167,6 @@ body {
 }
 
 /* river */
-
 #boat-back {
     z-index: 50;
 }
@@ -175,6 +174,65 @@ body {
 #boat-front {
     z-index: 150;
 }
+
+/* Whole boat + characters rock together */
+#boat-rocker {
+    animation: floatRock 4s ease-in-out infinite;
+    transform-origin: bottom center;
+    position: relative;
+    width: 50vw;
+    height: 50vh;
+}
+
+.boat-part {
+    width: 100%;
+    height: 100%;
+}
+
+/* Characters float, but don't rotate */
+.float-only {
+    animation: floatUpDown 4s ease-in-out infinite;
+    position: absolute;
+}
+
+/* Rocking motion (parent) */
+@keyframes floatRock {
+    0% {
+        transform: translateY(-4px) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateY(4px) rotate(3deg);
+    }
+
+    100% {
+        transform: translateY(-4px) rotate(-3deg);
+    }
+}
+
+/* Vertical floating only (characters) */
+@keyframes floatUpDown {
+    0% {
+        transform: translateY(0px);
+    }
+
+    25% {
+        transform: translateY(-4px);
+    }
+
+    50% {
+        transform: translateY(0px);
+    }
+
+    75% {
+        transform: translateY(-2px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
 
 /* CHARACTER REVEAL */
 .skin-asset-bg {

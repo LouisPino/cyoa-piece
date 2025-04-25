@@ -166,7 +166,15 @@ body {
     z-index: 12;
 }
 
+/* river */
 
+#boat-back {
+    z-index: 50;
+}
+
+#boat-front {
+    z-index: 150;
+}
 
 /* CHARACTER REVEAL */
 .skin-asset-bg {

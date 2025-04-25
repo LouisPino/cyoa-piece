@@ -56,7 +56,7 @@ function storeCharacters(newCharacters) {
 }
 
 
-function renderPino() {
+function renderPino(location) {
     pinoDiv.appendChild(pinoFaceLine)
     pinoDiv.appendChild(pinoBodyLine)
     pinoDiv.appendChild(pinoRobe)
@@ -64,11 +64,14 @@ function renderPino() {
     pinoDiv.appendChild(pinoHat)
     pinoDiv.appendChild(pinoFace)
     pinoCharSizeCtr.appendChild(pinoDiv)
-    document.getElementById("display-main").appendChild(pinoCharSizeCtr)
-
+    if (!location) {
+        document.getElementById("display-main").appendChild(pinoCharSizeCtr)
+    } else if (location === "river") {
+        document.getElementById("boat-ctr").appendChild(pinoCharSizeCtr)
+    }
 }
 
-function renderJaz() {
+function renderJaz(location) {
     jazDiv.appendChild(jazFaceLine)
     jazDiv.appendChild(jazBody)
     jazDiv.appendChild(jazCollarLine)
@@ -76,7 +79,12 @@ function renderJaz() {
     jazDiv.appendChild(jazHat)
     jazDiv.appendChild(jazFace)
     jazCharSizeCtr.appendChild(jazDiv)
-    document.getElementById("display-main").appendChild(jazCharSizeCtr)
+    if (!location) {
+        document.getElementById("display-main").appendChild(jazCharSizeCtr)
+    } else if (location === "river") {
+        const boatDiv = document.getElementById("boat-ctr")
+        boatDiv.appendChild(jazCharSizeCtr)
+    }
 }
 
 
@@ -327,7 +335,6 @@ function landCharBounce(char, x, y, startYArg) {
             break;
         default:
             elements.push(char)
-            console.log(char)
             break;
     }
 

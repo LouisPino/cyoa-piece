@@ -124,7 +124,7 @@ const locations = {
     },
     choices: ["Left", "Right"],
     html: {},
-    transition: { type: "pull", time: 2000 },
+    transition: { type: "fade", time: 2000 },
     voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
   },
   chat: {

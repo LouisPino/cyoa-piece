@@ -14,7 +14,7 @@ function fight() {
     renderPino()
     renderJaz()
     changeNPCSrc(`${history.locationsVisited[history.locationsVisited.length - 2].name.slice(0, -1)}/full.png`)
-    setTimeout(throwHats, 100)
+    setTimeout(robeAura, 100)
     setTimeout(collarRoll, 8000)
     setTimeout(deviceDrop, 13000)
     setTimeout(hatSpike, 19000)

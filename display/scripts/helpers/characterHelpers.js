@@ -110,7 +110,6 @@ async function fileExists(url) {
 }
 
 async function toggleAnimation(animation, charName) {
-
     previousAnimation = currentAnimation
     currentAnimation = animation
     let charNames = []
@@ -167,9 +166,12 @@ async function toggleAnimation(animation, charName) {
         }
     } else if (animation === "robeAura") {
         setTimeout(() => {
-
             pinoBodyLine.src = `/display/assets/characters/pino/bodyline/robeAura/${characters.p.robe}.png`
             pinoBodyLine.style.zIndex = "101"
+            pinoFace.style.zIndex = "100"
+            pinoHat.style.zIndex = "99"
+            pinoRobe.style.zIndex = "98"
+
         }, 10)
     }
     else {

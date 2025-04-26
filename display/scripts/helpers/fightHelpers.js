@@ -225,7 +225,7 @@ function noisyBonk() {
     const weaponEl = document.createElement('img');
     armEl.src = `/display/assets/characters/jaz/attacks/bonk/arm1.png`;
     weaponEl.src = `/display/assets/characters/jaz/attacks/bonk/${characters.j.device}1.png`;
-    armEl.style.zIndex = 200
+    armEl.style.zIndex = 80
     weaponEl.style.zIndex = 201
 
     setTimeout(() => {
@@ -442,6 +442,11 @@ function unfocusChar(char) {
 function shootLaser(color = "red") {
     // Create the laser element
     const laserEl = document.createElement('div');
+    if (characters.p.robe === "A") {
+        color = "rgb(119, 239, 34)"
+    } else {
+        color = "rgb(214, 84, 255)"
+    }
     laserEl.style.position = "absolute";
     laserEl.style.zIndex = "10";
     laserEl.style.left = "300px";
@@ -451,12 +456,9 @@ function shootLaser(color = "red") {
     laserEl.style.transformOrigin = "left center"; // Grow from the left side
     laserEl.style.transition = "width 0.2s linear, left .6s linear, top 1s linear";
     laserEl.style.transform = "rotate(20deg)";     // ROTATE 25 degrees immediately
+    laserEl.style.boxShadow = `0 0 20px 8px ${color}`;  // <<< Wide blurry glow
 
-    if (characters.p.robe === "A") {
-        color = "green"
-    } else {
-        color = "purple"
-    }
+
     laserEl.style.backgroundColor = color;
     document.body.appendChild(laserEl);
 

@@ -7,11 +7,9 @@ function fight() {
     jumpChar("duo", 0, 50)
     changeSize("duo", 1, .8)
     if (history.locationsVisited[history.locationsVisited.length - 2].name === "rats") {
-        // changeBg("animated/riverInterior.gif")
-        document.getElementById("sandbox-bg").src = "/display/assets/backgrounds/animated/riverInterior.gif"
+        changeBg("animated/riverInterior.gif")
     } else {
-        // changeBg("animated/caveInterior.gif")
-        document.getElementById("sandbox-bg").src = "/display/assets/backgrounds/animated/caveInterior.gif"
+        changeBg("animated/caveInterior.gif")
     }
     renderPino()
     renderJaz()

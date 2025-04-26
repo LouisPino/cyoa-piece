@@ -47,6 +47,8 @@ const locations = {
     html: {},
     bgName: "forest",
     transition: { type: "pixelate", time: 1000 },
+    banner: "forest",
+
   },
   rockField: {
     name: "rockField",
@@ -60,6 +62,8 @@ const locations = {
     bgName: "rock",
 
     transition: { type: "pixelate", time: 1000 },
+    banner: "rock",
+
   },
   frogs: {
     name: "frogs",
@@ -73,6 +77,19 @@ const locations = {
     transition: { type: "pixelate", time: 1000 },
     bgName: "forest",
 
+
+  },
+  golems: {
+    name: "golems",
+    paths: ["cave", "cave"],
+    choicePrompts: {
+      mobile: "",
+      display: "",
+    },
+    choices: ["", ""],
+    html: {},
+    transition: { type: "pixelate", time: 1000 },
+    bgName: "rock",
   },
   waterfall: {
     name: "waterfall",
@@ -86,6 +103,7 @@ const locations = {
 
     transition: { type: "pixelate", time: 1000 },
     bgName: "waterfall",
+    banner: "waterfall",
 
   },
   forestSouth: {
@@ -99,6 +117,8 @@ const locations = {
     html: {},
     transition: { type: "blur", time: 1000 },
     bgName: "forest",
+    banner: "forest",
+
   },
   cave: {
     name: "cave",
@@ -112,6 +132,8 @@ const locations = {
     transition: { type: "blur", time: 1000 },
     voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
     bgName: "caveInterior",
+    banner: "cave",
+
 
   },
   river: {
@@ -126,6 +148,7 @@ const locations = {
     transition: { type: "fade", time: 2000 },
     voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
     bgName: "river",
+    banner: "river",
 
   },
   chat: {
@@ -207,6 +230,7 @@ const locations = {
     html: {},
     transition: { type: "fade", time: 3000 },
     bgName: "shore",
+    banner: "shore",
 
   },
   clouds: {
@@ -220,6 +244,8 @@ const locations = {
     html: {},
     transition: { type: "fade", time: 3000 },
     bgName: "clouds",
+    banner: "clouds",
+
 
 
   },
@@ -324,6 +350,8 @@ const locations = {
     html: {},
     transition: { type: "fade", time: 3000 },
     bgName: "ocean",
+    banner: "ocean",
+
 
   },
   twilight: {
@@ -339,6 +367,7 @@ const locations = {
     html: {},
     transition: { type: "fade", time: 3000 },
     bgName: "space",
+    banner: "space",
 
   },
 

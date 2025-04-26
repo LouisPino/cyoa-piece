@@ -361,24 +361,19 @@ function clearText() {
 
 
 
-function locationBanner(locationName) {
+function locationBanner(locationBanner) {
     const bannerEl = document.getElementById("sandbox-location-banner")
+    console.log("it")
     bannerEl.style.transition = "left 0ms"
     bannerEl.style.left = "-100%"
     setTimeout(() => {
         bannerEl.style.transition = "left 1.5s ease-in-out"
         bannerEl.style.left = "0%"
-
     }, 100)
-    // const bannerElText = document.getElementById("sandbox-location-banner-text")
-    // bannerElText.innerHTML = location
-    // bannerElText.style.left = "0%"
-    bannerEl.src = `/display/assets/locations/banners/${locationName}.PNG`
+    bannerEl.src = `/display/assets/locations/banners/${locationBanner}.PNG`
     setTimeout(() => {
-
         bannerEl.style.left = "100%"
-        bannerElText.style.left = "100%"
-    }, 3000);
+    }, 5000);
 
 }
 

@@ -249,6 +249,11 @@ document.addEventListener("DOMContentLoaded", function () {
       "*grumble* Thank you for your time… Let us help you with your journey…*grumble* come over here…",
       "We think this portal will take you where you need to go next….",
     ];
+    if (section.banner) {
+      setTimeout(() => {
+        locationBanner(section.banner)
+      }, section.transition.time + 1000)
+    }
   }
 
   //health is in %

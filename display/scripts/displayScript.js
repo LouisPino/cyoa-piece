@@ -192,7 +192,6 @@ document.addEventListener("DOMContentLoaded", function () {
         case "map":
           switch (msg.route) {
             case "render":
-              console.log(characters)
               renderMap(characters.p.device)
               break
             case "remove":

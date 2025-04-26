@@ -164,9 +164,15 @@ async function toggleAnimation(animation, charName) {
     } else if (animation === "jump") {
         if (charNames.includes("pino")) {
             pinoHands.remove()
-
         }
-    } else {
+    } else if (animation === "robeAura") {
+        setTimeout(() => {
+
+            pinoBodyLine.src = `/display/assets/characters/pino/bodyline/robeAura/${characters.p.robe}.png`
+            pinoBodyLine.style.zIndex = "101"
+        }, 10)
+    }
+    else {
         pinoDiv.appendChild(pinoHands)
         pinoDiv.appendChild(pinoFaceLine)
         pinoHelmet.remove()

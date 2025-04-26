@@ -104,7 +104,6 @@ function dvdBounce() {
 
 function dvdHop(char) {
   // Remove animation from all img elements inside jazDiv
-  console.log(currentLocation)
   if (currentLocation.name === "twilight") {
     stopRotate(char)
     setTimeout(() => {

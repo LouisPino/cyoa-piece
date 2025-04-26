@@ -10,13 +10,13 @@ function rats() {
     jazCharSizeCtr.classList.add("float-only")
     renderJaz("river")
     renderPino("river")
-    setTimeout(() => {
-        slideChar(boatRockerEl, 300, 250, 5000)
-    }, 4000)
-    setTimeout(() => {
-        toggleAnimation("side", "duo")
-        slideChar(boatRockerEl, 2000, 200, 13000)
-    }, 9000)
+    // setTimeout(() => {
+    //     slideChar(boatRockerEl, 300, 250, 5000)
+    // }, 4000)
+    // setTimeout(() => {
+    //     toggleAnimation("side", "duo")
+    //     slideChar(boatRockerEl, 2000, 200, 13000)
+    // }, 9000)
 }
 
 

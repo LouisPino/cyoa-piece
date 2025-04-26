@@ -5,6 +5,52 @@ let defaultX = 0
 
 
 
+function robeAura() {
+    setTimeout(() => {
+        toggleAnimation("robeAura", "pino")
+        focusChar("pino")
+    }, 1000)
+    setTimeout(() => {
+        toggleAnimation("robeAura", "pino")
+        shootLaser()
+        setTimeout(() => {
+            shootLaser()
+        }, 300)
+        setTimeout(() => {
+            shootLaser()
+            shakeChar("npc", 300, 20);
+        }, 600)
+        setTimeout(() => {
+            shootLaser()
+            shakeChar("npc", 300, 40);
+        }, 900)
+        setTimeout(() => {
+            shootLaser()
+            shakeChar("npc", 1200, 90);
+        }, 1200)
+        // shoot lasers 3 times, 300ms inbetween
+    }, 2000)
+    setTimeout(() => {
+        changeNPCSrc("frog/full.png")
+    }, 4300)
+    setTimeout(() => {
+        flipChar("left", "npc")
+    }, 5000)
+    setTimeout(() => {
+        flipChar("right", "npc")
+    }, 6000)
+    setTimeout(() => {
+        enemySpin()
+        changeNPCSrc(`${history.locationsVisited[history.locationsVisited.length - 2].name.slice(0, -1)}/full.png`)
+    }, 7000)
+    setTimeout(() => {
+        unfocusChar("pino")
+    }, 7500)
+
+}
+
+
+
 
 
 function throwHats() {
@@ -12,7 +58,6 @@ function throwHats() {
     const glowEl = document.createElement('img');
     glowEl.src = `/display/assets/characters/pino/attacks/throwHats/glow.png`;
 
-    console.log("throw hat!", characters.p.hat)
     setTimeout(() => {
         focusChar("pino")
     }, 1000)
@@ -62,12 +107,9 @@ function throwHats() {
 
 
     setTimeout(() => {
-        enemySpin()
-    }, 3500)
+        enemySpin(5000)
+    }, 2500)
 
-    setTimeout(() => {
-        enemySpin()
-    }, 5000)
     setTimeout(() => {
         toggleAnimation("fightNeutral", "pino")
         unfocusChar("pino")
@@ -126,6 +168,54 @@ function collarRoll() {
 
 
 
+function collarRollDuo() {
+    const jazDiv = document.getElementById("jaz-char");
+    const armsEl = document.createElement('img');
+    const weaponEl = document.createElement('img');
+    armsEl.src = `/display/assets/characters/jaz/attacks/collarRoll/arms.png`;
+    weaponEl.src = `/display/assets/characters/jaz/attacks/collarRoll/${characters.j.collar}.png`;
+    weaponEl.id = "collar-weapon"
+    armsEl.style.zIndex = 200;
+    weaponEl.style.zIndex = 201;
+    weaponEl.style.left = "425px";
+    weaponEl.style.top = "400px";
+    weaponEl.style.position = "absolute";
+
+    setTimeout(() => {
+        focusChar("jaz");
+    }, 1000);
+
+    setTimeout(() => {
+        toggleAnimation("collarRoll", "jaz");
+        jazDiv.appendChild(armsEl);
+        jazDiv.appendChild(weaponEl);
+    }, 2000);
+
+    setTimeout(() => {
+        weaponEl.style.left = "800px";
+        weaponEl.style.top = "400px";
+        weaponEl.style.animation = "rotate360Collar .5s linear infinite";
+    }, 2500);
+
+    setTimeout(() => {
+        hopChar("npc");
+        enemySpin();
+        // Move weaponEl back to the left, rotate counterclockwise
+        weaponEl.style.left = "425px";
+        weaponEl.style.top = "400px";
+        weaponEl.style.animation = "rotate360Collar .5s linear infinite reverse";
+    }, 6000);
+
+    setTimeout(() => {
+        unfocusChar("jaz");
+        weaponEl.style.animation = "none";
+    }, 7000);
+
+    setTimeout(() => {
+        armsEl.remove();
+        weaponEl.remove();
+    }, 8000);
+}
 
 
 
@@ -138,7 +228,6 @@ function noisyBonk() {
     armEl.style.zIndex = 200
     weaponEl.style.zIndex = 201
 
-    console.log("bonk!", characters.j.device)
     setTimeout(() => {
         toggleAnimation("walk", "jaz")
         changeSize("jaz", 0, .7)
@@ -197,30 +286,12 @@ function noisyBonk() {
 
 
 
-function robeAura() {
-    console.log("laser!", characters.p.robe)
-    changeNPCSrc("frog/full.png")
-    setTimeout(() => {
-        focusChar("pino")
-    }, 1000)
-    setTimeout(() => {
-        flipChar("left", "npc")
-    }, 3000)
-    setTimeout(() => {
-        flipChar("right", "npc")
-    }, 4000)
-    setTimeout(() => {
-        changeNPCSrc(`${history.locationsVisited[history.locationsVisited.length - 2].name.slice(0, -1)}/full.png`)
-    }, 5000)
-
-}
-
 
 
 
 
 function duoAttack() {
-    // console.log("throw hat!", characters.p.hat)
+    // "throw hat!", characters.p.hat)
     // console.log("throw collar!", characters.j.collar)
     // setTimeout(() => {
     //     focusChar("pino")
@@ -232,7 +303,7 @@ function duoAttack() {
     // }, 5000)
 
     throwHats()
-    collarRoll()
+    collarRollDuo()
 }
 
 
@@ -267,11 +338,11 @@ function hatSpike() {
     }, 1900);
 
     setTimeout(() => {
-        hopChar("npc", 400, 300);
+        hopChar("npc", 550, 300);
     }, 2600);
 
     setTimeout(() => {
-        hopChar("npc", 400, 300);
+        hopChar("npc", 700, 400);
     }, 3300);
 
     setTimeout(() => {
@@ -282,14 +353,11 @@ function hatSpike() {
     setTimeout(() => {
         hatSpikeEl.remove();
     }, 5000);
-
-    console.log("spike!", characters.j.hat);
 }
 
 
 
 function deviceDrop() {
-    console.log("drop!", characters.p.device);
     // Create the deviceEl image element
     const deviceEl = document.createElement('img');
     deviceEl.src = `/display/assets/characters/pino/attacks/deviceDrop/${characters.p.device}.png`; // Set src manually later
@@ -334,11 +402,14 @@ function deviceDrop() {
 
 
 // enemy reactions
-function enemySpin() {
+function enemySpin(time = 1800) {
     const spriteEl = document.getElementById("npc");
     spriteEl.classList.remove("smacked-spin");
     void spriteEl.offsetWidth;
     spriteEl.classList.add("smacked-spin");
+    setTimeout(() => {
+        spriteEl.classList.remove("smacked-spin");
+    }, time)
 }
 
 function enemyFlatten() {
@@ -346,7 +417,12 @@ function enemyFlatten() {
     spriteEl.classList.remove("flatten-squash");
     void spriteEl.offsetWidth;
     spriteEl.classList.add("flatten-squash");
+    setTimeout(() => {
+        spriteEl.classList.remove("flatten-squash");
+
+    }, 2000)
 }
+
 
 
 
@@ -362,4 +438,41 @@ function unfocusChar(char) {
         document.getElementById(`${char}-size-ctr`).style.zIndex = 100
         toggleAnimation("fightNeutral", char)
     }, 1000)
+}
+function shootLaser(color = "red") {
+    // Create the laser element
+    const laserEl = document.createElement('div');
+    laserEl.style.position = "absolute";
+    laserEl.style.zIndex = "10";
+    laserEl.style.left = "300px";
+    laserEl.style.top = "300px";
+    laserEl.style.width = "20px";       // Start small
+    laserEl.style.height = "8px";        // Laser thickness
+    laserEl.style.transformOrigin = "left center"; // Grow from the left side
+    laserEl.style.transition = "width 0.2s linear, left .6s linear, top 1s linear";
+    laserEl.style.transform = "rotate(20deg)";     // ROTATE 25 degrees immediately
+
+    if (characters.p.robe === "A") {
+        color = "green"
+    } else {
+        color = "purple"
+    }
+    laserEl.style.backgroundColor = color;
+    document.body.appendChild(laserEl);
+
+    // Step 1: Grow the laser width
+    setTimeout(() => {
+        laserEl.style.width = "400px"; // Extend laser (adjust as needed)
+    }, 0);
+
+    // Step 2: After short grow delay, move laser
+    setTimeout(() => {
+        laserEl.style.left = "1100px";
+        laserEl.style.top = "800px";
+    }, 200); // Start moving right after growth
+
+    // Step 3: Remove after reaching destination
+    setTimeout(() => {
+        laserEl.remove();
+    }, 800); // 1 second for movement + 0.2 for grow
 }

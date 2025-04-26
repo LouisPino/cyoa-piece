@@ -790,7 +790,7 @@ body {
 }
 
 .smacked-spin {
-    animation: spin-smacked 1.8s ease-out forwards;
+    animation: spin-smacked 1.8s ease-out infinite;
 }
 
 

@@ -37,7 +37,7 @@ function displayVote(mainEl, extras, voteLength, data, type) {
             voteBImg.src = `display/assets/vote/location/${data.currentLocation.choices[1]}/up.PNG`
             break
         case "skin":
-            backgroundEl.src = "display/assets/backgrounds/stills/cardboard.png"
+            backgroundEl.src = "display/assets/backgrounds/stills/default.png"
             voteBannerText.innerHTML = skinChoices[data.item][2]
             voteAImg.src = `display/assets/vote/character/${skinChoices[data.item][0]}/up.PNG`
             voteBImg.src = `display/assets/vote/character/${skinChoices[data.item][1]}/up.PNG`

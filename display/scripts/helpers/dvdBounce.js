@@ -11,7 +11,6 @@ function dvdBounce() {
   pinoDiv.appendChild(pinoFace)
   document.body.appendChild(pinoDiv)
 
-
   jazDiv.appendChild(jazFaceLine)
   jazDiv.appendChild(jazBody)
   jazDiv.appendChild(jazCollarLine)
@@ -88,4 +87,42 @@ function dvdBounce() {
 
   });
   toggleAnimation("dvd");
+  setTimeout(() => {
+    dvdHop(pinoDiv)
+  }, 2000);
+  setTimeout(() => {
+    dvdHop(jazDiv)
+  }, 4000);
+  setTimeout(() => {
+    stopRotate(jazDiv)
+    stopRotate(pinoDiv)
+  }, 10000);
+
+
+}
+
+
+function dvdHop(char) {
+  // Remove animation from all img elements inside jazDiv
+  console.log(currentLocation)
+  if (currentLocation.name === "twilight") {
+    stopRotate(char)
+    setTimeout(() => {
+      startRotate(char)
+    }, 5000);
+  }
+  hopChar(char, 400, 5000);
+}
+
+
+function stopRotate(char) {
+  char.querySelectorAll('img').forEach(img => {
+    img.style.animation = 'none';
+  });
+}
+
+function startRotate(char) {
+  char.querySelectorAll('img').forEach(img => {
+    img.style.animation = 'rotate360 15s linear infinite';
+  });
 }

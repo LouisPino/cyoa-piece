@@ -349,8 +349,8 @@ const locations = {
     ],
     html: {},
     transition: { type: "fade", time: 3000 },
-    bgName: "ocean",
-    banner: "ocean",
+    bgName: "space",
+    banner: "space",
 
 
   },
@@ -366,8 +366,8 @@ const locations = {
     ],
     html: {},
     transition: { type: "fade", time: 3000 },
-    bgName: "space",
-    banner: "space",
+    bgName: "ocean",
+    banner: "ocean",
 
   },
 

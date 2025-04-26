@@ -99,7 +99,7 @@ body {
 
 .char-div {
     width: 100%;
-    height: 50%;
+    /* height: 50%; */
 }
 
 .char-div img {
@@ -569,6 +569,7 @@ body {
     position: relative;
     width: 100vw;
     height: 100vh;
+    /* border: 1px solid red; */
 }
 
 

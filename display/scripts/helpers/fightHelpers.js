@@ -8,7 +8,7 @@ let defaultX = 0
 
 
 function throwHats() {
-    const hatSrc = `/display/assets/characters/pino/attacks/throwHats/${characters.p.hat}.png`
+    const hatSrcs = [`/display/assets/characters/pino/attacks/throwHats/${characters.p.hat}1.png`, `/display/assets/characters/pino/attacks/throwHats/${characters.p.hat}2.png`, `/display/assets/characters/pino/attacks/throwHats/${characters.p.hat}3.png`]
     const glowEl = document.createElement('img');
     glowEl.src = `/display/assets/characters/pino/attacks/throwHats/glow.png`;
 
@@ -18,18 +18,60 @@ function throwHats() {
     }, 1000)
     setTimeout(() => {
         toggleAnimation("throwHats", "pino")
-        enemySpin()
+        function generateHats() {
+            let i = 0;  // Counter to control when to stop
+            const interval = setInterval(() => {
+                // Randomly choose a hat source from the hatSrcs array
+                const randomHatSrc = hatSrcs[Math.floor(Math.random() * hatSrcs.length)];
+
+                // Randomly choose a Y position between 500px and 700px
+                const randomTop = Math.floor(Math.random() * (800 - 400 + 1)) + 500;
+
+                // Create the hat element
+                const hatEl = document.createElement('img');
+                hatEl.src = randomHatSrc;
+                hatEl.style.position = "absolute";
+                hatEl.style.left = "300px";  // Start at X position 300px
+                hatEl.style.top = "600px";   // Start at Y position 600px
+                hatEl.style.transition = "left 0.5s linear, top 0.5s linear";  // Smooth transition for both left and top
+
+                // Append the hat element to the document or parent container
+                document.body.appendChild(hatEl);
+
+                // Move the hat to the right and set the random vertical position
+                setTimeout(() => {
+                    hatEl.style.left = "1400px";  // Move to the right
+                    hatEl.style.top = `${randomTop}px`;  // Move to the random Y position
+                }, 0);
+
+                // Remove the hat after it has fully moved (adjusted to match transition duration)
+                setTimeout(() => {
+                    hatEl.remove();
+                }, 500);  // 0.5s after the hat starts moving
+
+                // Stop after 4 seconds
+                i++;
+                if (i >= 20) {  // 20 hats generated in 4 seconds (1 every 0.2 seconds)
+                    clearInterval(interval);
+                }
+            }, 200); // Generate a new hat every 0.2 seconds
+        }
+
+        generateHats(); // Call to start generating hats
     }, 2000)
-    setTimeout(() => {
-        // generate hats
-    }, 3000)
+
+
     setTimeout(() => {
         enemySpin()
     }, 3500)
+
+    setTimeout(() => {
+        enemySpin()
+    }, 5000)
     setTimeout(() => {
         toggleAnimation("fightNeutral", "pino")
         unfocusChar("pino")
-    }, 5000)
+    }, 7000)
 }
 
 function collarRoll() {

@@ -36,3 +36,6 @@ pages[0].classList.add("active");
 
 // Start the carousel with the first timeout
 setTimeout(switchPage, timings[0]);
+
+slideBoxY("none")
+

@@ -154,7 +154,7 @@ function slideBoxY(arg, characters) {
     const boxEl = document.getElementById("sandbox-dialogue-box");
     const spriteEl = document.getElementById("sandbox-dialogue-sprite");
     const textBodyEl = document.querySelector(".text-body");
-
+    console.log(boxEl, spriteEl, textBodyEl)
     const outs = ["slide-down", "slide-out", "slide-out-fast", "fade-out-fast"];
     const ins = ["fade-in-fast", "slide-in", "slide-in-fast", "slide-up"];
 

@@ -233,6 +233,7 @@ document.addEventListener("DOMContentLoaded", function () {
     textIdx = 0
     sceneTransition(section.transition.type, section.transition.time);
     setTimeout(() => {
+      changeBg(`animated/${section.bgName}.gif`)
       toggleHTML(section);
       runSectionScript(section.name);
       textBodyEl = document.querySelector(".text-body");

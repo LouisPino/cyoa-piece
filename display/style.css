@@ -274,6 +274,17 @@ body {
 }
 
 
+/* portals */
+#rock-portal-back,
+#waterfall-portal-back {
+    z-index: 50;
+}
+
+#rock-portal-front,
+#waterfall-portal-front {
+    z-index: 150;
+}
+
 /* CHARACTER REVEAL */
 .skin-asset-bg {
     z-index: 3;

@@ -7,6 +7,31 @@ let defaultX = 0
 
 
 
+function throwHats() {
+    const hatSrc = `/display/assets/characters/pino/attacks/throwHats/${characters.p.hat}.png`
+    const glowEl = document.createElement('img');
+    glowEl.src = `/display/assets/characters/pino/attacks/throwHats/glow.png`;
+
+    console.log("throw hat!", characters.p.hat)
+    setTimeout(() => {
+        focusChar("pino")
+    }, 1000)
+    setTimeout(() => {
+        toggleAnimation("throwHats", "pino")
+        enemySpin()
+    }, 2000)
+    setTimeout(() => {
+        // generate hats
+    }, 3000)
+    setTimeout(() => {
+        enemySpin()
+    }, 3500)
+    setTimeout(() => {
+        toggleAnimation("fightNeutral", "pino")
+        unfocusChar("pino")
+    }, 5000)
+}
+
 function collarRoll() {
     const jazDiv = document.getElementById("jaz-char");
     const armsEl = document.createElement('img');
@@ -129,22 +154,6 @@ function noisyBonk() {
 
 
 
-
-function throwHats() {
-    console.log("throw hat!", characters.p.hat)
-    setTimeout(() => {
-        focusChar("pino")
-    }, 1000)
-    setTimeout(() => {
-        enemySpin()
-    }, 2000)
-    setTimeout(() => {
-        unfocusChar("pino")
-    }, 4000)
-    setTimeout(() => {
-
-    }, 8000)
-}
 
 function robeAura() {
     console.log("laser!", characters.p.robe)

@@ -161,6 +161,11 @@ async function toggleAnimation(animation, charName) {
             jazBody.style.zIndex = "96"//Body Color
             jazFace.style.zIndex = "95"//Chair
         }
+    } else if (animation === "jump") {
+        if (charNames.includes("pino")) {
+            pinoHands.remove()
+
+        }
     } else {
         pinoDiv.appendChild(pinoHands)
         pinoDiv.appendChild(pinoFaceLine)

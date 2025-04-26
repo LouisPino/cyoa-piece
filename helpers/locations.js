@@ -75,7 +75,7 @@ const locations = {
     choices: ["", ""],
     html: {},
     transition: { type: "pixelate", time: 1000 },
-    bgName: "forest",
+    bgName: "waterfall",
 
 
   },
@@ -91,6 +91,7 @@ const locations = {
     transition: { type: "pixelate", time: 1000 },
     bgName: "rock",
   },
+
   waterfall: {
     name: "waterfall",
     paths: ["river", "river"],
@@ -130,8 +131,7 @@ const locations = {
     choices: ["Left", "Right"],
     html: {},
     transition: { type: "blur", time: 1000 },
-    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
-    bgName: "caveInterior",
+    bgName: "cave",
     banner: "cave",
 
 
@@ -185,9 +185,6 @@ const locations = {
     choices: ["fight", "chat"],
     html: {},
     transition: { type: "pull", time: 2000 },
-    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
-    bgName: "caveInterior",
-
   },
   rats: {
     name: "rats",

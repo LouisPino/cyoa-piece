@@ -1,10 +1,11 @@
 function fight() {
-    toggleAnimation("side", "jaz")
-    toggleAnimation("side", "pino")
+    toggleAnimation("fightNeutral", "jaz")
+    toggleAnimation("fightNeutral", "pino")
     // slideBoxY("none")
     jumpChar("npc", 550, 0)
     changeSize("npc", 1, .7)
-    jumpChar("duo", 0, 50)
+    jumpChar("pino", 0, -100)
+    jumpChar("jaz", 100, -100)
     changeSize("duo", 1, .8)
     if (history.locationsVisited[history.locationsVisited.length - 2].name === "rats") {
         changeBg("animated/riverInterior.gif")
@@ -14,7 +15,7 @@ function fight() {
     renderPino()
     renderJaz()
     changeNPCSrc(`${history.locationsVisited[history.locationsVisited.length - 2].name.slice(0, -1)}/full.png`)
-    setTimeout(hatSpike, 1000)
+    setTimeout(hatSpike, 100)
     // throwHats()
     // robeAura()
     // deviceDrop()

@@ -40,6 +40,18 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-349",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 633.787229537963867, 825.565166711807251, 70.0, 22.0 ],
+					"text" : "fightNeutral"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"format" : 6,
 					"id" : "obj-343",
 					"maxclass" : "flonum",
@@ -3418,7 +3430,7 @@
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-													"text" : "99"
+													"text" : "109"
 												}
 
 											}
@@ -4726,7 +4738,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-									"text" : "99"
+									"text" : "109"
 								}
 
 							}
@@ -6002,7 +6014,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 91.291204333305359, 375.334079444408417, 75.0, 22.0 ],
+					"patching_rect" : [ 25.024186670780637, 477.334079444408417, 75.0, 22.0 ],
 					"text" : "isopods"
 				}
 
@@ -10175,7 +10187,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 106.270933091641609, 17.0, 117.08072251081353, 22.0 ],
-					"text" : "/characters voted"
+					"text" : "/switch waterfall"
 				}
 
 			}
@@ -12018,6 +12030,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-350", 0 ],
 					"source" : [ "obj-348", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-206", 0 ],
+					"source" : [ "obj-349", 0 ]
 				}
 
 			}

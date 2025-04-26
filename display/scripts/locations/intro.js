@@ -30,7 +30,7 @@ textsArr = [
     "Deep within the Sylvan Forest, there is a humble but well fed kingdom ruled by KING TILLY.",
     "King Tilly of TillyLand is a lover of loose string, long naps, and in his earlier years, ADVENTURING.",
     "These days, the king prefers to lounge in the comfort of his castle. However, this hasn’t stopped him from buying a rare treasure map or two…",
-    "On a fine spring day, King Tilly comes across an ancient treasure map that can only be decoded by Ancient Wizard Technology. He decides to consult the local ancient wizard technology specialist, WIZARD PINO",
+    "On a fine spring day, King Tilly comes across an ancient treasure map that can only be decoded by Ancient Wizard Technology. He decides to consult the local Ancient Wizard Technology Specialist, WIZARD PINO",
     "With the help of the wizard, the map begins to be decoded…",
     "Holy moly!! Look at all these paths! Is it possible that all these routes lead to treasure? Sounds like an adventure is brewing… preparations will have to be made before entering the unexplored realm of the Sylvan Forest",
     "Due to the potential dangers, King Tilly sends his strongest court jester, JESTER JAZ, to assist Wizard Pino",
@@ -253,6 +253,8 @@ function scene5() {
 }
 
 function scene6() {
+    changeBg("animated/forest.gif")
+
     mapVideoEl.style.opacity = "0"
 
     toggleAnimation("front", "duo")
@@ -289,7 +291,6 @@ function scene6() {
 }
 
 function scene7() {
-    changeBg("animated/forest.gif")
     toggleAnimation("walk", "duo")
     flipChar("left", "duo")
     slideChar("duo", -900, 0, 3000)

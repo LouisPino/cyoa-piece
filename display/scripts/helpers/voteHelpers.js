@@ -27,14 +27,17 @@ function displayVote(mainEl, extras, voteLength, data, type) {
     let voteEls = [voteAImg, voteBImg, voteBGs[0], voteBGs[1]]
     switch (type) {
         case "path":
-            backgroundEl.src = data.currentLocation.voteBgBlur
+            if (currentLocation.bgName) {
+                backgroundEl.src = `/display/assets/backgrounds/blur/${currentLocation.bgName}.png`
+            } else {
+                backgroundEl.src = `/display/assets/backgrounds/blur/${history.locationsVisited[history.locationsVisited.length - 2].bgName}.png`
+            }
             voteBannerText.innerHTML = currentLocation.choicePrompts.display
             voteAImg.src = `display/assets/vote/location/${data.currentLocation.choices[0]}/up.PNG`
-            console.log(currentLocation.choicePrompts.display)
             voteBImg.src = `display/assets/vote/location/${data.currentLocation.choices[1]}/up.PNG`
             break
         case "skin":
-            backgroundEl.src = "display/assets/backgrounds/testbg.jpg"
+            backgroundEl.src = "display/assets/backgrounds/stills/cardboard.png"
             voteBannerText.innerHTML = skinChoices[data.item][2]
             voteAImg.src = `display/assets/vote/character/${skinChoices[data.item][0]}/up.PNG`
             voteBImg.src = `display/assets/vote/character/${skinChoices[data.item][1]}/up.PNG`
@@ -54,12 +57,18 @@ function promptVote(mainEl, extras, data, type) {
         (extra) => extra.name === "votePrompt"
     )[0].content;
     mainEl.insertAdjacentHTML("beforeend", html);
+
     switch (type) {
         case "path":
-            const backgroundEl = document.querySelector("#location-bg")
-            if (backgroundEl) {
-                backgroundEl.src = data.currentLocation.voteBgBlur
-            }
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    const backgroundEl = document.getElementById("sandbox-bg");
+                    if (backgroundEl) {
+                        let bgName = currentLocation.bgName || history.locationsVisited[history.locationsVisited.length - 2].bgName;
+                        backgroundEl.src = `/display/assets/backgrounds/blur/${bgName}.png`;
+                    }
+                }, 100);
+            });
             break;
         case "skin":
             //CHARACTER SELECT BACKGROUND
@@ -74,7 +83,7 @@ function displayWinner(winner, extras, mainEl, currentLocation) {
     )[0].content;
     mainEl.innerHTML = html
     const backgroundEl = document.querySelector(".vote-bg")
-    backgroundEl.src = currentLocation.voteBgBlur
+    backgroundEl.src = `/display/assets/backgrounds/blur/${currentLocation.bgName}.png`
     const winnerEl = document.getElementById("vote-winner")
     winnerEl.innerHTML = `THE WINNER IS ${currentLocation.paths[winner].toUpperCase()}`
     console.log(`THE WINNER IS ${currentLocation.paths[winner].toUpperCase()}`)

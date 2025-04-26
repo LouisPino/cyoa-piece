@@ -9,7 +9,6 @@ const locations = {
     choices: ["sandbox", "sandbox"],
     transition: { type: "pixelate-no-blur", time: 1000 },
     html: {},
-    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
   },
 
 
@@ -35,7 +34,7 @@ const locations = {
     choices: ["north", "south"],
     html: {},
     transition: { type: "pixelate-no-blur", time: 1000 },
-    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
+    bgName: "forest",
   },
   forestNorth: {
     name: "forestNorth",
@@ -46,8 +45,7 @@ const locations = {
     },
     choices: ["left", "right"],
     html: {},
-    voteBg: "/display/assets/backgrounds/ForestTest.jpg",
-    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
+    bgName: "forest",
     transition: { type: "pixelate", time: 1000 },
   },
   rockField: {
@@ -59,8 +57,8 @@ const locations = {
     },
     choices: ["", ""],
     html: {},
-    voteBg: "/display/assets/backgrounds/rock.jpg",
-    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
+    bgName: "rock",
+
     transition: { type: "pixelate", time: 1000 },
   },
   frogs: {
@@ -72,10 +70,9 @@ const locations = {
     },
     choices: ["", ""],
     html: {},
-    voteBg: "/display/assets/backgrounds/ForestTest.jpg",
-    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
     transition: { type: "pixelate", time: 1000 },
-    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
+    bgName: "forest",
+
   },
   waterfall: {
     name: "waterfall",
@@ -86,10 +83,10 @@ const locations = {
     },
     choices: ["", ""],
     html: {},
-    voteBg: "/display/assets/backgrounds/waterfall.jpg",
-    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
+
     transition: { type: "pixelate", time: 1000 },
-    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
+    bgName: "waterfall",
+
   },
   forestSouth: {
     name: "forestSouth",
@@ -101,7 +98,7 @@ const locations = {
     choices: ["Left", "Right"],
     html: {},
     transition: { type: "blur", time: 1000 },
-    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
+    bgName: "forest",
   },
   cave: {
     name: "cave",
@@ -114,6 +111,8 @@ const locations = {
     html: {},
     transition: { type: "blur", time: 1000 },
     voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
+    bgName: "caveInterior",
+
   },
   river: {
     name: "river",
@@ -126,6 +125,8 @@ const locations = {
     html: {},
     transition: { type: "fade", time: 2000 },
     voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
+    bgName: "river",
+
   },
   chat: {
     name: "chat",
@@ -138,7 +139,6 @@ const locations = {
     html: {},
     movingSprites: true,
     transition: { type: "fade", time: 1000 },
-    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
   },
   fight: {
     name: "fight",
@@ -151,7 +151,6 @@ const locations = {
     html: {},
     movingSprites: true,
     transition: { type: "fade", time: 1000 },
-    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
   },
   isopods: {
     name: "isopods",
@@ -164,6 +163,8 @@ const locations = {
     html: {},
     transition: { type: "pull", time: 2000 },
     voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
+    bgName: "caveInterior",
+
   },
   rats: {
     name: "rats",
@@ -175,6 +176,8 @@ const locations = {
     choices: ["fight", "chat"],
     html: {},
     transition: { type: "fade", time: 1000 },
+    bgName: "riverInterior",
+
   },
   bats: {
     name: "bats",
@@ -187,7 +190,8 @@ const locations = {
     html: {},
     movingSprites: true,
     transition: { type: "blur", time: 1000 },
-    voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
+    bgName: "caveInterior",
+
   },
 
 
@@ -202,6 +206,8 @@ const locations = {
     choices: ["fight", "chat"],
     html: {},
     transition: { type: "fade", time: 3000 },
+    bgName: "shore",
+
   },
   clouds: {
     name: "clouds",
@@ -213,9 +219,12 @@ const locations = {
     choices: ["fight", "chat"],
     html: {},
     transition: { type: "fade", time: 3000 },
+    bgName: "clouds",
+
 
   },
   pacifistClouds: {
+    bgName: "clouds",
     name: "pacifistClouds",
     paths: ["thermosphere", "twilight"],
     choicePrompts: {
@@ -239,6 +248,8 @@ const locations = {
     ],
     html: {},
     transition: { type: "fade", time: 3000 },
+    bgName: "shore",
+
   },
   fightClouds: {
     name: "fightClouds",
@@ -252,8 +263,11 @@ const locations = {
     ],
     html: {},
     transition: { type: "fade", time: 3000 },
+    bgName: "clouds",
+
   },
   explainClouds: {
+    bgName: "clouds",
     name: "explainClouds",
     paths: ["thermosphere", "thermosphere"],
     choicePrompts: {
@@ -278,7 +292,10 @@ const locations = {
     ],
     html: {},
     transition: { type: "fade", time: 3000 },
+    bgName: "shore",
+
   },
+
   explainShrimp: {
     name: "explainShrimp",
     paths: ["twilight", "twilight"],
@@ -291,6 +308,8 @@ const locations = {
     ],
     html: {},
     transition: { type: "fade", time: 3000 },
+    bgName: "shore",
+
   },
   thermosphere: {
     name: "thermosphere",
@@ -304,6 +323,8 @@ const locations = {
     ],
     html: {},
     transition: { type: "fade", time: 3000 },
+    bgName: "ocean",
+
   },
   twilight: {
     name: "twilight",
@@ -317,6 +338,8 @@ const locations = {
     ],
     html: {},
     transition: { type: "fade", time: 3000 },
+    bgName: "space",
+
   },
 
   credits: {

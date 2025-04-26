@@ -89,11 +89,11 @@ body {
 
 #pino-size-ctr {
     z-index: 100;
-    transform-origin: 18% center;
+    transform-origin: 18% 80%;
 }
 
 #jaz-size-ctr {
-    transform-origin: 40% 50%;
+    transform-origin: 40% 80%;
     z-index: 100;
 }
 
@@ -283,6 +283,29 @@ body {
 #rock-portal-front,
 #waterfall-portal-front {
     z-index: 150;
+}
+
+
+/* fight */
+
+#collar-weapon {
+    width: 400px;
+    height: 400px;
+    transform-origin: 200px 275px;
+    position: absolute;
+    transition: left .7s linear;
+}
+
+@keyframes rotate360Collar {
+    from {
+        transform: rotate(0deg);
+        transform-origin: 200px 275px;
+    }
+
+    to {
+        transform: rotate(360deg);
+        transform-origin: 200px 275px;
+    }
 }
 
 /* CHARACTER REVEAL */

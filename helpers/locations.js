@@ -22,7 +22,7 @@ const locations = {
     choices: [
     ],
     html: {},
-    transition: { type: "fade", time: 3000 },
+    transition: { type: "fade", time: 100 },
   },
   intro: {
     name: "intro",

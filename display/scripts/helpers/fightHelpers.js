@@ -508,7 +508,6 @@ function triggerAttack() {
     attackIdx++;
     let powerBarCtr = document.getElementById("power-bar-ctr");
     let powerBar = document.getElementById("power-bar");
-
     powerBarCtr.style.visibility = "hidden";
     powerBar.style.width = "0";
     changeSwipePrompt()
@@ -518,7 +517,9 @@ function decrementHealth() {
     let healthBar = document.getElementById("health-bar");
     healthBar.style.width = bossHealth * 100 + "%";
     if (bossHealth === 0) {
+        let healthBarCtr = document.getElementById("health-bar-ctr");
         healthBar.style.width = "0";
+        healthBarCtr.style.visibility = "hidden";
     }
 }
 
@@ -527,7 +528,6 @@ function incrementPower() {
     powerBar.style.width = swipeCount / swipeCountTarget * 100 + "%";
 }
 
-
 function resetBattlefield(next) {
     let powerBarCtr = document.getElementById("power-bar-ctr");
     if (next === "pino") {
@@ -535,8 +535,12 @@ function resetBattlefield(next) {
     } else {
         powerBarCtr.style.left = "24vw"
     }
-    powerBarCtr.style.visibility = "visible"
-    changeSwipePrompt(swipeType)
+    if (bossHealth != 0) {
+        powerBarCtr.style.visibility = "visible"
+        changeSwipePrompt(swipeType)
+    } else {
+        fightPart2()
+    }
 }
 
 const swipeMap = {
@@ -550,7 +554,12 @@ function changeSwipePrompt(swipeType) {
     if (!swipeType) {
         document.getElementById("swipe-prompt").innerHTML = ""
     } else {
-
         document.getElementById("swipe-prompt").innerHTML = `${swipeMap[swipeType]} SWIPE ${swipeType.toUpperCase()}!!! ${swipeMap[swipeType]} `
     }
+}
+
+
+
+function fightPart2() {
+    slideBoxY("sprite")
 }

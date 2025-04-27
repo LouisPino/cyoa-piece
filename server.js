@@ -23,7 +23,7 @@ let history = {
 }
 let voting = false
 
-const bossMaxHealth = 7
+const bossMaxHealth = 2
 const swipeCountTarget = 10
 let bossHealth = bossMaxHealth
 

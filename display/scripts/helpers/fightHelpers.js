@@ -1,5 +1,5 @@
 let charSize = 1
-
+let attacking = false
 function robeAura() {
     setTimeout(() => {
         toggleAnimation("robeAura", "pino")
@@ -43,6 +43,7 @@ function robeAura() {
         unfocusChar("pino")
         setTimeout(() => {
             resetBattlefield("jaz")
+
         }, 1000)
     }, 7500)
 
@@ -504,6 +505,8 @@ const attacks = [robeAura, hatSpike, deviceDrop, collarRoll, throwHats, noisyBon
 let attackIdx = 0
 //health is in %
 function triggerAttack() {
+    attacking = true
+    sendToServer({ type: "attacking", data: attacking })
     attacks[attackIdx]();  // <-- just call it like a normal function
     attackIdx++;
     let powerBarCtr = document.getElementById("power-bar-ctr");
@@ -529,6 +532,9 @@ function incrementPower() {
 }
 
 function resetBattlefield(next) {
+    attacking = false
+    sendToServer({ type: "attacking", data: attacking })
+
     let powerBarCtr = document.getElementById("power-bar-ctr");
     if (next === "pino") {
         powerBarCtr.style.left = "10vw"

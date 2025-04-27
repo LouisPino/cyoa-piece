@@ -22,6 +22,7 @@ let history = {
     buff: ""
 }
 let voting = false
+let attacking = false
 
 const bossMaxHealth = 2
 const swipeCountTarget = 10
@@ -150,6 +151,9 @@ wss.on('connection', (ws, req) => {
                 break
             case "attack":
                 handleAttack(data.val)
+                break
+            case "attacking":
+                attacking = data.data
                 break
         }
     });
@@ -289,6 +293,7 @@ function intermissionTrigger() {
 }
 
 function handleAttack(attackType) {
+    if (attacking) { return }
     if (attackType === swipeType) {
         swipeCount++
         if (swipeCount === Math.floor(swipeCountTarget / 3)

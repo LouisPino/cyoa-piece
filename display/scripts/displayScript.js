@@ -15,6 +15,7 @@ let swipeCount
 let swipeCountTarget
 let swipeType
 
+let socket
 
 document.addEventListener("DOMContentLoaded", function () {
   const confetti = new JSConfetti();
@@ -25,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   initializeWebSocket(location.hostname);
   function initializeWebSocket(ip) {
-    const socket = new WebSocket(`ws://${ip}:8000/display`);
+    socket = new WebSocket(`ws://${ip}:8000/display`);
     // Confirm connection success
     socket.onopen = function (e) {
       console.log("WebSocket connection established!");
@@ -281,4 +282,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
+
 });
+
+
+function sendToServer(msg) {
+  socket.send(JSON.stringify(msg));
+}

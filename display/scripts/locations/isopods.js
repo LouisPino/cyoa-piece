@@ -41,7 +41,7 @@ function isopods() {
 
 
 function scene0() {
-    changeDialogueSprite("bat/happy");
+    changeDialogueSprite("isopod/angry");
     renderMap()
     fadeMap(1, 1)
     toggleAnimation("side", "duo")
@@ -123,7 +123,6 @@ function scene3() {
     }, 2000)
     setTimeout(() => {
         toggleAnimation("walk", "duo")
-
         slideChar("pino", 250, 0, 1000)
         slideChar("jaz", 150, 0, 1000)
         setTimeout(() => {
@@ -133,12 +132,12 @@ function scene3() {
     }, 4000)
     setTimeout(() => {
         toggleAnimation("walk", "duo")
-        slideChar("pino", 350, 0, 1000)
-        slideChar("jaz", 250, 0, 1000)
+        slideChar("pino", 350, 0, 2000)
+        slideChar("jaz", 250, 0, 2000)
         setTimeout(() => {
             toggleAnimation("side", "duo")
             shakeChar("duo", 1000, 40)
-        }, 1000)
+        }, 2000)
     }, 6000)
 
 }
@@ -151,6 +150,7 @@ function scene4() {
 function scene5() {
     slideBoxY("none")
 }
+
 isopods()
 
 

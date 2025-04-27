@@ -222,6 +222,7 @@ function pull(time) {
     toggleAnimation("walk");
     changeSize("duo", 1, 1)
     flipChar("right", "duo")
+    jumpChar("duo", 0, 0)
     renderPino();
     renderJaz();
 
@@ -249,7 +250,7 @@ function pull(time) {
         // pinoDiv: starting 19vw to the left of the overlay’s left edge.
         // Overlay's left edge (after transform) is at -119vw.
         // So pinoDiv is placed at -119vw - 19vw = -138vw.
-        pinoDiv.style.left = "calc(-100vw - 40vw)"; // -138vw
+        pinoDiv.style.left = "-150vw"; // -138vw
         pinoDiv.style.top = "200px";
         pinoDiv.style.transform = "translateY(-50%)"; // initial vertical centering
 

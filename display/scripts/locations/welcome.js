@@ -44,30 +44,7 @@ renderPino("welcome")
 renderJaz("welcome")
 jumpChar("duo", 500, 475)
 
-const fieldsPino = ["color", "hat", "robe"]
-const fieldsJaz = ["color", "hat", "collar"]
-function gifRandomizer() {
-    setInterval(() => {
-        const randomFieldPino = fieldsPino[Math.floor(Math.random() * fieldsPino.length)];
-        const randomFieldJaz = fieldsJaz[Math.floor(Math.random() * fieldsJaz.length)];
 
-        if (randomFieldPino === "color") {
-            characters.p["color"] = characters.p["color"] === 'A' ? 'B' : 'A';
-            characters.p["face"] = characters.p["face"] === 'A' ? 'B' : 'A';
-            characters.p["faceline"] = characters.p["faceline"] === 'A' ? 'B' : 'A';
-            characters.p["hands"] = characters.p["hands"] === 'A' ? 'B' : 'A';
-        } else {
-            characters.p[randomFieldPino] = characters.p[randomFieldPino] === 'A' ? 'B' : 'A';
-        }
-        if (randomFieldJaz === "color") {
-            characters.j["color"] = characters.j["color"] === 'A' ? 'B' : 'A';
-            characters.j["face"] = characters.j["face"] === 'A' ? 'B' : 'A';
-            characters.j["faceline"] = characters.j["faceline"] === 'A' ? 'B' : 'A';
-            characters.j["hands"] = characters.j["hands"] === 'A' ? 'B' : 'A';
-        } else {
-            characters.p[randomFieldJaz] = characters.p[randomFieldJaz] === 'A' ? 'B' : 'A';
-        }
-        toggleAnimation("run", "duo")
-    }, 300)
-}
+
+
 gifRandomizer()

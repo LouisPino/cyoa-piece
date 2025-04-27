@@ -38,7 +38,6 @@ textsArr = [
 ];
 removePino()
 removeJaz()
-
 function intro() {
     // textIdx = 6
     scene1()

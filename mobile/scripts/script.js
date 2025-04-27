@@ -67,6 +67,9 @@ function initializeWebSocket() {
                     endFight()
                 }
                 break
+            case "swipeType":
+                changeSwipePrompt(msg.data)
+                break
         }
     };
 }
@@ -107,3 +110,13 @@ function endFight() {
     xEl.innerHTML = "I am in fact dead."
 }
 
+const swipeMap = {
+    up: "↑",
+    down: "↓",
+    left: "←",
+    right: "→"
+}
+
+function changeSwipePrompt(swipeType) {
+    document.getElementById("swipe-prompt").innerHTML = `${swipeMap[swipeType]} SWIPE ${swipeType.toUpperCase()}!!! ${swipeMap[swipeType]} `
+}

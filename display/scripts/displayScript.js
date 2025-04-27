@@ -7,6 +7,7 @@ let inDVD = false;
 let history;
 let textIdx = 0; // Index for texts array
 let textsArr
+let bossHealth
 document.addEventListener("DOMContentLoaded", function () {
   const confetti = new JSConfetti();
   let locations;
@@ -46,8 +47,9 @@ document.addEventListener("DOMContentLoaded", function () {
         case "intermission":
           intermissionStart();
           break;
-        case "bossHealth":
-          punchBadGuy(msg.data);
+        case "triggerAttack":
+          bossHealth = msg.data
+          triggerAttack();
           break;
         case "characterSelect":
           revealCharacter(msg.data);
@@ -260,12 +262,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  //health is in %
-  function punchBadGuy(bossHealth) {
-    let healthBar = document.getElementById("health-bar");
-    healthBar.style.width = bossHealth * 100 + "%";
-    if (bossHealth === 0) {
-      healthBar.style.width = "0";
-    }
-  }
+
 });

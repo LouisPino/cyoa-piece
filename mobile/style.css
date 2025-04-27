@@ -53,12 +53,14 @@ body {
     z-index: -1;
 }
 
-/* #main {
-    width: 100vw;
-    margin: 0;
-    padding: 0;
+#main {
+    overflow-y: hidden;
+    z-index: 1;
+}
 
-} */
+.default-bg {
+    z-index: -1;
+}
 
 .btn {
     height: 100px;
@@ -157,6 +159,15 @@ button {
     left: 0;
     width: calc(var(--vw, 1vw) * 100);
     height: calc(var(--vh, 1vh) * 100);
+}
+
+
+/* fight */
+#swipe-prompt {
+    color: white;
+    text-align: center;
+    font-size: 80px;
+    /* border: 1px solid red; */
 }
 
 

@@ -7,9 +7,9 @@ const IP4 = require('./helpers/ip4.js')
 const [locations, mobileExtras, displayExtras, displayScripts, mobileScripts, mobileLocationScripts, displayLocationScripts] = require("./helpers/fileLoader.js")
 const [characters] = require("./characters/default.js")
 let currentLocation = locations["welcome"]
-const voteLength = 10
-const winnerLength = 10
-const promptLength = 10
+const voteLength = 1000
+const winnerLength = 1000
+const promptLength = 1000
 let gameScores = []
 let history = {
     locationsVisited: [],
@@ -20,8 +20,12 @@ let history = {
 let voting = false
 
 const bossMaxHealth = 7
+const swipeCountTarget = 10
 let bossHealth = bossMaxHealth
 
+const swipeTypes = ["up", "down", "left", "right"]
+let swipeType
+let swipeCount = 0
 
 
 /////////////////////////Initialize server
@@ -177,6 +181,11 @@ function sendSectionChange(location) {
     sendToDisplay({ type: "section", data: location })
     sendToWebClients({ type: "history", data: history })
     sendToDisplay({ type: "history", data: history })
+    if (currentLocation.name === "fight") {
+        setTimeout(() => {
+            newTargetSwipe()
+        }, 100)
+    }
 }
 
 
@@ -275,10 +284,33 @@ function intermissionTrigger() {
 }
 
 function handleAttack(attackType) {
-    bossHealth--
-    sendToDisplay({ type: "bossHealth", data: bossHealth / bossMaxHealth })
-    if (bossHealth === 0) { endFight() }
+    console.log(attackType)
+    if (attackType === swipeType) {
+        swipeCount++
+        if (swipeCount === Math.floor(swipeCountTarget / 3)
+            || swipeCount === Math.floor(swipeCountTarget / 3)
+            * 2) {
+            newTargetSwipe()
+        }
+        sendToDisplay({ type: "swipeCount", data: swipeCount })
+    }
+    if (swipeCount === swipeCountTarget) {
+        bossHealth--
+        swipeCount = 0
+        sendToDisplay({ type: "triggerAttack", data: bossHealth / bossMaxHealth })
+        newTargetSwipe()
 
+        if (bossHealth === 0) { endFight() }
+    }
+
+
+}
+
+
+function newTargetSwipe() {
+    swipeType = swipeTypes[Math.floor(Math.random() * 4)]
+    console.log(swipeType)
+    sendToWebClients({ type: "swipeType", data: swipeType })
 }
 
 function endFight() {

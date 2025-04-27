@@ -1,9 +1,4 @@
 let charSize = 1
-let defaultY = 50
-let defaultX = 0
-
-
-
 
 function robeAura() {
     setTimeout(() => {
@@ -18,6 +13,7 @@ function robeAura() {
         }, 300)
         setTimeout(() => {
             shootLaser()
+            decrementHealth()
             shakeChar("npc", 300, 20);
         }, 600)
         setTimeout(() => {
@@ -108,6 +104,8 @@ function throwHats() {
 
     setTimeout(() => {
         enemySpin(5000)
+        decrementHealth()
+
     }, 2500)
 
     setTimeout(() => {
@@ -148,6 +146,8 @@ function collarRoll() {
     setTimeout(() => {
         hopChar("npc");
         enemySpin();
+        decrementHealth()
+
         // Move weaponEl back to the left, rotate counterclockwise
         weaponEl.style.left = "425px";
         weaponEl.style.top = "400px";
@@ -252,6 +252,8 @@ function noisyBonk() {
         armEl.src = `/display/assets/characters/jaz/attacks/bonk/arm2.png`;
         weaponEl.src = `/display/assets/characters/jaz/attacks/bonk/${characters.j.device}2.png`;
         enemySpin()
+        decrementHealth()
+
     }, 4000)
     setTimeout(() => {
         armEl.src = `/display/assets/characters/jaz/attacks/bonk/arm1.png`;
@@ -335,6 +337,8 @@ function hatSpike() {
     setTimeout(() => {
         hopChar("npc", 400, 300);
         shakeChar("npc", 2100, 50);
+        decrementHealth()
+
     }, 1900);
 
     setTimeout(() => {
@@ -380,6 +384,8 @@ function deviceDrop() {
 
     setTimeout(() => {
         enemyFlatten();
+        decrementHealth()
+
     }, 2500);
 
     setTimeout(() => {
@@ -477,4 +483,21 @@ function shootLaser(color = "red") {
     setTimeout(() => {
         laserEl.remove();
     }, 800); // 1 second for movement + 0.2 for grow
+}
+
+
+const attacks = [robeAura, hatSpike, deviceDrop, collarRoll, throwHats, noisyBonk, duoAttack]
+let attackIdx = 0
+//health is in %
+function triggerAttack() {
+    attacks[attackIdx]();  // <-- just call it like a normal function
+    attackIdx++;
+}
+
+function decrementHealth() {
+    let healthBar = document.getElementById("health-bar");
+    healthBar.style.width = bossHealth * 100 + "%";
+    if (bossHealth === 0) {
+        healthBar.style.width = "0";
+    }
 }

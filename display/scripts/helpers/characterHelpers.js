@@ -70,6 +70,8 @@ function renderPino(location) {
 
     } else if (location === "river") {
         document.getElementById("boat-rocker").appendChild(pinoCharSizeCtr)
+    } else if (location === "welcome") {
+        document.getElementById("intro-gif-page").appendChild(pinoCharSizeCtr)
     }
 }
 
@@ -87,6 +89,8 @@ function renderJaz(location) {
     } else if (location === "river") {
         const boatDiv = document.getElementById("boat-rocker")
         boatDiv.appendChild(jazCharSizeCtr)
+    } else if (location === "welcome") {
+        document.getElementById("intro-gif-page").appendChild(jazCharSizeCtr)
     }
 }
 

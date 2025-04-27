@@ -370,7 +370,7 @@ const locations = {
 
   credits: {
     name: "credits",
-    paths: ["", ""],
+    paths: ["credits", "credits"],
     choicePrompts: {
       mobile: "",
       display: "",

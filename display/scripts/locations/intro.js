@@ -36,7 +36,8 @@ textsArr = [
     "Due to the potential dangers, King Tilly sends his strongest court jester, JESTER JAZ, to assist Wizard Pino",
     "The adventurers bid their sovereign farewell and begin to make their way out of the kingdom.",
 ];
-
+removePino()
+removeJaz()
 
 function intro() {
     // textIdx = 6

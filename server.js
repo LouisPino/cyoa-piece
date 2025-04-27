@@ -10,7 +10,11 @@ let currentLocation = locations["welcome"]
 const voteLength = 1000
 const winnerLength = 1000
 const promptLength = 1000
-let gameScores = []
+let gameScores = [
+    { "name": "JAZ", "score": 2 },
+    { "name": "PNO", "score": 1 },
+    { "name": "TLY", "score": 3 }
+]
 let history = {
     locationsVisited: [],
     madLibWords: [],
@@ -114,7 +118,7 @@ wss.on('connection', (ws, req) => {
     connectedClients.push(ws)
     if (locationPath === "/display") {
         ws.send(JSON.stringify({ type: 'ip-address', data: IP4 }));
-        sendToDisplay({ type: 'initialFileServe', data: { locations: locations, extras: displayExtras, scripts: displayScripts, locationScripts: displayLocationScripts, voteLength: voteLength, winnerLength: winnerLength, promptLength: promptLength, swipeCountTarget: swipeCountTarget } })
+        sendToDisplay({ type: 'initialFileServe', data: { locations: locations, extras: displayExtras, scripts: displayScripts, locationScripts: displayLocationScripts, voteLength: voteLength, winnerLength: winnerLength, promptLength: promptLength, swipeCountTarget: swipeCountTarget, characters: characters } })
         sendToDisplay({ type: "section", data: currentLocation })
     } else {
         ws.send(JSON.stringify({ type: 'initialFileServe', data: { locations: locations, extras: mobileExtras, scripts: mobileScripts, voteLength: voteLength, locationScripts: mobileLocationScripts } }))
@@ -141,6 +145,7 @@ wss.on('connection', (ws, req) => {
                 break
             case "game-score":
                 gameScores.push(data.val)
+                console.log(gameScores)
                 renderGameLeaderboard()
                 break
             case "attack":
@@ -181,7 +186,7 @@ function sendSectionChange(location) {
     sendToDisplay({ type: "section", data: location })
     sendToWebClients({ type: "history", data: history })
     sendToDisplay({ type: "history", data: history })
-    if (currentLocation.name === "fight") {
+    if (currentLocation?.name === "fight") {
         setTimeout(() => {
             newTargetSwipe()
         }, 100)
@@ -284,7 +289,6 @@ function intermissionTrigger() {
 }
 
 function handleAttack(attackType) {
-    console.log(attackType)
     if (attackType === swipeType) {
         swipeCount++
         if (swipeCount === Math.floor(swipeCountTarget / 3)
@@ -300,8 +304,6 @@ function handleAttack(attackType) {
         sendToDisplay({ type: "triggerAttack", data: bossHealth / bossMaxHealth })
         if (bossHealth === 0) { endFight() }
     }
-
-
 }
 
 
@@ -384,6 +386,8 @@ function renderGameLeaderboard() {
         }));
     sendToDisplay({ type: "game-score", data: sortedScores.slice(0, 5) })
 }
+
+setTimeout(renderGameLeaderboard, 2000)
 
 
 module.exports = [

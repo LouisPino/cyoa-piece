@@ -337,7 +337,7 @@ body {
 
 
 /* INTRO PAGE SWITCHER */
-#intro-gif,
+#intro-gif-page,
 #intro-qr-page,
 #intro-leaderboard {
     position: absolute;
@@ -351,20 +351,24 @@ body {
 .leaderboard {
     position: absolute;
     z-index: 11;
-    left: 700px;
-    top: 400px;
-    font-size: large;
-    line-height: 42px;
+    left: 575px;
+    top: 335px;
+    font-size: 80px;
 }
 
 .score-entry {
     display: flex;
     justify-content: space-between;
-    width: 550px;
+    width: 700px;
+    padding: 0;
+    margin-top: 30px;
 }
 
 .score-part {
     width: fit-content;
+    color: var(--sylvan-light);
+    padding: 0;
+    margin: 0;
 }
 
 /* Ensures only the active page is on top */
@@ -710,7 +714,7 @@ body {
     /* border: 1px solid red; */
     width: 74vw;
     height: 6vh;
-    font-size: 32px;
+    font-size: 58px;
     text-align: center;
     line-height: 2.5rem;
 }

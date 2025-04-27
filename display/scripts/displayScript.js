@@ -3,6 +3,7 @@ let voteLength;
 let winnerLength;
 let promptLength;
 let currentLocation;
+;
 let inDVD = false;
 let history;
 let textIdx = 0; // Index for texts array
@@ -46,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
           extras = msg.data.extras;
           scripts = msg.data.scripts;
           locationScripts = msg.data["locationScripts"];
+          storeCharacters(msg.data["characters"])
           break;
         case "section":
           inDVD = false;

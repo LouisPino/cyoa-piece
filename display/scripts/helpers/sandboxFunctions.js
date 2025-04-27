@@ -283,13 +283,11 @@ function slideBoxX(arg, characters) {
 
 
 
-
 function fadeBox(arg, characters) {
     const boxEl = document.getElementById("sandbox-dialogue-box");
     const spriteEl = document.getElementById("sandbox-dialogue-sprite");
     const textBodyEl = document.querySelector(".text-body");
 
-    // Utility to force reflow
     function forceReflow(el) {
         void el.offsetWidth;
     }
@@ -302,16 +300,25 @@ function fadeBox(arg, characters) {
         });
     }
 
-    if (arg === "sprite") {
-        boxEl.src = "/display/assets/dialogue/boxes/SpriteBox.png";
-        moveText("sprite");
-        textBodyEl.style.color = "#ffbd92";
+    function applyFadeIn() {
+        requestAnimationFrame(() => {
+            boxEl.classList.add("fade-in-fast");
+            textBodyEl.classList.add("fade-in-fast");
+            spriteEl.classList.add("fade-in-fast");
+        });
+    }
 
+    if (arg === "sprite") {
         clearTransitions(boxEl, textBodyEl, spriteEl);
 
-        boxEl.classList.add("fade-in-fast");
-        textBodyEl.classList.add("fade-in-fast");
-        spriteEl.classList.add("fade-in-fast");
+        boxEl.onload = null;
+        boxEl.src = "/display/assets/dialogue/boxes/SpriteBox.png";
+
+        boxEl.onload = () => {
+            moveText("sprite");
+            textBodyEl.style.color = "#ffbd92";
+            applyFadeIn();
+        };
 
     } else if (arg === "none") {
         clearTransitions(boxEl, textBodyEl, spriteEl);
@@ -330,22 +337,25 @@ function fadeBox(arg, characters) {
             newSrc = "/display/assets/dialogue/boxes/PinoDialogueBox.gif";
             newColor = "#c5abfc";
         } else if (arg === "duo") {
-            newSrc = `/display/assets/dialogue/boxes/DuoDialogueBox.gif`;
+            newSrc = "/display/assets/dialogue/boxes/DuoDialogueBox.gif";
             newColor = "#c5abfc";
         } else if (arg === "jaz") {
-            newSrc = `/display/assets/dialogue/boxes/JazDialogueBox.gif`;
+            newSrc = "/display/assets/dialogue/boxes/JazDialogueBox.gif";
             newColor = "#c5abfc";
         }
 
         clearTransitions(boxEl, textBodyEl, spriteEl);
 
+        boxEl.onload = null;
         boxEl.src = newSrc;
-        boxEl.classList.add("fade-in-fast");
-        textBodyEl.classList.add("fade-in-fast");
-        textBodyEl.style.color = newColor;
-        spriteEl.style.visibility = "hidden";
-        textBodyEl.style.visibility = "visible";
-        moveText("dialogue");
+
+        boxEl.onload = () => {
+            textBodyEl.style.color = newColor;
+            spriteEl.style.visibility = "hidden";
+            textBodyEl.style.visibility = "visible";
+            moveText("dialogue");
+            applyFadeIn();
+        };
     }
 }
 

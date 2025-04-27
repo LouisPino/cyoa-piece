@@ -173,7 +173,7 @@ const locations = {
     choices: ["vacuum", "fork"],
     html: {},
     movingSprites: true,
-    transition: { type: "fade", time: 1000 },
+    transition: { type: "pixelate-no-blur", time: 5000 },
   },
   isopods: {
     name: "isopods",

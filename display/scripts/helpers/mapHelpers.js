@@ -1,8 +1,7 @@
 let mapSrc;
 let mapBorder;
 
-function renderMap(border) {
-    mapBorder = border
+function renderMap() {
     if (document.getElementById("map")) {
         return
     }
@@ -12,7 +11,7 @@ function renderMap(border) {
 
     let mapEl;
     let mapBorderEl = document.createElement("img");
-    mapBorderEl.src = `/display/assets/map/${border}.PNG`
+    mapBorderEl.src = `/display/assets/map/${characters.p.device}.PNG`
 
     if (mapSrc.match(/\.(mp4|webm|ogg)$/i)) {
         mapEl = document.createElement("video");
@@ -49,13 +48,17 @@ function convertMap() {
     const existingMap = document.getElementById("map");
     if (existingMap) {
         removeMap();
-        renderMap(mapBorder);
+        renderMap();
     }
 }
-
 function moveMap(x, y, time) {
     const mapEl = document.getElementById("map");
     const mapBorderEl = document.getElementById("map-border");
+
+    if (!mapEl || !mapBorderEl) {
+        console.warn("moveMap: map or border not found");
+        return;
+    }
 
     mapEl.style.transition = `left ${time}ms ease, top ${time}ms ease`;
     mapBorderEl.style.transition = `left ${time}ms ease, top ${time}ms ease`;
@@ -66,9 +69,15 @@ function moveMap(x, y, time) {
     mapBorderEl.style.top = `${y}px`;
 }
 
+
 function fadeMap(opacity, time) {
     const mapEl = document.getElementById("map");
     const mapBorderEl = document.getElementById("map-border");
+
+    if (!mapEl || !mapBorderEl) {
+        console.warn("fadeMap: map or border not found");
+        return;
+    }
 
     mapEl.style.transition = `opacity ${time}ms ease`;
     mapBorderEl.style.transition = `opacity ${time}ms ease`;

@@ -24,8 +24,10 @@ document.addEventListener("touchend", function (evt) {
     } else {
         if (yDiff > 20) {
             sendToServer({ type: "attack", val: "up" })
+
         } else if (yDiff < -20) {
             sendToServer({ type: "attack", val: "down" })
+
         }
     }
     xDown = null;

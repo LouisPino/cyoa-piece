@@ -47,4 +47,4 @@ jumpChar("duo", 500, 475)
 
 
 
-gifRandomizer()
+// gifRandomizer()

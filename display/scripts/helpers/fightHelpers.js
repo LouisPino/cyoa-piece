@@ -286,8 +286,8 @@ function noisyBonk() {
         }, 150)
 
         setTimeout(() => {
-            flipChar("right", "jaz")
             toggleAnimation("fightNeutral", "jaz")
+            flipChar("right", "jaz")
             setTimeout(() => {
                 changeSize("jaz", 1, 1)
                 jumpChar("jaz", 50, 300)
@@ -501,7 +501,7 @@ function shootLaser(color = "red") {
 }
 
 
-const attacks = [robeAura, hatSpike, deviceDrop, collarRoll, throwHats, noisyBonk, duoAttack]
+const attacks = [collarRoll, throwHats, hatSpike, noisyBonk, deviceDrop, robeAura, duoAttack]
 let attackIdx = 0
 //health is in %
 function triggerAttack() {

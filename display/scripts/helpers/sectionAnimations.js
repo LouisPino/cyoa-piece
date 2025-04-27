@@ -220,6 +220,8 @@ function squareTransitionNoBlur(time) {
 
 function pull(time) {
     toggleAnimation("walk");
+    changeSize("duo", 1, 1)
+    flipChar("right", "duo")
     renderPino();
     renderJaz();
 

@@ -24,8 +24,8 @@ let history = {
 let voting = false
 let attacking = false
 
-const bossMaxHealth = 2
-const swipeCountTarget = 10
+const bossMaxHealth = 7
+const swipeCountTarget = 30
 let bossHealth = bossMaxHealth
 
 const swipeTypes = ["up", "down", "left", "right"]
@@ -191,6 +191,8 @@ function sendSectionChange(location) {
     sendToWebClients({ type: "history", data: history })
     sendToDisplay({ type: "history", data: history })
     if (currentLocation?.name === "fight") {
+        oscClient.send("/sample", "pokemon.mp3")
+        console.log("pokemon.mp3")
         setTimeout(() => {
             newTargetSwipe()
         }, 100)
@@ -291,7 +293,6 @@ function intermissionTrigger() {
     sendToWebClients({ type: "intermission" });
     sendToDisplay({ type: "intermission" }); // Display the choice prompt + image
 }
-
 function handleAttack(attackType) {
     if (attacking) { return }
     if (attackType === swipeType) {

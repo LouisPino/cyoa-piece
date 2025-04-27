@@ -508,7 +508,7 @@ body {
     top: 45%;
     /* border: 1px solid red; */
     color: #ffbd92;
-    z-index: 301;
+    z-index: 402;
     max-width: 40%;
     min-width: 40%;
     height: 40%;
@@ -536,7 +536,7 @@ body {
 
 #sandbox-dialogue-box,
 #sandbox-dialogue-sprite-box {
-    z-index: 40;
+    z-index: 400;
     transition: left 500ms ease-in-out;
     /* behind your other content */
 }
@@ -625,7 +625,7 @@ body {
 
 #sandbox-dialogue-sprite,
 #sandbox-dialogue-name {
-    z-index: 2;
+    z-index: 401;
     transition: transform ease-in-out 500ms;
 }
 

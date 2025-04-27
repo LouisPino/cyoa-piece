@@ -1,11 +1,5 @@
 
 let multiplier = 1
-let scene1length = 31000
-let scene2length = 1000
-let scene3length = 1000
-let scene4length = 1000
-let scene5length = 1000
-let scene6length = 1000
 
 const castleBackEl = document.getElementById("castle-back")
 const tillyGifEl = document.getElementById("tilly-gif")

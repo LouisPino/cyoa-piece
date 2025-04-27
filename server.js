@@ -114,7 +114,7 @@ wss.on('connection', (ws, req) => {
     connectedClients.push(ws)
     if (locationPath === "/display") {
         ws.send(JSON.stringify({ type: 'ip-address', data: IP4 }));
-        sendToDisplay({ type: 'initialFileServe', data: { locations: locations, extras: displayExtras, scripts: displayScripts, locationScripts: displayLocationScripts, voteLength: voteLength, winnerLength: winnerLength, promptLength: promptLength } })
+        sendToDisplay({ type: 'initialFileServe', data: { locations: locations, extras: displayExtras, scripts: displayScripts, locationScripts: displayLocationScripts, voteLength: voteLength, winnerLength: winnerLength, promptLength: promptLength, swipeCountTarget: swipeCountTarget } })
         sendToDisplay({ type: "section", data: currentLocation })
     } else {
         ws.send(JSON.stringify({ type: 'initialFileServe', data: { locations: locations, extras: mobileExtras, scripts: mobileScripts, voteLength: voteLength, locationScripts: mobileLocationScripts } }))
@@ -298,8 +298,6 @@ function handleAttack(attackType) {
         bossHealth--
         swipeCount = 0
         sendToDisplay({ type: "triggerAttack", data: bossHealth / bossMaxHealth })
-        newTargetSwipe()
-
         if (bossHealth === 0) { endFight() }
     }
 
@@ -311,6 +309,7 @@ function newTargetSwipe() {
     swipeType = swipeTypes[Math.floor(Math.random() * 4)]
     console.log(swipeType)
     sendToWebClients({ type: "swipeType", data: swipeType })
+    sendToDisplay({ type: "swipeType", data: swipeType })
 }
 
 function endFight() {

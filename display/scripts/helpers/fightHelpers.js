@@ -4,7 +4,7 @@ function robeAura() {
     setTimeout(() => {
         toggleAnimation("robeAura", "pino")
         focusChar("pino")
-    }, 1000)
+    }, 10)
     setTimeout(() => {
         toggleAnimation("robeAura", "pino")
         shootLaser()
@@ -41,6 +41,9 @@ function robeAura() {
     }, 7000)
     setTimeout(() => {
         unfocusChar("pino")
+        setTimeout(() => {
+            resetBattlefield("jaz")
+        }, 1000)
     }, 7500)
 
 }
@@ -56,7 +59,7 @@ function throwHats() {
 
     setTimeout(() => {
         focusChar("pino")
-    }, 1000)
+    }, 10)
     setTimeout(() => {
         toggleAnimation("throwHats", "pino")
         function generateHats() {
@@ -111,6 +114,9 @@ function throwHats() {
     setTimeout(() => {
         toggleAnimation("fightNeutral", "pino")
         unfocusChar("pino")
+        setTimeout(() => {
+            resetBattlefield("jaz")
+        }, 1000)
     }, 7000)
 }
 
@@ -129,7 +135,7 @@ function collarRoll() {
 
     setTimeout(() => {
         focusChar("jaz");
-    }, 1000);
+    }, 10);
 
     setTimeout(() => {
         toggleAnimation("collarRoll", "jaz");
@@ -163,6 +169,9 @@ function collarRoll() {
     setTimeout(() => {
         armsEl.remove();
         weaponEl.remove();
+        setTimeout(() => {
+            resetBattlefield("pino")
+        }, 1000)
     }, 4700);
 }
 
@@ -183,7 +192,7 @@ function collarRollDuo() {
 
     setTimeout(() => {
         focusChar("jaz");
-    }, 1000);
+    }, 10);
 
     setTimeout(() => {
         toggleAnimation("collarRoll", "jaz");
@@ -214,6 +223,7 @@ function collarRollDuo() {
     setTimeout(() => {
         armsEl.remove();
         weaponEl.remove();
+        resetBattlefield("pino")
     }, 8000);
 }
 
@@ -233,7 +243,7 @@ function noisyBonk() {
         changeSize("jaz", 0, .7)
         jumpChar("jaz", -100, 200)
         slideChar("jaz", 500, 100, 2000)
-    }, 1000)
+    }, 10)
 
 
     setTimeout(() => {
@@ -281,6 +291,7 @@ function noisyBonk() {
                 changeSize("jaz", 1, 1)
                 jumpChar("jaz", 50, 300)
             }, 30)
+            resetBattlefield("pino")
         }, 2155)
     }, 4200)
 }
@@ -328,7 +339,7 @@ function hatSpike() {
     setTimeout(() => {
         toggleAnimation("hatSpike", "jaz");
         focusChar("jaz");
-    }, 1000);
+    }, 10);
 
     setTimeout(() => {
         hatSpikeEl.style.bottom = '0%'; // Move up to center
@@ -356,6 +367,8 @@ function hatSpike() {
 
     setTimeout(() => {
         hatSpikeEl.remove();
+        resetBattlefield("pino")
+
     }, 5000);
 }
 
@@ -367,7 +380,7 @@ function deviceDrop() {
     deviceEl.src = `/display/assets/characters/pino/attacks/deviceDrop/${characters.p.device}.png`; // Set src manually later
     deviceEl.style.position = 'fixed';
     deviceEl.style.top = '-600px'; // Start offscreen above
-    deviceEl.style.left = '80%';
+    deviceEl.style.left = '75%';
     deviceEl.style.transition = 'top 0.5s ease, opacity 1s ease';
     deviceEl.style.opacity = '1';
     deviceEl.style.zIndex = '500';
@@ -376,10 +389,10 @@ function deviceDrop() {
     setTimeout(() => {
         toggleAnimation("deviceDrop", "pino")
         focusChar("pino");
-    }, 1000);
+    }, 10);
 
     setTimeout(() => {
-        landCharBounce(deviceEl, 1200, 500, -600)
+        landCharBounce(deviceEl, 1100, 500, -600)
     }, 2000);
 
     setTimeout(() => {
@@ -394,11 +407,12 @@ function deviceDrop() {
 
     setTimeout(() => {
         deviceEl.remove();
+        unfocusChar("pino");
+        setTimeout(() => {
+            resetBattlefield("jaz")
+        }, 1000)
     }, 5000);
 
-    setTimeout(() => {
-        unfocusChar("pino");
-    }, 5000);
 
 }
 
@@ -492,6 +506,12 @@ let attackIdx = 0
 function triggerAttack() {
     attacks[attackIdx]();  // <-- just call it like a normal function
     attackIdx++;
+    let powerBarCtr = document.getElementById("power-bar-ctr");
+    let powerBar = document.getElementById("power-bar");
+
+    powerBarCtr.style.visibility = "hidden";
+    powerBar.style.width = "0";
+    changeSwipePrompt()
 }
 
 function decrementHealth() {
@@ -499,5 +519,38 @@ function decrementHealth() {
     healthBar.style.width = bossHealth * 100 + "%";
     if (bossHealth === 0) {
         healthBar.style.width = "0";
+    }
+}
+
+function incrementPower() {
+    let powerBar = document.getElementById("power-bar");
+    powerBar.style.width = swipeCount / swipeCountTarget * 100 + "%";
+}
+
+
+function resetBattlefield(next) {
+    let powerBarCtr = document.getElementById("power-bar-ctr");
+    if (next === "pino") {
+        powerBarCtr.style.left = "10vw"
+    } else {
+        powerBarCtr.style.left = "24vw"
+    }
+    powerBarCtr.style.visibility = "visible"
+    changeSwipePrompt(swipeType)
+}
+
+const swipeMap = {
+    up: "↑",
+    down: "↓",
+    left: "←",
+    right: "→"
+}
+
+function changeSwipePrompt(swipeType) {
+    if (!swipeType) {
+        document.getElementById("swipe-prompt").innerHTML = ""
+    } else {
+
+        document.getElementById("swipe-prompt").innerHTML = `${swipeMap[swipeType]} SWIPE ${swipeType.toUpperCase()}!!! ${swipeMap[swipeType]} `
     }
 }

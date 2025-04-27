@@ -1,4 +1,5 @@
 function fight() {
+    changeSwipePrompt(swipeType)
     toggleAnimation("fightNeutral", "jaz")
     toggleAnimation("fightNeutral", "pino")
     jumpChar("npc", 550, 200)

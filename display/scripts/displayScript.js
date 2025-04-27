@@ -8,6 +8,13 @@ let history;
 let textIdx = 0; // Index for texts array
 let textsArr
 let bossHealth
+
+
+let swipeCount
+let swipeCountTarget
+let swipeType
+
+
 document.addEventListener("DOMContentLoaded", function () {
   const confetti = new JSConfetti();
   let locations;
@@ -34,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
           voteLength = msg.data["voteLength"];
           winnerLength = msg.data["winnerLength"];
           promptLength = msg.data["promptLength"];
+          swipeCountTarget = msg.data["swipeCountTarget"];
           locations = msg.data["locations"];
           extras = msg.data.extras;
           scripts = msg.data.scripts;
@@ -50,6 +58,14 @@ document.addEventListener("DOMContentLoaded", function () {
         case "triggerAttack":
           bossHealth = msg.data
           triggerAttack();
+          break;
+        case "swipeCount":
+          swipeCount = msg.data
+          incrementPower()
+          break;
+        case "swipeType":
+          swipeType = msg.data
+          changeSwipePrompt(swipeType)
           break;
         case "characterSelect":
           revealCharacter(msg.data);

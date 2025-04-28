@@ -32,7 +32,6 @@ textsArr = [
 
 
 function fight() {
-    changeSwipePrompt(swipeType)
     changeDialogueSprite(newSprite)
     toggleAnimation("fightNeutral", "jaz")
     toggleAnimation("fightNeutral", "pino")

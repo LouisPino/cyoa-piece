@@ -195,7 +195,8 @@ function sendSectionChange(location) {
         console.log("pokemon.mp3")
         setTimeout(() => {
             newTargetSwipe()
-        }, 100)
+            attacking = false
+        }, 4000)
     }
 }
 

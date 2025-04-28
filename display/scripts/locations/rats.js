@@ -145,4 +145,4 @@ function scene5() {
     slideBoxY("none")
 }
 
-// rats()
+rats()

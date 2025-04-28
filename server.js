@@ -146,7 +146,6 @@ wss.on('connection', (ws, req) => {
                 break
             case "game-score":
                 gameScores.push(data.val)
-                console.log(gameScores)
                 renderGameLeaderboard()
                 break
             case "attack":
@@ -192,7 +191,6 @@ function sendSectionChange(location) {
     sendToDisplay({ type: "history", data: history })
     if (currentLocation?.name === "fight") {
         oscClient.send("/sample", "pokemon.mp3")
-        console.log("pokemon.mp3")
         setTimeout(() => {
             newTargetSwipe()
             attacking = false
@@ -316,13 +314,11 @@ function handleAttack(attackType) {
 
 function newTargetSwipe() {
     swipeType = swipeTypes[Math.floor(Math.random() * 4)]
-    console.log(swipeType)
     sendToWebClients({ type: "swipeType", data: swipeType })
     sendToDisplay({ type: "swipeType", data: swipeType })
 }
 
 function endFight() {
-    console.log("you.....you killed him")
     sendToWebClients({ type: "bossFight", data: "endFight" })
 }
 

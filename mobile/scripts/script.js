@@ -106,8 +106,7 @@ function runLocationScript(locationName) {
 
 function endFight() {
     fighting = false
-    const xEl = document.getElementById("bad-guy")
-    xEl.innerHTML = "I am in fact dead."
+    mainEl.innerHTML = `<img class="complete-screen-img" id="mobile-bg" src="/mobile/assets/backgrounds/Phone_Load.gif" />`
 }
 
 const swipeMap = {

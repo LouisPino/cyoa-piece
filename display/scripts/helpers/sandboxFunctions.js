@@ -98,8 +98,6 @@ function nextLine() {
     }
 
     if (textBody && text) {
-        console.log(textBody)
-
         typeCharacter();
     }
 }
@@ -154,7 +152,6 @@ function slideBoxY(arg, characters) {
     const boxEl = document.getElementById("sandbox-dialogue-box");
     const spriteEl = document.getElementById("sandbox-dialogue-sprite");
     const textBodyEl = document.querySelector(".text-body");
-    console.log(boxEl, spriteEl, textBodyEl)
     const outs = ["slide-down", "slide-out", "slide-out-fast", "fade-out-fast"];
     const ins = ["fade-in-fast", "slide-in", "slide-in-fast", "slide-up"];
 
@@ -373,7 +370,6 @@ function clearText() {
 
 function locationBanner(locationBanner) {
     const bannerEl = document.getElementById("sandbox-location-banner")
-    console.log("it")
     bannerEl.style.transition = "left 0ms"
     bannerEl.style.left = "-100%"
     setTimeout(() => {

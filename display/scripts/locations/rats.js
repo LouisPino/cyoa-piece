@@ -82,7 +82,6 @@ function scene2() {
     fadeChar("duo", 3000, 3000, 5000, 20)
     setTimeout(() => {
         slideBoxY("duo")
-        console.log("FADE DUO")
     }, 5000)
     setTimeout(() => {
         nextLine()

@@ -510,6 +510,7 @@ function flyInRotateChar(char, x, y) {
             elements.push(pinoCharSizeCtr);
             break;
         case "jaz":
+            jazCharSizeCtr.style.transformOrigin = "40% 50%"
             elements.push(jazCharSizeCtr);
             break;
         case "duo":
@@ -547,6 +548,10 @@ function flyInRotateChar(char, x, y) {
         setTimeout(() => {
             // element.style.animation = "";
             landChar(char, x, y, startY)
+            setTimeout(() => {
+
+                jazCharSizeCtr.style.transformOrigin = "40% 80%"
+            }, 1000)
         }, 2000);
     });
 }

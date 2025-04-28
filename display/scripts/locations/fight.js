@@ -4,11 +4,11 @@ let newSprite = ""
 let newSprite2 = ""
 if (previousLocation === "rats") {
     nameCall = "scallywags!"
-    newSprite = "rat/bussin"
+    newSprite = "rat/2"
     newSprite2 = "rat/cry"
 } else if (previousLocation === "bats") {
     nameCall = "scary bats!"
-    newSprite = "bat/bussin"
+    newSprite = "bat/2"
     newSprite2 = "bat/cry"
 } else if (previousLocation === "isopods") {
     newSprite = "isopod/senpai"

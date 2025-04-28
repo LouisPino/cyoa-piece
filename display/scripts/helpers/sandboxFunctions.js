@@ -190,7 +190,7 @@ function slideBoxY(arg, characters) {
         textBodyEl.classList.add("slide-down");
         spriteEl.classList.add("slide-down");
 
-        setTimeout(clearText, 500);
+        setTimeout(clearText, 1000);
 
     } else {
         let newSrc = "/display/assets/dialogue/boxes/DialogueBox.png";
@@ -249,7 +249,7 @@ function slideBoxX(arg, characters) {
         boxEl.classList.add("slide-out-fast")
         textBodyEl.classList.add("slide-out-fast")
         spriteEl.classList.add("slide-out-fast")
-        setTimeout(clearText, 500); // Ensure text clears after animation
+        setTimeout(clearText, 1000); // Ensure text clears after animation
     } else {
         let newSrc = "/display/assets/dialogue/boxes/DialogueBox.png"
         let newColor = "#ffbd92"
@@ -324,7 +324,7 @@ function fadeBox(arg, characters) {
         textBodyEl.classList.add("fade-out-fast");
         spriteEl.classList.add("fade-out-fast");
 
-        setTimeout(clearText, 500);
+        setTimeout(clearText, 1000);
 
     } else {
         let newSrc = "/display/assets/dialogue/boxes/DialogueBox.png";

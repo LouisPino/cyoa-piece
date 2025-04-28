@@ -667,22 +667,28 @@ body {
 
 #qrcode1,
 #qrcode2 {
-    max-width: 5vw;
-    max-height: 5vw;
-    min-height: 5vw;
+    width: 210px;
+    height: 210px;
     position: absolute;
-    bottom: 234px;
+    top: 35px;
     z-index: 10;
+    /* border: 1px solid red; */
 }
 
 #qrcode1 {
     position: absolute;
-    left: 53px;
+    left: 70px;
+}
+
+#qrcode1 img,
+#qrcode2 img {
+    position: absolute;
+    width: 100%
 }
 
 #qrcode2 {
     position: absolute;
-    right: 210px;
+    right: 70px;
 }
 
 .vote-bg {

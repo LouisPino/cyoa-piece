@@ -8,10 +8,13 @@ new QRCode(
 );
 
 const pages = document.querySelectorAll("#intro-gif-page, #intro-qr-page, #intro-leaderboard");
+const introGifEl = document.getElementById("intro-gif")
 // const timings = [45000, 60000, 30000];
-const timings = [2000, 1000, 1000];
+const timings = [5000, 3000, 3000];
 
 let pageCounter = 0;
+let gifCounter = 0;
+const gifs = ["Cave", "Cloud", "Forest", "Ocean", "River", "Rock", "Shore", "Space", "Waterfall"]
 
 function switchPage() {
     const current = pages[pageCounter % pages.length];
@@ -24,8 +27,11 @@ function switchPage() {
     next.classList.remove("slide-out");
     next.classList.add("slide-in");
     next.classList.add("active");
-
     pageCounter++;
+    if (pageCounter % 3 === 2) {
+        introGifEl.src = `/display/assets/welcome/LocationGifs/${gifs[gifCounter % gifs.length]}.gif`
+        gifCounter++;
+    }
 
     // Set up the next switch based on the next page's timing
     setTimeout(switchPage, timings[pageCounter % pages.length]);
@@ -42,9 +48,9 @@ changeBg("/stills/default.png")
 toggleAnimation("run", "duo")
 renderPino("welcome")
 renderJaz("welcome")
-jumpChar("duo", 500, 475)
+jumpChar("duo", 450, 450)
 
 
 
 
-// gifRandomizer()
+gifRandomizer()

@@ -1,5 +1,11 @@
 let charSize = 1
 let attacking = false
+
+const attacks = [collarRoll, throwHats, hatSpike, noisyBonk, deviceDrop, robeAura, duoAttack]
+let attackIdx = 0
+
+
+
 function robeAura() {
     setTimeout(() => {
         toggleAnimation("robeAura", "pino")
@@ -24,7 +30,6 @@ function robeAura() {
             shootLaser()
             shakeChar("npc", 1200, 90);
         }, 1200)
-        // shoot lasers 3 times, 300ms inbetween
     }, 2000)
     setTimeout(() => {
         changeNPCSrc("frog/full.png")
@@ -43,14 +48,9 @@ function robeAura() {
         unfocusChar("pino")
         setTimeout(() => {
             resetBattlefield("jaz")
-
         }, 1000)
     }, 7500)
-
 }
-
-
-
 
 
 function throwHats() {
@@ -224,7 +224,6 @@ function collarRollDuo() {
     setTimeout(() => {
         armsEl.remove();
         weaponEl.remove();
-        resetBattlefield("pino")
     }, 8000);
 }
 
@@ -305,17 +304,6 @@ function noisyBonk() {
 
 
 function duoAttack() {
-    // "throw hat!", characters.p.hat)
-    // console.log("throw collar!", characters.j.collar)
-    // setTimeout(() => {
-    //     focusChar("pino")
-    //     focusChar("jaz")
-    // }, 1000)
-    // setTimeout(() => {
-    //     unfocusChar("pino")
-    //     unfocusChar("jaz")
-    // }, 5000)
-
     throwHats()
     collarRollDuo()
 }
@@ -414,7 +402,6 @@ function deviceDrop() {
         }, 1000)
     }, 5000);
 
-
 }
 
 
@@ -501,8 +488,7 @@ function shootLaser(color = "red") {
 }
 
 
-const attacks = [collarRoll, throwHats, hatSpike, noisyBonk, deviceDrop, robeAura, duoAttack]
-let attackIdx = 0
+
 //health is in %
 function triggerAttack() {
     attacking = true
@@ -519,6 +505,16 @@ function triggerAttack() {
 function decrementHealth() {
     let healthBar = document.getElementById("health-bar");
     healthBar.style.width = bossHealth * 100 + "%";
+    if (attackIdx === 2) {
+        slideBoxY("sprite")
+        setTimeout(nextLine, 750)
+        setTimeout(() => {
+            slideBoxY("none")
+        }, 2000)
+        setTimeout(() => {
+            changeDialogueSprite(`${history.locationsVisited[history.locationsVisited.length - 2].name.slice(0, -1)}/cry`)
+        }, 2500)
+    }
     if (bossHealth === 0) {
         let healthBarCtr = document.getElementById("health-bar-ctr");
         healthBar.style.width = "0";
@@ -534,7 +530,6 @@ function incrementPower() {
 function resetBattlefield(next) {
     attacking = false
     sendToServer({ type: "attacking", data: attacking })
-
     let powerBarCtr = document.getElementById("power-bar-ctr");
     if (next === "pino") {
         powerBarCtr.style.left = "10vw"
@@ -568,4 +563,22 @@ function changeSwipePrompt(swipeType) {
 
 function fightPart2() {
     slideBoxY("sprite")
+    setTimeout(nextLine, 750)
+    setTimeout(() => {
+        slideBoxY("none")
+        slideChar("npc", 2000, 200, 3000)
+        hopChar("npc", 100, 200)
+        setTimeout(() => {
+            hopChar("npc", 100, 200)
+        }, 300)
+        setTimeout(() => {
+            hopChar("npc", 100, 200)
+        }, 600)
+        setTimeout(() => {
+            hopChar("npc", 100, 200)
+        }, 900)
+        setTimeout(() => {
+            hopChar("npc", 100, 200)
+        }, 1200)
+    }, 5000)
 }

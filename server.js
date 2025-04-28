@@ -25,7 +25,7 @@ let voting = false
 let attacking = false
 
 const bossMaxHealth = 7
-const swipeCountTarget = 30
+const swipeCountTarget = 3
 let bossHealth = bossMaxHealth
 
 const swipeTypes = ["up", "down", "left", "right"]

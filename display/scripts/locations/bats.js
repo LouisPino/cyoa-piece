@@ -132,13 +132,3 @@ function scene5() {
 }
 
 bats()
-
-
-
-//render map, render bat behind map, fade in guys, mive guys
-
-//fade out map, fade in duo box, add text, fade out box
-
-//boat in guys from top to center to meet rats, in a start, stop, shake pattern to show fear
-
-//sprite box up, next line

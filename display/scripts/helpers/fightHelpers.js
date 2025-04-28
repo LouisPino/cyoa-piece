@@ -437,7 +437,7 @@ function enemyFlatten() {
 // helpers
 function focusChar(char) {
     changeSize(char, 1000, 1.7)
-    document.getElementById(`${char}-size-ctr`).style.zIndex = 1000
+    document.getElementById(`${char}-size-ctr`).style.zIndex = 399
 }
 
 function unfocusChar(char) {
@@ -567,6 +567,7 @@ function fightPart2() {
     setTimeout(() => {
         slideBoxY("none")
         slideChar("npc", 2000, 200, 3000)
+        flipChar("left", "npc")
         hopChar("npc", 100, 200)
         setTimeout(() => {
             hopChar("npc", 100, 200)
@@ -580,5 +581,9 @@ function fightPart2() {
         setTimeout(() => {
             hopChar("npc", 100, 200)
         }, 1200)
-    }, 5000)
+    }, 7500)
+    setTimeout(() => {
+        slideBoxY("duo")
+        setTimeout(nextLine, 750)
+    }, 10000)
 }

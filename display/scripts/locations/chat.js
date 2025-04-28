@@ -30,8 +30,6 @@ const ratsArr = [
     "It’s mostly done, but each section is missing something. As mentioned, neither of us are very good at making decisions. That’s why there are so many words we need to fill in.",
     "Say… you strike us as someone who knows a lot of words. And as someone who can make decisions! Would you be able to help us finish this?",
     " *gasp* This is it! The glorious final product we will use to enter the festival! Thank you so much for your help! ",
-    "Absolutely",
-    " *gasp* This is it! The glorious final product I will use to enter the festival! Woohoo!",
     "To thank you for your help, let us give you some advice on the next leg of your travels...",
     "The GRAND TELEPORTER that you’re about to use is a little bit broken. It might separate the two of you if you go at the same time. ",
     "To get there successfully, make sure you jump in one at a time. Good luck!",
@@ -62,11 +60,10 @@ function batIsoPlaylist() {
 }
 
 function ratPlaylist() {
-    setTimeout(ratScene1, 1000)
-    setTimeout(ratScene2, 16000)
+    setTimeout(scene1, 1000)
+    setTimeout(scene2rats, 16000)
+    // chatPart2()
 }
-
-
 
 
 
@@ -92,8 +89,6 @@ function scene0() {
 
 }
 
-
-
 function scene1() {
     slideChar("pino", 250, -50, 5000)
     slideChar("jaz", 200, -50, 5000)
@@ -106,8 +101,6 @@ function scene1() {
         }, 8000)
     }, 5000)
 }
-
-
 
 function scene2() {
     changeDialogueSprite(`${baseSprite}/2`)
@@ -148,16 +141,6 @@ function scene2() {
     }, 500)
 }
 
-function madLib() {
-    sendToServer({ type: "madlib", msg: "start" })
-}
-
-
-
-
-
-
-
 function chatPart2() {
     scene0()
     toggleAnimation("side", "duo")
@@ -195,5 +178,89 @@ function chatPart2() {
 
     }, 500)
 }
+
+
+// rats
+
+function scene2rats() {
+    changeDialogueSprite(`${baseSprite}/2`)
+    flipChar("left", "npc")
+    setTimeout(() => {
+        flipChar("right", "npc")
+    }, 300)
+    hopChar("npc", 200, 100)
+    setTimeout(() => {
+        toggleBox("sprite")
+        setTimeout(nextLine, 500)
+        setTimeout(() => {
+            clearText()
+            changeDialogueSprite(`${baseSprite}/4`)
+            setTimeout(nextLine, 200)
+        }, 3500)
+        setTimeout(() => {
+            clearText()
+            setTimeout(nextLine, 200)
+        }, 12000)
+        setTimeout(() => {
+            clearText()
+            setTimeout(nextLine, 200)
+        }, 27000)
+        setTimeout(() => {
+            clearText()
+            setTimeout(nextLine, 200)
+        }, 42000)
+        setTimeout(() => {
+            fadeBox("none")
+            madLib()
+        }, 53000)
+    }, 500)
+}
+
+function chatPart2rats() {
+    scene0()
+    toggleAnimation("side", "duo")
+    jumpChar("pino", 250, -50)
+    jumpChar("jaz", 200, -50)
+    changeDialogueSprite(`${baseSprite}/6`)
+    hopChar("npc", 200, 100)
+    setTimeout((
+        hopChar("npc", 200, 100)
+    ), 500)
+    setTimeout((
+        hopChar("npc", 200, 100)
+    ), 1000)
+    setTimeout((
+        hopChar("npc", 200, 100)
+    ), 1500)
+    setTimeout(() => {
+        toggleBox("sprite")
+        setTimeout(nextLine, 500)
+        setTimeout(() => {
+            clearText()
+            setTimeout(nextLine, 200)
+        }, 10000)
+        setTimeout(() => {
+            clearText()
+            setTimeout(nextLine, 200)
+        }, 20000)
+        setTimeout(() => {
+            clearText()
+            setTimeout(nextLine, 200)
+            setTimeout(() => {
+                fadeBox("none")
+            }, 7000)
+        }, 35000)
+
+    }, 500)
+}
+
+
+
+
+
+function madLib() {
+    sendToServer({ type: "madlib", msg: "start" })
+}
+
 
 chat()

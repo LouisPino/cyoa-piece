@@ -35,7 +35,7 @@ function bats() {
 
 
 function scene0() {
-    changeDialogueSprite("bat/angry");
+    changeDialogueSprite("bat/1");
     renderMap()
     fadeMap(1, 1)
     toggleAnimation("side", "duo")

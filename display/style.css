@@ -281,12 +281,12 @@ body {
 /* portals */
 #rock-portal-back,
 #waterfall-portal-back {
-    z-index: 50;
+    z-index: 20;
 }
 
 #rock-portal-front,
 #waterfall-portal-front {
-    z-index: 150;
+    z-index: 21;
 }
 
 

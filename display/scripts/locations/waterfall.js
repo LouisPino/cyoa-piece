@@ -10,7 +10,6 @@ const waterfallVidEl = document.getElementById("waterfall-video")
 
 function waterfall() {
     jumpChar(boatRockerEl, -1000, 300)
-
     setTimeout(scene0, 100)
     setTimeout(scene1, 1000)
     setTimeout(scene2, 6000)

@@ -50,7 +50,7 @@ function rats() {
 
 
 function scene0() {
-    changeDialogueSprite("rat/angry");
+    changeDialogueSprite("rat/1");
     renderMap()
     fadeMap(1, 1)
     toggleAnimation("side", "duo")

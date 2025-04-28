@@ -41,7 +41,7 @@ function isopods() {
 
 
 function scene0() {
-    changeDialogueSprite("isopod/angry");
+    changeDialogueSprite("isopod/1");
     renderMap()
     fadeMap(1, 1)
     toggleAnimation("side", "duo")

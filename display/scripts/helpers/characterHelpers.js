@@ -644,7 +644,7 @@ function hopChar(char, height = 200, duration = 700, jump = false) {
             toggleAnimation("jump", char)
             setTimeout(() => {
                 toggleAnimation(previousAnimation)
-            }, duration)
+            }, duration + 15)
         }
 
     }

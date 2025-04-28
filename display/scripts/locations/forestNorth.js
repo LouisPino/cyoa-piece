@@ -5,7 +5,7 @@ textsArr = [
 const forestVidEl = document.getElementById("forest-video")
 const forestStillEl = document.getElementById("forest-bg")
 
-function forestNorth() {
+function forestSouth() {
     setTimeout(scene0, 100)
     setTimeout(scene1, 1000)
     setTimeout(scene2, 6000)

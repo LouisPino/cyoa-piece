@@ -53,7 +53,6 @@ function scene4() {
     //after video
     forestVidEl.pause()
     setTimeout(() => {
-
         slideBoxY("duo")
         setTimeout(nextLine, 750)
         setTimeout(() => {

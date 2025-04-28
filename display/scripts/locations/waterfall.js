@@ -2,14 +2,14 @@ const boatRockerEl = document.getElementById("boat-rocker")
 
 
 textsArr = [
-    "Look at this beautiful waterfall! Let’s take a moment to enjoy to sounds.",
+    "Look at this beautiful waterfall! Let’s take a moment to enjoy the sounds.",
     "Oh boy! We did it! We found the river system. Let’s go check it out."
 ];
 
 const waterfallVidEl = document.getElementById("waterfall-video")
 
 function waterfall() {
-    jumpChar(boatRockerEl, -1000, -1000)
+    jumpChar(boatRockerEl, -1000, 300)
 
     setTimeout(scene0, 100)
     setTimeout(scene1, 1000)
@@ -35,8 +35,9 @@ function scene1() {
     fadeChar("jaz", 200, -400, 50, 1000)
     setTimeout(() => {
         toggleAnimation("walk", "duo")
-        slideChar("pino", 900, -400, 3000)
-        slideChar("jaz", 600, -400, 3000)
+        flipChar("left", "duo")
+        slideChar("pino", 0, -400, 3000)
+        slideChar("jaz", -300, -400, 3000)
         setTimeout(() => {
             toggleAnimation("side", "duo")
         }, 3000)
@@ -80,7 +81,7 @@ function scene4() {
 }
 function scene5() {
     getInBoat()
-    slideChar(boatRockerEl, 0, 0, 4000)
+    slideChar(boatRockerEl, 3000, 300, 4000)
 }
 
 waterfall()
@@ -90,7 +91,7 @@ function getInBoat() {
     removePino()
     removeJaz()
     toggleAnimation("front", "duo")
-    jumpChar(boatRockerEl, -1000, -1000)
+    jumpChar(boatRockerEl, -1000, 300)
     pinoCharSizeCtr.style.left = "20%"
     pinoCharSizeCtr.style.top = "-5%"
     jazCharSizeCtr.style.left = "30%"

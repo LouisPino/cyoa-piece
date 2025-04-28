@@ -65,13 +65,15 @@ body {
 .btn {
     height: 100px;
     width: 100px;
+
 }
 
 button {
     border-radius: 0;
     color: black;
     background-color: white;
-    font-family: "Press Start 2P", serif;
+    font-family: "Jazfont-Regular", serif !important;
+
 }
 
 
@@ -194,13 +196,18 @@ button {
 
 #madlib-input {
     min-height: 80px;
-    width: 100%
+    width: 66%;
+    font-size: 40px;
+    text-align: center;
+    font-family: "Jazfont-Regular", serif !important;
+
 }
 
 #submit-madlib {
-    margin-top: 8px;
+    margin-top: 24px;
     height: 42px;
     font-size: 36px;
+    font-weight: bolder;
 }
 
 .vote-bg {

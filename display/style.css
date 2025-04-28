@@ -300,6 +300,11 @@ body {
     transition: left .7s linear;
 }
 
+#item-halo {
+    animation: rotateAndPulse 8s linear infinite;
+    transform-origin: 50% 46%;
+}
+
 @keyframes rotate360Collar {
     from {
         transform: rotate(0deg);
@@ -872,4 +877,50 @@ body {
 
 .flatten-squash {
     animation: flatten-squash 1s ease-out forwards;
+}
+
+@keyframes rotateAndPulse {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    10% {
+        transform: rotate(36deg) scale(1.2);
+    }
+
+    20% {
+        transform: rotate(72deg) scale(1);
+    }
+
+    30% {
+        transform: rotate(108deg) scale(1.2);
+    }
+
+    40% {
+        transform: rotate(144deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1.2);
+    }
+
+    60% {
+        transform: rotate(216deg) scale(1);
+    }
+
+    70% {
+        transform: rotate(252deg) scale(1.2);
+    }
+
+    80% {
+        transform: rotate(288deg) scale(1);
+    }
+
+    90% {
+        transform: rotate(324deg) scale(1.2);
+    }
+
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
 }

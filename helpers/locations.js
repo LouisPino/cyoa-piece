@@ -153,18 +153,50 @@ const locations = {
   },
   chat: {
     name: "chat",
-    paths: ["pacifistClouds", "pacifistShores"],
+    paths: ["postChat", "postChat"],
     choicePrompts: {
       mobile: "where should they travel?",
       display: " where should we travel?",
     },
     choices: ["space", "ocean"],
     html: {},
-    movingSprites: true,
     transition: { type: "fade", time: 1000 },
   },
   fight: {
     name: "fight",
+    paths: ["postFightVacuum", "postFightFork"],
+    choicePrompts: {
+      mobile: "Which loot should they take?",
+      display: "Which loot should we take?",
+    },
+    choices: ["vacuum", "fork"],
+    html: {},
+    transition: { type: "pixelate-no-blur", time: 5000 },
+  },
+  postFightVacuum: {
+    name: "postFightVacuum",
+    paths: ["clouds", "clouds"],
+    choicePrompts: {
+      mobile: "Which loot should they take?",
+      display: "Which loot should we take?",
+    },
+    choices: ["vacuum", "fork"],
+    html: {},
+    transition: { type: "pixelate-no-blur", time: 1000 },
+  },
+  postFightFork: {
+    name: "postFightFork",
+    paths: ["fork", "fork"],
+    choicePrompts: {
+      mobile: "Which loot should they take?",
+      display: "Which loot should we take?",
+    },
+    choices: ["vacuum", "fork"],
+    html: {},
+    transition: { type: "pixelate-no-blur", time: 1000 },
+  },
+  postChat: {
+    name: "postChat",
     paths: ["clouds", "shores"],
     choicePrompts: {
       mobile: "Which loot should they take?",
@@ -172,8 +204,7 @@ const locations = {
     },
     choices: ["vacuum", "fork"],
     html: {},
-    movingSprites: true,
-    transition: { type: "pixelate-no-blur", time: 5000 },
+    transition: { type: "pixelate-no-blur", time: 1000 },
   },
   isopods: {
     name: "isopods",
@@ -208,7 +239,6 @@ const locations = {
     },
     choices: ["fight", "chat"],
     html: {},
-    movingSprites: true,
     transition: { type: "blur", time: 1000 },
     bgName: "caveInterior",
 

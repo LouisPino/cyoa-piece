@@ -2,15 +2,14 @@ textsArr = [
     "It looks like there's a fork in the road…"
 ];
 
-const forestVidEl = document.getElementById("forest-video")
-const forestStillEl = document.getElementById("forest-bg")
+const caveVidEl = document.getElementById("cave-video")
 
-function forestNorth() {
+function cave() {
     setTimeout(scene0, 100)
     setTimeout(scene1, 1000)
     setTimeout(scene2, 6000)
     setTimeout(scene3, 12000)
-    setTimeout(scene4, 310000) // make me length of video + video start time
+    setTimeout(scene4, 20000) // make me length of video + video start time
 }
 
 function scene0() {
@@ -25,12 +24,12 @@ function scene0() {
 function scene1() {
     renderPino()
     renderJaz()
-    fadeChar("pino", 500, -200, 50, 1000)
-    fadeChar("jaz", 200, -200, 50, 1000)
+    fadeChar("pino", 500, -400, 50, 1000)
+    fadeChar("jaz", 200, -400, 50, 1000)
     setTimeout(() => {
         toggleAnimation("walk", "duo")
-        slideChar("pino", 500, -400, 3000)
-        slideChar("jaz", 200, -400, 3000)
+        slideChar("pino", 200, 0, 3000)
+        slideChar("jaz", -100, 0, 3000)
         setTimeout(() => {
             toggleAnimation("side", "duo")
         }, 3000)
@@ -45,18 +44,20 @@ function scene2() {
 }
 function scene3() {
     //play video
-    forestVidEl.style.visibility = "visible"
-    forestVidEl.style.opacity = 1
-    forestVidEl.play()
+    caveVidEl.style.visibility = "visible"
+    caveVidEl.style.opacity = 1
+    caveVidEl.play()
 }
 function scene4() {
     //after video
-    forestVidEl.pause()
-    slideBoxY("duo")
-    setTimeout(nextLine, 750)
+    caveVidEl.pause()
     setTimeout(() => {
-        slideBoxY("none")
-    }, 5000)
+        slideBoxY("duo")
+        setTimeout(nextLine, 750)
+        setTimeout(() => {
+            slideBoxY("none")
+        }, 5000)
+    }, 1000)
 }
 
-forestNorth()
+cave()

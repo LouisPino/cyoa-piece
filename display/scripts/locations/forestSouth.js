@@ -10,7 +10,7 @@ function forestSouth() {
     setTimeout(scene1, 1000)
     setTimeout(scene2, 6000)
     setTimeout(scene3, 12000)
-    setTimeout(scene4, 20000) // make me length of video + video start time
+    setTimeout(scene4, 310000) // make me length of video + video start time
 }
 
 function scene0() {

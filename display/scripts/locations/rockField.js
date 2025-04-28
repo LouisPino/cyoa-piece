@@ -1,16 +1,11 @@
-const boatRockerEl = document.getElementById("boat-rocker")
-
-
 textsArr = [
-    "Look at this beautiful waterfall! Let’s take a moment to enjoy to sounds.",
-    "Oh boy! We did it! We found the river system. Let’s go check it out."
+    "Look at all these wonderful rocks! We should spend some time admiring them.",
+    "Oh boy! We did it! We found the cave. Let’s go check it out."
 ];
 
-const waterfallVidEl = document.getElementById("waterfall-video")
+const rockFieldVidEl = document.getElementById("rockField-video")
 
-function waterfall() {
-    jumpChar(boatRockerEl, -1000, -1000)
-
+function rockField() {
     setTimeout(scene0, 100)
     setTimeout(scene1, 1000)
     setTimeout(scene2, 6000)
@@ -58,18 +53,18 @@ function scene2() {
 }
 function scene3() {
     //play video
-    waterfallVidEl.style.visibility = "visible"
-    waterfallVidEl.style.opacity = 1
-    waterfallVidEl.play()
+    rockFieldVidEl.style.visibility = "visible"
+    rockFieldVidEl.style.opacity = 1
+    rockFieldVidEl.play()
     setTimeout(() => {
-        changeBg("animated/river.gif")
+        changeBg("animated/cave.gif")
     }, 7000)
 }
 function scene4() {
     //after video
-    waterfallVidEl.style.opacity = 0
+    rockFieldVidEl.style.opacity = 0
     setTimeout(() => {
-        waterfallVidEl.pause()
+        rockFieldVidEl.pause()
     }, 5000)
     slideBoxY("duo")
     setTimeout(nextLine, 750)
@@ -79,24 +74,21 @@ function scene4() {
 
 }
 function scene5() {
-    getInBoat()
-    slideChar(boatRockerEl, 0, 0, 4000)
+
+    changeSize("duo", 1, 1)
+    jumpChar("duo", 0, 0)
+    renderPino()
+    renderJaz()
+    fadeChar("pino", 0, 0, 50, 1000)
+    fadeChar("jaz", 0, -0, 50, 1000)
+
+
+    setTimeout(() => {
+        toggleAnimation("run", "duo")
+        slideChar("pino", 700, -375, 5000)
+        slideChar("jaz", 300, -375, 5000)
+        changeSize("duo", 5000, .01)
+    }, 1000)
 }
 
-waterfall()
-
-
-function getInBoat() {
-    removePino()
-    removeJaz()
-    toggleAnimation("front", "duo")
-    jumpChar(boatRockerEl, -1000, -1000)
-    pinoCharSizeCtr.style.left = "20%"
-    pinoCharSizeCtr.style.top = "-5%"
-    jazCharSizeCtr.style.left = "30%"
-    jazCharSizeCtr.style.top = "-5%"
-    pinoCharSizeCtr.classList.add("float-only")
-    jazCharSizeCtr.classList.add("float-only")
-    renderJaz("river")
-    renderPino("river")
-}
+rockField()

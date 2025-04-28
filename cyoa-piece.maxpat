@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1680.0, 85.0, 845.0, 1272.0 ],
+		"rect" : [ 2096.0, 85.0, 429.0, 1272.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,6 +39,18 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-280",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 87.291204333305359, 502.0, 74.837129652500153, 22.0 ],
+					"text" : "postChat"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-266",
 					"maxclass" : "newobj",
@@ -3514,7 +3526,7 @@
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-													"text" : "8"
+													"text" : "99"
 												}
 
 											}
@@ -4822,7 +4834,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-									"text" : "8"
+									"text" : "99"
 								}
 
 							}
@@ -5989,7 +6001,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 117.0, 128.0, 33.0, 22.0 ],
-					"text" : "10"
+					"text" : "9"
 				}
 
 			}
@@ -7264,7 +7276,7 @@
 										"followglobaltempo" : 0,
 										"formantcorrection" : 0,
 										"mode" : "basic",
-										"originallength" : [ 60988.255782312931842, "ticks" ],
+										"originallength" : [ 7277.757823129251847, "ticks" ],
 										"originaltempo" : 120.000000000000014,
 										"pitchcorrection" : 0,
 										"quality" : "basic",
@@ -10443,13 +10455,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-20",
-					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 106.270933091641609, 17.0, 117.08072251081353, 36.0 ],
-					"text" : "/sample sylvan-game.wav"
+					"patching_rect" : [ 106.270933091641609, 17.0, 117.08072251081353, 22.0 ],
+					"text" : "/characters voted"
 				}
 
 			}
@@ -11900,6 +11911,13 @@
 					"destination" : [ "obj-7", 0 ],
 					"order" : 1,
 					"source" : [ "obj-28", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-86", 0 ],
+					"source" : [ "obj-280", 0 ]
 				}
 
 			}

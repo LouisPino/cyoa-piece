@@ -33,6 +33,9 @@ let swipeType
 let swipeCount = 0
 
 
+const wordTypes = ["NOUN", "NOUN", "VERB", "VERB", "ADJECTIVE", "ADJECTIVE"]
+
+
 /////////////////////////Initialize server
 const server = http.createServer((req, res) => {
     let filePath
@@ -119,10 +122,10 @@ wss.on('connection', (ws, req) => {
     connectedClients.push(ws)
     if (locationPath === "/display") {
         ws.send(JSON.stringify({ type: 'ip-address', data: IP4 }));
-        sendToDisplay({ type: 'initialFileServe', data: { locations: locations, extras: displayExtras, scripts: displayScripts, locationScripts: displayLocationScripts, voteLength: voteLength, winnerLength: winnerLength, promptLength: promptLength, swipeCountTarget: swipeCountTarget, characters: characters } })
+        sendToDisplay({ type: 'initialFileServe', data: { locations: locations, extras: displayExtras, scripts: displayScripts, locationScripts: displayLocationScripts, voteLength: voteLength, winnerLength: winnerLength, promptLength: promptLength, swipeCountTarget: swipeCountTarget, characters: characters, wordTypes: wordTypes } })
         sendToDisplay({ type: "section", data: currentLocation })
     } else {
-        ws.send(JSON.stringify({ type: 'initialFileServe', data: { locations: locations, extras: mobileExtras, scripts: mobileScripts, voteLength: voteLength, locationScripts: mobileLocationScripts } }))
+        ws.send(JSON.stringify({ type: 'initialFileServe', data: { locations: locations, extras: mobileExtras, scripts: mobileScripts, voteLength: voteLength, locationScripts: mobileLocationScripts, wordTypes: wordTypes } }))
         if (!voting) {
             ws.send(JSON.stringify({ type: "section", data: currentLocation }))
         } else {
@@ -153,6 +156,16 @@ wss.on('connection', (ws, req) => {
                 break
             case "attacking":
                 attacking = data.data
+                break
+            case "madlib":
+                if (data.msg === "start") {
+                    sendToWebClients({ type: "madlib", data: "start" })
+                } else if (data.msg === "end") {
+                    sendToWebClients({ type: "madlib", data: "end" })
+                }
+                break
+            case "madlib-word":
+                console.log(data.val.wordType, data.val.word)
                 break
         }
     });

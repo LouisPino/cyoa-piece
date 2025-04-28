@@ -7,6 +7,7 @@ let locationScripts
 let currentLocation
 let fighting = true
 let history;
+let wordTypes
 function initializeWebSocket() {
     /////////////////Communcation
     // Confirm connection success
@@ -25,6 +26,7 @@ function initializeWebSocket() {
                 extras = msg.data["extras"]
                 scripts = msg.data["scripts"]
                 locationScripts = msg.data["locationScripts"]
+                wordTypes = msg.data["wordTypes"]
                 break
             case "section":
                 sectionChange(locations[msg.data.name])
@@ -70,6 +72,13 @@ function initializeWebSocket() {
             case "swipeType":
                 changeSwipePrompt(msg.data)
                 break
+            case "madlib":
+                if (msg.data === "start") {
+                    document.getElementById("madlib-ctr").style.visibility = "visible"
+                } else if (msg.data === "end") {
+                    hideMadlib()
+                }
+                break;
         }
     };
 }
@@ -118,4 +127,12 @@ const swipeMap = {
 
 function changeSwipePrompt(swipeType) {
     document.getElementById("swipe-prompt").innerHTML = `${swipeMap[swipeType]} SWIPE ${swipeType.toUpperCase()}!!! ${swipeMap[swipeType]} `
+}
+
+
+function hideMadlib() {
+    lookUp()
+    setTimeout(() => {
+        mainEl.innerHTML = `<img class="complete-screen-img" id="mobile-bg" src="/mobile/assets/backgrounds/Phone_Load.gif" />`
+    }, 2000)
 }

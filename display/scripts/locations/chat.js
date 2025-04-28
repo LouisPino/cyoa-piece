@@ -1,19 +1,7 @@
 let previousLocation = history.locationsVisited[history.locationsVisited.length - 2].name
 let newSprite = ""
 let newSprite2 = ""
-if (previousLocation === "rats") {
-    nameCall = "scallywags!"
-    newSprite = "rat/bussin"
-    newSprite2 = "rat/cry"
-} else if (previousLocation === "bats") {
-    nameCall = "scary bats!"
-    newSprite = "bat/bussin"
-    newSprite2 = "bat/cry"
-} else if (previousLocation === "isopods") {
-    newSprite = "isopod/senpai"
-    nameCall = "icky bugs!"
-    newSprite2 = "isopod/cry"
-}
+
 
 const batIsoArr = [
     `Hey buddy, is everything all right? Is something on your mind?`,
@@ -59,9 +47,7 @@ function chat() {
     scene0()
     setTimeout(scene1, 1000)
     setTimeout(scene2, 16000)
-
-
-
+    madLib()
 }
 
 function scene0() {
@@ -142,6 +128,10 @@ function scene2() {
 
 
 
+function madLib() {
+    console.log("madlib")
+    sendToServer({ type: "madlib", msg: "start" })
+}
 
 
 
@@ -149,8 +139,9 @@ function scene2() {
 
 
 
+function chatPart2() {
 
-
+}
 
 
 

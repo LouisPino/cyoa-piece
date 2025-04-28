@@ -5,15 +5,15 @@ let newSprite2 = ""
 if (previousLocation === "rats") {
     nameCall = "scallywags!"
     newSprite = "rat/2"
-    newSprite2 = "rat/cry"
+    newSprite2 = "rat/3"
 } else if (previousLocation === "bats") {
     nameCall = "scary bats!"
     newSprite = "bat/2"
-    newSprite2 = "bat/cry"
+    newSprite2 = "bat/3"
 } else if (previousLocation === "isopods") {
-    newSprite = "isopod/senpai"
     nameCall = "icky bugs!"
-    newSprite2 = "isopod/cry"
+    newSprite = "isopod/2"
+    newSprite2 = "isopod/3"
 }
 
 

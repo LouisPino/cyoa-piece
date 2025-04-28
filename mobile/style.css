@@ -164,12 +164,37 @@ button {
 
 /* fight */
 #swipe-prompt {
-    color: white;
+    color: var(--sylvan-light);
     text-align: center;
     font-size: 80px;
     /* border: 1px solid red; */
 }
 
+/* Madlib */
+#word-type {
+    color: var(--sylvan-light);
+    text-align: center;
+    font-size: 60px;
+    /* border: 1px solid red; */
+}
+
+.madlib-submission-div {
+    margin: 0 auto;
+    text-align: center;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#madlib-input {
+    min-height: 42px;
+}
+
+#submit-madlib {
+    margin-top: 8px;
+    height: 24px;
+}
 
 .vote-bg {
     width: 100vw;

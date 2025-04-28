@@ -309,7 +309,7 @@ function welcomeGame() {
 
     //leaderboard
     function submitScore() {
-        const badWords = ["ASS", "COK", "FAG", "FCK", "CUM", "TIT", "KKK", "IDF", "NIG", "NGR", "SEX"];
+        const badWords = ["ASS", "AZZ", "DJT", "COK", "COQ", "FAG", "FCK", "CUM", "TIT", "KKK", "IDF", "NIG", "NGR", "SEX", "JIZ", "FUC", "FUK", "SHT", "KOK", "DIK", "DIX", "DIC", "DIQ", "DAM", "FAP", "BCH", "BTH"];
         const inputEl = document.getElementById("score-letter-4")
         let nameStr = inputEl.value.toUpperCase()
         // let nameStr = (inputEls[0].value + inputEls[1].value + inputEls[2].value).toUpperCase()

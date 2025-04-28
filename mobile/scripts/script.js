@@ -75,6 +75,7 @@ function initializeWebSocket() {
             case "madlib":
                 if (msg.data === "start") {
                     document.getElementById("madlib-ctr").style.visibility = "visible"
+                    document.getElementById("madlib-blackout").style.visibility = "hidden"
                 } else if (msg.data === "end") {
                     hideMadlib()
                 }
@@ -131,8 +132,5 @@ function changeSwipePrompt(swipeType) {
 
 
 function hideMadlib() {
-    lookUp()
-    setTimeout(() => {
-        mainEl.innerHTML = `<img class="complete-screen-img" id="mobile-bg" src="/mobile/assets/backgrounds/Phone_Load.gif" />`
-    }, 2000)
+    document.getElementById("madlib-ctr").style.visibility = "hidden"
 }

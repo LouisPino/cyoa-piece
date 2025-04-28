@@ -210,6 +210,11 @@ button {
     font-weight: bolder;
 }
 
+#madlib-blackout {
+    z-index: 1000;
+    visibility: hidden;
+}
+
 .vote-bg {
     width: 100vw;
     height: 100vh;

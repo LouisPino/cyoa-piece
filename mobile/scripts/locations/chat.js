@@ -6,11 +6,14 @@ const submitEl = document.getElementById("submit-madlib")
 submitEl.addEventListener("click", submitWord)
 function submitWord() {
     let word = inputEl.value
+    if (word === "") { return }
     sendToServer({ type: "madlib-word", val: { wordType: wordTypes[submittedCount].toLowerCase(), word: word } })
 
     inputEl.value = ""
     submittedCount++
     if (submittedCount === wordTypes.length) {
         hideMadlib()
+    } else {
+        typePromptEl.innerHTML = `${wordTypes[submittedCount]}`
     }
 }

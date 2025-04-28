@@ -32,7 +32,7 @@ const swipeTypes = ["up", "down", "left", "right"]
 let swipeType
 let swipeCount = 0
 
-
+let madlibWords = { noun: [], verb: [], adjective: [], }
 const wordTypes = ["NOUN", "NOUN", "VERB", "VERB", "ADJECTIVE", "ADJECTIVE"]
 
 
@@ -165,7 +165,7 @@ wss.on('connection', (ws, req) => {
                 }
                 break
             case "madlib-word":
-                console.log(data.val.wordType, data.val.word)
+                addMadlibWord(data.val.wordType, data.val.word)
                 break
         }
     });
@@ -341,6 +341,16 @@ function newTargetSwipe() {
 function endFight() {
     sendToWebClients({ type: "bossFight", data: "endFight" })
 }
+
+
+// madlib
+function addMadlibWord(type, word) {
+    if (word === "") { return }
+    madlibWords[type].push(word)
+    console.log(madlibWords)
+}
+
+
 
 
 /////////////////////OSC

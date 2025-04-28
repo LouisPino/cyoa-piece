@@ -1012,8 +1012,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 649.060063302517165, 977.219536066055298, 145.0, 22.0 ],
-					"text" : "changeSize duo 2000 0.6"
+					"patching_rect" : [ 649.060063302517165, 977.219536066055298, 151.0, 22.0 ],
+					"text" : "changeSize duo 2000 0.01"
 				}
 
 			}

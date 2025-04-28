@@ -24,10 +24,12 @@ textsArr = [
     "Deep within the Sylvan Forest, there is a humble but well fed kingdom ruled by KING TILLY.",
     "King Tilly of TillyLand is a lover of loose string, long naps, and in his earlier years, ADVENTURING.",
     "These days, the king prefers to lounge in the comfort of his castle. However, this hasn’t stopped him from buying a rare treasure map or two…",
-    "On a fine spring day, King Tilly comes across an ancient treasure map that can only be decoded by Ancient Wizard Technology. He decides to consult the local Ancient Wizard Technology Specialist, WIZARD PINO",
+    "On a fine spring day, King Tilly comes across an ancient treasure map that can only be decoded by Ancient Wizard Technology. He decides to consult the local Ancient Wizard Technology Specialist, WIZARD PINO!",
     "With the help of the wizard, the map begins to be decoded…",
-    "Holy moly!! Look at all these paths! Is it possible that all these routes lead to treasure? Sounds like an adventure is brewing… preparations will have to be made before entering the unexplored realm of the Sylvan Forest",
-    "Due to the potential dangers, King Tilly sends his strongest court jester, JESTER JAZ, to assist Wizard Pino",
+    "Holy moly!! Look at all these paths!",
+    "Is it possible that all these routes lead to treasure?",
+    "Sounds like an adventure is brewing… preparations will have to be made before entering the unexplored realm of the Sylvan Forest.",
+    "Due to the potential dangers, King Tilly sends his strongest court jester, JESTER JAZ, to assist Wizard Pino.",
     "The adventurers bid their sovereign farewell and begin to make their way out of the kingdom.",
 ];
 removePino()
@@ -53,7 +55,7 @@ function intro() {
 
     setTimeout(() => {
         scene6()
-    }, 160000 * multiplier)
+    }, 155000 * multiplier)
 
     setTimeout(() => {
         scene7()
@@ -184,10 +186,10 @@ function scene4() {
     }, 600)
     setTimeout(() => {
         floppy1El.style.visibility = "visible"
-        fadeChar(floppy1El, 0, -225, 10, 2000)
+        fadeChar(floppy1El, 0, -275, 10, 2000)
     }, 5000)
     setTimeout(() => {
-        fadeChar("pino", 1000, -150, 10, 2000)
+        fadeChar("pino", 1000, -220, 10, 2000)
     }, 13000)
     setTimeout(() => {
         fadeChar("pino", 5000, -5000, 5000, 2000)
@@ -242,8 +244,33 @@ function scene5() {
     setTimeout(() => {
         slideBoxY("dialogue")
         setTimeout(nextLine, 500)
-    }, 42000);
+        setTimeout(() => {
+            slideBoxY("none")
+        }, 3500)
+    }, 25000);
+    setTimeout(() => {
+        slideBoxY("dialogue")
+        mapVideoEl.pause()
 
+        setTimeout(nextLine, 500)
+        setTimeout(() => {
+            slideBoxY("none")
+            mapVideoEl.play()
+
+        }, 5000)
+    }, 36000);
+    setTimeout(() => {
+        clearText()
+        slideBoxY("dialogue")
+        mapVideoEl.pause()
+
+        setTimeout(nextLine, 500)
+        setTimeout(() => {
+            slideBoxY("none")
+            mapVideoEl.play()
+
+        }, 12000)
+    }, 46000);
 }
 
 function scene6() {
@@ -268,10 +295,10 @@ function scene6() {
     renderPino()
     renderJaz()
     setTimeout(() => {
-        // slideBoxY("dialogue")
+        slideBoxY("dialogue")
     }, 500 * multiplier)
     setTimeout(() => {
-        clearText()
+        // clearText()
         nextLine(
         )
     }, 900 * multiplier)
@@ -311,8 +338,7 @@ function scene8() {
 
     setTimeout(() => {
         slideBoxY("none")
-
-    }, 17500)
+    }, 20000)
 }
 
 

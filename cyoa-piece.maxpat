@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 2088.0, 85.0, 437.0, 1272.0 ],
+		"rect" : [ 1680.0, 85.0, 519.0, 1272.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,13 +40,51 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-266",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "signal" ],
+					"patching_rect" : [ 288.0, 122.726046323776245, 30.0, 22.0 ],
+					"text" : "*~ 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-74",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "signal" ],
+					"patching_rect" : [ 258.02686530351707, 122.726046323776245, 30.0, 22.0 ],
+					"text" : "*~ 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"floatoutput" : 1,
+					"id" : "obj-52",
+					"maxclass" : "dial",
+					"mult" : 0.01,
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 273.126864254475322, 80.0, 40.0, 40.0 ],
+					"size" : 100.0
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-315",
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 205.309558987617493, 355.401108622550964, 85.0, 22.0 ],
-					"presentation_linecount" : 3,
 					"text" : "explainShrimp"
 				}
 
@@ -59,7 +97,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 205.309558987617493, 331.901108622550964, 69.0, 22.0 ],
-					"presentation_linecount" : 2,
 					"text" : "fightShrimp"
 				}
 
@@ -84,7 +121,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 205.309558987617493, 279.334079444408417, 84.0, 22.0 ],
-					"presentation_linecount" : 3,
 					"text" : "explainClouds"
 				}
 
@@ -3478,7 +3514,7 @@
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-													"text" : "99"
+													"text" : "110"
 												}
 
 											}
@@ -4786,7 +4822,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-									"text" : "99"
+									"text" : "110"
 								}
 
 							}
@@ -5820,7 +5856,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
-					"patching_rect" : [ 244.809558987617493, 165.301109135150909, 29.5, 22.0 ],
+					"patching_rect" : [ 178.570933490992729, 136.799999833106995, 29.5, 22.0 ],
 					"text" : "i"
 				}
 
@@ -5952,8 +5988,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 205.309558987617493, 165.301109135150909, 33.0, 22.0 ],
-					"text" : "3"
+					"patching_rect" : [ 139.070933490992729, 136.799999833106995, 33.0, 22.0 ],
+					"text" : "10"
 				}
 
 			}
@@ -5964,7 +6000,7 @@
 					"numinlets" : 5,
 					"numoutlets" : 4,
 					"outlettype" : [ "int", "", "", "int" ],
-					"patching_rect" : [ 205.309558987617493, 139.501109302043915, 75.0, 22.0 ],
+					"patching_rect" : [ 139.070933490992729, 111.0, 75.0, 22.0 ],
 					"text" : "counter 0 10"
 				}
 
@@ -7103,7 +7139,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 243.0, 188.0, 1908.0, 989.0 ],
+						"rect" : [ 42.0, 354.0, 1908.0, 989.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -7138,8 +7174,44 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1233.0, 209.0, 85.0, 22.0 ],
-									"text" : "pokemon.mp3"
+									"patching_rect" : [ 1087.0, 41.0, 101.0, 22.0 ],
+									"text" : "sylvan-game.wav"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-16",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1247.0, 193.0, 41.0, 22.0 ],
+									"text" : "loop 0"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-13",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1179.0, 206.0, 41.0, 22.0 ],
+									"text" : "loop 1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-7",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 2,
+									"outlettype" : [ "bang", "" ],
+									"patching_rect" : [ 1174.0, 85.0, 120.0, 22.0 ],
+									"text" : "sel sylvan-game.wav"
 								}
 
 							}
@@ -7150,7 +7222,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "int", "" ],
-									"patching_rect" : [ 1500.0, 120.0, 31.0, 22.0 ],
+									"patching_rect" : [ 1372.0, 177.0, 31.0, 22.0 ],
 									"text" : "t 1 s"
 								}
 
@@ -7174,7 +7246,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1364.0, 127.402737379074097, 52.0, 22.0 ],
+									"patching_rect" : [ 1372.0, 151.402737379074097, 52.0, 22.0 ],
 									"text" : "open $1"
 								}
 
@@ -7192,7 +7264,7 @@
 										"followglobaltempo" : 0,
 										"formantcorrection" : 0,
 										"mode" : "basic",
-										"originallength" : [ 7277.757823129252756, "ticks" ],
+										"originallength" : [ 60988.255782312931842, "ticks" ],
 										"originaltempo" : 120.000000000000014,
 										"pitchcorrection" : 0,
 										"quality" : "basic",
@@ -8929,6 +9001,13 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-12", 0 ],
+									"source" : [ "obj-13", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-128", 2 ],
 									"order" : 1,
 									"source" : [ "obj-130", 0 ]
@@ -9242,6 +9321,13 @@
 								"patchline" : 								{
 									"destination" : [ "obj-164", 0 ],
 									"source" : [ "obj-159", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-12", 0 ],
+									"source" : [ "obj-16", 0 ]
 								}
 
 							}
@@ -9580,6 +9666,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-15", 0 ],
+									"order" : 0,
 									"source" : [ "obj-193", 2 ]
 								}
 
@@ -9588,6 +9675,14 @@
 								"patchline" : 								{
 									"destination" : [ "obj-24", 0 ],
 									"source" : [ "obj-193", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-7", 0 ],
+									"order" : 1,
+									"source" : [ "obj-193", 2 ]
 								}
 
 							}
@@ -9608,6 +9703,15 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-15", 0 ],
+									"order" : 0,
+									"source" : [ "obj-20", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-7", 0 ],
+									"order" : 1,
 									"source" : [ "obj-20", 0 ]
 								}
 
@@ -9827,6 +9931,20 @@
 								"patchline" : 								{
 									"destination" : [ "obj-67", 0 ],
 									"source" : [ "obj-68", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-13", 0 ],
+									"source" : [ "obj-7", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-16", 0 ],
+									"source" : [ "obj-7", 1 ]
 								}
 
 							}
@@ -10233,7 +10351,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 0,
-					"patching_rect" : [ 205.309558987617493, 111.273953676223755, 61.0, 22.0 ],
+					"patching_rect" : [ 127.020933091641609, 172.710844397544861, 61.0, 22.0 ],
 					"text" : "dac~ 1 2"
 				}
 
@@ -10325,12 +10443,13 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-20",
+					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 106.270933091641609, 17.0, 117.08072251081353, 22.0 ],
-					"text" : "/characters voted"
+					"patching_rect" : [ 106.270933091641609, 17.0, 117.08072251081353, 36.0 ],
+					"text" : "/sample sylvan-game.wav"
 				}
 
 			}
@@ -10444,14 +10563,14 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-111", 1 ],
+					"destination" : [ "obj-266", 0 ],
 					"source" : [ "obj-107", 1 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-111", 0 ],
+					"destination" : [ "obj-74", 0 ],
 					"source" : [ "obj-107", 0 ]
 				}
 
@@ -11662,6 +11781,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-184", 0 ],
 					"source" : [ "obj-265", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-111", 1 ],
+					"source" : [ "obj-266", 0 ]
 				}
 
 			}
@@ -12898,6 +13024,22 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-266", 1 ],
+					"order" : 0,
+					"source" : [ "obj-52", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-74", 1 ],
+					"order" : 1,
+					"source" : [ "obj-52", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-198", 0 ],
 					"source" : [ "obj-53", 0 ]
 				}
@@ -13162,6 +13304,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-86", 0 ],
 					"source" : [ "obj-73", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-111", 0 ],
+					"source" : [ "obj-74", 0 ]
 				}
 
 			}

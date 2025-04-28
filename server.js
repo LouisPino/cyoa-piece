@@ -196,6 +196,13 @@ function sendSectionChange(location) {
             attacking = false
         }, 4000)
     }
+    if (currentLocation?.name === "intro") {
+        oscClient.send("/sample", "sylvan-game.wav")
+        setTimeout(() => {
+            newTargetSwipe()
+            attacking = false
+        }, 4000)
+    }
 }
 
 

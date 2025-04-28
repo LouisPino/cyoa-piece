@@ -12,11 +12,11 @@ function river() {
     renderPino("river")
     setTimeout(() => {
         slideChar(boatRockerEl, 300, 250, 1000)
-    }, 100)
+    }, 5000)
     setTimeout(() => {
         toggleAnimation("side", "duo")
         slideChar(boatRockerEl, 2000, 200, 1000)
-    }, 1000)
+    }, 6000)
 }
 
 

@@ -5,7 +5,7 @@ textsArr = [
 const forestVidEl = document.getElementById("forest-video")
 const forestStillEl = document.getElementById("forest-bg")
 
-function forestNorth() {
+function forestSouth() {
     setTimeout(scene0, 100)
     setTimeout(scene1, 1000)
     setTimeout(scene2, 6000)
@@ -29,8 +29,8 @@ function scene1() {
     fadeChar("jaz", 200, -200, 50, 1000)
     setTimeout(() => {
         toggleAnimation("walk", "duo")
-        slideChar("pino", 500, -400, 3000)
-        slideChar("jaz", 200, -400, 3000)
+        slideChar("pino", 500, 0, 3000)
+        slideChar("jaz", 200, 0, 3000)
         setTimeout(() => {
             toggleAnimation("side", "duo")
         }, 3000)
@@ -52,11 +52,14 @@ function scene3() {
 function scene4() {
     //after video
     forestVidEl.pause()
-    slideBoxY("duo")
-    setTimeout(nextLine, 750)
     setTimeout(() => {
-        slideBoxY("none")
-    }, 5000)
+
+        slideBoxY("duo")
+        setTimeout(nextLine, 750)
+        setTimeout(() => {
+            slideBoxY("none")
+        }, 5000)
+    }, 1000)
 }
 
-forestNorth()
+forestSouth()

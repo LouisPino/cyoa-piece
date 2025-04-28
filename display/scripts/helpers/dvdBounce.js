@@ -92,12 +92,49 @@ function dvdBounce() {
   }, 2000);
   setTimeout(() => {
     dvdHop(jazDiv)
-  }, 4000);
+  }, 8000);
   setTimeout(() => {
-    stopRotate(jazDiv)
-    stopRotate(pinoDiv)
-  }, 10000);
-
+    dvdHop(pinoDiv)
+  }, 18000);
+  setTimeout(() => {
+    dvdHop(jazDiv)
+  }, 30000);
+  setTimeout(() => {
+    dvdHop(pinoDiv)
+  }, 40000);
+  setTimeout(() => {
+    dvdHop(jazDiv)
+  }, 50000);
+  setTimeout(() => {
+    dvdHop(pinoDiv)
+  }, 60000);
+  setTimeout(() => {
+    dvdHop(jazDiv)
+  }, 70000);
+  setTimeout(() => {
+    dvdHop(pinoDiv)
+  }, 80000);
+  setTimeout(() => {
+    dvdHop(jazDiv)
+  }, 90000);
+  setTimeout(() => {
+    dvdHop(pinoDiv)
+  }, 100000);
+  setTimeout(() => {
+    dvdHop(jazDiv)
+  }, 1100000);
+  setTimeout(() => {
+    dvdHop(pinoDiv)
+  }, 130000);
+  setTimeout(() => {
+    dvdHop(jazDiv)
+  }, 150000);
+  setTimeout(() => {
+    dvdHop(pinoDiv)
+  }, 170000);
+  setTimeout(() => {
+    dvdHop(jazDiv)
+  }, 190000);
 
 }
 

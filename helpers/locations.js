@@ -186,7 +186,7 @@ const locations = {
   },
   postFightFork: {
     name: "postFightFork",
-    paths: ["fork", "fork"],
+    paths: ["shores", "shores"],
     choicePrompts: {
       mobile: "Which loot should they take?",
       display: "Which loot should we take?",
@@ -197,7 +197,29 @@ const locations = {
   },
   postChat: {
     name: "postChat",
-    paths: ["clouds", "shores"],
+    paths: ["postPostChatSpace", "postPostChatOcean"],
+    choicePrompts: {
+      mobile: "where should they travel?",
+      display: "where should we travel??",
+    },
+    choices: ["space", "ocean"],
+    html: {},
+    transition: { type: "pixelate-no-blur", time: 1000 },
+  },
+  postPostChatSpace: {
+    name: "postPostChatSpace",
+    paths: ["clouds", "clouds"],
+    choicePrompts: {
+      mobile: "Which loot should they take?",
+      display: "Which loot should we take?",
+    },
+    choices: ["vacuum", "fork"],
+    html: {},
+    transition: { type: "pixelate-no-blur", time: 1000 },
+  },
+  postPostChatOcean: {
+    name: "postPostChatOcean",
+    paths: ["shores", "shores"],
     choicePrompts: {
       mobile: "Which loot should they take?",
       display: "Which loot should we take?",

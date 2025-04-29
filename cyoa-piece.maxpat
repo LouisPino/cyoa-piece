@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 2126.0, 85.0, 399.0, 1272.0 ],
+		"rect" : [ 2038.0, 85.0, 487.0, 1272.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,6 +40,40 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-365",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 250.880132138729778, 541.848461329936981, 115.0, 22.0 ],
+					"text" : "postPostChatSpace"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-353",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 250.880132138729778, 510.817928373813629, 116.0, 22.0 ],
+					"text" : "postPostChatOcean"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-351",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 937.692251801490784, 851.538410782814026, 150.0, 20.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-331",
 					"maxclass" : "message",
 					"numinlets" : 2,
@@ -58,18 +92,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 828.0, 1190.0, 101.0, 22.0 ],
-					"text" : "jump pino 520 50"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-303",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 793.0, 454.0, 150.0, 20.0 ]
+					"patching_rect" : [ 828.0, 1190.0, 94.0, 22.0 ],
+					"text" : "jump pino 575 0"
 				}
 
 			}
@@ -80,9 +104,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 828.0, 1166.0, 100.0, 22.0 ],
-					"presentation_linecount" : 2,
-					"text" : "jump jaz 100 200"
+					"patching_rect" : [ 828.0, 1166.0, 87.0, 22.0 ],
+					"text" : "jump jaz 325 0"
 				}
 
 			}
@@ -1108,7 +1131,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 649.060063302517165, 977.219536066055298, 145.0, 22.0 ],
-					"text" : "changeSize duo 2000 0.3"
+					"text" : "changeSize duo 2000 0.7"
 				}
 
 			}
@@ -6048,7 +6071,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 117.0, 128.0, 33.0, 22.0 ],
-					"text" : "9"
+					"text" : "3"
 				}
 
 			}
@@ -6636,7 +6659,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 91.291204333305359, 620.026903629302979, 306.549448132514954, 48.0 ],
+					"patching_rect" : [ 93.534834921360016, 615.411519289016724, 306.549448132514954, 48.0 ],
 					"text" : "Sandbox Controls"
 				}
 
@@ -10250,7 +10273,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 567.027097880840529, 300.701108872890472, 50.0, 22.0 ],
-					"text" : "0"
+					"text" : "1"
 				}
 
 			}
@@ -10507,7 +10530,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 106.270933091641609, 17.0, 117.08072251081353, 22.0 ],
-					"text" : "/characters voted"
+					"text" : "/switch fightShrimp"
 				}
 
 			}
@@ -12455,6 +12478,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-86", 0 ],
+					"source" : [ "obj-353", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-206", 0 ],
 					"source" : [ "obj-354", 0 ]
 				}
@@ -12520,6 +12550,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-366", 0 ],
 					"source" : [ "obj-363", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-86", 0 ],
+					"source" : [ "obj-365", 0 ]
 				}
 
 			}

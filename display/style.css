@@ -305,6 +305,25 @@ body {
     transform-origin: 50% 46%;
 }
 
+#buff-screen {
+    opacity: 1;
+    transition: opacity 5s ease;
+}
+
+#buff-screen img {
+
+    z-index: 5;
+}
+
+#teleporter {
+    z-index: 2;
+}
+
+#teleporter-beam {
+    z-index: 3000;
+    visibility: hidden;
+}
+
 @keyframes rotate360Collar {
     from {
         transform: rotate(0deg);

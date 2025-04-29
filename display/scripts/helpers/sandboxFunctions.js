@@ -142,7 +142,6 @@ function toggleBox(arg, characters) {
         boxEl.src = newSrc
         textBodyEl.style.color = newColor
         moveText("dialogue")
-        box
     }
 }
 

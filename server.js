@@ -33,7 +33,7 @@ let swipeType
 let swipeCount = 0
 
 let madlibWords = { noun: [], verb: [], adjective: [], }
-const wordTypes = ["NOUN", "NOUN", "VERB", "VERB", "ADJECTIVE", "ADJECTIVE"]
+const wordTypes = ["noun", "noun", "verb", "verb", "adjective", "adjective"]
 
 
 /////////////////////////Initialize server
@@ -348,7 +348,6 @@ function endFight() {
 function addMadlibWord(type, word) {
     if (word === "") { return }
     madlibWords[type].push(word)
-    console.log(madlibWords)
 }
 
 
@@ -403,6 +402,11 @@ oscServer.on('message', (msg, rinfo) => {
         case "map":
             sendToDisplay({ type: "map", route: msg[1], data: msg.slice(2) })
             sendToWebClients({ type: "map", data: { type: msg[1] } })
+            break
+        case "madlib":
+            if (msg[1] === "draw") {
+                sendToDisplay({ type: "madlib", route: msg[1] })
+            }
             break
     }
     const msgObj = { type: msg[0], data: msg[1] }

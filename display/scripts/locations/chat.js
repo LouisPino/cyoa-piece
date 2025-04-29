@@ -276,7 +276,7 @@ function setMadlibStage() {
         jumpChar("npc", 0, 0)
         changeSize("duo", 1, 1.7)
         writingGifEl.style.visibility = "visible"
-        thoughtBubbleEl.style.visibility = "visible"
+        thoughtBubbleEl.style.opacity = 1
     }, 3000)
     setTimeout(() => {
         jumpChar("pino", 400, 750)
@@ -291,11 +291,9 @@ animateWords();
 
 
 
-createFloatingWord("hello");
-createFloatingWord("world");
-createFloatingWord("adventure");
-
-
+createFloatingWord(madlibWords[0]);
+createFloatingWord(madlibWords[1]);
+createFloatingWord(madlibWords[2]);
 chat()
 
 

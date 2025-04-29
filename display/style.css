@@ -343,18 +343,21 @@ body {
 
 #thought-bubble,
 #speech-bubble {
-    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s ease;
+    position: absolute;
+    visibility: visible;
 }
 
 
 #word-area {
     position: relative;
-    width: 1200px;
+    width: 1400px;
     /* 1600 - 200 */
-    height: 400px;
+    height: 450px;
     /* 1200 - 200 */
     overflow: hidden;
-    margin: 60px 0 0 325px;
+    margin: 40px 0 0 250px;
     /* background: rgba(200, 220, 255, 0.2); */
     /* just to see the area */
     /* border: 2px dashed #aaa; */
@@ -365,13 +368,14 @@ body {
 
 .floating-word {
     position: absolute;
-    font-size: 24px;
+    font-size: 40px;
     user-select: none;
     pointer-events: none;
     transform-origin: center center;
     white-space: nowrap;
+    transition: all 1s ease;
+    /* <- Smooth transition */
 }
-
 
 
 

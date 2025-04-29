@@ -306,7 +306,7 @@ const choiceMap = {
 }
 
 function tallyVotes() {
-    return choiceMap[Object.keys(choices).reduce((a, b) => choices[a] >= choices[b] ? a : b)]
+    return choiceMap[Object.keys(choices).reduce((a, b) => choices[a] >= choices[b] ? b : b)]
 }
 
 function intermissionTrigger() {

@@ -46,12 +46,15 @@ textsArr = previousLocation === "rats" ? ratsArr : batIsoArr
 let baseSprite = previousLocation.slice(0, -1)
 function chat() {
     scene0()
-    if (previousLocation === "rats") {
-        ratPlaylist()
-    } else {
-        batIsoPlaylist()
-    }
-    setTimeout(madLib, 40000)
+    // if (previousLocation === "rats") {
+    //     ratPlaylist()
+    // } else {
+    //     batIsoPlaylist()
+    // }
+
+
+    madLib()
+    //automatically goes to madlib then to chatPart2
 }
 
 function batIsoPlaylist() {
@@ -140,7 +143,7 @@ function scene2() {
     }, 500)
 }
 
-function chatPart2() {
+window.chatPart2 = function () {
     scene0()
     toggleAnimation("side", "duo")
     jumpChar("pino", 250, -50)
@@ -215,7 +218,7 @@ function scene2rats() {
     }, 500)
 }
 
-function chatPart2rats() {
+window.chatPart2rats = function () {
     scene0()
     toggleAnimation("side", "duo")
     jumpChar("pino", 250, -50)
@@ -249,7 +252,6 @@ function chatPart2rats() {
                 fadeBox("none")
             }, 7000)
         }, 35000)
-
     }, 500)
 }
 
@@ -276,6 +278,9 @@ function setMadlibStage() {
         changeSize("duo", 1, 1.7)
         writingGifEl.style.visibility = "visible"
         thoughtBubbleEl.style.opacity = 1
+        for (word of madlibWords) {
+            createFloatingWord(word)
+        }
     }, 3000)
     setTimeout(() => {
         jumpChar("pino", 400, 750)
@@ -288,12 +293,6 @@ function setMadlibStage() {
 // Start animation loop
 animateWords();
 
-
-for (word of madlibWords) {
-    createFloatingWord(word)
-}
-
 chat()
-
 
 

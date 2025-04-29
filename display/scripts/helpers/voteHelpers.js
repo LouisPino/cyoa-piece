@@ -106,10 +106,10 @@ function flashCtrl(choice) {
     let voteEls = []
     if (choice === "choice1") {
         voteEls.push(document.getElementById("vote-a-img"))
-        voteEls.push(document.getElementById(".vote-a-bg"))
+        voteEls.push(document.getElementById("vote-a-bg"))
     } else if (choice === "choice2") {
         voteEls.push(document.getElementById("vote-b-img"))
-        voteEls.push(document.getElementById(".vote-b-bg"))
+        voteEls.push(document.getElementById("vote-b-bg"))
     }
     flashOnce(voteEls)
 }

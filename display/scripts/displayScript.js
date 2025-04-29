@@ -243,8 +243,6 @@ document.addEventListener("DOMContentLoaded", function () {
               break
             case "draw":
               displayWord(wordTypes[madlibIdx])
-              madlibIdx++
-              setTimeout(resetWords, 3000)
               break
           }
           break;

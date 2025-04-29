@@ -82,6 +82,14 @@ function displayWord(type) {
         animationId = null;
     }
 
+    if (madlibIdx === wordTypes.length) {
+        movePastMadlib()
+        return
+    } else {
+        setTimeout(resetWords, 3000)
+        madlibIdx++
+    }
+
     displaying = true;
 
     const thoughtBubbleEl = document.getElementById("thought-bubble");
@@ -108,6 +116,8 @@ function displayWord(type) {
             p.style.display = 'none';
         }
     }
+
+    setTimeout(resetWords, 3000)
 }
 
 function resetWords() {
@@ -138,3 +148,17 @@ function resetWords() {
 
     animateWords();
 }
+
+
+
+function movePastMadlib() {
+    if (history.locationsVisited[history.locationsVisited.length - 2].name === "rats") {
+        window.chatPart2rats()
+    } else {
+        window.chatPart2()
+    }
+}
+
+
+
+

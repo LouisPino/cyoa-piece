@@ -33,7 +33,7 @@ let swipeType
 let swipeCount = 0
 
 const wordTypes = ["noun", "noun", "verb", "verb", "adjective", "adjective"]
-
+let madlibbing = false
 
 /////////////////////////Initialize server
 const server = http.createServer((req, res) => {
@@ -158,8 +158,10 @@ wss.on('connection', (ws, req) => {
                 break
             case "madlib":
                 if (data.msg === "start") {
+                    madlibbing = true
                     sendToWebClients({ type: "madlib", data: "start" })
                 } else if (data.msg === "end") {
+                    madlibbing = false
                     sendToWebClients({ type: "madlib", data: "end" })
                 }
                 break

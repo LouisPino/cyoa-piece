@@ -1,5 +1,4 @@
 const socket = new WebSocket(`ws://${location.hostname}:8000`);
-initializeWebSocket()
 let locations
 let extras
 let scripts
@@ -8,6 +7,8 @@ let currentLocation
 let fighting = true
 let history;
 let wordTypes
+
+initializeWebSocket()
 function initializeWebSocket() {
     /////////////////Communcation
     // Confirm connection success
@@ -27,6 +28,7 @@ function initializeWebSocket() {
                 scripts = msg.data["scripts"]
                 locationScripts = msg.data["locationScripts"]
                 wordTypes = msg.data["wordTypes"]
+                madlibbing = msg.data["madlibbing"]
                 break
             case "section":
                 sectionChange(locations[msg.data.name])
@@ -74,6 +76,7 @@ function initializeWebSocket() {
                 break
             case "madlib":
                 if (msg.data === "start") {
+                    madlibbing = true
                     document.getElementById("madlib-ctr").style.visibility = "visible"
                     document.getElementById("madlib-blackout").style.visibility = "hidden"
                 } else if (msg.data === "end") {
@@ -133,4 +136,5 @@ function changeSwipePrompt(swipeType) {
 
 function hideMadlib() {
     document.getElementById("madlib-ctr").style.visibility = "hidden"
+    madlibbing = false
 }

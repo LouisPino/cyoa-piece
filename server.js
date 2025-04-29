@@ -166,6 +166,7 @@ wss.on('connection', (ws, req) => {
                 break
             case "madlib-word":
                 addMadlibWord(data.val.wordType, data.val.word)
+                sendToDisplay({ type: "madlib", route: "word", data: { wordType: data.val.wordType, word: data.val.word } })
                 break
         }
     });

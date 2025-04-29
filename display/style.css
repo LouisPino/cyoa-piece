@@ -324,6 +324,59 @@ body {
     visibility: hidden;
 }
 
+
+
+/* madlib */
+#black-overlay {
+    opacity: 0;
+    transition: opacity 3s ease;
+    background-color: black;
+    z-index: 5000;
+}
+
+#writing-gif {
+    visibility: hidden;
+    bottom: -100px;
+    left: -100px;
+    z-index: 6;
+}
+
+#thought-bubble,
+#speech-bubble {
+    visibility: hidden;
+}
+
+
+#word-area {
+    position: relative;
+    width: 1200px;
+    /* 1600 - 200 */
+    height: 400px;
+    /* 1200 - 200 */
+    overflow: hidden;
+    margin: 60px 0 0 325px;
+    /* background: rgba(200, 220, 255, 0.2); */
+    /* just to see the area */
+    /* border: 2px dashed #aaa; */
+    font-size: 50px;
+    color: white;
+    font-weight: bold;
+}
+
+.floating-word {
+    position: absolute;
+    font-size: 24px;
+    user-select: none;
+    pointer-events: none;
+    transform-origin: center center;
+    white-space: nowrap;
+}
+
+
+
+
+
+
 @keyframes rotate360Collar {
     from {
         transform: rotate(0deg);

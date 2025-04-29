@@ -169,6 +169,10 @@ async function toggleAnimation(animation, charName) {
         if (charNames.includes("pino")) {
             pinoHands.remove()
         }
+    } else if (animation === "madlib") {
+        if (charNames.includes("pino")) {
+            pinoHands.remove()
+        }
     } else if (animation === "robeAura") {
         setTimeout(() => {
             pinoBodyLine.src = `/display/assets/characters/pino/bodyline/robeAura/${characters.p.robe}.png`

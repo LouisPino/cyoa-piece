@@ -15,6 +15,10 @@ let swipeCount
 let swipeCountTarget
 let swipeType
 
+
+let madlibWords = { noun: ["ass"], verb: ["fuck"], adjective: ["stinky"] }
+let wordTypes
+
 let socket
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -48,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
           extras = msg.data.extras;
           scripts = msg.data.scripts;
           locationScripts = msg.data["locationScripts"];
+          wordTypes = msg.data["wordTypes"];
           storeCharacters(msg.data["characters"])
           break;
         case "section":
@@ -214,6 +219,27 @@ document.addEventListener("DOMContentLoaded", function () {
           switch (msg.route) {
             case "render":
               renderMap(characters.p.device)
+              break
+            case "remove":
+              removeMap()
+              break
+            case "change":
+              changeMapSrc(msg.data[0])
+              break
+            case "move":
+              moveMap(msg.data[0], msg.data[1])
+              break
+            case "fade":
+              fadeMap(msg.data[0])
+              break
+          }
+          break;
+        case "madlib":
+          switch (msg.route) {
+            case "word":
+              madlibWords[msg.data.wordType].push(msg.data.word)
+              createFloatingWord(msg.data.word)
+              console.log(madlibWords)
               break
             case "remove":
               removeMap()

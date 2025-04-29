@@ -1,6 +1,7 @@
 let previousLocation = history.locationsVisited[history.locationsVisited.length - 2].name
 let newSprite = ""
 let newSprite2 = ""
+area = document.getElementById('word-area');
 
 
 const batIsoArr = [
@@ -45,12 +46,13 @@ textsArr = previousLocation === "rats" ? ratsArr : batIsoArr
 let baseSprite = previousLocation.slice(0, -1)
 function chat() {
     scene0()
-    if (previousLocation === "rats") {
-        ratPlaylist()
-    } else {
-        batIsoPlaylist()
-    }
+    // if (previousLocation === "rats") {
+    //     ratPlaylist()
+    // } else {
+    //     batIsoPlaylist()
+    // }
 
+    madLib()
 }
 
 function batIsoPlaylist() {
@@ -79,10 +81,8 @@ function scene0() {
     changeSize("duo", 1, .8)
     if (history.locationsVisited[history.locationsVisited.length - 3].name === "river") {
         changeBg("animated/riverInterior.gif")
-        // document.getElementById("sandbox-bg").src = "/display/assets/backgrounds/animated/riverInterior.gif"
     } else {
         changeBg("animated/caveInterior.gif")
-        // document.getElementById("sandbox-bg").src = "/display/assets/backgrounds/animated/caveInterior.gif"
     }
     renderPino()
     renderJaz()
@@ -260,7 +260,43 @@ function chatPart2rats() {
 
 function madLib() {
     sendToServer({ type: "madlib", msg: "start" })
+    setMadlibStage()
+}
+
+const writingGifEl = document.getElementById("writing-gif")
+const thoughtBubbleEl = document.getElementById("thought-bubble")
+const speechBubbleEl = document.getElementById("speech-bubble")
+
+function setMadlibStage() {
+    document.getElementById("black-overlay").style.opacity = 1;
+    setTimeout(() => {
+        toggleAnimation("madlib", "duo")
+        changeNPCSrc(`${baseSprite}/madlib.gif`)
+        changeSize("npc", 1, 1)
+        jumpChar("npc", 0, 0)
+        changeSize("duo", 1, 1.7)
+        writingGifEl.style.visibility = "visible"
+        thoughtBubbleEl.style.visibility = "visible"
+    }, 3000)
+    setTimeout(() => {
+        jumpChar("pino", 400, 750)
+        jumpChar("jaz", 650, 750)
+        document.getElementById("black-overlay").style.opacity = 0;
+    }, 3100)
 }
 
 
+// Start animation loop
+animateWords();
+
+
+
+createFloatingWord("hello");
+createFloatingWord("world");
+createFloatingWord("adventure");
+
+
 chat()
+
+
+

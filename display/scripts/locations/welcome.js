@@ -48,7 +48,7 @@ changeBg("/stills/default.png")
 toggleAnimation("run", "duo")
 renderPino("welcome")
 renderJaz("welcome")
-jumpChar("duo", 450, 450)
+jumpChar("duo", 450, 425)
 
 
 

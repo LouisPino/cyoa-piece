@@ -46,13 +46,12 @@ textsArr = previousLocation === "rats" ? ratsArr : batIsoArr
 let baseSprite = previousLocation.slice(0, -1)
 function chat() {
     scene0()
-    // if (previousLocation === "rats") {
-    //     ratPlaylist()
-    // } else {
-    //     batIsoPlaylist()
-    // }
-
-    madLib()
+    if (previousLocation === "rats") {
+        ratPlaylist()
+    } else {
+        batIsoPlaylist()
+    }
+    setTimeout(madLib, 40000)
 }
 
 function batIsoPlaylist() {

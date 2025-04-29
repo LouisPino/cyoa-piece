@@ -38,7 +38,6 @@ function displayVote(mainEl, extras, voteLength, data, type) {
             break
         case "skin":
             stopGifRandomizer()
-
             backgroundEl.src = "display/assets/backgrounds/stills/default.png"
             voteBannerText.innerHTML = skinChoices[data.item][2]
             voteAImg.src = `display/assets/vote/character/${skinChoices[data.item][0]}/up.PNG`

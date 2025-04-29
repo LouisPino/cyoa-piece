@@ -1,4 +1,5 @@
 function revealCharacter(charName, extras, confetti) {
+    toggleAnimation("front")
     document.getElementById("display-main").innerHTML = extras.filter(
         (extra) => extra.name === "characterReveal"
     )[0].content;
@@ -33,10 +34,10 @@ function revealCharacter(charName, extras, confetti) {
         asset3BgEl.style.setProperty("top", "0vh", "important");
     }, 3000)
     setTimeout(() => {
-        asset3El.style.left = "-27vw"
-        asset3BgEl.style.left = "-27vw"
-        asset1El.style.left = "27vw"
-        asset1BgEl.style.left = "27vw"
+        asset3El.style.left = "-575px"
+        asset3BgEl.style.left = "-575px"
+        asset1El.style.left = "575px"
+        asset1BgEl.style.left = "575px"
     }, 4000)
     setTimeout(() => {
         flashImages([asset1El, asset2El, asset3El], charName, confetti)
@@ -104,11 +105,13 @@ function flashImages(assetsArr, charName, confetti) {
             setTimeout(() => {
                 if (i === 50) {
                     if (charName === "pino") {
+                        changeSize("pino", 1, 1.3)
+                        jumpChar("pino", 720, 200)
                         renderPino()
-                        document.getElementById("pino-char").classList.add("pino-reveal")
                     } else {
+                        changeSize("jaz", 1, 1.3)
+                        jumpChar("jaz", 240, 200)
                         renderJaz()
-                        document.getElementById("jaz-char").classList.add("jaz-reveal")
                     }
                     characterDiv = document.getElementById(`${charName}-char`)
                     for (const child of characterDiv.children) {

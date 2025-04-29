@@ -60,4 +60,4 @@ function scene4() {
     }, 1000)
 }
 
-// cave()
+cave()

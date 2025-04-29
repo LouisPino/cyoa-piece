@@ -16,6 +16,6 @@ function submitWord() {
             mainEl.innerHTML = `<img class="complete-screen-img" src="/mobile/assets/backgrounds/Phone_Load.gif">`
         }, 2000)
     } else {
-        typePromptEl.innerHTML = `${wordTypes[submittedCount]}`
+        typePromptEl.innerHTML = `${wordTypes[submittedCount].toUpperCase()}`
     }
 }

@@ -290,10 +290,10 @@ function setMadlibStage() {
 animateWords();
 
 
+for (word of madlibWords) {
+    createFloatingWord(word)
+}
 
-createFloatingWord(madlibWords[0]);
-createFloatingWord(madlibWords[1]);
-createFloatingWord(madlibWords[2]);
 chat()
 
 

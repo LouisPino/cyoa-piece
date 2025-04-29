@@ -32,7 +32,6 @@ const swipeTypes = ["up", "down", "left", "right"]
 let swipeType
 let swipeCount = 0
 
-let madlibWords = { noun: [], verb: [], adjective: [], }
 const wordTypes = ["noun", "noun", "verb", "verb", "adjective", "adjective"]
 
 
@@ -165,7 +164,6 @@ wss.on('connection', (ws, req) => {
                 }
                 break
             case "madlib-word":
-                addMadlibWord(data.val.wordType, data.val.word)
                 sendToDisplay({ type: "madlib", route: "word", data: { wordType: data.val.wordType, word: data.val.word } })
                 break
         }
@@ -341,13 +339,6 @@ function newTargetSwipe() {
 
 function endFight() {
     sendToWebClients({ type: "bossFight", data: "endFight" })
-}
-
-
-// madlib
-function addMadlibWord(type, word) {
-    if (word === "") { return }
-    madlibWords[type].push(word)
 }
 
 

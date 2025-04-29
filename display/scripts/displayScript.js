@@ -16,7 +16,7 @@ let swipeCountTarget
 let swipeType
 
 
-let madlibWords = [{ word: "ass", type: "noun" }, { word: "fuck", type: "verb" }, { word: "stinky", type: "adjective" }]
+let madlibWords = [{ word: "ass", type: "noun" }, { word: "fuck", type: "verb" }, { word: "stinky", type: "adjective" }, { word: "exaggerated", type: "adjective" }]
 let wordTypes
 let madlibIdx = 0
 

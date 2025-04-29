@@ -352,12 +352,12 @@ body {
 
 #word-area {
     position: relative;
-    width: 1400px;
+    width: 1300px;
     /* 1600 - 200 */
-    height: 450px;
+    height: 400px;
     /* 1200 - 200 */
-    overflow: hidden;
-    margin: 40px 0 0 250px;
+    overflow: visible;
+    margin: 80px 0 0 300px;
     /* background: rgba(200, 220, 255, 0.2); */
     /* just to see the area */
     /* border: 2px dashed #aaa; */

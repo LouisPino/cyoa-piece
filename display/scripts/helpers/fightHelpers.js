@@ -1,11 +1,20 @@
 let charSize = 1
 let attacking = false
 
-const attacks = [collarRoll, throwHats, hatSpike, noisyBonk, deviceDrop, robeAura, duoAttack]
+const attacks = [collarRoll, throwHats, hatSpike, deviceDrop, noisyBonk, robeAura, duoAttack]
 let attackIdx = 0
 
 
+
 function robeAura() {
+    let npcBase = ""
+    if (checkHistory("rats")) {
+        npcBase = "rat"
+    } else if (checkHistory("bats")) {
+        npcBase = "bat"
+    } else if (checkHistory("isopods")) {
+        npcBase = "isopod"
+    }
     setTimeout(() => {
         toggleAnimation("robeAura", "pino")
         focusChar("pino")

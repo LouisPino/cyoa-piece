@@ -1,17 +1,21 @@
 // Optimized Floating Words Animation
 
-const maxWords = 15;
+const maxWords = 30;
 const words = []; // active DOM elements
 const velocities = []; // animation velocities
 let animationId = null;
 let area;
 let displayLineup = [];
 let displaying = false;
-
 function createFloatingWord(word) {
     if (!area) return;
 
     if (displaying) {
+        displayLineup.push(word);
+        return;
+    }
+
+    if (madlibbing === false) {
         displayLineup.push(word);
         return;
     }
@@ -72,7 +76,6 @@ function animateWords() {
         vel.angle += vel.rotationSpeed;
         p.style.transform = `translate(${x}px, ${y}px) rotate(${vel.angle}deg)`;
     }
-
     animationId = requestAnimationFrame(animateWords);
 }
 
@@ -85,10 +88,11 @@ function displayWord(type) {
     if (madlibIdx === wordTypes.length) {
         movePastMadlib()
         return
-    } else {
-        setTimeout(resetWords, 3000)
-        madlibIdx++
     }
+
+    setTimeout(resetWords, 3000)
+    madlibIdx++
+
 
     displaying = true;
 
@@ -117,7 +121,6 @@ function displayWord(type) {
         }
     }
 
-    setTimeout(resetWords, 3000)
 }
 
 function resetWords() {
@@ -152,13 +155,30 @@ function resetWords() {
 
 
 function movePastMadlib() {
+    const thoughtBubbleEl = document.getElementById("thought-bubble");
+    const speechBubbleEl = document.getElementById("speech-bubble");
+    const writingGifEl = document.getElementById("writing-gif");
+    const wordAreaEl = document.getElementById("word-area");
+    const timerEl = document.getElementById("madlib-timer");
+    thoughtBubbleEl.remove()
+    speechBubbleEl.remove()
+    writingGifEl.remove()
+    wordAreaEl.remove()
+    timerEl.remove()
     if (history.locationsVisited[history.locationsVisited.length - 2].name === "rats") {
         window.chatPart2rats()
     } else {
         window.chatPart2()
     }
+    madlibbing = false
 }
 
 
 
 
+function madlibTimeChange(time) {
+    madlibbing = true
+    if (document.getElementById("madlib-timer")) {
+        document.getElementById("madlib-timer").innerText = time === 0 ? time : ""
+    }
+}

@@ -11,7 +11,7 @@ textsArr = [
 
 
 function postFightFork() {
-    if (history.locationsVisited[history.locationsVisited.length - 4].name === "river") {
+    if (checkHistory("river")) {
         document.getElementById("teleporter").src = "/display/assets/locations/teleporter/river.png"
     } else {
         changeBg("animated/caveInterior.gif")

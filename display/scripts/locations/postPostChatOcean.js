@@ -1,5 +1,5 @@
 function postPostChatSpace() {
-    if (history.locationsVisited[history.locationsVisited.length - 5].name === "river") {
+    if (checkHistory("river")) {
         document.getElementById("teleporter").src = "/display/assets/locations/teleporter/river.png"
         changeBg("animated/riverInterior.gif")
     } else {
@@ -16,9 +16,8 @@ function postPostChatSpace() {
         fadeChar("pino", 575, 0, 10, 5000)
         fadeChar("jaz", 325, 0, 10, 5000)
         setTimeout(() => {
-            document.getElementById("teleporter-beam").style.visibility = "visible"
-            slideChar("pino", 575, -1000, 3000)
             slideChar("jaz", 325, -1000, 3000)
+            document.getElementById("teleporter-beam").style.visibility = "visible"
             flipChar("left", "duo")
             setTimeout(() => {
                 flipChar("right", "duo")
@@ -48,6 +47,7 @@ function postPostChatSpace() {
                 flipChar("right", "duo")
             }, 1800)
             setTimeout(() => {
+                slideChar("pino", 575, -1000, 3000)
                 flipChar("left", "duo")
             }, 2000)
             setTimeout(() => {
@@ -62,7 +62,25 @@ function postPostChatSpace() {
             setTimeout(() => {
                 flipChar("left", "duo")
             }, 2800)
-        }, 4000)
+            setTimeout(() => {
+                flipChar("right", "duo")
+            }, 3000)
+            setTimeout(() => {
+                flipChar("left", "duo")
+            }, 3200)
+            setTimeout(() => {
+                flipChar("right", "duo")
+            }, 3400)
+            setTimeout(() => {
+                flipChar("left", "duo")
+            }, 3600)
+            setTimeout(() => {
+                flipChar("right", "duo")
+            }, 3800)
+            setTimeout(() => {
+                flipChar("left", "duo")
+            }, 4000)
+        }, 8000)
     }, 350)
 }
 

@@ -215,6 +215,15 @@ button {
     visibility: hidden;
 }
 
+#madlib-timer {
+    font-size: 48px;
+    color: var(--sylvan-light);
+    position: absolute;
+    width: 50px;
+    top: 0;
+    right: 0;
+}
+
 .vote-bg {
     width: 100vw;
     height: 100vh;

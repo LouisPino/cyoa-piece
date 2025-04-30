@@ -33,7 +33,9 @@ let swipeType
 let swipeCount = 0
 
 const wordTypes = ["noun", "noun", "verb", "verb", "adjective", "adjective"]
-let madlibbing = false
+const madlibSubmitLength = 45 //seconds
+let madlibbing
+let madlibTimerInterval = null;
 
 /////////////////////////Initialize server
 const server = http.createServer((req, res) => {
@@ -121,10 +123,10 @@ wss.on('connection', (ws, req) => {
     connectedClients.push(ws)
     if (locationPath === "/display") {
         ws.send(JSON.stringify({ type: 'ip-address', data: IP4 }));
-        sendToDisplay({ type: 'initialFileServe', data: { locations: locations, extras: displayExtras, scripts: displayScripts, locationScripts: displayLocationScripts, voteLength: voteLength, winnerLength: winnerLength, promptLength: promptLength, swipeCountTarget: swipeCountTarget, characters: characters, wordTypes: wordTypes } })
+        sendToDisplay({ type: 'initialFileServe', data: { locations: locations, extras: displayExtras, scripts: displayScripts, locationScripts: displayLocationScripts, voteLength: voteLength, winnerLength: winnerLength, promptLength: promptLength, swipeCountTarget: swipeCountTarget, characters: characters, wordTypes: wordTypes, madlibSubmitLength: madlibSubmitLength } })
         sendToDisplay({ type: "section", data: currentLocation })
     } else {
-        ws.send(JSON.stringify({ type: 'initialFileServe', data: { locations: locations, extras: mobileExtras, scripts: mobileScripts, voteLength: voteLength, locationScripts: mobileLocationScripts, wordTypes: wordTypes } }))
+        ws.send(JSON.stringify({ type: 'initialFileServe', data: { locations: locations, extras: mobileExtras, scripts: mobileScripts, voteLength: voteLength, locationScripts: mobileLocationScripts, wordTypes: wordTypes, madlibSubmitLength: madlibSubmitLength } }))
         if (!voting) {
             ws.send(JSON.stringify({ type: "section", data: currentLocation }))
         } else {
@@ -158,8 +160,8 @@ wss.on('connection', (ws, req) => {
                 break
             case "madlib":
                 if (data.msg === "start") {
-                    madlibbing = true
                     sendToWebClients({ type: "madlib", data: "start" })
+                    madLibCountdown()
                 } else if (data.msg === "end") {
                     madlibbing = false
                     sendToWebClients({ type: "madlib", data: "end" })
@@ -236,6 +238,12 @@ function handleVote(vote) {
 function triggerVote(type, item) {
     voting = true
     if (type === "path") {
+        if (currentLocation.voteVamp) {
+            oscClient.send("/sample", currentLocation.voteVamp)
+        } else {
+
+            oscClient.send("/sample", 0)
+        }
         sendToWebClients({ type: "vote", data: { type: "path" } })
         sendToDisplay({ type: "vote", data: { type: "path", currentLocation: currentLocation } }) // in display, make visible the choice prompt + image
     } else if (type === "skin") {
@@ -291,6 +299,8 @@ function endVote(type, item, winner) {
             break
     }
     voting = false;
+    oscClient.send("/sample", 0)
+
     resetChoices()
 }
 
@@ -419,6 +429,38 @@ function renderGameLeaderboard() {
 }
 
 setTimeout(renderGameLeaderboard, 2000)
+
+
+//madlib
+
+function madLibCountdown() {
+    let timeLeft = madlibSubmitLength;
+    // Send the first message immediately
+    sendToWebClients({ type: "madlib-timer", data: timeLeft });
+    sendToDisplay({ type: "madlib-timer", data: timeLeft });
+
+    // Clear any existing interval to prevent duplicates
+    if (madlibTimerInterval) {
+        clearInterval(madlibTimerInterval);
+    }
+
+    madlibTimerInterval = setInterval(() => {
+        timeLeft--;
+
+        // Send the current time to clients
+        sendToWebClients({ type: "madlib-timer", data: timeLeft });
+        sendToDisplay({ type: "madlib", route: "timer", data: timeLeft });
+
+        if (timeLeft <= 0) {
+            clearInterval(madlibTimerInterval);
+            madlibTimerInterval = null;
+        }
+    }, 1000);
+}
+
+
+
+
 
 
 module.exports = [

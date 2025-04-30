@@ -16,9 +16,10 @@ let swipeCountTarget
 let swipeType
 
 
-let madlibWords = [{ word: "ass", type: "noun" }, { word: "fuck", type: "verb" }, { word: "stinky", type: "adjective" }, { word: "exaggerated", type: "adjective" }]
+let madlibWords = [{ word: "bird", type: "noun" }, { word: "Missouri", type: "noun" }, { word: "drink", type: "verb" }, { word: "devour", type: "verb" }, { word: "stinky", type: "adjective" }, { word: "exaggerated", type: "adjective" }]
 let wordTypes
 let madlibIdx = 0
+let madlibbing = false
 
 let socket
 
@@ -244,6 +245,9 @@ document.addEventListener("DOMContentLoaded", function () {
             case "draw":
               displayWord(wordTypes[madlibIdx])
               break
+            case "timer":
+              madlibTimeChange(msg.data)
+              break
           }
           break;
       }
@@ -305,4 +309,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function sendToServer(msg) {
   socket.send(JSON.stringify(msg));
+}
+
+
+
+function checkHistory(locationName) {
+  return Object.values(history.locationsVisited).some(loc => loc.name === locationName);
 }

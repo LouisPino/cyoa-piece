@@ -12,7 +12,7 @@ const batIsoArr = [
     " It’s mostly done, but each section is missing something. I have such a dreadful time trying to figure out what words would give these sections more …VA-VA-VOOM!",
     "Do you know what I mean?",
     "Say… you strike me as a great writer! Can you help me finish this?",
-    "Absolutely",
+    // "Absolutely",
     " *gasp* This is it! The glorious final product I will use to enter the festival! Woohoo!",
     "To thank you for your help, let me give you some advice on the next leg of your travels...",
     "The GRAND TELEPORTER that you’re about to use is a little bit broken. It might separate the two of you if you go at the same time. ",
@@ -46,14 +46,14 @@ textsArr = previousLocation === "rats" ? ratsArr : batIsoArr
 let baseSprite = previousLocation.slice(0, -1)
 function chat() {
     scene0()
-    // if (previousLocation === "rats") {
-    //     ratPlaylist()
-    // } else {
-    //     batIsoPlaylist()
-    // }
+    if (previousLocation === "rats") {
+        ratPlaylist()
+    } else {
+        batIsoPlaylist()
+    }
 
 
-    madLib()
+    // madLib()
     //automatically goes to madlib then to chatPart2
 }
 
@@ -81,7 +81,7 @@ function scene0() {
     jumpChar("pino", -800, -50)
     jumpChar("jaz", -850, -50)
     changeSize("duo", 1, .8)
-    if (history.locationsVisited[history.locationsVisited.length - 3].name === "river") {
+    if (checkHistory("river")) {
         changeBg("animated/riverInterior.gif")
     } else {
         changeBg("animated/caveInterior.gif")
@@ -139,7 +139,7 @@ function scene2() {
         setTimeout(() => {
             fadeBox("none")
             madLib()
-        }, 51000)
+        }, 54000)
     }, 500)
 }
 
@@ -258,7 +258,6 @@ window.chatPart2rats = function () {
 
 
 
-
 function madLib() {
     sendToServer({ type: "madlib", msg: "start" })
     setMadlibStage()
@@ -267,6 +266,14 @@ function madLib() {
 const writingGifEl = document.getElementById("writing-gif")
 const thoughtBubbleEl = document.getElementById("thought-bubble")
 const speechBubbleEl = document.getElementById("speech-bubble")
+
+const votePromptHtml = `<img class="complete-screen-img" id="vote-prompt" src="/display/assets/vote/VotePrompt.png" />`
+const votePromptEl = document.createElement("img")
+votePromptEl.classList.add("complete-screen-img")
+votePromptEl.id = "vote-prompt2"
+votePromptEl.src = "/display/assets/vote/VotePrompt.png"
+votePromptEl.style.zIndex = 3000
+
 
 function setMadlibStage() {
     document.getElementById("black-overlay").style.opacity = 1;
@@ -278,6 +285,45 @@ function setMadlibStage() {
         changeSize("duo", 1, 1.7)
         writingGifEl.style.visibility = "visible"
         thoughtBubbleEl.style.opacity = 1
+        document.body.appendChild(votePromptEl)
+        setTimeout(() => {
+            votePromptEl.style.visibility = "hidden"
+        }, 700)
+        setTimeout(() => {
+            votePromptEl.style.visibility = "visible"
+        }, 1000)
+        setTimeout(() => {
+            votePromptEl.style.visibility = "hidden"
+        }, 1700)
+        setTimeout(() => {
+            votePromptEl.style.visibility = "visible"
+        }, 2000)
+        setTimeout(() => {
+            votePromptEl.style.visibility = "hidden"
+        }, 2700)
+        setTimeout(() => {
+            votePromptEl.style.visibility = "visible"
+        }, 3000)
+        setTimeout(() => {
+            votePromptEl.style.visibility = "hidden"
+        }, 3700)
+        setTimeout(() => {
+            votePromptEl.style.visibility = "visible"
+        }, 4000)
+        setTimeout(() => {
+            votePromptEl.style.visibility = "hidden"
+        }, 4700)
+        setTimeout(() => {
+            votePromptEl.style.visibility = "visible"
+        }, 5000)
+        setTimeout(() => {
+            votePromptEl.style.visibility = "hidden"
+        }, 5700)
+
+
+
+
+
         for (word of madlibWords) {
             createFloatingWord(word)
         }
@@ -285,6 +331,7 @@ function setMadlibStage() {
     setTimeout(() => {
         jumpChar("pino", 400, 750)
         jumpChar("jaz", 650, 750)
+        document.getElementById("madlib-timer").style.visibility = "visible"
         document.getElementById("black-overlay").style.opacity = 0;
     }, 3100)
 }

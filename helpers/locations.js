@@ -35,6 +35,7 @@ const locations = {
     html: {},
     transition: { type: "pixelate-no-blur", time: 1000 },
     bgName: "forest",
+    voteVamp: "pokemon.mp3"
   },
   forestNorth: {
     name: "forestNorth",

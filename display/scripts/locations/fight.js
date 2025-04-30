@@ -40,7 +40,7 @@ function fight() {
     jumpChar("pino", -200, 300)
     jumpChar("jaz", 50, 300)
     changeSize("duo", 1, 1)
-    if (history.locationsVisited[history.locationsVisited.length - 3].name === "river") {
+    if (checkHistory("river")) {
         changeBg("animated/riverInterior.gif")
     } else {
         changeBg("animated/caveInterior.gif")

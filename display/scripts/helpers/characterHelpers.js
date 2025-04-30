@@ -789,7 +789,7 @@ let trail = [];
 
 function congaLine(state, amount, speed) {
     const container = document.body;
-    const originalNpc = document.getElementById("npc");
+    const originalNpc = document.getElementById("npc-size-ctr");
 
     if (state === 1 && !congaRunning) {
         congaRunning = true;
@@ -810,13 +810,12 @@ function congaLine(state, amount, speed) {
         trail = [];
 
         congaInterval = setInterval(() => {
-            // Record current position of original NPC
             const npcPos = {
                 top: originalNpc.offsetTop,
                 left: originalNpc.offsetLeft
             };
             trail.unshift(npcPos);
-
+            console.log(npcPos)
             // Limit trail size
             const maxTrailLength = amount * trailSpacing + 1;
             if (trail.length > maxTrailLength) {

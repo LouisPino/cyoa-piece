@@ -659,8 +659,9 @@ a {
 
 
     .play-again,
-    #submit-prompt-btn {
-        font-size: 1rem;
+    #submit-prompt-btn,
+    #submit-score {
+        font-size: 1.5rem;
         padding: 4px;
     }
 

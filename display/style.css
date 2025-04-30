@@ -213,12 +213,14 @@ body {
 
 /* river */
 #boat-back,
-#boat-back-fight {
+#boat-back-fight,
+#boat-back-chat {
     z-index: 50;
 }
 
 #boat-front,
-#boat-front-fight {
+#boat-front-fight,
+#boat-front-chat {
     z-index: 150;
 }
 
@@ -248,12 +250,26 @@ body {
     visibility: hidden;
 }
 
+
 #boat-back-fight,
 #boat-front-fight {
     top: 0;
     left: 50px;
 }
 
+#boat-ctr-chat {
+    position: absolute;
+    width: 1000px;
+    height: 800px;
+    visibility: hidden;
+}
+
+
+#boat-back-chat,
+#boat-front-chat {
+    top: -265px;
+    left: 200px;
+}
 
 .boat-part {
     width: 100%;

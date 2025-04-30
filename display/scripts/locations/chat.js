@@ -3,6 +3,7 @@ let newSprite = ""
 let newSprite2 = ""
 area = document.getElementById('word-area');
 const boatRockerEl = document.getElementById("boat-rocker")
+const boatCtrEl = document.getElementById("boat-ctr")
 let npcBase = ""
 if (checkHistory("rats")) {
     npcBase = "rat"
@@ -13,10 +14,14 @@ if (checkHistory("rats")) {
 }
 
 if (checkHistory("river")) {
-    getInBoat(boatRockerEl)
+    changeBg("animated/riverInterior.gif")
+    document.getElementById("boat-ctr-chat").style.visibility = "visible"
+
+
+} else {
+    changeBg("animated/caveInterior.gif")
+
 }
-
-
 
 
 const batIsoArr = [
@@ -60,7 +65,6 @@ textsArr = previousLocation === "rats" ? ratsArr : batIsoArr
 
 let baseSprite = previousLocation.slice(0, -1)
 function chat() {
-    scene0()
     if (previousLocation === "rats") {
         ratPlaylist()
     } else {
@@ -73,52 +77,41 @@ function chat() {
 }
 
 function batIsoPlaylist() {
+    scene0()
     setTimeout(scene1, 1000)
-    setTimeout(scene2, 16000)
-    // chatPart2()
+    setTimeout(scene2, 8000)
 }
 
 function ratPlaylist() {
+    scene0()
     setTimeout(scene1, 1000)
-    setTimeout(scene2rats, 16000)
-    // chatPart2()
+    setTimeout(scene2rats, 8000)
 }
 
 
 
 function scene0() {
-    toggleAnimation("walk", "jaz")
-    toggleAnimation("walk", "pino")
+    toggleAnimation("side", "jaz")
+    toggleAnimation("side", "pino")
     changeNPCSrc(`${previousLocation.slice(0, -1)}/full.png`)
-
     jumpChar("npc", 550, 0)
     changeSize("npc", 1, .7)
-    jumpChar("pino", -800, -50)
-    jumpChar("jaz", -850, -50)
+    jumpChar("pino", 250, -50)
+    jumpChar("jaz", 200, -50)
     changeSize("duo", 1, .8)
-    if (checkHistory("river")) {
-        changeBg("animated/riverInterior.gif")
-    } else {
-        changeBg("animated/caveInterior.gif")
-    }
     renderPino()
     renderJaz()
-
 }
+
 
 function scene1() {
-    slideChar("pino", 250, -50, 5000)
-    slideChar("jaz", 200, -50, 5000)
+    toggleAnimation("side", "duo")
+    slideBoxY("duo")
+    setTimeout(nextLine, 500)
     setTimeout(() => {
-        toggleAnimation("side", "duo")
-        slideBoxY("duo")
-        setTimeout(nextLine, 500)
-        setTimeout(() => {
-            fadeBox("none")
-        }, 8000)
+        fadeBox("none")
     }, 5000)
 }
-
 function scene2() {
     changeDialogueSprite(`${baseSprite}/2`)
     flipChar("left", "npc")
@@ -163,8 +156,6 @@ window.chatPart2 = function () {
     toggleAnimation("side", "duo")
     jumpChar("pino", 250, -50)
     jumpChar("jaz", 200, -50)
-
-    //if boats, remove and render river then jump boat here
     changeDialogueSprite(`${baseSprite}/6`)
     hopChar("npc", 200, 100)
     setTimeout((

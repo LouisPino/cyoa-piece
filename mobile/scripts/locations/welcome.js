@@ -207,7 +207,6 @@ function welcomeGame() {
 
     function setCharRunning() {
         charEl.src = sprites[spriteCtr]
-        // gameBgEl.src = "/mobile/assets/game/GameBgGif.gif"
     }
 
     function setCharStanding() {

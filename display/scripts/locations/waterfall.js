@@ -10,12 +10,18 @@ const waterfallVidEl = document.getElementById("waterfall-video")
 
 function waterfall() {
     jumpChar(boatRockerEl, -1000, 300)
-    setTimeout(scene0, 100)
-    setTimeout(scene1, 1000)
-    setTimeout(scene2, 6000)
-    setTimeout(scene3, 20000)
-    setTimeout(scene4, 45000) // make me length of video + video start time
-    setTimeout(scene5, 51000) // scene4 + 6000
+    // setTimeout(scene0, 100)
+    // setTimeout(scene1, 1000)
+    // setTimeout(scene2, 6000)
+    // setTimeout(scene3, 20000)
+    // setTimeout(scene4, 45000) // make me length of video + video start time
+    // setTimeout(scene5, 51000) // scene4 + 6000
+
+
+    setTimeout(scene5, 400) // make me length of video + video start time
+    setTimeout(scene6, 6400) // scene4 + 6000
+
+
 }
 
 function scene0() {
@@ -79,24 +85,13 @@ function scene4() {
 
 }
 function scene5() {
-    getInBoat()
+    getInBoat(boatRockerEl)
     slideChar(boatRockerEl, 3000, 300, 4000)
+}
+function scene6() {
+    getOutBoat(boatRockerEl)
+    slideChar("duo", 0, 0, 4000)
 }
 
 waterfall()
 
-
-function getInBoat() {
-    removePino()
-    removeJaz()
-    toggleAnimation("front", "duo")
-    jumpChar(boatRockerEl, -1000, 300)
-    pinoCharSizeCtr.style.left = "20%"
-    pinoCharSizeCtr.style.top = "-5%"
-    jazCharSizeCtr.style.left = "30%"
-    jazCharSizeCtr.style.top = "-5%"
-    pinoCharSizeCtr.classList.add("float-only")
-    jazCharSizeCtr.classList.add("float-only")
-    renderJaz("river")
-    renderPino("river")
-}

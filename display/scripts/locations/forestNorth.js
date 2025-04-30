@@ -12,25 +12,26 @@ function forestNorth() {
     setTimeout(scene3, 12000)
     setTimeout(scene4, 310000) // make me length of video + video start time
 }
-
+console.log(locations)
 function scene0() {
     renderMap()
     fadeMap(1, 1)
     toggleAnimation("side", "duo")
+    flipChar("right", "duo")
     changeSize("duo", 1, .3)
     jumpChar("pino", 3000, 3000)
     jumpChar("jaz", 3000, 3000)
-
 }
+
 function scene1() {
     renderPino()
     renderJaz()
-    fadeChar("pino", 500, -200, 50, 1000)
-    fadeChar("jaz", 200, -200, 50, 1000)
+    fadeChar("pino", locations.intro.mapLocations.pino.x, locations.intro.mapLocations.pino.y, 50, 1000)
+    fadeChar("jaz", locations.intro.mapLocations.jaz.x, locations.intro.mapLocations.jaz.y, 50, 1000)
     setTimeout(() => {
         toggleAnimation("walk", "duo")
-        slideChar("pino", 500, -400, 3000)
-        slideChar("jaz", 200, -400, 3000)
+        slideChar("pino", locations.forestNorth.mapLocations.pino.x, locations.forestNorth.mapLocations.pino.y, 3000)
+        slideChar("jaz", locations.forestNorth.mapLocations.jaz.x, locations.forestNorth.mapLocations.jaz.y, 3000)
         setTimeout(() => {
             toggleAnimation("side", "duo")
         }, 3000)

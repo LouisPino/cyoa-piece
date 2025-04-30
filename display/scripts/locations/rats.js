@@ -1,5 +1,6 @@
 let multiplier = 1
-
+const boatRockerEl = document.getElementById("boat-rocker")
+const boatCtrEl = document.getElementById("boat-ctr")
 textsArr = [
     "Oh! We aren’t alone here… Will it be friend or foe?",
     "...aahhhYARGHhhhh……guhh… it’s too late…",
@@ -7,51 +8,42 @@ textsArr = [
 
 
 function rats() {
-    // const boatRockerEl = document.getElementById("boat-rocker")
-    // toggleAnimation("front", "duo")
-    // jumpChar(boatRockerEl, -50, 500)
-    // pinoCharSizeCtr.style.left = "20%"
-    // pinoCharSizeCtr.style.top = "-5%"
-    // jazCharSizeCtr.style.left = "30%"
-    // jazCharSizeCtr.style.top = "-5%"
-    // pinoCharSizeCtr.classList.add("float-only")
-    // jazCharSizeCtr.classList.add("float-only")
-    // renderJaz("river")
-    // renderPino("river")
-    // setTimeout(() => {
-    //     slideChar(boatRockerEl, 300, 250, 5000)
-    // }, 4000)
-    // setTimeout(() => {
-    //     toggleAnimation("side", "duo")
-    //     slideChar(boatRockerEl, 2000, 200, 13000)
-    // }, 9000)
     scene0()
-    setTimeout(() => {
-        scene1()
-    }, 2000 * multiplier)
+    // setTimeout(() => {
+    //     scene1()
+    // }, 2000 * multiplier)
+
+
+    // setTimeout(() => {
+    //     scene2()
+    // }, 7000 * multiplier)
+
+    // setTimeout(() => {
+    //     scene3boat()
+    // }, 23000 * multiplier)
+
+    // setTimeout(() => {
+    //     scene4()
+    // }, 33000 * multiplier)
+    // setTimeout(() => {
+    //     scene5()
+    // }, 38000 * multiplier)
+
+
 
 
     setTimeout(() => {
-        scene2()
-    }, 7000 * multiplier)
-
-    setTimeout(() => {
-        scene3()
-    }, 23000 * multiplier)
-
-    setTimeout(() => {
-        scene4()
-    }, 33000 * multiplier)
-    setTimeout(() => {
-        scene5()
-    }, 38000 * multiplier)
+        scene3boat()
+    }, 3000 * multiplier)
 
 }
 
 
+
+
 function scene0() {
     changeDialogueSprite("rat/1");
-    renderMap()
+    // renderMap()
     fadeMap(1, 1)
     toggleAnimation("side", "duo")
     changeSize("duo", 1, .3)
@@ -59,6 +51,7 @@ function scene0() {
     jumpChar("npc", 500, 0)
     jumpChar("pino", 3000, 3000)
     jumpChar("jaz", 3000, 3000)
+    document.getElementById("npc").style.animation = "floatRock 4s ease-in-out infinite"
 }
 function scene1() {
     renderPino()
@@ -132,8 +125,49 @@ function scene3() {
             shakeChar("duo", 1000, 40)
         }, 2000)
     }, 6000)
-
 }
+
+
+
+function scene3boat() {
+    flipChar("right", "duo")
+    getInBoat(boatRockerEl)
+    changeSize(boatCtrEl, 3000, .2)
+    setTimeout(() => {
+        jumpChar(boatRockerEl, -800, 0)
+        slideChar(boatRockerEl, -50, 0, 1000)
+        setTimeout(() => {
+            toggleAnimation("side", "duo")
+            shakeChar("duo", 500, 10)
+        }, 1000)
+    }, 0)
+    setTimeout(() => {
+        slideChar(boatRockerEl, 100, 300, 1000)
+        setTimeout(() => {
+            toggleAnimation("side", "duo")
+            shakeChar("duo", 500, 20)
+        }, 1000)
+    }, 2000)
+    setTimeout(() => {
+        slideChar(boatRockerEl, 250, 300, 1000)
+        setTimeout(() => {
+            toggleAnimation("side", "duo")
+            shakeChar("duo", 500, 30)
+        }, 1000)
+    }, 4000)
+    setTimeout(() => {
+        slideChar(boatRockerEl, 350, 300, 2000)
+        setTimeout(() => {
+            toggleAnimation("side", "duo")
+            shakeChar("duo", 1000, 40)
+        }, 2000)
+    }, 6000)
+}
+
+
+
+
+
 function scene4() {
     slideBoxY("sprite")
     setTimeout(() => {
@@ -142,6 +176,8 @@ function scene4() {
 }
 function scene5() {
     slideBoxY("none")
+    document.getElementById("npc").style.animation = ""
+
 }
 
-// rats()
+rats()

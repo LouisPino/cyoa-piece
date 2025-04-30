@@ -1,5 +1,7 @@
+const boatRockerEl = document.getElementById("boat-rocker")
+
 function river() {
-    const boatRockerEl = document.getElementById("boat-rocker")
+    getInBoat(boatRockerEl)
     toggleAnimation("front", "duo")
     jumpChar(boatRockerEl, -50, 500)
     pinoCharSizeCtr.style.left = "20%"
@@ -23,4 +25,4 @@ function river() {
 
 
 
-// river()
+river()

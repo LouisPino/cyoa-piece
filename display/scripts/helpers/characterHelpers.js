@@ -70,7 +70,7 @@ function renderPino(location) {
         pinoCharSizeCtr.classList.remove("float-only")
 
     } else if (location === "river") {
-        document.getElementById("boat-rocker").appendChild(pinoCharSizeCtr)
+        document.getElementById("boat-ctr").appendChild(pinoCharSizeCtr)
     } else if (location === "welcome") {
         document.getElementById("intro-gif-page").appendChild(pinoCharSizeCtr)
     }
@@ -88,7 +88,7 @@ function renderJaz(location) {
         document.getElementById("display-main").appendChild(jazCharSizeCtr)
         jazCharSizeCtr.classList.remove("float-only")
     } else if (location === "river") {
-        const boatDiv = document.getElementById("boat-rocker")
+        const boatDiv = document.getElementById("boat-ctr")
         boatDiv.appendChild(jazCharSizeCtr)
     } else if (location === "welcome") {
         document.getElementById("intro-gif-page").appendChild(jazCharSizeCtr)
@@ -740,6 +740,9 @@ function shakeChar(char, time, intensity = 10) {
         case "npc":
             applyShake(document.getElementById("npc"));
             break;
+        default:
+            applyShake(char);
+            break
     }
 }
 
@@ -760,6 +763,11 @@ function changeSize(char, time, targetSize) {
         case "npc":
             el = document.getElementById("npc-size-ctr")
             break;
+        default:
+            el = char;
+            break
+
+
     }
 
 
@@ -883,4 +891,40 @@ function gifRandomizer() {
         }
         toggleAnimation("run", "duo")
     }, 300)
+}
+
+
+
+function getInBoat(boatRockerEl) {
+    removePino()
+    removeJaz()
+    toggleAnimation("front", "duo")
+    jumpChar(boatRockerEl, -1000, 300)
+    boatRockerEl.style.visibility = "visible"
+    pinoCharSizeCtr.style.left = "20%"
+    pinoCharSizeCtr.style.top = "-5%"
+    jazCharSizeCtr.style.left = "30%"
+    jazCharSizeCtr.style.top = "-5%"
+    pinoCharSizeCtr.classList.add("float-only")
+    jazCharSizeCtr.classList.add("float-only")
+    renderJaz("river")
+    renderPino("river")
+    changeSize(boatRockerEl, 3000, .3)
+}
+
+
+function getOutBoat(boatRockerEl) {
+    jumpChar(boatRockerEl, 3000, 3000)
+    removePino()
+    removeJaz()
+    boatRockerEl.style.visibility = "hidden"
+    pinoCharSizeCtr.style.left = "0"
+    pinoCharSizeCtr.style.top = "0"
+    jazCharSizeCtr.style.left = "0"
+    jazCharSizeCtr.style.top = "0"
+    pinoCharSizeCtr.classList.remove("float-only")
+    jazCharSizeCtr.classList.remove("float-only")
+    jumpChar("duo", 3000, 3000)
+    renderJaz()
+    renderPino()
 }

@@ -50,7 +50,7 @@ const locations = {
     bgName: "forest",
     transition: { type: "pixelate", time: 1000 },
     banner: "forest",
-    mapLocations: { pino: { x: 437, y: -96 }, jaz: { x: 134, y: -96 } }
+    mapLocations: { pino: { x: 600, y: -388 }, jaz: { x: 294, y: -388 } }
 
 
   },
@@ -129,7 +129,7 @@ const locations = {
     transition: { type: "blur", time: 1000 },
     bgName: "forest",
     banner: "forest",
-    mapLocations: { pino: { x: 385, y: -106 }, jaz: { x: 81, y: -106 } }
+    mapLocations: { pino: { x: 437, y: -96 }, jaz: { x: 134, y: -96 } }
 
   },
   cave: {

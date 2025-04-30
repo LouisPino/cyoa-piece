@@ -2,15 +2,22 @@ let previousLocation = history.locationsVisited[history.locationsVisited.length 
 let newSprite = ""
 let newSprite2 = ""
 area = document.getElementById('word-area');
-
+const boatRockerEl = document.getElementById("boat-rocker")
 let npcBase = ""
 if (checkHistory("rats")) {
     npcBase = "rat"
 } else if (checkHistory("bats")) {
     npcBase = "bat"
+    const boatRockerEl = document.getElementById("boat-rocker")
 } else if (checkHistory("isopods")) {
     npcBase = "isopod"
 }
+
+if (checkHistory("river")) {
+    getInBoat(boatRockerEl)
+}
+
+
 
 
 const batIsoArr = [

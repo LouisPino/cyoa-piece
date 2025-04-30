@@ -3,7 +3,7 @@ let voteLength;
 let winnerLength;
 let promptLength;
 let currentLocation;
-;
+
 let inDVD = false;
 let history;
 let textIdx = 0; // Index for texts array

@@ -5,7 +5,6 @@ const attacks = [collarRoll, throwHats, hatSpike, noisyBonk, deviceDrop, robeAur
 let attackIdx = 0
 
 
-
 function robeAura() {
     setTimeout(() => {
         toggleAnimation("robeAura", "pino")
@@ -42,7 +41,7 @@ function robeAura() {
     }, 6000)
     setTimeout(() => {
         enemySpin()
-        changeNPCSrc(`${history.locationsVisited[history.locationsVisited.length - 2].name.slice(0, -1)}/full.png`)
+        changeNPCSrc(`${npcBase}/full.png`)
     }, 7000)
     setTimeout(() => {
         unfocusChar("pino")
@@ -512,7 +511,7 @@ function decrementHealth() {
             slideBoxY("none")
         }, 2000)
         setTimeout(() => {
-            changeDialogueSprite(`${history.locationsVisited[history.locationsVisited.length - 2].name.slice(0, -1)}/cry`)
+            changeDialogueSprite(`${npcBase}/cry`)
         }, 2500)
     }
     if (bossHealth === 0) {
@@ -586,4 +585,7 @@ function fightPart2() {
         slideBoxY("duo")
         setTimeout(nextLine, 750)
     }, 10000)
+    setTimeout(() => {
+        slideBoxY("none")
+    }, 18000)
 }

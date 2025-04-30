@@ -7,6 +7,12 @@ let animationId = null;
 let area;
 let displayLineup = [];
 let displaying = false;
+
+
+
+
+
+
 function createFloatingWord(word) {
     if (!area) return;
 
@@ -165,7 +171,7 @@ function movePastMadlib() {
     writingGifEl.remove()
     wordAreaEl.remove()
     timerEl.remove()
-    if (history.locationsVisited[history.locationsVisited.length - 2].name === "rats") {
+    if (checkHistory("rats")) {
         window.chatPart2rats()
     } else {
         window.chatPart2()

@@ -2,15 +2,24 @@ let previousLocation = history.locationsVisited[history.locationsVisited.length 
 let nameCall = ""
 let newSprite = ""
 let newSprite2 = ""
-if (previousLocation === "rats") {
+let npcBase = ""
+
+
+if (checkHistory("rats")) {
+    npcBase = "rat"
+
     nameCall = "scallywags!"
     newSprite = "rat/2"
     newSprite2 = "rat/3"
-} else if (previousLocation === "bats") {
+} else if (checkHistory("bats")) {
+    npcBase = "bat"
+
     nameCall = "scary bats!"
     newSprite = "bat/2"
     newSprite2 = "bat/3"
-} else if (previousLocation === "isopods") {
+} else if (checkHistory("isopods")) {
+    npcBase = "isopod"
+
     nameCall = "icky bugs!"
     newSprite = "isopod/2"
     newSprite2 = "isopod/3"
@@ -47,7 +56,7 @@ function fight() {
     }
     renderPino()
     renderJaz()
-    changeNPCSrc(`${history.locationsVisited[history.locationsVisited.length - 2].name.slice(0, -1)}/full.png`)
+    changeNPCSrc(`${npcBase}/full.png`)
     setTimeout(() => {
         slideBoxY("duo")
         setTimeout(nextLine, 750)

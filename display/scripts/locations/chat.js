@@ -3,6 +3,15 @@ let newSprite = ""
 let newSprite2 = ""
 area = document.getElementById('word-area');
 
+let npcBase = ""
+if (checkHistory("rats")) {
+    npcBase = "rat"
+} else if (checkHistory("bats")) {
+    npcBase = "bat"
+} else if (checkHistory("isopods")) {
+    npcBase = "isopod"
+}
+
 
 const batIsoArr = [
     `Hey buddy, is everything all right? Is something on your mind?`,

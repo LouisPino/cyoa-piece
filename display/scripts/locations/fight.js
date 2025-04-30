@@ -7,22 +7,23 @@ let npcBase = ""
 
 if (checkHistory("rats")) {
     npcBase = "rat"
-
     nameCall = "scallywags!"
     newSprite = "rat/2"
     newSprite2 = "rat/3"
 } else if (checkHistory("bats")) {
     npcBase = "bat"
-
     nameCall = "scary bats!"
     newSprite = "bat/2"
     newSprite2 = "bat/3"
 } else if (checkHistory("isopods")) {
     npcBase = "isopod"
-
     nameCall = "icky bugs!"
     newSprite = "isopod/2"
     newSprite2 = "isopod/3"
+}
+
+if (checkHistory("river")) {
+    document.getElementById("boat-ctr-fight").style.visibility = "visible"
 }
 
 

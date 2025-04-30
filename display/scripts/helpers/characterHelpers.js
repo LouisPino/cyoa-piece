@@ -899,7 +899,7 @@ function getInBoat(boatRockerEl) {
     removePino()
     removeJaz()
     toggleAnimation("front", "duo")
-    jumpChar(boatRockerEl, -1000, 300)
+    jumpChar(boatRockerEl, -1500, 0)
     boatRockerEl.style.visibility = "visible"
     pinoCharSizeCtr.style.left = "20%"
     pinoCharSizeCtr.style.top = "-5%"
@@ -909,7 +909,6 @@ function getInBoat(boatRockerEl) {
     jazCharSizeCtr.classList.add("float-only")
     renderJaz("river")
     renderPino("river")
-    changeSize(boatRockerEl, 3000, .3)
 }
 
 

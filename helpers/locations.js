@@ -250,7 +250,7 @@ const locations = {
     },
     choices: ["fight", "chat"],
     html: {},
-    transition: { type: "pull", time: 2000 },
+    transition: { type: "fade", time: 2000 },
 
   },
   rats: {

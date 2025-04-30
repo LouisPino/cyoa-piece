@@ -8,7 +8,6 @@ if (checkHistory("rats")) {
     npcBase = "rat"
 } else if (checkHistory("bats")) {
     npcBase = "bat"
-    const boatRockerEl = document.getElementById("boat-rocker")
 } else if (checkHistory("isopods")) {
     npcBase = "isopod"
 }
@@ -164,6 +163,8 @@ window.chatPart2 = function () {
     toggleAnimation("side", "duo")
     jumpChar("pino", 250, -50)
     jumpChar("jaz", 200, -50)
+
+    //if boats, remove and render river then jump boat here
     changeDialogueSprite(`${baseSprite}/6`)
     hopChar("npc", 200, 100)
     setTimeout((

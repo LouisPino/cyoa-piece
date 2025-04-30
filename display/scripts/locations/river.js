@@ -1,17 +1,10 @@
 const boatRockerEl = document.getElementById("boat-rocker")
+const boatCtrEl = document.getElementById("boat-ctr")
 
 function river() {
+    changeSize(boatCtrEl, 1, .5)
     getInBoat(boatRockerEl)
-    toggleAnimation("front", "duo")
     jumpChar(boatRockerEl, -50, 500)
-    pinoCharSizeCtr.style.left = "20%"
-    pinoCharSizeCtr.style.top = "-5%"
-    jazCharSizeCtr.style.left = "30%"
-    jazCharSizeCtr.style.top = "-5%"
-    pinoCharSizeCtr.classList.add("float-only")
-    jazCharSizeCtr.classList.add("float-only")
-    renderJaz("river")
-    renderPino("river")
     setTimeout(() => {
         slideChar(boatRockerEl, 300, 250, 1000)
     }, 5000)
@@ -25,4 +18,4 @@ function river() {
 
 
 
-river()
+// river()

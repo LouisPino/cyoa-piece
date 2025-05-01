@@ -46,16 +46,16 @@ function scene0() {
     jumpChar("jaz", 3000, 3000)
 }
 function scene1() {
+    flipChar("right", "pino")
+    flipChar("right", "jaz")
     renderPino()
     renderJaz()
-    flipChar("left", "pino")
-    flipChar("left", "jaz")
-    fadeChar("pino", 800, -450, 50, 1000)
-    fadeChar("jaz", 500, -450, 50, 1000)
+    fadeChar("pino", locations.cave.mapLocations.pino.x, locations.cave.mapLocations.pino.y, 50, 1000)
+    fadeChar("jaz", locations.cave.mapLocations.jaz.x, locations.cave.mapLocations.jaz.y, 50, 1000)
     setTimeout(() => {
         toggleAnimation("walk", "duo")
-        slideChar("pino", 600, -450, 3000)
-        slideChar("jaz", 300, -450, 3000)
+        slideChar("pino", locations.cave.mapLocations.pino.x + 100, locations.cave.mapLocations.pino.y - 50, 3000)
+        slideChar("jaz", locations.cave.mapLocations.jaz.x + 100, locations.cave.mapLocations.jaz.y - 50, 3000)
         setTimeout(() => {
             toggleAnimation("side", "duo")
         }, 3000)

@@ -143,9 +143,9 @@ function scene0boat() {
 function scene1boat() {
     flipChar("right", "pino")
     flipChar("right", "jaz")
-    fadeChar(boatRockerEl, 0, 0, 50, 1000)
+    fadeChar(boatRockerEl, -300, 300, 50, 1000)
     setTimeout(() => {
-        slideChar(boatRockerEl, 300, 75, 3000)
+        slideChar(boatRockerEl, -200, 300, 3000)
     }, 1000)
 }
 

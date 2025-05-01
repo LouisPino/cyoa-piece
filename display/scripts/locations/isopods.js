@@ -27,36 +27,29 @@ function scene0() {
     changeDialogueSprite("isopod/1");
     renderMap()
     fadeMap(1, 1)
-    toggleAnimation("side", "duo")
     changeSize("duo", 1, .3)
     changeSize("npc", 1, .8)
     jumpChar("npc", 500, 0)
     jumpChar("pino", 3000, 3000)
     jumpChar("jaz", 3000, 3000)
+    changeSize(boatCtrEl, 1, .2)
 }
 function scene1() {
-    renderPino()
-    renderJaz()
-    if (previousLocation === "river") {
+
+    if (checkHistory("river")) {
+
+    } else {
+        toggleAnimation("side", "duo")
         flipChar("right", "pino")
         flipChar("right", "jaz")
-        fadeChar(boatRockerEl, locations.river.mapLocations.pino.x, locations.river.mapLocations.pino.y, 50, 1000)
-        setTimeout(() => {
-            toggleAnimation("walk", "duo")
-            slideChar(boatRockerEl, locations.river.mapLocations.pino.x, locations.river.mapLocations.pino.y, 3000)
-            setTimeout(() => {
-                toggleAnimation("side", "duo")
-            }, 3000)
-        }, 1000)
-    } else if (previousLocation === "cave") {
-        flipChar("left", "pino")
-        flipChar("left", "jaz")
+        renderPino()
+        renderJaz()
         fadeChar("pino", locations.cave.mapLocations.pino.x, locations.cave.mapLocations.pino.y, 50, 1000)
         fadeChar("jaz", locations.cave.mapLocations.jaz.x, locations.cave.mapLocations.jaz.y, 50, 1000)
         setTimeout(() => {
             toggleAnimation("walk", "duo")
-            slideChar("pino", locations.cave.mapLocations.pino.x + 100, locations.cave.mapLocations.pino.y, 3000)
-            slideChar("jaz", locations.cave.mapLocations.jaz.x + 100, locations.cave.mapLocations.jaz.y, 3000)
+            slideChar("pino", locations.cave.mapLocations.pino.x + 100, locations.cave.mapLocations.pino.y - 50, 3000)
+            slideChar("jaz", locations.cave.mapLocations.jaz.x + 100, locations.cave.mapLocations.jaz.y - 50, 3000)
             setTimeout(() => {
                 toggleAnimation("side", "duo")
             }, 3000)
@@ -131,7 +124,6 @@ function scene5() {
     slideBoxY("none")
 }
 
-isopods()
 
 
 
@@ -153,10 +145,14 @@ function scene0wet() {
 function scene1wet() {
     flipChar("right", "pino")
     flipChar("right", "jaz")
-    fadeChar(boatRockerEl, 0, 0, 50, 1000)
+    toggleAnimation("front", "duo")
+    getInBoat(boatRockerEl)
     setTimeout(() => {
-        slideChar(boatRockerEl, 300, 75, 3000)
-    }, 1000)
+        fadeChar(boatRockerEl, -200, 300, 1000, 1000)
+    }, 800)
+    setTimeout(() => {
+        slideChar(boatRockerEl, -100, 300, 3000)
+    }, 3000)
 }
 
 function scene2wet() {
@@ -278,3 +274,6 @@ function wetPlaylist() {
         scene5wet()
     }, 38000 * multiplier)
 }
+
+
+isopods()

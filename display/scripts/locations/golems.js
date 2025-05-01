@@ -19,7 +19,6 @@ function golems() {
         scene1()
     }, 2000 * multiplier)
 
-
     setTimeout(() => {
         scene2()
     }, 7000 * multiplier)
@@ -31,15 +30,13 @@ function golems() {
     setTimeout(() => {
         scene4()
     }, 20000 * multiplier)
+
     setTimeout(() => {
         scene5()
-    }, 65000 * multiplier)
-    setTimeout(() => {
-        scene6()
-    }, 70000 * multiplier) //make me 60000 after dance
-    setTimeout(() => {
-        scene7()
-    }, 91000 * multiplier)
+    }, 70000 * multiplier)
+    //6 and 7 called at end dance
+
+
 
 
 }
@@ -61,15 +58,13 @@ function scene0() {
 function scene1() {
     renderPino()
     renderJaz()
-    fadeChar("pino", 500, -400, 50, 1000)
-    fadeChar("jaz", 200, -400, 50, 1000)
+    fadeChar("pino", locations.forestNorth.mapLocations.pino.x, locations.forestNorth.mapLocations.pino.y, 50, 1000)
+    fadeChar("jaz", locations.forestNorth.mapLocations.jaz.x, locations.forestNorth.mapLocations.jaz.y, 50, 1000)
     setTimeout(() => {
-        flipChar("left", "duo")
         toggleAnimation("walk", "duo")
         setTimeout(() => {
-
-            slideChar("pino", 200, -400, 3000)
-            slideChar("jaz", -100, -400, 3000)
+            slideChar("pino", locations.golems.mapLocations.pino.x, locations.golems.mapLocations.pino.y, 3000)
+            slideChar("jaz", locations.golems.mapLocations.jaz.x, locations.golems.mapLocations.jaz.y, 3000)
             setTimeout(() => {
                 toggleAnimation("side", "duo")
             }, 3000)
@@ -136,9 +131,13 @@ function scene4() {
     }, 41000)
 }
 function scene5() {
-    clearText()
-
     slideBoxX("none")
+    fadeChar("pino", 3000, 3000, 1000, 1000)
+    fadeChar("jaz", 3000, 3000, 1000, 1000)
+    setTimeout(() => {
+        dance()
+
+    }, 1000)
     // DANCE
 }
 
@@ -239,4 +238,169 @@ function scene7() {
 }
 
 
-golems()
+// golems()
+
+
+
+function dance() {
+    document.getElementById("rock-portal-back").style.visibility = "hidden";
+    document.getElementById("rock-portal-front").style.visibility = "hidden";
+
+    setTimeout(congaLine(1, 5, 10), 0)
+    setTimeout(() => sceneOne(), 100);
+    setTimeout(() => {
+        congaLine(1, 20, 20); // Spiral draws attention to start
+    }, 65000);
+
+    setTimeout(() => sceneTwo(), 70000);
+    setTimeout(() => {
+        congaLine(1, 50, 10); // Spiral draws attention to start
+    }, 122000);
+    setTimeout(() => sceneThree(), 127000);
+    setTimeout(() => {
+        congaLine(1, 10, 30); // Spiral draws attention to start
+    }, 183000);
+    setTimeout(() => sceneFour(), 188000);
+    setTimeout(() => {
+        congaLine(1, 50, 10); // start fresh with correct center
+    }, 244000);
+    setTimeout(() => {
+        sceneFive()
+        setTimeout(endDance, 35000);
+    }, 250000);
+}
+
+function endDance() {
+    document.getElementById("rock-portal-back").style.visibility = "visible";
+    document.getElementById("rock-portal-front").style.visibility = "visible";
+    congaLine(0)
+    setTimeout(scene6, 500)
+    setTimeout(scene7, 21500)
+}
+
+
+function sceneOne() {
+
+    setTimeout(() => {
+        spiralOut(15000); // Spiral draws attention to start
+    }, 0);
+
+    setTimeout(() => {
+        rightToLeft(-300); // Sweep left across mid-screen
+    }, 15000);
+    setTimeout(() => {
+        bottomToTop(200); // Pop from bottom to top, slightly right
+    }, 25000);
+    setTimeout(() => {
+        slideChar("npc", -600, 400, 7000); // Sweep left across bottom
+    }, 35000);
+    setTimeout(() => {
+        slideChar("npc", 800, -400, 7000); // Sweep right across top
+    }, 45000);
+    setTimeout(() => {
+        bottomToTop(-500); // End with a high-speed bottom-left pop
+    }, 53000);
+}
+
+function sceneTwo() {
+    setTimeout(() => {
+        snakePath(15000)
+    }, 200)
+    setTimeout(() => {
+        slideChar("npc", -1000, 100, 7000); // Full slide left
+    }, 15000);
+    setTimeout(() => {
+        bottomToTop(200); // Strong vertical pop
+    }, 23000);
+    setTimeout(() => {
+        rightToLeft(0); // Strong lateral sweep
+    }, 30000);
+    setTimeout(() => {
+        slideChar("npc", 2000, 600, 6000); // Sweep to upper right
+    }, 40000);
+    setTimeout(() => {
+        bottomToTop(300); // Re-emerge dramatically
+    }, 48000);
+}
+
+
+function sceneThree() {
+    setTimeout(() => {
+        rightToLeft(100); // Strong horizontal sweep at bottom
+    }, 1000);
+    setTimeout(() => {
+        slideChar("npc", -1000, 500, 8000); // Big move to top-right
+    }, 10000);
+    setTimeout(() => {
+        bottomToTop(-300); // Come up on far left
+    }, 20000);
+    setTimeout(() => {
+        slideChar("npc", 0, 200, 7000); // Long sweep left
+    }, 28000);
+    setTimeout(() => {
+        bottomToTop(0); // Vertical pop for punch
+    }, 37000);
+    setTimeout(() => {
+        slideChar("npc", 600, -200, 6000); // Move back right
+    }, 44000);
+    setTimeout(() => {
+        rightToLeft(-200); // Final glide left
+    }, 51000);
+}
+
+
+function sceneFour() {
+    setTimeout(() => {
+        figureEight(15000); // Central, fluid pattern
+    }, 1000);
+    setTimeout(() => {
+        slideChar("npc", -800, -400, 8000); // Big sweep to upper-left
+    }, 15000);
+    setTimeout(() => {
+        bottomToTop(400); // Re-enter from below at far right
+    }, 24000);
+    setTimeout(() => {
+        slideChar("npc", 600, 500, 7000); // Sweep across bottom
+    }, 32000);
+    setTimeout(() => {
+        rightToLeft(300); // Mid-height lateral glide
+    }, 40000);
+    setTimeout(() => {
+        slideChar("npc", -100, -300, 6000); // Sharp diagonal up-left
+    }, 48000);
+}
+
+
+
+
+function sceneFive() {
+    setTimeout(() => {
+        // Move horizontally from left to right (1st row)
+        topToBottom(0);
+    }, 1000); // Wait for 5 seconds before starting horizontal movement
+    setTimeout(() => {
+        // Move horizontally from left to right (1st row)
+        rightToLeft(0);
+    }, 5000); // Wait for 5 seconds before starting horizontal movement
+
+    setTimeout(() => {
+        // Move vertically from top to bottom (2nd column)
+        leftToRight(100);
+    }, 10000); // After 10 seconds, move vertically to the second row
+
+    setTimeout(() => {
+        // Move horizontally from left to right (2nd row)
+        rightToLeft(200);
+    }, 15000); // Wait for the vertical move to complete, then move horizontally
+
+    setTimeout(() => {
+        // Move vertically from top to bottom (3rd column)
+        leftToRight(300);
+    }, 20000); // After 20 seconds, move vertically to the third row
+
+    setTimeout(() => {
+        // Move horizontally from left to right (3rd row)
+        rightToLeft(400);
+    }, 25000); // Wait for the vertical movement to finish before starting the final horizontal move
+}
+

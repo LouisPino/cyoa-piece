@@ -540,9 +540,9 @@ function resetBattlefield(next) {
     sendToServer({ type: "attacking", data: attacking })
     let powerBarCtr = document.getElementById("power-bar-ctr");
     if (next === "pino") {
-        powerBarCtr.style.left = "10vw"
+        powerBarCtr.style.left = "44px"
     } else {
-        powerBarCtr.style.left = "24vw"
+        powerBarCtr.style.left = "332px"
     }
     if (bossHealth != 0) {
         powerBarCtr.style.visibility = "visible"
@@ -561,9 +561,13 @@ const swipeMap = {
 
 function changeSwipePrompt(swipeType) {
     if (!swipeType) {
-        document.getElementById("swipe-prompt").innerHTML = ""
+        document.getElementById("swipe-prompt-arrow").style.visibility = "hidden"
+        document.getElementById("swipe-prompt-text").style.visibility = "hidden"
     } else {
-        document.getElementById("swipe-prompt").innerHTML = `${swipeMap[swipeType]} SWIPE ${swipeType.toUpperCase()}!!! ${swipeMap[swipeType]} `
+        document.getElementById("swipe-prompt-arrow").src = `/display/assets/fight/${swipeType}.png`
+        document.getElementById("swipe-prompt-text").src = "/display/assets/fight/swipePromptText.png"
+        document.getElementById("swipe-prompt-arrow").style.visibility = "visible"
+        document.getElementById("swipe-prompt-text").style.visibility = "visible"
     }
 }
 

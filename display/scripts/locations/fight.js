@@ -47,13 +47,13 @@ function fight() {
     toggleAnimation("fightNeutral", "pino")
     jumpChar("npc", 550, 200)
     changeSize("npc", 1, .7)
-    jumpChar("pino", -200, 300)
-    jumpChar("jaz", 50, 300)
+    jumpChar("pino", -325, 300)
+    jumpChar("jaz", -25, 300)
     changeSize("duo", 1, 1)
     if (checkHistory("river")) {
-        changeBg("animated/riverInterior.gif")
+        changeBg("stills/riverFight.png")
     } else {
-        changeBg("animated/caveInterior.gif")
+        changeBg("stills/caveFight.png")
     }
     renderPino()
     renderJaz()

@@ -10,16 +10,13 @@ const waterfallVidEl = document.getElementById("waterfall-video")
 
 function waterfall() {
     jumpChar(boatRockerEl, -1000, 300)
-    // setTimeout(scene0, 100)
-    // setTimeout(scene1, 1000)
-    // setTimeout(scene2, 6000)
-    // setTimeout(scene3, 20000)
-    // setTimeout(scene4, 45000) // make me length of video + video start time
-    // setTimeout(scene5, 51000) // scene4 + 6000
-
-
-    setTimeout(scene5, 400) // make me length of video + video start time
-    setTimeout(scene6, 6400) // scene4 + 6000
+    setTimeout(scene0, 100)
+    setTimeout(scene1, 1000)
+    setTimeout(scene2, 6000)
+    setTimeout(scene3, 20000)
+    setTimeout(scene4, 45000) // make me length of video + video start time
+    setTimeout(scene5, 51000) // scene4 + 6000
+    setTimeout(scene6, 64000)
 
 
 }
@@ -36,13 +33,13 @@ function scene0() {
 function scene1() {
     renderPino()
     renderJaz()
-    fadeChar("pino", 500, -400, 50, 1000)
-    fadeChar("jaz", 200, -400, 50, 1000)
+    fadeChar("pino", locations.forestSouth.mapLocations.pino.x, locations.forestSouth.mapLocations.pino.y, 50, 1000)
+    fadeChar("jaz", locations.forestSouth.mapLocations.jaz.x, locations.forestSouth.mapLocations.jaz.y, 50, 1000)
     setTimeout(() => {
         toggleAnimation("walk", "duo")
         flipChar("left", "duo")
-        slideChar("pino", 0, -400, 3000)
-        slideChar("jaz", -300, -400, 3000)
+        slideChar("pino", locations.waterfall.mapLocations.pino.x, locations.waterfall.mapLocations.pino.y, 3000)
+        slideChar("jaz", locations.waterfall.mapLocations.jaz.x, locations.waterfall.mapLocations.jaz.y, 3000)
         setTimeout(() => {
             toggleAnimation("side", "duo")
         }, 3000)
@@ -93,5 +90,5 @@ function scene6() {
     slideChar("duo", 0, 0, 4000)
 }
 
-waterfall()
+// waterfall()
 

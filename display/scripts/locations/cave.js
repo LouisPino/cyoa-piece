@@ -7,9 +7,9 @@ const caveVidEl = document.getElementById("cave-video")
 function cave() {
     setTimeout(scene0, 100)
     setTimeout(scene1, 1000)
-    setTimeout(scene2, 6000)
-    setTimeout(scene3, 12000)
-    setTimeout(scene4, 20000) // make me length of video + video start time
+    setTimeout(scene2, 8000)
+    setTimeout(scene3, 14000)
+    setTimeout(scene4, 22000) // make me length of video + video start time
 }
 
 function scene0() {
@@ -24,15 +24,26 @@ function scene0() {
 function scene1() {
     renderPino()
     renderJaz()
-    fadeChar("pino", 500, -400, 50, 1000)
-    fadeChar("jaz", 200, -400, 50, 1000)
     setTimeout(() => {
-        toggleAnimation("walk", "duo")
-        slideChar("pino", 200, 0, 3000)
-        slideChar("jaz", -100, 0, 3000)
-        setTimeout(() => {
-            toggleAnimation("side", "duo")
-        }, 3000)
+        if (checkHistory("frogs")) {
+            toggleAnimation("front", "duo")
+            fadeChar("pino", locations.frogs.mapLocations.pino.x, locations.frogs.mapLocations.pino.y, 50, 1000)
+            fadeChar("jaz", locations.frogs.mapLocations.jaz.x, locations.frogs.mapLocations.jaz.y, 50, 1000)
+            setTimeout(() => {
+                slideChar("pino", locations.cave.mapLocations.pino.x, locations.cave.mapLocations.pino.y, 3000)
+                slideChar("jaz", locations.cave.mapLocations.jaz.x, locations.cave.mapLocations.jaz.y, 3000)
+            }, 3000)
+        } else {
+            flipChar("left", "duo")
+            fadeChar("pino", locations.rockField.mapLocations.pino.x, locations.rockField.mapLocations.pino.y, 50, 1000)
+            fadeChar("jaz", locations.rockField.mapLocations.jaz.x, locations.rockField.mapLocations.jaz.y, 50, 1000)
+            setTimeout(() => {
+                toggleAnimation("walk", "duo")
+                slideChar("pino", locations.cave.mapLocations.pino.x, locations.cave.mapLocations.pino.y, 3000)
+                slideChar("jaz", locations.cave.mapLocations.jaz.x, locations.cave.mapLocations.jaz.y, 3000)
+            }, 3000)
+        }
+
     }, 1000)
 }
 function scene2() {

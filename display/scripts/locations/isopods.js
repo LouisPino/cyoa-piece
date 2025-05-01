@@ -40,12 +40,10 @@ function scene1() {
     if (previousLocation === "river") {
         flipChar("right", "pino")
         flipChar("right", "jaz")
-        fadeChar("pino", 75, 75, 50, 1000)
-        fadeChar("jaz", -225, 75, 50, 1000)
+        fadeChar(boatRockerEl, locations.river.mapLocations.pino.x, locations.river.mapLocations.pino.y, 50, 1000)
         setTimeout(() => {
             toggleAnimation("walk", "duo")
-            slideChar("pino", 300, 75, 3000)
-            slideChar("jaz", 0, 75, 3000)
+            slideChar(boatRockerEl, locations.river.mapLocations.pino.x, locations.river.mapLocations.pino.y, 3000)
             setTimeout(() => {
                 toggleAnimation("side", "duo")
             }, 3000)
@@ -53,12 +51,12 @@ function scene1() {
     } else if (previousLocation === "cave") {
         flipChar("left", "pino")
         flipChar("left", "jaz")
-        fadeChar("pino", 800, -450, 50, 1000)
-        fadeChar("jaz", 500, -450, 50, 1000)
+        fadeChar("pino", locations.cave.mapLocations.pino.x, locations.cave.mapLocations.pino.y, 50, 1000)
+        fadeChar("jaz", locations.cave.mapLocations.jaz.x, locations.cave.mapLocations.jaz.y, 50, 1000)
         setTimeout(() => {
             toggleAnimation("walk", "duo")
-            slideChar("pino", 600, -450, 3000)
-            slideChar("jaz", 300, -450, 3000)
+            slideChar("pino", locations.cave.mapLocations.pino.x + 100, locations.cave.mapLocations.pino.y, 3000)
+            slideChar("jaz", locations.cave.mapLocations.jaz.x + 100, locations.cave.mapLocations.jaz.y, 3000)
             setTimeout(() => {
                 toggleAnimation("side", "duo")
             }, 3000)

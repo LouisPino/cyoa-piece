@@ -130,8 +130,17 @@ const swipeMap = {
 }
 
 function changeSwipePrompt(swipeType) {
-    document.getElementById("swipe-prompt").innerHTML = `${swipeMap[swipeType]} SWIPE ${swipeType.toUpperCase()}!!! ${swipeMap[swipeType]} `
+    if (!swipeType) {
+        document.getElementById("swipe-prompt-arrow").style.visibility = "hidden"
+        document.getElementById("swipe-prompt-text").style.visibility = "hidden"
+    } else {
+        document.getElementById("swipe-prompt-arrow").src = `/display/assets/fight/${swipeType}.png`
+        document.getElementById("swipe-prompt-text").src = "/display/assets/fight/swipePromptText.png"
+        document.getElementById("swipe-prompt-arrow").style.visibility = "visible"
+        document.getElementById("swipe-prompt-text").style.visibility = "visible"
+    }
 }
+
 
 
 function hideMadlib() {

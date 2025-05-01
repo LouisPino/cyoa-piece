@@ -50,7 +50,7 @@ const locations = {
     bgName: "forest",
     transition: { type: "pixelate", time: 1000 },
     banner: "forest",
-    mapLocations: { pino: { x: 600, y: -388 }, jaz: { x: 294, y: -388 } }
+    mapLocations: { pino: { x: 711, y: -493 }, jaz: { x: 407, y: -493 } }
 
 
   },
@@ -67,7 +67,7 @@ const locations = {
 
     transition: { type: "pixelate", time: 1000 },
     banner: "rock",
-    mapLocations: { pino: { x: 866, y: -443 }, jaz: { x: 562, y: -443 } }
+    mapLocations: { pino: { x: 955, y: -338 }, jaz: { x: 651, y: -338 } }
 
 
   },
@@ -82,7 +82,7 @@ const locations = {
     html: {},
     transition: { type: "pixelate", time: 1000 },
     bgName: "waterfall",
-    mapLocations: { pino: { x: -128, y: -252 }, jaz: { x: -432, y: -252 } }
+    mapLocations: { pino: { x: 139, y: -229 }, jaz: { x: -165, y: -229 } }
 
 
   },
@@ -97,7 +97,7 @@ const locations = {
     html: {},
     transition: { type: "pixelate", time: 1000 },
     bgName: "rock",
-    mapLocations: { pino: { x: 866, y: -443 }, jaz: { x: 562, y: -443 } }
+    mapLocations: { pino: { x: 857, y: -554 }, jaz: { x: 553, y: -554 } }
 
   },
 
@@ -114,7 +114,7 @@ const locations = {
     transition: { type: "pixelate", time: 1000 },
     bgName: "waterfall",
     banner: "waterfall",
-    mapLocations: { pino: { x: -128, y: -252 }, jaz: { x: -432, y: -252 } }
+    mapLocations: { pino: { x: -39, y: -145 }, jaz: { x: -343, y: -145 } }
 
   },
   forestSouth: {
@@ -129,7 +129,7 @@ const locations = {
     transition: { type: "blur", time: 1000 },
     bgName: "forest",
     banner: "forest",
-    mapLocations: { pino: { x: 437, y: -96 }, jaz: { x: 134, y: -96 } }
+    mapLocations: { pino: { x: 260, y: -92 }, jaz: { x: -44, y: -92 } }
 
   },
   cave: {
@@ -144,7 +144,7 @@ const locations = {
     transition: { type: "blur", time: 1000 },
     bgName: "cave",
     banner: "cave",
-    mapLocations: { pino: { x: 639, y: -554 }, jaz: { x: 335, y: -554 } }
+    mapLocations: { pino: { x: 861, y: -638 }, jaz: { x: 557, y: -638 } }
 
 
   },
@@ -161,7 +161,7 @@ const locations = {
     voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
     bgName: "river",
     banner: "river",
-    mapLocations: { pino: { x: 294, y: 73 }, jaz: { x: -10, y: 73 } }
+    mapLocations: { pino: { x: 234, y: 73 }, jaz: { x: -70, y: 73 } }
 
   },
   chat: {
@@ -184,7 +184,7 @@ const locations = {
     },
     choices: ["vacuum", "fork"],
     html: {},
-    transition: { type: "pixelate-no-blur", time: 5000 },
+    transition: { type: "pixelate-no-blur", time: 500 },
   },
   postFightVacuum: {
     name: "postFightVacuum",
@@ -264,7 +264,7 @@ const locations = {
     html: {},
     transition: { type: "fade", time: 1000 },
     bgName: "riverInterior",
-    mapLocations: { pino: { x: 294, y: 73 }, jaz: { x: -10, y: 73 } }
+    mapLocations: { pino: { x: 234, y: 73 }, jaz: { x: -70, y: 73 } }
   },
   bats: {
     name: "bats",
@@ -277,7 +277,7 @@ const locations = {
     html: {},
     transition: { type: "blur", time: 1000 },
     bgName: "caveInterior",
-    mapLocations: { pino: { x: 639, y: -554 }, jaz: { x: 335, y: -554 } }
+    mapLocations: { pino: { x: 861, y: -638 }, jaz: { x: 557, y: -638 } }
 
   },
 

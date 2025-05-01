@@ -268,13 +268,16 @@ function scene5() {
         setTimeout(() => {
             slideBoxY("none")
             mapVideoEl.play()
-
+            setTimeout(() => {
+                mapVideoEl.pause()
+            }, 4000)
         }, 12000)
     }, 46000);
 }
 
 function scene6() {
     changeBg("animated/forest.gif")
+    mapVideoEl.style.transition = "opacity .5s ease";
 
     mapVideoEl.style.opacity = "0"
 

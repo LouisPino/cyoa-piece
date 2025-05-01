@@ -786,27 +786,100 @@ let congaRunning = false;
 let congaInterval;
 let npcClones = [];
 let trail = [];
+let npcAnchorPos = null; // stores starting position of the original NPC
+let currentAmount = 0; // track the current number of clones
+let currentSpeed = 0; // track the current speed
 
 function congaLine(state, amount, speed) {
     const container = document.body;
     const originalNpc = document.getElementById("npc-size-ctr");
 
-    if (state === 1 && !congaRunning) {
+    if (state === 1) {
+        // If already running, update parameters only
+        if (congaRunning) {
+            // Update clones if amount changed
+            if (amount !== currentAmount) {
+                const difference = amount - currentAmount;
+                if (difference > 0) {
+                    for (let i = 0; i < difference; i++) {
+                        const clone = originalNpc.cloneNode(true);
+                        clone.id = `npcClone${npcClones.length}`;
+                        clone.style.position = 'absolute';
+                        clone.style.top = `${npcAnchorPos.top}px`;
+                        clone.style.left = `${npcAnchorPos.left}px`;
+                        clone.style.pointerEvents = "none";
+                        container.appendChild(clone);
+                        npcClones.push(clone);
+                    }
+                } else {
+                    for (let i = 0; i < -difference; i++) {
+                        const clone = npcClones.pop();
+                        clone.remove();
+                    }
+                }
+                currentAmount = amount;
+            }
+
+            // If speed changed, recalculate interval
+            if (speed !== currentSpeed) {
+                currentSpeed = speed;
+                const trailSpacing = Math.floor(currentSpeed * 2);
+                clearInterval(congaInterval);
+                congaInterval = setInterval(() => {
+                    const npcPos = {
+                        top: originalNpc.offsetTop,
+                        left: originalNpc.offsetLeft
+                    };
+                    trail.unshift(npcPos);
+                    const maxTrailLength = currentAmount * trailSpacing + 1;
+                    if (trail.length > maxTrailLength) {
+                        trail.pop();
+                    }
+
+                    npcClones.forEach((clone, i) => {
+                        const index = (i + 1) * trailSpacing;
+                        if (trail[index]) {
+                            clone.style.top = `${trail[index].top}px`;
+                            clone.style.left = `${trail[index].left}px`;
+                        }
+                    });
+                }, 16);
+            }
+
+            return;
+        }
+
+        // === Initial startup ===
         congaRunning = true;
+        currentAmount = amount;
+        currentSpeed = speed;
+
+        // Store original position if not already stored
+        if (!npcAnchorPos) {
+            npcAnchorPos = {
+                top: originalNpc.offsetTop,
+                left: originalNpc.offsetLeft
+            };
+        }
+
+        // Reset NPC to anchor to prevent drifting start points
+        originalNpc.style.position = 'absolute';
+        originalNpc.style.top = `${npcAnchorPos.top}px`;
+        originalNpc.style.left = `${npcAnchorPos.left}px`;
 
         // Create clones
         for (let i = 0; i < amount; i++) {
             const clone = originalNpc.cloneNode(true);
             clone.id = `npcClone${i}`;
             clone.style.position = 'absolute';
-            clone.style.top = `${originalNpc.offsetTop}px`;
-            clone.style.left = `${originalNpc.offsetLeft}px`;
+            clone.style.top = `${npcAnchorPos.top}px`;
+            clone.style.left = `${npcAnchorPos.left}px`;
             clone.style.pointerEvents = "none";
             container.appendChild(clone);
             npcClones.push(clone);
         }
 
-        const trailSpacing = Math.floor(speed * 2); // controls how spaced they are in time
+        const trailSpacing = Math.floor(speed * 2);
         trail = [];
 
         congaInterval = setInterval(() => {
@@ -815,14 +888,11 @@ function congaLine(state, amount, speed) {
                 left: originalNpc.offsetLeft
             };
             trail.unshift(npcPos);
-            console.log(npcPos)
-            // Limit trail size
             const maxTrailLength = amount * trailSpacing + 1;
             if (trail.length > maxTrailLength) {
                 trail.pop();
             }
 
-            // Move each clone to a past position
             npcClones.forEach((clone, i) => {
                 const index = (i + 1) * trailSpacing;
                 if (trail[index]) {
@@ -830,7 +900,7 @@ function congaLine(state, amount, speed) {
                     clone.style.left = `${trail[index].left}px`;
                 }
             });
-        }, 16); // ~60fps
+        }, 16);
     }
 
     else if (state === 0 && congaRunning) {
@@ -839,8 +909,12 @@ function congaLine(state, amount, speed) {
         npcClones.forEach(clone => clone.remove());
         npcClones = [];
         trail = [];
+        npcAnchorPos = null;
+        currentAmount = 0;
+        currentSpeed = 0;
     }
 }
+
 
 
 function defaultZIndex() {

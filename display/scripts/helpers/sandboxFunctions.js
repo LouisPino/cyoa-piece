@@ -248,7 +248,7 @@ function slideBoxX(arg, characters) {
         boxEl.classList.add("slide-out-fast")
         textBodyEl.classList.add("slide-out-fast")
         spriteEl.classList.add("slide-out-fast")
-        setTimeout(clearText, 1000); // Ensure text clears after animation
+        setTimeout(clearText, 10); // Ensure text clears after animation
     } else {
         let newSrc = "/display/assets/dialogue/boxes/DialogueBox.png"
         let newColor = "#ffbd92"

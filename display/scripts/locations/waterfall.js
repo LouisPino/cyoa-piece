@@ -90,5 +90,5 @@ function scene6() {
     slideChar("duo", 0, 0, 4000)
 }
 
-// waterfall()
+waterfall()
 

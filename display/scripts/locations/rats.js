@@ -217,4 +217,4 @@ function scene5() {
     document.getElementById("npc").classList.remove("float-only-rats")
 }
 
-// rats()
+rats()

@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1957.0, 85.0, 347.0, 1272.0 ],
+		"rect" : [ 1874.0, 85.0, 651.0, 1272.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -58,7 +58,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1304.2104252576828, 1195.78938102722168, 50.0, 22.0 ],
-					"text" : "557"
+					"text" : "-70"
 				}
 
 			}
@@ -77,13 +77,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-418",
-					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1170.259149789810181, 1128.105174660682678, 50.0, 36.0 ],
-					"text" : "861 -638"
+					"patching_rect" : [ 1170.259149789810181, 1128.105174660682678, 50.0, 22.0 ],
+					"text" : "234 74"
 				}
 
 			}
@@ -122,7 +121,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 1000.524759670098888, 959.861295104026794, 20.0, 140.0 ],
+					"patching_rect" : [ 1000.524759670098888, 964.669241607189178, 20.0, 140.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "slider",
@@ -219,7 +218,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1080.35713255405426, 184.821426808834076, 50.0, 22.0 ],
-					"text" : "114"
+					"text" : "99"
 				}
 
 			}
@@ -3785,7 +3784,7 @@
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-													"text" : "114"
+													"text" : "99"
 												}
 
 											}
@@ -5093,7 +5092,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-									"text" : "114"
+									"text" : "99"
 								}
 
 							}
@@ -6260,7 +6259,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 117.0, 128.0, 33.0, 22.0 ],
-					"text" : "2"
+					"text" : "3"
 				}
 
 			}

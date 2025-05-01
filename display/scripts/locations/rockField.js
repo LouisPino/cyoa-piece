@@ -92,4 +92,4 @@ function scene5() {
     }, 1000)
 }
 
-// rockField()
+rockField()

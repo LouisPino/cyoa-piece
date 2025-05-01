@@ -68,8 +68,6 @@ function intro() {
     setTimeout(() => {
         scene8()
     }, 181000 * multiplier)
-
-    scene5()
 }
 
 
@@ -365,5 +363,4 @@ function scene8() {
 
 
 
-slideBoxY("none")
 intro()

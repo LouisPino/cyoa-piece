@@ -468,3 +468,19 @@ module.exports = [
     sendToDisplay,
     sendSectionChange
 ]
+
+
+
+
+
+//week before testing considerations
+//All loaction scripts active
+//transition times and vote lengths test at full
+
+
+// irl checks
+// all videos are full length?
+// all location scripts active?
+// voting times set?
+// vote tally correct?
+// disable hotkeys you don't need

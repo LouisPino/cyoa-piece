@@ -16,6 +16,10 @@ const floppy2El = document.getElementById("floppy-2")
 const mapBlackEl = document.getElementById("map-black-bg")
 const tillyImgEl = document.getElementById("tilly-img")
 const mapVideoEl = document.getElementById("map-video")
+let mapBorderEl = document.createElement("img");
+mapBorderEl.src = `/display/assets/map/${characters.p.device}.PNG`
+mapBorderEl.classList.add("complete-screen-img");
+mapBorderEl.id = "map-border-intro"
 
 let textBodyEl = document.querySelector(".text-body")
 deviceEl.src = `/display/assets/intro/device${characters.p.device}.png`
@@ -64,6 +68,8 @@ function intro() {
     setTimeout(() => {
         scene8()
     }, 181000 * multiplier)
+
+    scene5()
 }
 
 
@@ -213,7 +219,10 @@ function scene5() {
         slideChar(floppy2El, 300, 0, 2000)
     }, 2000)
     setTimeout(() => {
+        document.body.append(mapBorderEl);
+
         mapVideoEl.style.visibility = "visible"
+        mapBorderEl.style.visibility = "visible"
         let flickerTime = 0;
         let interval = 500; // start slow
         let flickerDuration = 10000; // total time in ms
@@ -222,6 +231,8 @@ function scene5() {
         const flickerInterval = setInterval(() => {
             // Toggle opacity between 0 and 1
             mapVideoEl.style.opacity = mapVideoEl.style.opacity === "1" ? "0" : "1";
+            mapBorderEl.style.opacity = mapBorderEl.style.opacity === "1" ? "0" : "1";
+
             flickerTime = Date.now() - startTime;
 
             // Gradually decrease interval to increase flicker speed
@@ -232,16 +243,20 @@ function scene5() {
                 clearInterval(flickerInterval);
                 mapVideoEl.style.transition = "opacity 2s ease";
                 mapVideoEl.style.opacity = "1";
+                mapBorderEl.style.opacity = "1"
+
             }
         }, interval);
         slideBoxY("dialogue")
         setTimeout(nextLine, 500)
     }, 4000);
     setTimeout(() => {
+        mapBorderEl.style.opacity = "1"
         mapVideoEl.play()
         slideBoxY("none")
     }, 14000);
     setTimeout(() => {
+        mapBorderEl.style.opacity = "1"
         slideBoxY("dialogue")
         setTimeout(nextLine, 500)
         setTimeout(() => {
@@ -278,8 +293,9 @@ function scene5() {
 function scene6() {
     changeBg("animated/forest.gif")
     mapVideoEl.style.transition = "opacity .5s ease";
+    mapBorderEl.style.visibility = "hidden"
 
-    mapVideoEl.style.opacity = "0"
+    mapBorderEl.remove()
 
     toggleAnimation("front", "duo")
     changeSize("duo", 1, .8)

@@ -9,8 +9,14 @@ textsArr = [
     "We think this portal will take you where you need to go next…",
 ];
 
+const golemVideoEl = document.getElementById("golem-video")
 
 let multiplier = 1
+
+let mapBorderEl = document.createElement("img");
+mapBorderEl.src = `/display/assets/map/${characters.p.device}.PNG`
+
+mapBorderEl.classList.add("complete-screen-img");
 
 
 function golems() {
@@ -34,11 +40,16 @@ function golems() {
     setTimeout(() => {
         scene5()
     }, 70000 * multiplier)
+
+    setTimeout(() => {
+        scene6()
+    }, 360000 * multiplier)
+    setTimeout(() => {
+        scene7()
+    }, 381000 * multiplier)
     //6 and 7 called at end dance
 
-
-
-
+    // dance()
 }
 
 
@@ -91,8 +102,8 @@ function scene3() {
         slideChar("pino", 450, 0, 1000)
         slideChar("jaz", 350, 0, 1000)
         setTimeout(() => {
-            toggleAnimation("side", "duo")
             hopChar("duo", 200, 700, true)
+            setTimeout(() => { toggleAnimation("side", "duo") }, 750)
         }, 1000)
     }, 0)
 }
@@ -135,17 +146,21 @@ function scene5() {
     fadeChar("pino", 3000, 3000, 1000, 1000)
     fadeChar("jaz", 3000, 3000, 1000, 1000)
     setTimeout(() => {
-        dance()
-
+        // dance()
+        golemVideoEl.style.visibility = "visible"
+        golemVideoEl.style.opacity = 1
+        golemVideoEl.play()
     }, 1000)
     // DANCE
 }
 
 function scene6() {
+    golemVideoEl.pause()
+    golemVideoEl.style.opacity = 1
+    setTimeout(() => { golemVideoEl.style.visibility = "hidden" }, 8000)
     fadeChar("pino", 450, 0, 1000, 1000)
     fadeChar("jaz", 350, 0, 1000, 1000)
     jumpChar("npc", 1500, 100)
-    //hop frog in
     slideChar("npc", 500, 100, 3000)
 
     setTimeout(() => {
@@ -238,22 +253,26 @@ function scene7() {
 }
 
 
-// golems()
 
 
 
 function dance() {
     document.getElementById("rock-portal-back").style.visibility = "hidden";
     document.getElementById("rock-portal-front").style.visibility = "hidden";
+    // document.body.appendChild(mapBorderEl)
+
 
     setTimeout(congaLine(1, 5, 10), 0)
     setTimeout(() => sceneOne(), 100);
     setTimeout(() => {
+
         congaLine(1, 20, 20); // Spiral draws attention to start
     }, 65000);
 
     setTimeout(() => sceneTwo(), 70000);
     setTimeout(() => {
+        changeNPCSrc("golem/full.png")
+
         congaLine(1, 50, 10); // Spiral draws attention to start
     }, 122000);
     setTimeout(() => sceneThree(), 127000);
@@ -273,6 +292,7 @@ function dance() {
 function endDance() {
     document.getElementById("rock-portal-back").style.visibility = "visible";
     document.getElementById("rock-portal-front").style.visibility = "visible";
+    // mapBorderEl.remove()
     congaLine(0)
     setTimeout(scene6, 500)
     setTimeout(scene7, 21500)
@@ -286,6 +306,8 @@ function sceneOne() {
     }, 0);
 
     setTimeout(() => {
+        changeNPCSrc("golem/full.gif")
+
         rightToLeft(-300); // Sweep left across mid-screen
     }, 15000);
     setTimeout(() => {
@@ -304,9 +326,13 @@ function sceneOne() {
 
 function sceneTwo() {
     setTimeout(() => {
+        changeNPCSrc("golem/full.gif")
+
         snakePath(15000)
     }, 200)
     setTimeout(() => {
+        changeNPCSrc("golem/full.png")
+
         slideChar("npc", -1000, 100, 7000); // Full slide left
     }, 15000);
     setTimeout(() => {
@@ -329,6 +355,8 @@ function sceneThree() {
         rightToLeft(100); // Strong horizontal sweep at bottom
     }, 1000);
     setTimeout(() => {
+        changeNPCSrc("golem/full.gif")
+
         slideChar("npc", -1000, 500, 8000); // Big move to top-right
     }, 10000);
     setTimeout(() => {
@@ -354,6 +382,8 @@ function sceneFour() {
         figureEight(15000); // Central, fluid pattern
     }, 1000);
     setTimeout(() => {
+        changeNPCSrc("golem/full.png")
+
         slideChar("npc", -800, -400, 8000); // Big sweep to upper-left
     }, 15000);
     setTimeout(() => {
@@ -374,6 +404,8 @@ function sceneFour() {
 
 
 function sceneFive() {
+    changeNPCSrc("golem/full.gif")
+
     setTimeout(() => {
         // Move horizontally from left to right (1st row)
         topToBottom(0);
@@ -404,3 +436,4 @@ function sceneFive() {
     }, 25000); // Wait for the vertical movement to finish before starting the final horizontal move
 }
 
+golems()

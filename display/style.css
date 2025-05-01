@@ -161,7 +161,13 @@ body {
     z-index: 35;
     opacity: 0;
     transition: opacity 0.2s ease;
+}
 
+#map-border-intro {
+    z-index: 36;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    visibility: hidden;
 }
 
 #naps {
@@ -746,6 +752,11 @@ body {
     transition: opacity 8s ease;
 }
 
+.dance-video {
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 8s ease;
+}
 
 .pino-dvd,
 .jaz-dvd {
@@ -848,7 +859,6 @@ body {
 }
 
 #qrcode1 {
-    position: absolute;
     left: 70px;
 }
 
@@ -859,9 +869,32 @@ body {
 }
 
 #qrcode2 {
-    position: absolute;
     right: 70px;
 }
+
+
+#qrcode1-info,
+#qrcode2-info {
+    width: 210px;
+    height: 210px;
+    position: absolute;
+    top: 200px;
+    z-index: 10;
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    /* border: 1px solid red; */
+}
+
+#qrcode1-info {
+    left: 70px;
+}
+
+
+#qrcode2-info {
+    right: 70px;
+}
+
 
 .vote-bg {
     z-index: -1;

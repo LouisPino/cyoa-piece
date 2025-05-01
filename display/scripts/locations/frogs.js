@@ -10,6 +10,12 @@ textsArr = [
     "We think this portal will take you where you need to go next *ribbit ribbit*",
 ];
 
+let mapBorderEl = document.createElement("img");
+mapBorderEl.src = `/display/assets/map/${characters.p.device}.PNG`
+
+mapBorderEl.classList.add("complete-screen-img");
+const frogVideoEl = document.getElementById("frog-video")
+
 
 let multiplier = 1
 
@@ -35,10 +41,17 @@ function frogs() {
     setTimeout(() => {
         scene5()
     }, 62000 * multiplier)
-    //6 and 7 called at end dance
+
+    setTimeout(() => {
+        scene6()
+    }, 341000 * multiplier)
+
+    setTimeout(() => {
+        scene7()
+    }, 362000 * multiplier)
 
 
-
+    // dance()
 }
 
 
@@ -89,8 +102,8 @@ function scene3() {
         slideChar("pino", 450, 0, 1000)
         slideChar("jaz", 350, 0, 1000)
         setTimeout(() => {
-            toggleAnimation("side", "duo")
-            hopChar("duo")
+            hopChar("duo", 200, 700, true)
+            setTimeout(() => { toggleAnimation("side", "duo") }, 750)
         }, 1000)
     }, 0)
 }
@@ -132,11 +145,17 @@ function scene5() {
     fadeChar("pino", 3000, 3000, 1000, 1000)
     fadeChar("jaz", 3000, 3000, 1000, 1000)
     setTimeout(() => {
-        dance()
+        // dance()
+        frogVideoEl.style.visibility = "visible"
+        frogVideoEl.style.opacity = 1
+        frogVideoEl.play()
     }, 1000)
     // DANCE
 }
 function scene6() {
+    frogVideoEl.pause()
+    frogVideoEl.style.opacity = 1
+    setTimeout(() => { frogVideoEl.style.visibility = "hidden" }, 8000)
     fadeChar("pino", 450, 0, 1000, 1000)
     fadeChar("jaz", 350, 0, 1000, 1000)
     jumpChar("npc", 0, 100)
@@ -262,12 +281,12 @@ function scene7() {
 }
 
 
-// frogs()
 
 
 function dance() {
     document.getElementById("waterfall-portal-back").style.visibility = "hidden";
     document.getElementById("waterfall-portal-front").style.visibility = "hidden";
+    // document.body.appendChild(mapBorderEl)
     setTimeout(congaLine(1, 5, 10), 0)
     setTimeout(() => sceneOne(), 100);
     setTimeout(() => {
@@ -284,6 +303,7 @@ function dance() {
     }, 183000);
     setTimeout(() => sceneFour(), 188000);
     setTimeout(() => {
+        changeNPCSrc("frog/full.gif")
         congaLine(1, 50, 10); // start fresh with correct center
     }, 244000);
     setTimeout(() => {
@@ -295,6 +315,7 @@ function dance() {
 function endDance() {
     document.getElementById("waterfall-portal-back").style.visibility = "visible";
     document.getElementById("waterfall-portal-front").style.visibility = "visible";
+    // mapBorderEl.removeChild()
     congaLine(0)
     setTimeout(scene6, 500)
     setTimeout(scene7, 21500)
@@ -308,12 +329,16 @@ function sceneOne() {
     }, 0);
 
     setTimeout(() => {
+        changeNPCSrc("frog/full.gif")
+
         rightToLeft(-300); // Sweep left across mid-screen
     }, 15000);
     setTimeout(() => {
         bottomToTop(200); // Pop from bottom to top, slightly right
     }, 25000);
     setTimeout(() => {
+        changeNPCSrc("frog/full.png")
+
         slideChar("npc", -600, 400, 7000); // Sweep left across bottom
     }, 35000);
     setTimeout(() => {
@@ -325,6 +350,7 @@ function sceneOne() {
 }
 
 function sceneTwo() {
+    changeNPCSrc("frog/full.gif")
     setTimeout(() => {
         snakePath(15000)
     }, 200)
@@ -347,6 +373,8 @@ function sceneTwo() {
 
 
 function sceneThree() {
+    changeNPCSrc("frog/full.png")
+
     setTimeout(() => {
         rightToLeft(100); // Strong horizontal sweep at bottom
     }, 1000);
@@ -396,6 +424,8 @@ function sceneFour() {
 
 
 function sceneFive() {
+    changeNPCSrc("frog/full.gif")
+
     setTimeout(() => {
         // Move horizontally from left to right (1st row)
         topToBottom(0);
@@ -427,3 +457,5 @@ function sceneFive() {
 }
 
 
+
+frogs()

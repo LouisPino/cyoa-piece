@@ -43,10 +43,10 @@ function golems() {
 
     setTimeout(() => {
         scene6()
-    }, 360000 * multiplier)
+    }, 351000 * multiplier)
     setTimeout(() => {
         scene7()
-    }, 381000 * multiplier)
+    }, 372000 * multiplier)
     //6 and 7 called at end dance
 
     // dance()

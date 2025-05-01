@@ -13,7 +13,7 @@ function river() {
     setTimeout(scene1, 1000)
     setTimeout(scene2, 8000)
     setTimeout(scene3, 14000)
-    setTimeout(scene4, 22000)
+    setTimeout(scene4, 30000)
 
 
 }
@@ -70,7 +70,10 @@ function scene3() {
 }
 function scene4() {
     //after video
-    riverVideoEl.pause()
+    riverVideoEl.style.opacity = 0
+    setTimeout(() => {
+        riverVideoEl.pause()
+    }, 8000)
     setTimeout(() => {
         slideBoxY("duo")
         setTimeout(nextLine, 750)

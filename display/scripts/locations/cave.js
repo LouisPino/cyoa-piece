@@ -61,7 +61,10 @@ function scene3() {
 }
 function scene4() {
     //after video
-    caveVidEl.pause()
+    caveVidEl.style.opacity = 0
+    setTimeout(() => {
+        caveVidEl.pause()
+    }, 8000)
     setTimeout(() => {
         slideBoxY("duo")
         setTimeout(nextLine, 750)

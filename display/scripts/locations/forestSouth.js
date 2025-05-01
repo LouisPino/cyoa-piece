@@ -52,7 +52,10 @@ function scene3() {
 }
 function scene4() {
     //after video
-    forestVidEl.pause()
+    forestVidEl.style.opacity = 0
+    setTimeout(() => {
+        forestVidEl.pause()
+    }, 8000)
     setTimeout(() => {
         slideBoxY("duo")
         setTimeout(nextLine, 750)

@@ -66,7 +66,7 @@ function scene4() {
     rockFieldVidEl.style.opacity = 0
     setTimeout(() => {
         rockFieldVidEl.pause()
-    }, 5000)
+    }, 8000)
     slideBoxY("duo")
     setTimeout(nextLine, 750)
     setTimeout(() => {

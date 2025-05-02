@@ -1,12 +1,12 @@
 textsArr = [
     "Wow. That was amazing!",
-    "According to the map, our next and final stop is the THERMOSHPERE. We’re almost there! ",
+    "According to the map, our next and final stop is the TWILIGHT ZONE. We’re almost there! ",
     "I wonder what sort of treasure we’ll find..."
 ];
 
-const cloudVidEl = document.getElementById("clouds-video")
+const shoreVidEl = document.getElementById("shore-video")
 
-function pacifistClouds() {
+function pacifistShores() {
     setTimeout(scene0, 100)
     setTimeout(scene1, 1000)
     setTimeout(scene2, 8000)
@@ -33,8 +33,8 @@ function scene1() {
             fadeChar("jaz", locations.river.mapLocations.jaz.x, locations.river.mapLocations.jaz.y, 50, 1000)
             setTimeout(() => {
                 flipChar("left", "duo")
-                slideChar("pino", locations.clouds.mapLocations.pino.x, locations.clouds.mapLocations.pino.y, 3000)
-                slideChar("jaz", locations.clouds.mapLocations.jaz.x, locations.clouds.mapLocations.jaz.y, 3000)
+                slideChar("pino", locations.shores.mapLocations.pino.x, locations.shores.mapLocations.pino.y, 3000)
+                slideChar("jaz", locations.shores.mapLocations.jaz.x, locations.shores.mapLocations.jaz.y, 3000)
                 setTimeout(() => {
                     flipChar("right", "duo")
                 }, 300)
@@ -69,8 +69,8 @@ function scene1() {
             fadeChar("jaz", locations.cave.mapLocations.jaz.x, locations.cave.mapLocations.jaz.y, 50, 1000)
             setTimeout(() => {
                 flipChar("left", "duo")
-                slideChar("pino", locations.clouds.mapLocations.pino.x, locations.clouds.mapLocations.pino.y, 3000)
-                slideChar("jaz", locations.clouds.mapLocations.jaz.x, locations.clouds.mapLocations.jaz.y, 3000)
+                slideChar("pino", locations.shores.mapLocations.pino.x, locations.shores.mapLocations.pino.y, 3000)
+                slideChar("jaz", locations.shores.mapLocations.jaz.x, locations.shores.mapLocations.jaz.y, 3000)
                 setTimeout(() => {
                     flipChar("right", "duo")
                 }, 300)
@@ -112,15 +112,15 @@ function scene2() {
 }
 function scene3() {
     //play video
-    cloudVidEl.style.visibility = "visible"
-    cloudVidEl.style.opacity = 1
-    cloudVidEl.play()
+    shoreVidEl.style.visibility = "visible"
+    shoreVidEl.style.opacity = 1
+    shoreVidEl.play()
 }
 function scene4() {
     //after video
-    cloudVidEl.style.opacity = 0
+    shoreVidEl.style.opacity = 0
     setTimeout(() => {
-        cloudVidEl.pause()
+        shoreVidEl.pause()
     }, 8000)
     setTimeout(() => {
         slideBoxY("duo")
@@ -139,4 +139,4 @@ function scene4() {
     }, 1000)
 }
 
-pacifistClouds()
+pacifistShores()

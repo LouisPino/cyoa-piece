@@ -45,7 +45,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 291.708372294903484, 355.401108622550964, 84.0, 22.0 ],
+					"patching_rect" : [ 258.02686530351707, 379.401108622550964, 84.0, 22.0 ],
 					"presentation_linecount" : 2,
 					"text" : "pacifistShores"
 				}
@@ -58,7 +58,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 270.0, 302.767050266265869, 83.0, 22.0 ],
+					"patching_rect" : [ 252.127657771110535, 302.767050266265869, 83.0, 22.0 ],
 					"text" : "pacifistClouds"
 				}
 
@@ -6271,7 +6271,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 117.0, 121.0, 33.0, 22.0 ],
-					"text" : "4"
+					"text" : "3"
 				}
 
 			}

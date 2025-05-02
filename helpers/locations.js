@@ -323,6 +323,7 @@ const locations = {
     },
     choices: ["space", "ocean"],
     mapLocations: { pino: { x: 346, y: -600 }, jaz: { x: 42, y: -600 } },
+    banner: "clouds",
 
     html: {},
     transition: { type: "fade", time: 3000 },
@@ -337,6 +338,8 @@ const locations = {
     choices: [
 
     ],
+    banner: "shore",
+
     html: {},
     transition: { type: "fade", time: 3000 },
     bgName: "shore",

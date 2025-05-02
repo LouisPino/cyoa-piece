@@ -30,8 +30,36 @@ function scene1() {
             fadeChar("pino", locations.frogs.mapLocations.pino.x, locations.frogs.mapLocations.pino.y, 50, 1000)
             fadeChar("jaz", locations.frogs.mapLocations.jaz.x, locations.frogs.mapLocations.jaz.y, 50, 1000)
             setTimeout(() => {
+                flipChar("left", "duo")
                 slideChar("pino", locations.cave.mapLocations.pino.x, locations.cave.mapLocations.pino.y, 3000)
                 slideChar("jaz", locations.cave.mapLocations.jaz.x, locations.cave.mapLocations.jaz.y, 3000)
+                setTimeout(() => {
+                    flipChar("right", "duo")
+                }, 300)
+                setTimeout(() => {
+                    flipChar("left", "duo")
+                }, 600)
+                setTimeout(() => {
+                    flipChar("right", "duo")
+                }, 900)
+                setTimeout(() => {
+                    flipChar("left", "duo")
+                }, 1200)
+                setTimeout(() => {
+                    flipChar("right", "duo")
+                }, 1500)
+                setTimeout(() => {
+                    flipChar("left", "duo")
+                }, 1800)
+                setTimeout(() => {
+                    flipChar("right", "duo")
+                }, 2100)
+                setTimeout(() => {
+                    flipChar("left", "duo")
+                }, 2400)
+                setTimeout(() => {
+                    flipChar("right", "duo")
+                }, 2700)
             }, 3000)
         } else {
             flipChar("left", "duo")

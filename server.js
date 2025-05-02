@@ -206,14 +206,14 @@ function sendSectionChange(location) {
     sendToWebClients({ type: "history", data: history })
     sendToDisplay({ type: "history", data: history })
     if (currentLocation?.name === "fight") {
-        oscClient.send("/sample", "pokemon.mp3")
+        oscClient.send("/fx", "pokemon.mp3")
         setTimeout(() => {
             newTargetSwipe()
             attacking = false
         }, 4000)
     }
     if (currentLocation?.name === "intro") {
-        oscClient.send("/sample", "sylvan-game.wav")
+        oscClient.send("/track", "sylvan-game.wav")
         setTimeout(() => {
             newTargetSwipe()
             attacking = false
@@ -240,9 +240,6 @@ function triggerVote(type, item) {
     if (type === "path") {
         if (currentLocation.voteVamp) {
             oscClient.send("/sample", currentLocation.voteVamp)
-        } else {
-
-            oscClient.send("/sample", 0)
         }
         sendToWebClients({ type: "vote", data: { type: "path" } })
         sendToDisplay({ type: "vote", data: { type: "path", currentLocation: currentLocation } }) // in display, make visible the choice prompt + image
@@ -300,7 +297,6 @@ function endVote(type, item, winner) {
     }
     voting = false;
     oscClient.send("/sample", 0)
-
     resetChoices()
 }
 
@@ -319,10 +315,12 @@ function tallyVotes() {
     return choiceMap[Object.keys(choices).reduce((a, b) => choices[a] >= choices[b] ? b : b)]
 }
 
-function intermissionTrigger() {
-    sendToWebClients({ type: "intermission" });
-    sendToDisplay({ type: "intermission" }); // Display the choice prompt + image
-}
+// function intermissionTrigger() {
+//     sendToWebClients({ type: "intermission" });
+//     sendToDisplay({ type: "intermission" }); 
+// }
+
+
 function handleAttack(attackType) {
     if (attacking) { return }
     if (attackType === swipeType) {

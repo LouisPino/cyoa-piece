@@ -1,3 +1,4 @@
+
 let zoneMap = {
     cave: "Cave",
     river: "River System"
@@ -10,7 +11,7 @@ let friendMap = {
 let loserMap = {
     bats: "the innocent Bat",
     isopods: "the harmless Isopod",
-    rats: "the gruff but kind Pie-Rats"
+    rats: "the gruff but gentle Pie-Rats"
 }
 
 let friend
@@ -22,6 +23,13 @@ if (checkHistory("rats")) {
 } else {
     friend = "bats"
 }
+
+
+
+
+const threatBlackoutEl = document.getElementById("threatening-blackout")
+const threatTextEl = document.getElementById("threatening-text")
+
 
 
 textsArr = [
@@ -36,12 +44,6 @@ textsArr = [
     "According to the map, treasure will be found at the next and final stop! First thing to do is to get our adventurers reunited.",
     "Should they pursue the treasure in space? Or in the ocean?",
 ]
-
-const threatBlackoutEl = document.getElementById("threatening-blackout")
-const threatTextEl = document.getElementById("threatening-text")
-
-
-
 
 function fightClouds() {
     scene0()

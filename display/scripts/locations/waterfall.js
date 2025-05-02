@@ -3,7 +3,7 @@ const boatRockerEl = document.getElementById("boat-rocker")
 
 textsArr = [
     "Look at this beautiful waterfall! Let’s take a moment to enjoy the sounds.",
-    "Oh boy! We did it! We found the river system. Let’s go check it out."
+    "Oh boy! We did it! We found the River System. Let’s go check it out."
 ];
 
 const waterfallVidEl = document.getElementById("waterfall-video")
@@ -84,10 +84,11 @@ function scene4() {
 function scene5() {
     getInBoat(boatRockerEl)
     slideChar(boatRockerEl, 3000, 300, 4000)
+    sendToServer({ type: "fx", val: "boat.mp3" })
 }
 function scene6() {
     getOutBoat(boatRockerEl)
-    slideChar("duo", 0, 0, 4000)
+    // slideChar("duo", 0, 0, 4000)
 }
 
 waterfall()

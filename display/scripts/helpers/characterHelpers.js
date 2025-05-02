@@ -20,6 +20,7 @@ const jazWeapon = document.createElement("img")
 pinoHelmet.style.zIndex = "94"
 pinoWeapon.src = "/display/assets/characters/pino/weapon.png"
 pinoWeapon.style.zIndex = "101"
+pinoWeapon.id = "pino-weapon"
 
 ipadEl.style.zIndex = "101"
 ipadLineEl.style.zIndex = "102"
@@ -28,6 +29,8 @@ ipadLineEl.src = `/display/assets/characters/pino/ipad/line.png`
 
 jazWeapon.src = "/display/assets/characters/jaz/weapon.png"
 jazWeapon.style.zIndex = "101"
+jazWeapon.id = "jaz-weapon"
+
 
 const pinoCharSizeCtr = document.createElement("div")
 pinoCharSizeCtr.classList.add("char-size-ctr")

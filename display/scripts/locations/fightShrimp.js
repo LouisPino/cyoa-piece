@@ -94,10 +94,11 @@ function scene2() {
     setTimeout(() => {
         fadeBox("none")
         fadeChar("jaz", -2000, -2000, 1000, 10)
+        fadeChar("npc", -2000, -2000, 1000, 10)
 
         threatBlackoutEl.style.opacity = 1
         setTimeout(() => { threatTextEl.style.left = 0 }, 2000)
-        setTimeout(() => { sendToServer({ type: "fx", val: "wilhelm" }) }, 2500)
+        setTimeout(() => { sendToServer({ type: "fx", val: "wilhelm.wav" }) }, 2500)
     }, 6500)
 }
 

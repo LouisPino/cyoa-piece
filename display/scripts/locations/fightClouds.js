@@ -71,7 +71,6 @@ function scene1() {
     setTimeout(() => {
         clearText()
         changeDialogueSprite(`cloud/2`)
-        //hop a couple times
         hopChar("npc", 200, 500)
         setTimeout(() => {
             hopChar("npc", 200, 500)
@@ -94,10 +93,11 @@ function scene2() {
     setTimeout(() => {
         fadeBox("none")
         fadeChar("pino", -2000, -2000, 1000, 10)
+        fadeChar("npc", -2000, -2000, 1000, 10)
 
         threatBlackoutEl.style.opacity = 1
         setTimeout(() => { threatTextEl.style.left = 0 }, 2000)
-        setTimeout(() => { sendToServer({ type: "fx", val: "wilhelm" }) }, 2500)
+        setTimeout(() => { sendToServer({ type: "fx", val: "wilhelm.wav" }) }, 3200)
     }, 6500)
 }
 
@@ -144,6 +144,6 @@ function scene4() {
     }, 58000)
 }
 
-// fightClouds()
+fightClouds()
 
 

@@ -28,14 +28,13 @@ textsArr = [
     `So you wanna fight, eh?`,
     "You REALLY wanna do this??",
     `We know how you bullied our ${friendMap[friend]} from the ${zoneMap[checkHistory("river") ? "river" : "cave"]}. You should be totally ashamed of yourself. Do you really think you can go around treating others like that? `,
-    "Your bullying days are over. Unless you want your friend to perish…",
+    "Your bullying days are over! Unless you want your friend to perish…",
     "Still wanna fight?",
     `Wizard Pino, feeling deeply ashamed and embarrassed, apologizes to the Cloud Folk and ${loserMap[friend]}.`,
     "Following a stern lecture and a little bit more public shaming, Wizard Pino is eventually forgiven.",
-    "The Cloud Folk lend Wizard Pino a communication device  re-establishes contact with Jester Jaz! ",
+    "The Cloud Folk lend Wizard Pino a communication device that re-establishes contact with Jester Jaz! ",
     "According to the map, treasure will be found at the next and final stop! First thing to do is to get our adventurers reunited.",
     "Should they pursue the treasure in space? Or in the ocean?",
-
 ]
 
 const threatBlackoutEl = document.getElementById("threatening-blackout")
@@ -48,8 +47,8 @@ function fightClouds() {
     scene0()
     setTimeout(scene1, 500)
     setTimeout(scene2, 28000)
-    setTimeout(scene3, 40000)
-
+    setTimeout(scene3, 43000)
+    setTimeout(scene4, 52000)
 }
 
 
@@ -70,6 +69,14 @@ function scene1() {
     setTimeout(() => {
         clearText()
         changeDialogueSprite(`cloud/2`)
+        //hop a couple times
+        hopChar("npc", 200, 500)
+        setTimeout(() => {
+            hopChar("npc", 200, 500)
+        }, 501)
+        setTimeout(() => {
+            hopChar("npc", 200, 500)
+        }, 1002)
         setTimeout(nextLine, 200)
     }, 4000)
     setTimeout(() => {
@@ -84,21 +91,57 @@ function scene2() {
     setTimeout(nextLine, 500)
     setTimeout(() => {
         fadeBox("none")
+        fadeChar("pino", -2000, -2000, 1000, 10)
+
         threatBlackoutEl.style.opacity = 1
-        setTimeout(() => { threatTextEl.style.left = 0 }, 1000)
-        setTimeout(() => { sendToServer({ type: "fx", val: "wilhelm" }) }, 1500)
+        setTimeout(() => { threatTextEl.style.left = 0 }, 2000)
+        setTimeout(() => { sendToServer({ type: "fx", val: "wilhelm" }) }, 2500)
     }, 6500)
 }
 
 function scene3() {
     threatTextEl.style.left = "1920px"
     setTimeout(() => {
-        fadeBox("sprite")
+        slideBoxY("sprite")
         changeDialogueSprite(`cloud/3`)
         setTimeout(nextLine, 500)
-    }, 500)
+    }, 3000)
+    setTimeout(() => {
+        fadeBox("none")
+    }, 7000)
 }
 
-fightClouds()
+function scene4() {
+    toggleAnimation("froggy", "pino")
+    changeSize("pino", 1, 1.2)
+    setTimeout(() => {
+        fadeChar("pino", 572, 41, 100, 5000)
+    }, 100)
+    setTimeout(() => {
+        slideBoxY(`dialogue`)
+        setTimeout(nextLine, 500)
+    }, 8000)
+    setTimeout(() => {
+        clearText()
+        setTimeout(nextLine, 500)
+    }, 20000)
+    setTimeout(() => {
+        setTimeout(nextLine, 500)
+    }, 27000)
+    setTimeout(() => {
+        clearText()
+        setTimeout(nextLine, 500)
+    }, 38000)
+    setTimeout(() => {
+        setTimeout(nextLine, 500)
+    }, 48000)
+    setTimeout(() => {
+        setTimeout(() => {
+            slideBoxY("none")
+        }, 500)
+    }, 58000)
+}
+
+// fightClouds()
 
 

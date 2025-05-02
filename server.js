@@ -245,7 +245,7 @@ function triggerVote(type, item) {
     voting = true
     if (type === "path") {
         if (currentLocation.voteVamp) {
-            oscClient.send("/sample", currentLocation.voteVamp)
+            oscClient.send("/track", currentLocation.voteVamp)
         }
         sendToWebClients({ type: "vote", data: { type: "path" } })
         sendToDisplay({ type: "vote", data: { type: "path", currentLocation: currentLocation } }) // in display, make visible the choice prompt + image
@@ -302,7 +302,7 @@ function endVote(type, item, winner) {
             break
     }
     voting = false;
-    oscClient.send("/sample", 0)
+    oscClient.send("/track", 0)
     resetChoices()
 }
 

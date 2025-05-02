@@ -7731,7 +7731,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 2357.0, 552.0, 1908.0, 989.0 ],
+						"rect" : [ 3058.0, 668.0, 990.0, 431.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -7759,6 +7759,7 @@
 						"style" : "",
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
+						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-45",
@@ -7778,7 +7779,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 1005.5, 123.402737379074097, 191.5, 22.0 ],
-									"text" : "0"
+									"text" : "wilhelm"
 								}
 
 							}
@@ -8053,6 +8054,7 @@
 									"offset" : [ 0.0, 0.0 ],
 									"outlettype" : [ "signal", "signal", "", "" ],
 									"patching_rect" : [ 706.229451656341553, 749.0, 403.0, 196.0 ],
+									"presentation_linecount" : 2,
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_invisible" : 1,
@@ -10981,7 +10983,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 205.309558987617493, 6.5, 117.08072251081353, 22.0 ],
-					"text" : "/sample wilhelm"
+					"text" : "/fx wilhelm"
 				}
 
 			}

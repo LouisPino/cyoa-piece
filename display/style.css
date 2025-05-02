@@ -742,7 +742,7 @@ body {
     opacity: 0;
     transition: opacity 1s linear;
     background-color: black;
-    z-index: 5000;
+    z-index: 90;
 }
 
 /* Background images */

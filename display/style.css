@@ -723,6 +723,28 @@ body {
     transition: transform 250ms ease-in-out;
 }
 
+#threatening-text {
+    position: absolute;
+    font-size: 150px;
+    left: -1920px;
+    transition: left 250ms ease-in;
+    color: white;
+    width: 100%;
+    text-align: center;
+    top: 33%;
+    margin: 0;
+    padding: 0;
+}
+
+#threatening-blackout {
+    position: absolute;
+
+    opacity: 0;
+    transition: opacity 1s linear;
+    background-color: black;
+    z-index: 5000;
+}
+
 /* Background images */
 .complete-screen-img {
     position: absolute;

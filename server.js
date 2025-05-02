@@ -148,6 +148,12 @@ wss.on('connection', (ws, req) => {
             case "sample":
                 oscClient.send("/sample", data.val)
                 break
+            case "fx":
+                oscClient.send("/fx", data.val)
+                break
+            case "track":
+                oscClient.send("/track", data.val)
+                break
             case "game-score":
                 gameScores.push(data.val)
                 renderGameLeaderboard()

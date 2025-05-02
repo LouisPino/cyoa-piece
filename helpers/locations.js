@@ -221,7 +221,7 @@ const locations = {
   },
   postPostChatSpace: {
     name: "postPostChatSpace",
-    paths: ["clouds", "clouds"],
+    paths: ["pacifistClouds", "pacifistClouds"],
     choicePrompts: {
       mobile: "Which loot should they take?",
       display: "Which loot should we take?",
@@ -232,7 +232,7 @@ const locations = {
   },
   postPostChatOcean: {
     name: "postPostChatOcean",
-    paths: ["shores", "shores"],
+    paths: ["pacifistShores", "pacifistShores"],
     choicePrompts: {
       mobile: "Which loot should they take?",
       display: "Which loot should we take?",
@@ -345,14 +345,13 @@ const locations = {
   },
   fightClouds: {
     name: "fightClouds",
-    paths: ["thermosphere", "thermosphere"],
+    paths: ["thermosphere", "twilight"],
     choicePrompts: {
       mobile: "",
       display: "",
     },
-    choices: [
+    choices: ["space", "ocean"],
 
-    ],
     html: {},
     transition: { type: "fade", time: 3000 },
     bgName: "clouds",
@@ -362,14 +361,13 @@ const locations = {
   explainClouds: {
     bgName: "clouds",
     name: "explainClouds",
-    paths: ["thermosphere", "thermosphere"],
+    paths: ["thermosphere", "twilight"],
     choicePrompts: {
       mobile: "",
       display: "",
     },
-    choices: [
+    choices: ["space", "ocean"],
 
-    ],
     html: {},
     transition: { type: "fade", time: 3000 },
     mapLocations: { pino: { x: 346, y: -600 }, jaz: { x: 42, y: -600 } },
@@ -377,14 +375,13 @@ const locations = {
   },
   fightShrimp: {
     name: "fightShrimp",
-    paths: ["twilight", "twilight"],
+    paths: ["thermosphere", "twilight"],
     choicePrompts: {
       mobile: "",
       display: "",
     },
-    choices: [
+    choices: ["space", "ocean"],
 
-    ],
     html: {},
     transition: { type: "fade", time: 3000 },
     bgName: "shore",
@@ -394,14 +391,13 @@ const locations = {
 
   explainShrimp: {
     name: "explainShrimp",
-    paths: ["twilight", "twilight"],
+    paths: ["thermosphere", "twilight"],
     choicePrompts: {
       mobile: "",
       display: "",
     },
-    choices: [
+    choices: ["space", "ocean"],
 
-    ],
     html: {},
     transition: { type: "fade", time: 3000 },
     bgName: "shore",

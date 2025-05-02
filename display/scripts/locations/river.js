@@ -27,7 +27,6 @@ function scene0() {
 }
 
 function scene1() {
-
     toggleAnimation("front", "duo")
     if (checkHistory("golems")) {
         changeSize("duo", 1, .3)
@@ -36,8 +35,37 @@ function scene1() {
         fadeChar("pino", locations.golems.mapLocations.pino.x, locations.golems.mapLocations.pino.y, 50, 1000)
         fadeChar("jaz", locations.golems.mapLocations.jaz.x, locations.golems.mapLocations.jaz.y, 50, 1000)
         setTimeout(() => {
+            flipChar("left", "duo")
+
             slideChar("pino", locations.river.mapLocations.pino.x, locations.river.mapLocations.pino.y, 3000)
             slideChar("jaz", locations.river.mapLocations.jaz.x, locations.river.mapLocations.jaz.y, 3000)
+            setTimeout(() => {
+                flipChar("right", "duo")
+            }, 300)
+            setTimeout(() => {
+                flipChar("left", "duo")
+            }, 600)
+            setTimeout(() => {
+                flipChar("right", "duo")
+            }, 900)
+            setTimeout(() => {
+                flipChar("left", "duo")
+            }, 1200)
+            setTimeout(() => {
+                flipChar("right", "duo")
+            }, 1500)
+            setTimeout(() => {
+                flipChar("left", "duo")
+            }, 1800)
+            setTimeout(() => {
+                flipChar("right", "duo")
+            }, 2100)
+            setTimeout(() => {
+                flipChar("left", "duo")
+            }, 2400)
+            setTimeout(() => {
+                flipChar("right", "duo")
+            }, 2700)
         }, 3000)
     } else {
         getInBoat(boatRockerEl)
@@ -88,4 +116,4 @@ function scene4() {
 
 
 
-// river()
+river()

@@ -88,7 +88,7 @@ const locations = {
   },
   golems: {
     name: "golems",
-    paths: ["cave", "cave"],
+    paths: ["river", "river"],
     choicePrompts: {
       mobile: "",
       display: "",
@@ -287,8 +287,8 @@ const locations = {
     name: "shores",
     paths: ["fightShrimp", "explainShrimp"],
     choicePrompts: {
-      mobile: "",
-      display: "",
+      mobile: "What should they do?",
+      display: "What do I do?",
     },
     choices: ["fight", "chat"],
     html: {},
@@ -302,8 +302,8 @@ const locations = {
     name: "clouds",
     paths: ["fightClouds", "explainClouds"],
     choicePrompts: {
-      mobile: "",
-      display: "",
+      mobile: "What should he do?",
+      display: "What do I do?",
     },
     choices: ["fight", "chat"],
     html: {},
@@ -316,7 +316,7 @@ const locations = {
   pacifistClouds: {
     bgName: "clouds",
     name: "pacifistClouds",
-    paths: ["thermosphere", "twilight"],
+    paths: ["thermosphere", "thermosphere"],
     choicePrompts: {
       mobile: "",
       display: "",
@@ -350,8 +350,8 @@ const locations = {
     name: "fightClouds",
     paths: ["thermosphere", "twilight"],
     choicePrompts: {
-      mobile: "",
-      display: "",
+      mobile: "Where should they go?",
+      display: "Where should they go?",
     },
     choices: ["space", "ocean"],
 
@@ -366,8 +366,8 @@ const locations = {
     name: "explainClouds",
     paths: ["thermosphere", "twilight"],
     choicePrompts: {
-      mobile: "",
-      display: "",
+      mobile: "Where should they go?",
+      display: "Where should they go?",
     },
     choices: ["space", "ocean"],
 
@@ -380,8 +380,8 @@ const locations = {
     name: "fightShrimp",
     paths: ["thermosphere", "twilight"],
     choicePrompts: {
-      mobile: "",
-      display: "",
+      mobile: "Where should they go?",
+      display: "Where should they go?",
     },
     choices: ["space", "ocean"],
 
@@ -396,8 +396,8 @@ const locations = {
     name: "explainShrimp",
     paths: ["thermosphere", "twilight"],
     choicePrompts: {
-      mobile: "",
-      display: "",
+      mobile: "Where should they go?",
+      display: "Where should they go?",
     },
     choices: ["space", "ocean"],
 

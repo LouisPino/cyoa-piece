@@ -436,4 +436,4 @@ function sceneFive() {
     }, 25000); // Wait for the vertical movement to finish before starting the final horizontal move
 }
 
-golems()
+// golems()

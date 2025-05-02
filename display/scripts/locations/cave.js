@@ -69,6 +69,7 @@ function scene1() {
                 toggleAnimation("walk", "duo")
                 slideChar("pino", locations.cave.mapLocations.pino.x, locations.cave.mapLocations.pino.y, 3000)
                 slideChar("jaz", locations.cave.mapLocations.jaz.x, locations.cave.mapLocations.jaz.y, 3000)
+                setTimeout(() => { toggleAnimation("front", "duo") }, 3000)
             }, 3000)
         }
 

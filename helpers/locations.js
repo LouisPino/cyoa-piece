@@ -422,7 +422,7 @@ const locations = {
     bgName: "space",
     banner: "space",
 
-    mapLocations: { pino: { x: 932, y: -23 }, jaz: { x: 628, y: -23 } }
+    mapLocations: { pino: { x: -23, y: -635 }, jaz: { x: -323, y: -635 } }
 
   },
   twilight: {

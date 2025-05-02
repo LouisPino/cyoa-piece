@@ -171,4 +171,4 @@ function scene4() {
 }
 
 
-clouds()
+// clouds()

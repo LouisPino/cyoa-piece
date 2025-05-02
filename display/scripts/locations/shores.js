@@ -173,4 +173,4 @@ function scene4() {
 }
 
 
-shores()
+// shores()

@@ -40,6 +40,18 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-36",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 626.250091016292799, 892.259347438812256, 29.5, 22.0 ],
+					"text" : "vs"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-187",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -7778,7 +7790,6 @@
 						"style" : "",
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-56",
@@ -8148,7 +8159,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 833.869543552398682, 71.141869783401489, 59.0, 22.0 ],
-									"text" : "bonk.wav"
+									"text" : "0"
 								}
 
 							}
@@ -8252,12 +8263,13 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-22",
+									"linecount" : 2,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1627.369543552398682, 156.739132404327393, 84.0, 22.0 ],
-									"text" : "0"
+									"patching_rect" : [ 1627.369543552398682, 156.739132404327393, 84.0, 36.0 ],
+									"text" : "pokemonBattle.wav"
 								}
 
 							}
@@ -8369,7 +8381,7 @@
 										"followglobaltempo" : 0,
 										"formantcorrection" : 0,
 										"mode" : "basic",
-										"originallength" : [ 97480.946938775494345, "ticks" ],
+										"originallength" : [ 67697.676190476195188, "ticks" ],
 										"originaltempo" : 119.999999999999986,
 										"pitchcorrection" : 0,
 										"quality" : "basic",
@@ -11776,12 +11788,13 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-20",
+					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 205.309558987617493, 6.5, 117.08072251081353, 22.0 ],
-					"text" : "/fx 0"
+					"patching_rect" : [ 205.309558987617493, 6.5, 117.08072251081353, 36.0 ],
+					"text" : "/track pokemonBattle.wav"
 				}
 
 			}
@@ -13782,6 +13795,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-356", 0 ],
 					"source" : [ "obj-359", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-206", 0 ],
+					"source" : [ "obj-36", 0 ]
 				}
 
 			}

@@ -402,6 +402,11 @@ body {
     visibility: hidden;
 }
 
+#vs-screen img {
+    transition: left 1s ease-in;
+    z-index: 100;
+}
+
 
 
 /* madlib */

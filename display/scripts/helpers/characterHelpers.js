@@ -176,7 +176,8 @@ async function toggleAnimation(animation, charName) {
         if (charNames.includes("pino")) {
             pinoHands.remove()
         }
-    } else if (animation === "robeAura") {
+    }
+    else if (animation === "robeAura") {
         setTimeout(() => {
             pinoBodyLine.src = `/display/assets/characters/pino/bodyline/robeAura/${characters.p.robe}.png`
             pinoBodyLine.style.zIndex = "101"
@@ -222,7 +223,12 @@ async function toggleAnimation(animation, charName) {
         }
     }
 
-
+    if (animation === "vs") {
+        pinoHands.remove()
+    }
+    if (animation === "jump") {
+        pinoHands.remove()
+    }
     if (animation === "weapon") {
         if (charNames.includes("jaz")) {
             jazDiv.appendChild(jazWeapon)

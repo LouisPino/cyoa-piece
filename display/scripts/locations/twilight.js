@@ -110,6 +110,8 @@ function scene4() {
         setTimeout(nextLine, 750)
         setTimeout(() => {
             clearText()
+            toggleBox("duo")
+
             setTimeout(nextLine, 200)
         }, 12000)
         setTimeout(() => {

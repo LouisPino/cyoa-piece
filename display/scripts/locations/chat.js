@@ -123,6 +123,7 @@ function scene2() {
     hopChar("npc", 200, 100)
     setTimeout(() => {
         toggleBox("sprite")
+        sendToServer({ type: "fx", val: "wilhelm.wav" })
         setTimeout(nextLine, 500)
         setTimeout(() => {
             clearText()

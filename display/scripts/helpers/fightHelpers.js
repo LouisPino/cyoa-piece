@@ -538,7 +538,7 @@ function decrementHealth() {
         if (checkHistory("rats")) {
             enemySound = "rats.wav"
         } else if (checkHistory("isopods")) {
-            enemySound = "isopods.wav"
+            enemySound = "wilhelm.wav"
         } else {
             enemySound = "bat.wav"
         }

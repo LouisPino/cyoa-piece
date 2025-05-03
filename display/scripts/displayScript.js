@@ -248,6 +248,9 @@ document.addEventListener("DOMContentLoaded", function () {
             case "timer":
               madlibTimeChange(msg.data)
               break
+            case "clear":
+              madlibClearBoard()
+              break
           }
           break;
       }

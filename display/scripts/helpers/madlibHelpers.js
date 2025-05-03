@@ -189,3 +189,9 @@ function madlibTimeChange(time) {
         timerEl.innerHTML = time != 0 ? time : ""
     }
 }
+
+function madlibClearBoard() {
+    const wordAreaEl = document.getElementById("word-area");
+
+    wordAreaEl.innerHTML = ""
+}

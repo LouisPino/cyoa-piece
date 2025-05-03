@@ -98,7 +98,7 @@ function scene2() {
 
         threatBlackoutEl.style.opacity = 1
         setTimeout(() => { threatTextEl.style.left = 0 }, 2000)
-        setTimeout(() => { sendToServer({ type: "fx", val: "wilhelm.wav" }) }, 2500)
+        setTimeout(() => { sendToServer({ type: "fx", val: "goat.mp3" }) }, 2500)
     }, 6500)
 }
 

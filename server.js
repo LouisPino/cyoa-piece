@@ -405,9 +405,7 @@ oscServer.on('message', (msg, rinfo) => {
             sendToWebClients({ type: "map", data: { type: msg[1] } })
             break
         case "madlib":
-            if (msg[1] === "draw") {
-                sendToDisplay({ type: "madlib", route: msg[1] })
-            }
+            sendToDisplay({ type: "madlib", route: msg[1] })
             break
     }
     const msgObj = { type: msg[0], data: msg[1] }

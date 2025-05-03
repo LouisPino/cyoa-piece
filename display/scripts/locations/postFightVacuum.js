@@ -43,22 +43,21 @@ function postFightVacuum() {
             clearText()
             toggleBox("pino")
             setTimeout(nextLine, 200)
-        }, 28000)
+        }, 30000)
         setTimeout(() => {
             clearText()
             toggleBox("jaz")
             setTimeout(nextLine, 200)
-        }, 36000)
+        }, 40000)
         setTimeout(() => {
             fadeBox("none")
-        }, 40000)
-    }, 16000)
+        }, 42000)
+    }, 17000)
 
     setTimeout(() => {
         changeSize("duo", 1, .7)
         toggleAnimation("front", "duo")
         jumpChar("duo", 2000, 2000)
-
         renderPino()
         renderJaz()
         fadeChar("pino", 575, 0, 10, 5000)
@@ -67,17 +66,17 @@ function postFightVacuum() {
         setTimeout(() => {
             document.getElementById("teleporter-beam").style.visibility = "visible"
             sendToServer({ type: "fx", val: "aura.wav" })
-        }, 4000)
+        }, 8000)
         setTimeout(() => {
             slideChar("pino", 575, -1000, 8000)
             slideChar("jaz", 325, -1000, 8000)
             startFlipping()
-        }, 8000)
-    }, 55000)
+        }, 12000)
+    }, 59000)
     setTimeout(() => {
         fadeChar(document.getElementById("teleporter-beam"), 3000, 3000, 2000, 0)
         setTimeout(() => { sendToServer({ type: "fx", val: 0 }) }, 2000)
-    }, 70000)
+    }, 81000)
 }
 
 

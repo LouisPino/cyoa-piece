@@ -27,7 +27,7 @@ function rats() {
     }, 33000 * multiplier)
     setTimeout(() => {
         scene5()
-    }, 38000 * multiplier)
+    }, 41000 * multiplier)
 
 }
 

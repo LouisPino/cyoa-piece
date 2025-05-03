@@ -135,7 +135,7 @@ function scene4() {
         }, 15000)
         setTimeout(() => {
             slideBoxY("none")
-        }, 20000)
+        }, 25000)
     }, 1000)
 }
 

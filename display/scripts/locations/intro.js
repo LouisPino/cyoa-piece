@@ -43,7 +43,7 @@ function intro() {
     scene1()
     setTimeout(() => {
         scene2()
-    }, 28000 * multiplier)
+    }, 29000 * multiplier)
 
     setTimeout(() => {
         scene3()
@@ -71,20 +71,19 @@ function intro() {
 }
 
 
-
 function scene1() {
     castleBackEl.style.visibility = "visible"
     castleFrontEl.style.visibility = "visible"
     tillyGifEl.style.visibility = "visible"
     setTimeout(() => {
         slideBoxY("dialogue")
-    }, 5000)
+    }, 12000)
     setTimeout(() => {
         nextLine()
-    }, 6500)
+    }, 12500)
     setTimeout(() => {
         slideBoxY("none")
-    }, 20000)
+    }, 26000)
 }
 
 function scene2() {
@@ -264,7 +263,7 @@ function scene5() {
         setTimeout(nextLine, 500)
         setTimeout(() => {
             slideBoxY("none")
-        }, 3500)
+        }, 4500)
     }, 25000);
     setTimeout(() => {
         slideBoxY("dialogue")
@@ -296,9 +295,9 @@ function scene5() {
 function scene6() {
     changeBg("animated/forest.gif")
     mapVideoEl.style.transition = "opacity 3s ease";
-    mapBorderEl.style.visibility = "hidden"
+    mapBorderEl.style.transition = "opacity 3s ease";
     mapVideoEl.style.opacity = 0
-    mapBorderEl.remove()
+    mapBorderEl.style.opacity = 0
 
     toggleAnimation("front", "duo")
     changeSize("duo", 1, .8)
@@ -313,9 +312,9 @@ function scene6() {
     jumpChar(tillyImgEl, 0, 0)
     jumpChar(castleFrontEl, 0, 0)
     jumpChar("duo", 2000, 0)
-    fadeChar("pino", -75, 0, 1, 3000)
     renderPino()
     renderJaz()
+    fadeChar("pino", -75, 0, 1000, 2000)
     setTimeout(() => {
         slideBoxY("dialogue")
     }, 500 * multiplier)
@@ -330,9 +329,7 @@ function scene6() {
         setTimeout(() => {
             sendToServer({ type: "fx", val: "jazintro.mp3" })
         }, 600)
-
         setTimeout(() => {
-
             sendToServer({ type: "fx", val: "boing.mp3" })
         }, 2400)
 

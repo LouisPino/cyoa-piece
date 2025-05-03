@@ -218,7 +218,10 @@ function sendSectionChange(location) {
         }, 4000)
     }
     if (currentLocation.track) {
-        oscClient.send("/track", currentLocation.track)
+        setTimeout(() => {
+            oscClient.send("/track", currentLocation.track)
+
+        }, currentLocation.transition.time / 2)
     }
 }
 

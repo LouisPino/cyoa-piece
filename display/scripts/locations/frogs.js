@@ -48,7 +48,7 @@ function frogs() {
 
     setTimeout(() => {
         scene7()
-    }, 362000 * multiplier)
+    }, 365000 * multiplier)
 
 
     // dance()
@@ -124,6 +124,8 @@ function scene4() {
     setTimeout(() => {
         changeDialogueSprite("frog/2")
         clearText()
+        sendToServer({ type: "fx", val: "slurp.mp3" })
+
         setTimeout(nextLine, 50) // lurp
     }, 18000)
     setTimeout(() => {
@@ -183,7 +185,7 @@ function scene6() {
         setTimeout(() => {
             clearText()
             slideBoxX("none")
-        }, 10000)
+        }, 13000)
     }, 5000)
 
     setTimeout(() => {
@@ -208,7 +210,7 @@ function scene6() {
         setTimeout(() => {
             toggleAnimation("front", "duo")
         }, 2000)
-    }, 16000)
+    }, 19000)
 }
 
 function scene7() {
@@ -220,7 +222,7 @@ function scene7() {
     setTimeout(() => {
         clearText()
         slideBoxX("none")
-    }, 10000)
+    }, 12000)
 
     //flush
     setTimeout(() => {
@@ -254,7 +256,7 @@ function scene7() {
         setTimeout(() => {
             flipChar("left", "duo")
         }, 1600)
-    }, 11000)
+    }, 13000)
 
 
 
@@ -288,7 +290,7 @@ function scene7() {
             sendToServer({ type: "fx", val: "ribbit.mp3" })
 
         }, 3000)
-    }, 14000)
+    }, 16000)
 
 
 }

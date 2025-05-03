@@ -81,13 +81,13 @@ function chat() {
 function batIsoPlaylist() {
     scene0()
     setTimeout(scene1, 1000)
-    setTimeout(scene2, 8000)
+    setTimeout(scene2, 11000)
 }
 
 function ratPlaylist() {
     scene0()
     setTimeout(scene1, 1000)
-    setTimeout(scene2rats, 8000)
+    setTimeout(scene2rats, 11000)
 }
 
 
@@ -112,7 +112,7 @@ function scene1() {
     setTimeout(nextLine, 500)
     setTimeout(() => {
         fadeBox("none")
-    }, 5000)
+    }, 9000)
 }
 function scene2() {
     changeDialogueSprite(`${baseSprite}/2`)
@@ -225,7 +225,7 @@ function scene2rats() {
         setTimeout(() => {
             fadeBox("none")
             madLib()
-        }, 53000)
+        }, 56000)
     }, 500)
 }
 
@@ -261,7 +261,7 @@ window.chatPart2rats = function () {
             setTimeout(nextLine, 200)
             setTimeout(() => {
                 fadeBox("none")
-            }, 7000)
+            }, 9000)
         }, 35000)
     }, 500)
 }
@@ -295,7 +295,7 @@ function setMadlibStage() {
         jumpChar("npc", 0, 0)
         changeSize("duo", 1, 1.7)
         sendToServer({ type: "fx", val: "jeopardy.mp3" })
-        setTimeout(() => { sendToServer({ type: "fx", val: "jeopardy.mp3" }) }, 30000)
+        setTimeout(() => { sendToServer({ type: "fx", val: "jeopardy.mp3" }) }, 32000)
 
         writingGifEl.style.visibility = "visible"
         thoughtBubbleEl.style.opacity = 1
@@ -352,5 +352,3 @@ function setMadlibStage() {
 animateWords();
 
 chat()
-
-

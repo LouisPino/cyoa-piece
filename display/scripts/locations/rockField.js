@@ -12,7 +12,7 @@ function rockField() {
     setTimeout(scene2, 6000)
     setTimeout(scene3, 20000)
     setTimeout(scene4, 45000) // make me length of video + video start time
-    setTimeout(scene5, 51000) // scene4 + 6000
+    setTimeout(scene5, 54000) // scene4 + 9000
 }
 
 function scene0() {
@@ -49,7 +49,7 @@ function scene2() {
         setTimeout(nextLine, 750)
         setTimeout(() => {
             slideBoxY("none")
-        }, 8000)
+        }, 10000)
     }, 12000)
 }
 function scene3() {
@@ -71,7 +71,7 @@ function scene4() {
     setTimeout(nextLine, 750)
     setTimeout(() => {
         slideBoxY("none")
-    }, 5000)
+    }, 10000)
 
 }
 function scene5() {

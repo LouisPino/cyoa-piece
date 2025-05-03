@@ -259,7 +259,7 @@ function dryPlaylist() {
     }, 33000 * multiplier)
     setTimeout(() => {
         scene5()
-    }, 38000 * multiplier)
+    }, 41000 * multiplier)
 }
 function wetPlaylist() {
     scene0wet()
@@ -281,7 +281,7 @@ function wetPlaylist() {
     }, 33000 * multiplier)
     setTimeout(() => {
         scene5wet()
-    }, 38000 * multiplier)
+    }, 41000 * multiplier)
 }
 
 

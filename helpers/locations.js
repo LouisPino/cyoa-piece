@@ -33,7 +33,7 @@ const locations = {
     },
     choices: ["north", "south"],
     html: {},
-    transition: { type: "pixelate-no-blur", time: 1000 },
+    transition: { type: "pixelate-no-blur", time: 6000 },
     bgName: "forest",
     voteVamp: "vampForest.wav",
     track: "sylvan-game.wav",

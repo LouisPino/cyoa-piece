@@ -18,7 +18,7 @@ function postPostChatOcean() {
         setTimeout(() => {
             document.getElementById("teleporter-beam").style.visibility = "visible"
             sendToServer({ type: "fx", val: "aura.wav" })
-        }, 4000)
+        }, 8000)
         setTimeout(() => {
             slideChar("jaz", 325, -1000, 9000)
             setTimeout(() => {
@@ -26,11 +26,11 @@ function postPostChatOcean() {
                 startFlipping(10000, "pino")
             }, 6000)
             startFlipping(10000, "jaz")
-        }, 8000)
+        }, 12000)
         setTimeout(() => {
             sendToServer({ type: "fx", val: 0 })
             document.getElementById("teleporter-beam").style.visibility = "hidden"
-        }, 28000)
+        }, 32000)
     }, 350)
 }
 

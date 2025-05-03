@@ -46,7 +46,7 @@ function golems() {
     }, 351000 * multiplier)
     setTimeout(() => {
         scene7()
-    }, 372000 * multiplier)
+    }, 375000 * multiplier)
     //6 and 7 called at end dance
 
     // dance()
@@ -139,7 +139,6 @@ function scene4() {
         setTimeout(nextLine, 500)
         setTimeout(() => {
             clearText()
-            slideBoxX("none")
         }, 5000)
     }, 41000)
 }
@@ -171,7 +170,7 @@ function scene6() {
         setTimeout(() => {
             clearText()
             slideBoxX("none")
-        }, 10000)
+        }, 13000)
     }, 5000)
 
     setTimeout(() => {
@@ -193,7 +192,7 @@ function scene6() {
         toggleAnimation("front", "duo")
         slideChar("pino", 525, 50, 2000)
         slideChar("jaz", 175, 50, 2000)
-    }, 16000)
+    }, 19000)
 }
 
 function scene7() {
@@ -204,7 +203,7 @@ function scene7() {
     setTimeout(() => {
         clearText()
         slideBoxX("none")
-    }, 10000)
+    }, 12000)
 
     //flush
     setTimeout(() => {
@@ -238,7 +237,7 @@ function scene7() {
         setTimeout(() => {
             flipChar("left", "duo")
         }, 1600)
-    }, 11000)
+    }, 13000)
 
 
 
@@ -255,7 +254,7 @@ function scene7() {
             sendToServer({ type: "fx", val: "grumble.wav" })
 
         }, 3000)
-    }, 14000)
+    }, 16000)
 }
 
 

@@ -101,34 +101,34 @@ function scene3() {
 }
 function scene4() {
     //after video
-    oceanVidEl.style.opacity = 0
+    spaceVidEl.style.opacity = 0
     setTimeout(() => {
-        oceanVidEl.pause()
+        spaceVidEl.pause()
     }, 8000)
     setTimeout(() => {
         slideBoxY("dialogue")
         setTimeout(nextLine, 750)
+        setTimeout(() => { sendToServer({ type: "fx", val: "waitWhat.mp3" }) }, 7000)
         setTimeout(() => {
             clearText()
             toggleBox("duo")
-
             setTimeout(nextLine, 200)
-        }, 12000)
+        }, 15000)
         setTimeout(() => {
             clearText()
             setTimeout(nextLine, 200)
-        }, 22000)
+        }, 25000)
         setTimeout(() => {
             clearText()
             setTimeout(nextLine, 200)
-        }, 37000)
+        }, 46000)
         setTimeout(() => {
             clearText()
             setTimeout(nextLine, 200)
-        }, 48000)
+        }, 62000)
         setTimeout(() => {
             slideBoxY("none")
-        }, 57000)
+        }, 73000)
     }, 1000)
 }
 

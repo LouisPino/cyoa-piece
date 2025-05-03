@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1281.0, 85.0, 1244.0, 1272.0 ],
+		"rect" : [ 1994.0, 85.0, 531.0, 1272.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -246,7 +246,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 130.467034578323364, 224.367011249065399, 50.0, 22.0 ],
-									"text" : "0"
+									"text" : "1"
 								}
 
 							}
@@ -629,7 +629,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 555.31914496421814, 13.5, 50.0, 22.0 ],
-					"text" : "8"
+					"text" : "108"
 				}
 
 			}
@@ -825,7 +825,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 674.893398284912109, 90.55937659740448, 50.0, 22.0 ],
-					"text" : "8"
+					"text" : "108"
 				}
 
 			}
@@ -4378,7 +4378,7 @@
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-													"text" : "8"
+													"text" : "108"
 												}
 
 											}
@@ -5686,7 +5686,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-									"text" : "8"
+									"text" : "108"
 								}
 
 							}
@@ -6560,12 +6560,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-255",
-					"linecount" : 11,
+					"linecount" : 10,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 938.883476555347215, 97.0, 346.808509230613708, 158.0 ],
-					"text" : "L - Load character\nR - Render Characters\nE - Erase Characters\nF - Flip character\nP - Path\n\n\nM - Display Madlib Word\nA - Advance\nC - Character select advance\nJ - Clear madlib Board"
+					"patching_rect" : [ 938.883476555347215, 97.0, 346.808509230613708, 144.0 ],
+					"text" : "L - Load character\nR - Render Characters\nE - Erase Characters\nF - Flip character\n\n\nM - Display Madlib Word\nA - Advance\nC - Character select advance\nJ - Clear madlib Board"
 				}
 
 			}
@@ -7763,7 +7763,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 227.0, 301.0, 2089.0, 1265.0 ],
+						"rect" : [ 278.0, 334.0, 2089.0, 1265.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -7791,6 +7791,7 @@
 						"style" : "",
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
+						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-56",
@@ -7993,7 +7994,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 799.869543552398682, 296.739132404327393, 29.5, 22.0 ],
-									"text" : "0.6"
+									"text" : "0.5"
 								}
 
 							}
@@ -8133,11 +8134,11 @@
 								"box" : 								{
 									"id" : "obj-10",
 									"maxclass" : "newobj",
-									"numinlets" : 3,
-									"numoutlets" : 3,
-									"outlettype" : [ "bang", "bang", "" ],
-									"patching_rect" : [ 1317.869543552398682, 170.141869783401489, 231.0, 22.0 ],
-									"text" : "sel characterSelect.wav sylvan-game.wav"
+									"numinlets" : 2,
+									"numoutlets" : 2,
+									"outlettype" : [ "bang", "" ],
+									"patching_rect" : [ 1317.869543552398682, 170.141869783401489, 135.0, 22.0 ],
+									"text" : "sel characterSelect.wav"
 								}
 
 							}
@@ -8155,13 +8156,12 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-23",
-									"linecount" : 2,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 833.869543552398682, 71.141869783401489, 59.0, 22.0 ],
-									"text" : "scream.wav"
+									"patching_rect" : [ 833.869543552398682, 71.141869783401489, 85.0, 22.0 ],
+									"text" : "0"
 								}
 
 							}
@@ -8251,8 +8251,8 @@
 										"followglobaltempo" : 0,
 										"formantcorrection" : 0,
 										"mode" : "basic",
-										"originallength" : [ 2939.014965986392781, "ticks" ],
-										"originaltempo" : 119.999999999999915,
+										"originallength" : [ 1130.862585034012909, "ticks" ],
+										"originaltempo" : 119.999999999999929,
 										"pitchcorrection" : 0,
 										"quality" : "basic",
 										"timestretch" : [ 0 ]
@@ -8269,7 +8269,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1627.369543552398682, 156.739132404327393, 84.0, 36.0 ],
+									"patching_rect" : [ 1627.369543552398682, 156.739132404327393, 84.0, 22.0 ],
 									"text" : "0"
 								}
 
@@ -8382,7 +8382,7 @@
 										"followglobaltempo" : 0,
 										"formantcorrection" : 0,
 										"mode" : "basic",
-										"originallength" : [ 17723.080272108843928, "ticks" ],
+										"originallength" : [ 60988.25578231291729, "ticks" ],
 										"originaltempo" : 119.999999999999986,
 										"pitchcorrection" : 0,
 										"quality" : "basic",
@@ -8436,6 +8436,7 @@
 									"offset" : [ 0.0, 0.0 ],
 									"outlettype" : [ "signal", "signal", "", "" ],
 									"patching_rect" : [ 467.098995208740234, 770.739132404327393, 403.0, 196.0 ],
+									"presentation_linecount" : 2,
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_invisible" : 1,
@@ -10091,7 +10092,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-44", 0 ],
-									"source" : [ "obj-10", 2 ]
+									"source" : [ "obj-10", 1 ]
 								}
 
 							}
@@ -11793,7 +11794,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 205.309558987617493, 6.5, 117.08072251081353, 22.0 ],
-					"text" : "/fx scream.wav"
+					"text" : "/fx meow.mp3"
 				}
 
 			}
@@ -11853,13 +11854,6 @@
 				"patchline" : 				{
 					"destination" : [ "obj-141", 0 ],
 					"source" : [ "obj-100", 2 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-19", 0 ],
-					"source" : [ "obj-100", 1 ]
 				}
 
 			}

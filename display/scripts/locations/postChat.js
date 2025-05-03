@@ -30,15 +30,15 @@ function postChat() {
         clearText()
         toggleBox("jaz")
         setTimeout(nextLine, 200)
-    }, 20000)
+    }, 24000)
     setTimeout(() => {
         clearText()
         toggleBox("pino")
         setTimeout(nextLine, 200)
-    }, 26000)
+    }, 30000)
     setTimeout(() => {
         fadeBox("none")
-    }, 34000)
+    }, 40000)
 
 
 

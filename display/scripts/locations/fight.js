@@ -111,7 +111,7 @@ function fight() {
         setTimeout(nextLine, 750)
         setTimeout(() => {
             slideBoxY("none")
-        }, 4000)
+        }, 6000)
     }, 3000)
 }
 

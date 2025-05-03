@@ -3,7 +3,7 @@ textsArr = [
     `You have received the `,
     "EXTRA SHARP COCKTAIL FORK!",
     "Neat! What a cool souvenir. Ol’ Tilly is gonna get a kick out of this!",
-    "According to our map, there is treasure to be found amidst the stars or deep in the ocean! The Grand Teleporter will bring us half way there……..",
+    "According to our map, there is treasure to be found amidst the stars or deep in the ocean! The Grand Teleporter will bring us half way there……",
     "What about the other half?",
     "Let’s worry about that later. How about we go to The Cloud Zone?",
     "Ok!",
@@ -25,7 +25,7 @@ function postFightFork() {
         setTimeout(() => {
             fadeBox("none")
         }, 8000)
-    }, 3000)
+    }, 4000)
     setTimeout(() => {
         slideBoxY("duo")
         setTimeout(nextLine, 500)
@@ -42,16 +42,16 @@ function postFightFork() {
             clearText()
             toggleBox("pino")
             setTimeout(nextLine, 200)
-        }, 28000)
+        }, 30000)
         setTimeout(() => {
             clearText()
             toggleBox("jaz")
             setTimeout(nextLine, 200)
-        }, 36000)
+        }, 40000)
         setTimeout(() => {
             fadeBox("none")
-        }, 40000)
-    }, 16000)
+        }, 42000)
+    }, 17000)
 
     setTimeout(() => {
         changeSize("duo", 1, .7)
@@ -65,17 +65,17 @@ function postFightFork() {
         setTimeout(() => {
             document.getElementById("teleporter-beam").style.visibility = "visible"
             sendToServer({ type: "fx", val: "aura.wav" })
-        }, 4000)
+        }, 8000)
         setTimeout(() => {
             slideChar("pino", 575, -1000, 8000)
             slideChar("jaz", 325, -1000, 8000)
             startFlipping()
-        }, 8000)
-    }, 55000)
+        }, 12000)
+    }, 59000)
     setTimeout(() => {
         fadeChar(document.getElementById("teleporter-beam"), 3000, 3000, 2000, 0)
         setTimeout(() => { sendToServer({ type: "fx", val: 0 }) }, 2000)
-    }, 70000)
+    }, 81000)
 }
 
 function startFlipping(duration = 9000) {

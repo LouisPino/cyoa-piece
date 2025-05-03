@@ -1,6 +1,6 @@
 textsArr = [
     "Wow. That was amazing!",
-    "According to the map, our next and final stop is the TWILIGHT ZONE. We’re almost there! ",
+    "According to the map, our next and final stop is the TWILIGHT ZONE. We’re almost there!",
     "I wonder what sort of treasure we’ll find..."
 ];
 

@@ -48,9 +48,9 @@ const threatTextEl = document.getElementById("threatening-text")
 function fightShrimp() {
     scene0()
     setTimeout(scene1, 500)
-    setTimeout(scene2, 28000)
-    setTimeout(scene3, 43000)
-    setTimeout(scene4, 52000)
+    setTimeout(scene2, 30000)
+    setTimeout(scene3, 49000)
+    setTimeout(scene4, 60000)
 }
 
 
@@ -80,11 +80,11 @@ function scene1() {
             hopChar("npc", 200, 500)
         }, 1002)
         setTimeout(nextLine, 200)
-    }, 4000)
+    }, 6000)
     setTimeout(() => {
         clearText()
         setTimeout(nextLine, 200)
-    }, 10000)
+    }, 13000)
 
 }
 
@@ -99,7 +99,7 @@ function scene2() {
         threatBlackoutEl.style.opacity = 1
         setTimeout(() => { threatTextEl.style.left = 0 }, 2000)
         setTimeout(() => { sendToServer({ type: "fx", val: "goat.mp3" }) }, 2500)
-    }, 6500)
+    }, 9000)
 }
 
 function scene3() {
@@ -111,7 +111,7 @@ function scene3() {
     }, 3000)
     setTimeout(() => {
         fadeBox("none")
-    }, 7000)
+    }, 9000)
 }
 
 function scene4() {

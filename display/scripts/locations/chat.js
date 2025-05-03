@@ -37,10 +37,10 @@ const batIsoArr = [
     // "Absolutely",
     " *gasp* This is it! The glorious final product I will use to enter the festival! Woohoo!",
     "To thank you for your help, let me give you some advice on the next leg of your travels...",
-    "The GRAND TELEPORTER that you’re about to use is a little bit broken. It might separate the two of you if you go at the same time. ",
+    "The GRAND TELEPORTER that you’re about to use is a little bit broken. It might separate the two of you if you go at the same time.",
     "To get there successfully, make sure you jump in one at a time. Good luck!",
-    "What a lovely experience. ",
-    "According to our map, there is treasure to be found amidst the stars or deep in the ocean! The Grand Teleporter will bring us half way there……..",
+    "What a lovely experience.",
+    "According to our map, there is treasure to be found amidst the stars or deep in the ocean! The Grand Teleporter will bring us half way there……",
     "What about the remaining half?",
     "Let’s worry about that later. How about we decide where we want to go?"
 ]
@@ -52,12 +52,12 @@ const ratsArr = [
     "You see, there’s a local creative writing festival that we would like to join. But we are so indecisive that we haven’t been able to finish it!",
     "It’s mostly done, but each section is missing something. As mentioned, neither of us are very good at making decisions. That’s why there are so many words we need to fill in.",
     "Say… you strike us as someone who knows a lot of words. And as someone who can make decisions! Would you be able to help us finish this?",
-    " *gasp* This is it! The glorious final product we will use to enter the festival! Thank you so much for your help! ",
+    " *gasp* This is it! The glorious final product we will use to enter the festival! Thank you so much for your help!",
     "To thank you for your help, let us give you some advice on the next leg of your travels...",
-    "The GRAND TELEPORTER that you’re about to use is a little bit broken. It might separate the two of you if you go at the same time. ",
+    "The GRAND TELEPORTER that you’re about to use is a little bit broken. It might separate the two of you if you go at the same time.",
     "To get there successfully, make sure you jump in one at a time. Good luck!",
-    "What a lovely experience. ",
-    "According to our map, there is treasure to be found amidst the stars or deep in the ocean! The Grand Teleporter will bring us half way there……..",
+    "What a lovely experience.",
+    "According to our map, there is treasure to be found amidst the stars or deep in the ocean! The Grand Teleporter will bring us half way there……",
     "What about the remaining half?",
     "Let’s worry about that later. How about we decide where we want to go?"
 ]

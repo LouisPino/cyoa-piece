@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1994.0, 85.0, 531.0, 1272.0 ],
+		"rect" : [ 2203.0, 85.0, 322.0, 1272.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -8161,7 +8161,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 833.869543552398682, 71.141869783401489, 85.0, 22.0 ],
-									"text" : "0"
+									"text" : "shrimp.wav"
 								}
 
 							}
@@ -8251,8 +8251,8 @@
 										"followglobaltempo" : 0,
 										"formantcorrection" : 0,
 										"mode" : "basic",
-										"originallength" : [ 1130.862585034012909, "ticks" ],
-										"originaltempo" : 119.999999999999929,
+										"originallength" : [ 1542.944217687074342, "ticks" ],
+										"originaltempo" : 119.999999999999972,
 										"pitchcorrection" : 0,
 										"quality" : "basic",
 										"timestretch" : [ 0 ]
@@ -8265,12 +8265,13 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-22",
+									"linecount" : 2,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1627.369543552398682, 156.739132404327393, 84.0, 22.0 ],
-									"text" : "0"
+									"patching_rect" : [ 1627.369543552398682, 156.739132404327393, 84.0, 36.0 ],
+									"text" : "trackShores.wav"
 								}
 
 							}
@@ -11794,7 +11795,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 205.309558987617493, 6.5, 117.08072251081353, 22.0 ],
-					"text" : "/fx meow.mp3"
+					"text" : "/fx shrimp.wav"
 				}
 
 			}

@@ -29,7 +29,7 @@ textsArr = [
     `Good move, buddy. You’ve got a bit of explaining to do, hurting our ${friendMap[friend]} from the ${zoneMap[checkHistory("river") ? "river" : "cave"]} and then abruptly barging into our neighborhood with a deadly weapon.`,
     `We gotta have a bit of a chat…`,
     `After a frank discussion and a bit more public shaming, Jeser Jaz is eventually forgiven.`,
-    "The jester re-establishes contact with Wizard Pino! At this point, both of them are a stone's throw away from treasure!",
+    "The jester re-establishes contact with Wizard Pino! At this point, both of them are just a stone's throw away from treasure!",
     "Should they pursue the treasure in space? Or in the ocean?",
 ]
 
@@ -40,8 +40,7 @@ const threatBlackoutEl = document.getElementById("threatening-blackout")
 function explainShrimp() {
     scene0()
     setTimeout(scene1, 500)
-    setTimeout(scene2, 40000)
-
+    setTimeout(scene2, 42000)
 }
 
 
@@ -83,7 +82,7 @@ function scene1() {
                 }, 100)
             }, 1000)
         }, 1000)
-    }, 6500)
+    }, 8000)
     setTimeout(() => {
         slideBoxY("sprite")
         setTimeout(nextLine, 200)

@@ -3,7 +3,7 @@ textsArr = [
     "???",
     "Wizard Pino? Where did you go? ",
     "HellooooooooooOOOOOo? Are you there?",
-    "Halt!! You shall go no further",
+    "Halt!! You shall go no further!",
     "Do you have any idea what you’re holding? You’re a menace! And a dangerous one too!",
     "What do you have to say for yourself?",
 ]
@@ -15,7 +15,7 @@ function shores() {
     setTimeout(scene1, 100)
     setTimeout(scene2, 8000)
     setTimeout(scene3, 16000)
-    setTimeout(scene4, 39000)
+    setTimeout(scene4, 41500)
 
 
 }
@@ -126,27 +126,27 @@ function scene3() {
     setTimeout(() => {
         slideBoxX("jaz")
         setTimeout(nextLine, 500)
-    }, 3500)
+    }, 4500)
     setTimeout(() => {
         clearText()
         setTimeout(nextLine, 200)
         setTimeout(() => { flipChar("left", "jaz") }, 1000)
-        setTimeout(() => { flipChar("right", "jaz") }, 2000)
-        setTimeout(() => { flipChar("left", "jaz") }, 4500)
-        setTimeout(() => { flipChar("right", "jaz") }, 5500)
+        setTimeout(() => { flipChar("right", "jaz") }, 1700)
+        setTimeout(() => { flipChar("left", "jaz") }, 3200)
+        setTimeout(() => { flipChar("right", "jaz") }, 3900)
     }, 7000)
     setTimeout(() => {
         clearText()
         setTimeout(nextLine, 200)
-    }, 12000)
+    }, 13000)
     setTimeout(() => {
         clearText()
         setTimeout(nextLine, 200)
-    }, 17000)
+    }, 20000)
     setTimeout(() => {
         clearText()
         slideBoxX("none")
-    }, 22000)
+    }, 24000)
 }
 
 function scene4() {
@@ -163,16 +163,16 @@ function scene4() {
     setTimeout(() => {
         clearText()
         setTimeout(nextLine, 200)
-    }, 5500)
+    }, 6000)
     setTimeout(() => {
         clearText()
         setTimeout(nextLine, 200)
-    }, 13000)
+    }, 16500)
     setTimeout(() => {
         clearText()
         slideBoxX("none")
-    }, 18000)
+    }, 24000)
 }
 
 
-// shores()
+shores()

@@ -623,12 +623,12 @@ function fightPart2() {
         setTimeout(() => {
             hopChar("npc", 100, 200)
         }, 1200)
-    }, 7500)
+    }, 9000)
     setTimeout(() => {
         slideBoxY("duo")
         setTimeout(nextLine, 750)
-    }, 10000)
+    }, 12000)
     setTimeout(() => {
         slideBoxY("none")
-    }, 18000)
+    }, 24000)
 }

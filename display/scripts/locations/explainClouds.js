@@ -34,16 +34,15 @@ textsArr = [
     `Good move, buddy. You’ve got a bit of explaining to do, hurting our ${friendMap[friend]} from the ${zoneMap[checkHistory("river") ? "river" : "cave"]} and then abruptly barging into our neighborhood with a deadly weapon.`,
     `We gotta have a bit of a chat…`,
     `After a frank discussion and a bit more public shaming, Wizard Pino is eventually forgiven.`,
-    "The wizard re-establishes contact with Jester Jaz! According to the map, both of them are one stop away from treasure!",
+    "The wizard re-establishes contact with Jester Jaz! According to the map, both of them are only one stop away from treasure!",
     "Should they pursue the treasure in space? Or in the ocean?",
 ]
 
 function explainClouds() {
     scene0()
     setTimeout(scene1, 500)
-    setTimeout(scene2, 40000)
-    // setTimeout(scene3, 43000)
-    // setTimeout(scene4, 52000)
+    setTimeout(scene2, 42000)
+
 }
 
 
@@ -85,7 +84,7 @@ function scene1() {
                 }, 100)
             }, 1000)
         }, 1000)
-    }, 6500)
+    }, 8000)
     setTimeout(() => {
         slideBoxY("sprite")
         setTimeout(nextLine, 200)

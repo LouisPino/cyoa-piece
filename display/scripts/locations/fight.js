@@ -49,12 +49,12 @@ if (checkHistory("river")) {
 
 
 textsArr = [
-    `Get ready to fight you ${nameCall}`,
+    `Get ready to fight you ${nameCall}!`,
     "OUCH!!!!!",
-    "Holy moly! What was that for? Do you do that regularly? Such rude behavior…I’m leaving",
-    "Oops….well… It looks like there was some loot left behind! Maybe we should grab something",
+    "Holy moly! What was that for? Do you do that regularly? Such rude behavior…I’m leaving.",
+    "Oops….well… It looks like there was some loot left behind! Maybe we should grab something!",
     "Neat! What a cool souvenir. Ol’ Tilly is gonna get a kick out of this!",
-    "According to our map, there is treasure to be found amidst the stars or deep in the ocean! The Grand Teleporter will bring us half way there……..",
+    "According to our map, there is treasure to be found amidst the stars or deep in the ocean! The Grand Teleporter will bring us half way there……",
     "What about the other half?",
     "Let’s worry about that later. How about we go to [Opposite Weapon Location?]",
     "Ok!"

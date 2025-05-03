@@ -41,6 +41,7 @@ function robeAura() {
     }, 2000)
     setTimeout(() => {
         changeNPCSrc("frog/full.png")
+        sendToServer({ type: "fx", val: "huh.mp3" })
     }, 4300)
     setTimeout(() => {
         flipChar("left", "npc")
@@ -117,7 +118,12 @@ function throwHats() {
     setTimeout(() => {
         enemySpin(5000)
         decrementHealth()
-
+        sendToServer({ type: "fx", val: "ki.mp3" })
+        setTimeout(() => { sendToServer({ type: "fx", val: "ki.mp3" }) }, 750)
+        setTimeout(() => { sendToServer({ type: "fx", val: "ki.mp3" }) }, 1150)
+        setTimeout(() => { sendToServer({ type: "fx", val: "ki.mp3" }) }, 1500)
+        setTimeout(() => { sendToServer({ type: "fx", val: "ki.mp3" }) }, 1800)
+        setTimeout(() => { sendToServer({ type: "fx", val: "ki.mp3" }) }, 2500)
     }, 2500)
 
     setTimeout(() => {
@@ -162,11 +168,12 @@ function collarRoll() {
         hopChar("npc");
         enemySpin();
         decrementHealth()
-
         // Move weaponEl back to the left, rotate counterclockwise
         weaponEl.style.left = "425px";
         weaponEl.style.top = "400px";
         weaponEl.style.animation = "rotate360Collar .5s linear infinite reverse";
+        sendToServer({ type: "fx", val: "sword.mp3" })
+
     }, 2900);
 
     setTimeout(() => {
@@ -207,12 +214,17 @@ function collarRollDuo() {
         toggleAnimation("collarRoll", "jaz");
         jazDiv.appendChild(armsEl);
         jazDiv.appendChild(weaponEl);
+        setTimeout(() => { sendToServer({ type: "fx", val: "sword.mp3" }) }, 750)
+        setTimeout(() => { sendToServer({ type: "fx", val: "sword.mp3" }) }, 1800)
+        setTimeout(() => { sendToServer({ type: "fx", val: "sword.mp3" }) }, 2500)
+        setTimeout(() => { sendToServer({ type: "fx", val: "sword.mp3" }) }, 3200)
     }, 2000);
 
     setTimeout(() => {
         weaponEl.style.left = "800px";
         weaponEl.style.top = "400px";
         weaponEl.style.animation = "rotate360Collar .5s linear infinite";
+
     }, 2500);
 
     setTimeout(() => {
@@ -232,6 +244,7 @@ function collarRollDuo() {
     setTimeout(() => {
         armsEl.remove();
         weaponEl.remove();
+
     }, 8000);
 }
 
@@ -271,6 +284,8 @@ function noisyBonk() {
         weaponEl.src = `/display/assets/characters/jaz/attacks/bonk/${characters.j.device}2.png`;
         enemySpin()
         decrementHealth()
+        sendToServer({ type: "fx", val: "bonk.wav" })
+
 
     }, 4000)
     setTimeout(() => {
@@ -314,6 +329,8 @@ function noisyBonk() {
 function duoAttack() {
     throwHats()
     collarRollDuo()
+    document.getElementById("swipe-prompt-arrow").remove()
+    document.getElementById("swipe-prompt-text").remove()
 }
 
 
@@ -340,6 +357,7 @@ function hatSpike() {
 
     setTimeout(() => {
         hatSpikeEl.style.bottom = '0%'; // Move up to center
+        sendToServer({ type: "fx", val: "spike.mp3" })
     }, 1500);
 
     setTimeout(() => {
@@ -393,6 +411,7 @@ function deviceDrop() {
     }, 2000);
 
     setTimeout(() => {
+        sendToServer({ type: "fx", val: "boom.mp3" })
         enemyFlatten();
         decrementHealth()
 
@@ -508,15 +527,24 @@ function triggerAttack() {
     let powerBar = document.getElementById("power-bar");
     powerBarCtr.style.visibility = "hidden";
     powerBar.style.width = "0";
-    changeSwipePrompt()
+    changeSwipePrompt(0)
 }
 
 function decrementHealth() {
     let healthBar = document.getElementById("health-bar");
     healthBar.style.width = bossHealth * 100 + "%";
     if (attackIdx === 2) {
+        let enemySound = ""
+        if (checkHistory("rats")) {
+            enemySound = "rats.wav"
+        } else if (checkHistory("isopods")) {
+            enemySound = "isopods.wav"
+        } else {
+            enemySound = "bat.wav"
+        }
         slideBoxY("sprite")
         setTimeout(nextLine, 750)
+        sendToServer({ type: "fx", val: enemySound })
         setTimeout(() => {
             slideBoxY("none")
         }, 2000)
@@ -561,7 +589,7 @@ const swipeMap = {
 }
 
 function changeSwipePrompt(swipeType) {
-    if (!swipeType) {
+    if (swipeType == 0) {
         document.getElementById("swipe-prompt-arrow").style.visibility = "hidden"
         document.getElementById("swipe-prompt-text").style.visibility = "hidden"
     } else {
@@ -575,6 +603,7 @@ function changeSwipePrompt(swipeType) {
 
 
 function fightPart2() {
+    sendToServer({ type: "track", val: "afterFight.wav" })
     slideBoxY("sprite")
     setTimeout(nextLine, 750)
     setTimeout(() => {

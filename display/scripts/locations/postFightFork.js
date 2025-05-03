@@ -64,7 +64,7 @@ function postFightFork() {
         document.getElementById("buff-screen").style.opacity = 0
         setTimeout(() => {
             document.getElementById("teleporter-beam").style.visibility = "visible"
-            sendToServer({ type: "fx", val: "aura.mp3" })
+            sendToServer({ type: "fx", val: "aura.wav" })
         }, 4000)
         setTimeout(() => {
             slideChar("pino", 575, -1000, 8000)

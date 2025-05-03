@@ -154,6 +154,8 @@ function scene4() {
     }, 1000)
     setTimeout(() => {
         toggleBox("sprite")
+        sendToServer({ type: "fx", val: "woosh.mp3" })
+
         setTimeout(nextLine, 200)
     }, 1400)
     setTimeout(() => {

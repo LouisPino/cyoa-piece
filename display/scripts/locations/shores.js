@@ -156,6 +156,8 @@ function scene4() {
     }, 1000)
     setTimeout(() => {
         toggleBox("sprite")
+        sendToServer({ type: "fx", val: "shrimp.wav" })
+
         setTimeout(nextLine, 200)
     }, 1400)
     setTimeout(() => {

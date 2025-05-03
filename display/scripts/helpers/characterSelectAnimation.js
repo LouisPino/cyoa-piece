@@ -92,6 +92,10 @@ function displayChoice(winner, confetti) {
 
 function flashImages(assetsArr, charName, confetti) {
     flipChar("right", "duo")
+    setTimeout(() => {
+
+        sendToServer({ type: "fx", val: "drumRoll.mp3" })
+    }, 500)
 
     let i = 50;
     let characterDiv
@@ -127,7 +131,9 @@ function flashImages(assetsArr, charName, confetti) {
                 flash();
             }, flashTime); // Increasing delay as i decreases
         } else {
+            sendToServer({ type: "fx", val: charName === "pino" ? "yay.wav" : "yippee.mp3" })
             confetti.addConfetti({
+
                 confettiColors: [
                     '#e9ecd9', '#ae8cbe', '#6d6faa', '#444573', '#aeadcf'
                 ],

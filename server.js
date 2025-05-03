@@ -212,18 +212,13 @@ function sendSectionChange(location) {
     sendToWebClients({ type: "history", data: history })
     sendToDisplay({ type: "history", data: history })
     if (currentLocation?.name === "fight") {
-        oscClient.send("/fx", "pokemon.mp3")
         setTimeout(() => {
             newTargetSwipe()
             attacking = false
         }, 4000)
     }
-    if (currentLocation?.name === "intro") {
-        oscClient.send("/track", "sylvan-game.wav")
-        setTimeout(() => {
-            newTargetSwipe()
-            attacking = false
-        }, 4000)
+    if (currentLocation.track) {
+        oscClient.send("/track", currentLocation.track)
     }
 }
 
@@ -302,7 +297,6 @@ function endVote(type, item, winner) {
             break
     }
     voting = false;
-    oscClient.send("/track", 0)
     resetChoices()
 }
 

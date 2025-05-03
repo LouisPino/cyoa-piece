@@ -124,10 +124,11 @@ function scene4() {
     slideBoxY("sprite")
     setTimeout(() => {
         nextLine()
+        sendToServer({ type: "fx", val: "bat.wav" })
     }, 750)
 }
 function scene5() {
     slideBoxY("none")
 }
 
-// bats()
+bats()

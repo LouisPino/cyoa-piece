@@ -487,6 +487,7 @@ function shootLaser(color = "red") {
     setTimeout(() => {
         laserEl.style.left = "1100px";
         laserEl.style.top = "800px";
+        sendToServer({ type: "fx", val: "lazer.wav" })
     }, 200); // Start moving right after growth
 
     // Step 3: Remove after reaching destination

@@ -129,6 +129,9 @@ function scene2() {
     setTimeout(() => {
         guttersEl.style.transition = `top ${1000 * multiplier}ms`
         guttersEl.style.top = "0"
+        setTimeout(() => {
+            sendToServer({ type: "fx", val: "meow.mp3" })
+        }, 900)
     }, 9500 * multiplier)
     setTimeout(() => {
         guttersEl.style.top = "900px"
@@ -194,6 +197,8 @@ function scene4() {
     }, 5000)
     setTimeout(() => {
         fadeChar("pino", 1000, -220, 10, 2000)
+        sendToServer({ type: "fx", val: "zeldaSecret.mp3" })
+
     }, 13000)
     setTimeout(() => {
         fadeChar("pino", 5000, -5000, 5000, 2000)
@@ -290,9 +295,9 @@ function scene5() {
 
 function scene6() {
     changeBg("animated/forest.gif")
-    mapVideoEl.style.transition = "opacity .5s ease";
+    mapVideoEl.style.transition = "opacity 3s ease";
     mapBorderEl.style.visibility = "hidden"
-
+    mapVideoEl.style.opacity = 0
     mapBorderEl.remove()
 
     toggleAnimation("front", "duo")
@@ -322,6 +327,15 @@ function scene6() {
     setTimeout(() => {
         slideBoxY("none")
         flyInRotateChar("jaz", 0, 0)
+        setTimeout(() => {
+            sendToServer({ type: "fx", val: "jazintro.mp3" })
+        }, 600)
+
+        setTimeout(() => {
+
+            sendToServer({ type: "fx", val: "boing.mp3" })
+        }, 2400)
+
     }, 10000)
     setTimeout(() => {
         hopChar("jaz")

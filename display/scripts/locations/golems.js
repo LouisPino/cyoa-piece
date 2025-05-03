@@ -111,6 +111,8 @@ function scene3() {
 function scene4() {
     slideBoxX("sprite")
     setTimeout(nextLine, 500)
+    sendToServer({ type: "fx", val: "grumble.wav" })
+
     setTimeout(() => {
         changeDialogueSprite("golem/1")
         clearText()
@@ -209,6 +211,8 @@ function scene7() {
         changeSize("duo", 1800, .3)
         slideChar("pino", 525, 300, 1800)
         slideChar("jaz", 100, 300, 1800)
+        sendToServer({ type: "fx", val: "pipe.mp3" })
+
         flipChar("left", "duo")
         setTimeout(() => {
             flipChar("right", "duo")
@@ -248,6 +252,8 @@ function scene7() {
         setTimeout(() => {
             flipChar("left", "npc")
             slideChar("npc", 1500, 200, 2800)
+            sendToServer({ type: "fx", val: "grumble.wav" })
+
         }, 3000)
     }, 14000)
 }
@@ -436,4 +442,4 @@ function sceneFive() {
     }, 25000); // Wait for the vertical movement to finish before starting the final horizontal move
 }
 
-// golems()
+golems()

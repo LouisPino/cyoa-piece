@@ -14,10 +14,15 @@ function isopods() {
     if (previousLocation === "river") {
         changeBg(`animated/riverInterior.gif`)
         wetPlaylist()
+        sendToServer({ type: "track", val: "trackRiver.wav" })
+        locations.isopods["voteVamp"] = "vampRiver.wav"
     }
     else if (previousLocation === "cave") {
         changeBg(`animated/caveInterior.gif`)
         dryPlaylist()
+        locations.isopods["voteVamp"] = "vampCave.wav"
+
+        // sendToServer({ type: "track", val: "trackCave.wav" })
     }
 
 
@@ -118,6 +123,8 @@ function scene4() {
     slideBoxY("sprite")
     setTimeout(() => {
         nextLine()
+        sendToServer({ type: "fx", val: "isopods.wav" })
+
     }, 750)
 }
 function scene5() {
@@ -216,6 +223,8 @@ function scene4wet() {
     slideBoxY("sprite")
     setTimeout(() => {
         nextLine()
+        sendToServer({ type: "fx", val: "isopods.wav" })
+
     }, 750)
 }
 function scene5wet() {
@@ -276,4 +285,4 @@ function wetPlaylist() {
 }
 
 
-// isopods()
+isopods()

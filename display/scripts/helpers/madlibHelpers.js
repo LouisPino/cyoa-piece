@@ -184,7 +184,8 @@ function movePastMadlib() {
 
 function madlibTimeChange(time) {
     madlibbing = true
-    if (document.getElementById("madlib-timer")) {
-        document.getElementById("madlib-timer").innerText = time === 0 ? time : ""
+    const timerEl = document.getElementById("madlib-timer")
+    if (timerEl) {
+        timerEl.innerHTML = time != 0 ? time : ""
     }
 }

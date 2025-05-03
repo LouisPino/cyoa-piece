@@ -16,10 +16,12 @@ if (checkHistory("rats")) {
 if (checkHistory("river")) {
     changeBg("animated/riverInterior.gif")
     document.getElementById("boat-ctr-chat").style.visibility = "visible"
+    locations.isopods["voteVamp"] = "vampRiver.wav"
 
 
 } else {
     changeBg("animated/caveInterior.gif")
+    locations.isopods["voteVamp"] = "vampCave.wav"
 
 }
 
@@ -291,6 +293,9 @@ function setMadlibStage() {
         changeSize("npc", 1, 1)
         jumpChar("npc", 0, 0)
         changeSize("duo", 1, 1.7)
+        sendToServer({ type: "fx", val: "jeopardy.mp3" })
+        setTimeout(() => { sendToServer({ type: "fx", val: "jeopardy.mp3" }) }, 30000)
+
         writingGifEl.style.visibility = "visible"
         thoughtBubbleEl.style.opacity = 1
         document.body.appendChild(votePromptEl)
@@ -327,9 +332,6 @@ function setMadlibStage() {
         setTimeout(() => {
             votePromptEl.style.visibility = "hidden"
         }, 5700)
-
-
-
 
 
         for (word of madlibWords) {

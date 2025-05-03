@@ -448,7 +448,6 @@ function madLibCountdown() {
         // Send the current time to clients
         sendToWebClients({ type: "madlib-timer", data: timeLeft });
         sendToDisplay({ type: "madlib", route: "timer", data: timeLeft });
-
         if (timeLeft <= 0) {
             clearInterval(madlibTimerInterval);
             madlibTimerInterval = null;

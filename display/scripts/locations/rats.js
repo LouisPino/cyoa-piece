@@ -210,6 +210,8 @@ function scene4() {
     slideBoxY("sprite")
     setTimeout(() => {
         nextLine()
+        sendToServer({ type: "fx", val: "rats.wav" })
+
     }, 750)
 }
 function scene5() {
@@ -217,4 +219,4 @@ function scene5() {
     document.getElementById("npc").classList.remove("float-only-rats")
 }
 
-// rats()
+rats()

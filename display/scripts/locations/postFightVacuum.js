@@ -26,7 +26,7 @@ function postFightVacuum() {
         setTimeout(() => {
             fadeBox("none")
         }, 8000)
-    }, 5000)
+    }, 4000)
     setTimeout(() => {
         slideBoxY("duo")
         setTimeout(nextLine, 500)
@@ -65,54 +65,36 @@ function postFightVacuum() {
         fadeChar("jaz", 325, 0, 10, 5000)
         document.getElementById("buff-screen").style.opacity = 0
         setTimeout(() => {
-            slideChar("pino", 575, -1000, 3000)
-            slideChar("jaz", 325, -1000, 3000)
             document.getElementById("teleporter-beam").style.visibility = "visible"
-            flipChar("left", "duo")
-            setTimeout(() => {
-                flipChar("right", "duo")
-            }, 200)
-            setTimeout(() => {
-                flipChar("left", "duo")
-            }, 400)
-            setTimeout(() => {
-                flipChar("right", "duo")
-            }, 600)
-            setTimeout(() => {
-                flipChar("left", "duo")
-            }, 800)
-            setTimeout(() => {
-                flipChar("right", "duo")
-            }, 1000)
-            setTimeout(() => {
-                flipChar("left", "duo")
-            }, 1200)
-            setTimeout(() => {
-                flipChar("right", "duo")
-            }, 1400)
-            setTimeout(() => {
-                flipChar("left", "duo")
-            }, 1600)
-            setTimeout(() => {
-                flipChar("right", "duo")
-            }, 1800)
-            setTimeout(() => {
-                flipChar("left", "duo")
-            }, 2000)
-            setTimeout(() => {
-                flipChar("right", "duo")
-            }, 2200)
-            setTimeout(() => {
-                flipChar("left", "duo")
-            }, 2400)
-            setTimeout(() => {
-                flipChar("right", "duo")
-            }, 2600)
-            setTimeout(() => {
-                flipChar("left", "duo")
-            }, 2800)
+            sendToServer({ type: "fx", val: "aura.mp3" })
+        }, 4000)
+        setTimeout(() => {
+            slideChar("pino", 575, -1000, 8000)
+            slideChar("jaz", 325, -1000, 8000)
+            startFlipping()
         }, 8000)
     }, 55000)
+    setTimeout(() => {
+        fadeChar(document.getElementById("teleporter-beam"), 3000, 3000, 2000, 0)
+        setTimeout(() => { sendToServer({ type: "fx", val: 0 }) }, 2000)
+    }, 70000)
 }
+
+
+function startFlipping(duration = 9000) {
+    let direction = "left";
+    const target = "duo";
+
+    const interval = setInterval(() => {
+        flipChar(direction, target);
+        direction = direction === "left" ? "right" : "left";
+    }, 200);
+
+    // Stop the interval after the specified duration
+    setTimeout(() => {
+        clearInterval(interval);
+    }, duration);
+}
+
 
 postFightVacuum()

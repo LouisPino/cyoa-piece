@@ -24,6 +24,11 @@ if (checkHistory("rats")) {
 
 if (checkHistory("river")) {
     document.getElementById("boat-ctr-fight").style.visibility = "visible"
+    locations.fight["voteVamp"] = "vampRiver.wav"
+
+} else {
+    locations.fight["voteVamp"] = "vampCave.wav"
+
 }
 
 

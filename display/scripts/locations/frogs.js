@@ -111,6 +111,8 @@ function scene3() {
 function scene4() {
     slideBoxX("sprite")
     setTimeout(nextLine, 50)//ribbit
+    sendToServer({ type: "fx", val: "ribbit.mp3" })
+
     setTimeout(() => {
         clearText()
         setTimeout(nextLine, 50) //we are humble
@@ -132,6 +134,7 @@ function scene4() {
     setTimeout(() => {
         changeDialogueSprite("frog/4")
         clearText()
+        sendToServer({ type: "fx", val: "ribbit.mp3" })
         setTimeout(nextLine, 50) //interpretive
     }, 28000)
     setTimeout(() => {
@@ -224,6 +227,8 @@ function scene7() {
         changeSize("duo", 1800, .3)
         slideChar("pino", 50, 600, 1800)
         slideChar("jaz", -450, 600, 1800)
+        sendToServer({ type: "fx", val: "pipe.mp3" })
+
         flipChar("left", "duo")
         setTimeout(() => {
             flipChar("right", "duo")
@@ -262,18 +267,26 @@ function scene7() {
         }, 1500)
         setTimeout(() => {
             hopChar("npc")
+            sendToServer({ type: "fx", val: "ribbit.mp3" })
+
             slideChar("npc", 1500, 200, 2800)
             setTimeout(() => {
                 hopChar("npc")
+
             }, 700)
             hopChar("npc")
+            sendToServer({ type: "fx", val: "ribbit.mp3" })
+
             setTimeout(() => {
                 hopChar("npc")
             }, 1400)
+
             hopChar("npc")
             setTimeout(() => {
                 hopChar("npc")
             }, 2100)
+            sendToServer({ type: "fx", val: "ribbit.mp3" })
+
         }, 3000)
     }, 14000)
 
@@ -458,4 +471,4 @@ function sceneFive() {
 
 
 
-// frogs()
+frogs()

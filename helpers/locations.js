@@ -475,7 +475,8 @@ const locations = {
     bgName: "space",
     banner: "space",
 
-    mapLocations: { pino: { x: -23, y: -635 }, jaz: { x: -323, y: -635 } }
+    mapLocations: { pino: { x: -23, y: -635 }, jaz: { x: -323, y: -635 } },
+    track: "trackSpace.wav"
 
   },
   twilight: {
@@ -492,8 +493,8 @@ const locations = {
     transition: { type: "fade", time: 3000 },
     bgName: "ocean",
     banner: "ocean",
-    mapLocations: { pino: { x: 1271, y: 89 }, jaz: { x: 967, y: 89 } }
-
+    mapLocations: { pino: { x: 1271, y: 89 }, jaz: { x: 967, y: 89 } },
+    track: "trackOcean.wav"
   },
 
   credits: {

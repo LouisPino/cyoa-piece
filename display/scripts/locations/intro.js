@@ -219,6 +219,9 @@ function scene5() {
     }, 500)
     setTimeout(() => {
         slideChar(floppy2El, 300, 0, 2000)
+        setTimeout(() => {
+            sendToServer({ type: "fx", val: "mapReveal.wav" })
+        }, 1000)
     }, 2000)
     setTimeout(() => {
         document.body.append(mapBorderEl);
@@ -273,7 +276,6 @@ function scene5() {
         setTimeout(() => {
             slideBoxY("none")
             mapVideoEl.play()
-
         }, 5000)
     }, 36000);
     setTimeout(() => {

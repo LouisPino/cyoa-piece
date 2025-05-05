@@ -20,7 +20,6 @@ const characters = {
         get face() { return this.color; },
     },
 
-    test: "hell",
 }
 
 // const skinOptionsPeen = {

@@ -12,8 +12,8 @@ function postPostChatOcean() {
         jumpChar("duo", 2000, 2000)
         renderPino()
         renderJaz()
-        fadeChar("pino", 575, 0, 10, 5000)
-        fadeChar("jaz", 325, 0, 10, 5000)
+        fadeChar("pino", 575, 75, 10, 5000)
+        fadeChar("jaz", 325, 75, 10, 5000)
 
         setTimeout(() => {
             document.getElementById("teleporter-beam").style.visibility = "visible"
@@ -22,7 +22,7 @@ function postPostChatOcean() {
         setTimeout(() => {
             slideChar("jaz", 325, -1000, 9000)
             setTimeout(() => {
-                slideChar("pino", 425, -1000, 9000)
+                slideChar("pino", 575, -1000, 9000)
                 startFlipping(10000, "pino")
             }, 6000)
             startFlipping(10000, "jaz")

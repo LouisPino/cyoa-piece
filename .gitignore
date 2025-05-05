@@ -1,5 +1,4 @@
 node_modules
 
-*.wav
-*.mp3
+audio/trackOcean.wav
 *.mp4

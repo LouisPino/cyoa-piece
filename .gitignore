@@ -1,5 +1,4 @@
 node_modules
 
 *.mp4
-
-*/audio/trackClouds.wav
+*/*/trackClouds.wav

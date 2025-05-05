@@ -54,7 +54,7 @@ const locations = {
     banner: "forest",
     voteVamp: "vampForest.wav",
     track: "trackForest.wav",
-    mapLocations: { pino: { x: 970, y: -388 }, jaz: { x: 670, y: -388 } }
+    mapLocations: { pino: { x: 651, y: -420 }, jaz: { x: 351, y: -420 } }
 
 
   },

@@ -13,7 +13,7 @@ function river() {
     setTimeout(scene1, 1000)
     setTimeout(scene2, 8000)
     setTimeout(scene3, 14000)
-    setTimeout(scene4, 30000)
+    setTimeout(scene4, 254000)
 
 
 }
@@ -36,7 +36,6 @@ function scene1() {
         fadeChar("jaz", locations.golems.mapLocations.jaz.x, locations.golems.mapLocations.jaz.y, 50, 1000)
         setTimeout(() => {
             flipChar("left", "duo")
-
             slideChar("pino", locations.river.mapLocations.pino.x, locations.river.mapLocations.pino.y, 3000)
             slideChar("jaz", locations.river.mapLocations.jaz.x, locations.river.mapLocations.jaz.y, 3000)
             setTimeout(() => {
@@ -112,4 +111,4 @@ function scene4() {
 }
 
 
-river()
+// river()

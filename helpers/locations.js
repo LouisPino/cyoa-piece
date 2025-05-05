@@ -509,7 +509,7 @@ const locations = {
     ],
     html: {},
     transition: { type: "fade", time: 3000 },
-
+    track: "sylvan-game.wav"
   }
 };
 

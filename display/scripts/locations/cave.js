@@ -9,7 +9,7 @@ function cave() {
     setTimeout(scene1, 1000)
     setTimeout(scene2, 8000)
     setTimeout(scene3, 14000)
-    setTimeout(scene4, 22000) // make me length of video + video start time
+    setTimeout(scene4, 254000) // make me length of video + video start time
 }
 
 function scene0() {
@@ -103,4 +103,4 @@ function scene4() {
     }, 1000)
 }
 
-cave()
+// cave()

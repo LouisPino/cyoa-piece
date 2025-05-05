@@ -133,4 +133,3 @@ function scene4() {
 }
 
 twilight()
-

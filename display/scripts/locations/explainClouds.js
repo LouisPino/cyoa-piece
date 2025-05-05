@@ -53,6 +53,7 @@ function scene0() {
     changeSize("npc", 1, 1)
     jumpChar("pino", 0, 50)
     changeSize("pino", 1, 1)
+    flipChar("right", "pino")
     renderPino()
 }
 

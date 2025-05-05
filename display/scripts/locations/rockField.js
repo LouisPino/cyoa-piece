@@ -27,6 +27,8 @@ function scene0() {
 function scene1() {
     renderPino()
     renderJaz()
+    flipChar("right", "duo")
+
     fadeChar("pino", locations.forestNorth.mapLocations.pino.x, locations.forestNorth.mapLocations.pino.y, 50, 1000)
     fadeChar("jaz", locations.forestNorth.mapLocations.jaz.x, locations.forestNorth.mapLocations.jaz.y, 50, 1000)
     setTimeout(() => {
@@ -92,4 +94,4 @@ function scene5() {
     }, 1000)
 }
 
-rockField()
+// rockField()

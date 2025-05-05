@@ -55,6 +55,8 @@ function fightShrimp() {
 
 
 function scene0() {
+    flipChar("right", "duo")
+
     changeDialogueSprite(`shrimp/1`)
     toggleAnimation("weapon", "jaz")
     jumpChar("npc", 800, 0)

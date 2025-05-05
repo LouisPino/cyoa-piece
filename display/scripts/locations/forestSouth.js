@@ -17,7 +17,7 @@ function scene0() {
     renderMap()
     fadeMap(1, 1)
     toggleAnimation("side", "duo")
-    flipChar("left", "duo")
+    flipChar("right", "duo")
     changeSize("duo", 1, .3)
     jumpChar("pino", 3000, 3000)
     jumpChar("jaz", 3000, 3000)

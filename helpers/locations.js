@@ -54,7 +54,7 @@ const locations = {
     banner: "forest",
     voteVamp: "vampForest.wav",
     track: "trackForest.wav",
-    mapLocations: { pino: { x: 711, y: -493 }, jaz: { x: 407, y: -493 } }
+    mapLocations: { pino: { x: 970, y: -388 }, jaz: { x: 670, y: -388 } }
 
 
   },
@@ -89,6 +89,7 @@ const locations = {
     transition: { type: "pixelate", time: 1000 },
     bgName: "waterfall",
     track: "trackWaterfall.wav",
+    mapLocations: { pino: { x: 115, y: -245 }, jaz: { x: -186, y: -245 } }
 
 
   },
@@ -105,7 +106,7 @@ const locations = {
     bgName: "rock",
     track: "trackRocks.wav",
 
-    mapLocations: { pino: { x: 857, y: -554 }, jaz: { x: 553, y: -554 } },
+    mapLocations: { pino: { x: 973, y: -554 }, jaz: { x: 673, y: -554 } },
     voteVamp: "vampRocks.wav",
 
   },
@@ -123,7 +124,7 @@ const locations = {
     transition: { type: "pixelate", time: 1000 },
     bgName: "waterfall",
     banner: "waterfall",
-    mapLocations: { pino: { x: -39, y: -145 }, jaz: { x: -343, y: -145 } },
+    mapLocations: { pino: { x: -58, y: -357 }, jaz: { x: -358, y: -357 } },
     voteVamp: "vampWaterfall.wav",
     track: "trackWaterfall.wav",
 
@@ -141,7 +142,7 @@ const locations = {
     transition: { type: "blur", time: 1000 },
     bgName: "forest",
     banner: "forest",
-    mapLocations: { pino: { x: 260, y: -92 }, jaz: { x: -44, y: -92 } },
+    mapLocations: { pino: { x: 448, y: -78 }, jaz: { x: 148, y: -92 } },
     voteVamp: "vampForest.wav",
     track: "trackForest.wav",
 
@@ -159,7 +160,7 @@ const locations = {
     transition: { type: "blur", time: 1000 },
     bgName: "cave",
     banner: "cave",
-    mapLocations: { pino: { x: 861, y: -638 }, jaz: { x: 557, y: -638 } },
+    mapLocations: { pino: { x: 820, y: -620 }, jaz: { x: 520, y: -620 } },
     voteVamp: "vampCave.wav",
     track: "trackCave.wav",
 
@@ -178,7 +179,7 @@ const locations = {
     voteBgBlur: "/display/assets/backgrounds/forestBLur.png",
     bgName: "river",
     banner: "river",
-    mapLocations: { pino: { x: 234, y: 73 }, jaz: { x: -70, y: 73 } },
+    mapLocations: { pino: { x: 128, y: 66 }, jaz: { x: -172, y: 66 } },
     voteVamp: "vampRiver.wav",
     track: "trackRiver.wav",
 
@@ -334,7 +335,7 @@ const locations = {
     transition: { type: "fade", time: 8000 },
     bgName: "shore",
     banner: "shore",
-    mapLocations: { pino: { x: 932, y: -23 }, jaz: { x: 628, y: -23 } },
+    mapLocations: { pino: { x: 881, y: -15 }, jaz: { x: 581, y: -15 } },
     voteVamp: "vampShores.wav",
     track: "trackShores.wav"
 
@@ -351,7 +352,7 @@ const locations = {
     transition: { type: "fade", time: 8000 },
     bgName: "clouds",
     banner: "clouds",
-    mapLocations: { pino: { x: 346, y: -600 }, jaz: { x: 42, y: -600 } },
+    mapLocations: { pino: { x: 365, y: -669 }, jaz: { x: 65, y: -669 } },
     voteVamp: "vampClouds.wav",
     track: "trackClouds.wav"
 
@@ -475,7 +476,7 @@ const locations = {
     bgName: "space",
     banner: "space",
 
-    mapLocations: { pino: { x: -23, y: -635 }, jaz: { x: -323, y: -635 } },
+    mapLocations: { pino: { x: -77, y: -750 }, jaz: { x: -377, y: -750 } },
     track: "trackSpace.wav"
 
   },
@@ -493,7 +494,7 @@ const locations = {
     transition: { type: "fade", time: 3000 },
     bgName: "ocean",
     banner: "ocean",
-    mapLocations: { pino: { x: 1271, y: 89 }, jaz: { x: 967, y: 89 } },
+    mapLocations: { pino: { x: 1300, y: 80 }, jaz: { x: 1000, y: 80 } },
     track: "trackOcean.wav"
   },
 

@@ -34,10 +34,10 @@ function revealCharacter(charName, extras, confetti) {
         asset3BgEl.style.setProperty("top", "0vh", "important");
     }, 3000)
     setTimeout(() => {
-        asset3El.style.left = "-575px"
-        asset3BgEl.style.left = "-575px"
-        asset1El.style.left = "575px"
-        asset1BgEl.style.left = "575px"
+        asset3El.style.left = "-595px"
+        asset3BgEl.style.left = "-595px"
+        asset1El.style.left = "595px"
+        asset1BgEl.style.left = "595px"
     }, 4000)
     setTimeout(() => {
         flashImages([asset1El, asset2El, asset3El], charName, confetti)

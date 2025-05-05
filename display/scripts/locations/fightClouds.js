@@ -55,6 +55,8 @@ function fightClouds() {
 
 
 function scene0() {
+    flipChar("right", "duo")
+
     changeDialogueSprite(`cloud/1`)
     toggleAnimation("weapon", "pino")
     jumpChar("npc", 800, 0)

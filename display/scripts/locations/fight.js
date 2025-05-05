@@ -63,6 +63,8 @@ textsArr = [
 
 
 function fight() {
+    flipChar("right", "duo")
+
     jumpChar("pino", 3650, 847)
     jumpChar("jaz", 6000, 847)
     changeDialogueSprite(newSprite)

@@ -61,7 +61,7 @@ function scene0() {
     changeDialogueSprite("frog/1");
     renderMap()
     fadeMap(1, 1)
-    toggleAnimation("side", "duo")
+    toggleAnimation("front", "duo")
     changeSize("duo", 1, .3)
     changeSize("npc", 1, .8)
     jumpChar("npc", 500, 100)

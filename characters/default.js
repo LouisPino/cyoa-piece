@@ -18,7 +18,9 @@ const characters = {
         collarline: "collarLine",
         get faceline() { return this.color; },
         get face() { return this.color; },
-    }
+    },
+
+    test: "hell",
 }
 
 // const skinOptionsPeen = {

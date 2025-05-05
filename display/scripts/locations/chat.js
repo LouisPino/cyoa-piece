@@ -294,8 +294,6 @@ function setMadlibStage() {
         changeSize("npc", 1, 1)
         jumpChar("npc", 0, 0)
         changeSize("duo", 1, 1.7)
-        sendToServer({ type: "fx", val: "jeopardy.mp3" })
-        setTimeout(() => { sendToServer({ type: "fx", val: "jeopardy.mp3" }) }, 32000)
 
         writingGifEl.style.visibility = "visible"
         thoughtBubbleEl.style.opacity = 1

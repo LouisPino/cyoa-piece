@@ -44,11 +44,11 @@ function frogs() {
 
     setTimeout(() => {
         scene6()
-    }, 341000 * multiplier)
+    }, 241000 * multiplier)
 
     setTimeout(() => {
         scene7()
-    }, 365000 * multiplier)
+    }, 265000 * multiplier)
 
 
     // dance()
@@ -159,8 +159,12 @@ function scene5() {
 }
 function scene6() {
     frogVideoEl.pause()
-    frogVideoEl.style.opacity = 1
-    setTimeout(() => { frogVideoEl.style.visibility = "hidden" }, 8000)
+    frogVideoEl.style.opacity = 0
+    setTimeout(() => {
+        frogVideoEl.style.visibility = "hidden"
+        frogVideoEl.pause()
+
+    }, 8000)
     fadeChar("pino", 450, 0, 1000, 1000)
     fadeChar("jaz", 350, 0, 1000, 1000)
     jumpChar("npc", 0, 100)

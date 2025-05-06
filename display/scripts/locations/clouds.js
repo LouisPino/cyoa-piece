@@ -7,14 +7,15 @@ textsArr = [
     "Do you have any idea what you’re holding? You’re a menace! And a dangerous one too!",
     "What do you have to say for yourself?",
 ]
+const cloudVidEl = document.getElementById("clouds-video")
 
 
 function clouds() {
     scene0()
     setTimeout(scene1, 100)
     setTimeout(scene2, 8000)
-    setTimeout(scene3, 16000)
-    setTimeout(scene4, 41500)
+    setTimeout(scene3, 76000)
+    setTimeout(scene4, 101500)
 }
 
 
@@ -111,9 +112,16 @@ function scene2() {
     setTimeout(() => {
         locationBanner(currentLocation.banner)
     }, 5000)
+    cloudVidEl.style.visibility = "visible"
+    cloudVidEl.style.opacity = 1
+    cloudVidEl.play()
 }
 
 function scene3() {
+    cloudVidEl.style.opacity = 0
+    setTimeout(() => {
+        cloudVidEl.pause()
+    }, 8000)
     changeSize("pino", 1, 1)
     setTimeout(() => {
         toggleAnimation("weapon", "pino")

@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1786.0, 85.0, 739.0, 1272.0 ],
+		"rect" : [ 2561.0, 476.0, 590.0, 880.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -7873,7 +7873,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 2177.869543552398682, 156.739132404327393, 50.0, 36.0 ],
-									"text" : "pokemonBattle.wav"
+									"text" : "trackRocks.wav"
 								}
 
 							}
@@ -7890,7 +7890,7 @@
 										"followglobaltempo" : 0,
 										"formantcorrection" : 0,
 										"mode" : "basic",
-										"originallength" : [ 35259.646258503395075, "ticks" ],
+										"originallength" : [ 8861.540136054420145, "ticks" ],
 										"originaltempo" : 119.999999999999972,
 										"pitchcorrection" : 0,
 										"quality" : "basic",
@@ -7910,7 +7910,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 1506.0, 226.739132404327393, 50.0, 36.0 ],
-									"text" : "pokemonBattle.wav"
+									"text" : "trackRocks.wav"
 								}
 
 							}
@@ -8520,7 +8520,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 879.0, 60.597262620925903, 85.0, 22.0 ],
-									"text" : "isopods.wav"
+									"text" : "grumble.wav"
 								}
 
 							}
@@ -8610,8 +8610,8 @@
 										"followglobaltempo" : 0,
 										"formantcorrection" : 0,
 										"mode" : "basic",
-										"originallength" : [ 1840.783673469384439, "ticks" ],
-										"originaltempo" : 119.999999999999773,
+										"originallength" : [ 1733.355102040811971, "ticks" ],
+										"originaltempo" : 119.999999999999687,
 										"pitchcorrection" : 0,
 										"quality" : "basic",
 										"timestretch" : [ 0 ]
@@ -8624,13 +8624,12 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-22",
-									"linecount" : 2,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 1596.244543552398682, 50.739132404327393, 95.0, 22.0 ],
-									"text" : "pokemonBattle.wav"
+									"text" : "trackRocks.wav"
 								}
 
 							}
@@ -8742,8 +8741,8 @@
 										"followglobaltempo" : 0,
 										"formantcorrection" : 0,
 										"mode" : "basic",
-										"originallength" : [ 67697.676190476253396, "ticks" ],
-										"originaltempo" : 120.000000000000099,
+										"originallength" : [ 310341.050340136396699, "ticks" ],
+										"originaltempo" : 120.000000000000114,
 										"pitchcorrection" : 0,
 										"quality" : "basic",
 										"timestretch" : [ 0 ]
@@ -12520,13 +12519,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-20",
-					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 205.309558987617493, 6.5, 117.08072251081353, 36.0 ],
-					"text" : "/track pokemonBattle.wav"
+					"patching_rect" : [ 205.309558987617493, 6.5, 117.08072251081353, 22.0 ],
+					"text" : "/fx grumble.wav"
 				}
 
 			}

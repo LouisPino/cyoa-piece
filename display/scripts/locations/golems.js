@@ -43,10 +43,10 @@ function golems() {
 
     setTimeout(() => {
         scene6()
-    }, 351000 * multiplier)
+    }, 250000 * multiplier)
     setTimeout(() => {
         scene7()
-    }, 375000 * multiplier)
+    }, 275000 * multiplier)
     //6 and 7 called at end dance
 
     // dance()
@@ -139,11 +139,11 @@ function scene4() {
         setTimeout(nextLine, 500)
         setTimeout(() => {
             clearText()
+            slideBoxX("none")
         }, 5000)
     }, 41000)
 }
 function scene5() {
-    slideBoxX("none")
     fadeChar("pino", 3000, 3000, 1000, 1000)
     fadeChar("jaz", 3000, 3000, 1000, 1000)
     setTimeout(() => {
@@ -156,9 +156,12 @@ function scene5() {
 }
 
 function scene6() {
-    golemVideoEl.pause()
-    golemVideoEl.style.opacity = 1
-    setTimeout(() => { golemVideoEl.style.visibility = "hidden" }, 8000)
+    golemVideoEl.style.opacity = 0
+    setTimeout(() => {
+        golemVideoEl.style.visibility = "hidden"
+        golemVideoEl.pause()
+
+    }, 8000)
     fadeChar("pino", 450, 0, 1000, 1000)
     fadeChar("jaz", 350, 0, 1000, 1000)
     jumpChar("npc", 1500, 100)

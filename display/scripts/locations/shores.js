@@ -8,14 +8,15 @@ textsArr = [
     "What do you have to say for yourself?",
 ]
 
+const shoreVidEl = document.getElementById("shore-video")
 
 
 function shores() {
     scene0()
     setTimeout(scene1, 100)
     setTimeout(scene2, 8000)
-    setTimeout(scene3, 16000)
-    setTimeout(scene4, 41500)
+    setTimeout(scene3, 76000)
+    setTimeout(scene4, 101500)
 
 
 }
@@ -115,10 +116,17 @@ function scene2() {
     setTimeout(() => {
         locationBanner(currentLocation.banner)
     }, 5000)
+    shoreVidEl.style.visibility = "visible"
+    shoreVidEl.style.opacity = 1
+    shoreVidEl.play()
 }
 
 function scene3() {
+    shoreVidEl.style.opacity = 0
     changeSize("jaz", 1, 1)
+    setTimeout(() => {
+        shoreVidEl.pause()
+    }, 8000)
     setTimeout(() => {
         toggleAnimation("weapon", "jaz")
         landChar("jaz", 100, 0, -1000)

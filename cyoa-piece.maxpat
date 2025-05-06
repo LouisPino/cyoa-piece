@@ -654,7 +654,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 555.31914496421814, 13.5, 50.0, 22.0 ],
-					"text" : "108"
+					"text" : "109"
 				}
 
 			}
@@ -838,7 +838,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 674.893398284912109, 90.55937659740448, 50.0, 22.0 ],
-					"text" : "108"
+					"text" : "109"
 				}
 
 			}
@@ -4391,7 +4391,7 @@
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-													"text" : "108"
+													"text" : "109"
 												}
 
 											}
@@ -5699,7 +5699,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-									"text" : "108"
+									"text" : "109"
 								}
 
 							}
@@ -7804,8 +7804,32 @@
 						"style" : "",
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
-						"visible" : 1,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-84",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1936.0, 19.739132404327393, 75.0, 22.0 ],
+									"text" : "weapon.wav"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-82",
+									"linecount" : 2,
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1819.0, 199.0, 50.0, 36.0 ],
+									"text" : "weapon.wav"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-74",
 									"maxclass" : "message",
@@ -7904,13 +7928,13 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-229",
-									"linecount" : 3,
+									"linecount" : 2,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 2177.869543552398682, 156.739132404327393, 48.0, 50.0 ],
-									"text" : "trackRiver.wav"
+									"patching_rect" : [ 2177.869543552398682, 156.739132404327393, 48.0, 36.0 ],
+									"text" : "weapon.wav"
 								}
 
 							}
@@ -7927,7 +7951,7 @@
 										"followglobaltempo" : 0,
 										"formantcorrection" : 0,
 										"mode" : "basic",
-										"originallength" : [ 0.0, "ticks" ],
+										"originallength" : [ 8723.091156462583967, "ticks" ],
 										"originaltempo" : 120.0,
 										"pitchcorrection" : 0,
 										"quality" : "basic",
@@ -7941,13 +7965,13 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-224",
-									"linecount" : 3,
+									"linecount" : 2,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1506.0, 226.739132404327393, 48.0, 50.0 ],
-									"text" : "trackRiver.wav"
+									"patching_rect" : [ 1506.0, 226.739132404327393, 48.0, 36.0 ],
+									"text" : "weapon.wav"
 								}
 
 							}
@@ -8557,7 +8581,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 879.0, 60.597262620925903, 57.0, 22.0 ],
-									"text" : "boat.wav"
+									"text" : "0"
 								}
 
 							}
@@ -8647,8 +8671,8 @@
 										"followglobaltempo" : 0,
 										"formantcorrection" : 0,
 										"mode" : "basic",
-										"originallength" : [ 3017.534693877550126, "ticks" ],
-										"originaltempo" : 119.999999999999957,
+										"originallength" : [ 10011.55918367346203, "ticks" ],
+										"originaltempo" : 119.999999999999915,
 										"pitchcorrection" : 0,
 										"quality" : "basic",
 										"timestretch" : [ 0 ]
@@ -8661,13 +8685,12 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-22",
-									"linecount" : 2,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1596.244543552398682, 50.739132404327393, 85.0, 36.0 ],
-									"text" : "trackRiver.wav"
+									"patching_rect" : [ 1596.244543552398682, 50.739132404327393, 85.0, 22.0 ],
+									"text" : "weapon.wav"
 								}
 
 							}
@@ -8779,8 +8802,8 @@
 										"followglobaltempo" : 0,
 										"formantcorrection" : 0,
 										"mode" : "basic",
-										"originallength" : [ 0.0, "ticks" ],
-										"originaltempo" : 120.0,
+										"originallength" : [ 97480.946938775523449, "ticks" ],
+										"originaltempo" : 120.000000000000028,
 										"pitchcorrection" : 0,
 										"quality" : "basic",
 										"timestretch" : [ 0 ]
@@ -12176,7 +12199,23 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-190", 0 ],
+									"order" : 1,
 									"source" : [ "obj-81", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-82", 1 ],
+									"order" : 0,
+									"source" : [ "obj-81", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-94", 0 ],
+									"source" : [ "obj-84", 0 ]
 								}
 
 							}
@@ -12206,16 +12245,16 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-94", 0 ],
-									"source" : [ "obj-9", 2 ]
+									"destination" : [ "obj-84", 0 ],
+									"order" : 0,
+									"source" : [ "obj-9", 1 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-94", 0 ],
-									"order" : 0,
-									"source" : [ "obj-9", 1 ]
+									"source" : [ "obj-9", 2 ]
 								}
 
 							}
@@ -12404,7 +12443,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 338.377050697804179, 336.901108622550964, 136.0, 89.0 ],
+					"patching_rect" : [ 356.354411423207466, 312.901108622550964, 136.0, 89.0 ],
 					"text" : "Starts at welcome, \nmanually move to character custom for each character individually,\nmanually move to intro,"
 				}
 
@@ -12606,7 +12645,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 205.309558987617493, 6.5, 117.08072251081353, 22.0 ],
-					"text" : "/characters voted"
+					"text" : "/track weapon.wav"
 				}
 
 			}

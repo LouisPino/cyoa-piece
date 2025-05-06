@@ -59,8 +59,8 @@ function postFightFork() {
         jumpChar("duo", 2000, 2000)
         renderPino()
         renderJaz()
-        fadeChar("pino", 575, 0, 10, 5000)
-        fadeChar("jaz", 325, 0, 10, 5000)
+        fadeChar("pino", 575, 75, 10, 5000)
+        fadeChar("jaz", 325, 75, 10, 5000)
         document.getElementById("buff-screen").style.opacity = 0
         setTimeout(() => {
             document.getElementById("teleporter-beam").style.visibility = "visible"

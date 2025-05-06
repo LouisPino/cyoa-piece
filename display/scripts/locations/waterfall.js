@@ -14,9 +14,9 @@ function waterfall() {
     setTimeout(scene1, 1000)
     setTimeout(scene2, 6000)
     setTimeout(scene3, 20000)
-    setTimeout(scene4, 45000) // make me length of video + video start time
-    setTimeout(scene5, 54000) // scene4 + 9000
-    setTimeout(scene6, 67000)
+    setTimeout(scene4, 145000) // make me length of video + video start time
+    setTimeout(scene5, 154000) // scene4 + 9000
+    setTimeout(scene6, 167000)
 
 
 }
@@ -84,12 +84,12 @@ function scene4() {
 function scene5() {
     getInBoat(boatRockerEl)
     slideChar(boatRockerEl, 3000, 300, 4000)
-    sendToServer({ type: "fx", val: "boat.mp3" })
+    sendToServer({ type: "fx", val: "boat.wav" })
 }
 function scene6() {
     getOutBoat(boatRockerEl)
     // slideChar("duo", 0, 0, 4000)
 }
 
-// waterfall()
+waterfall()
 

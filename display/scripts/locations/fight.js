@@ -65,8 +65,8 @@ textsArr = [
 function fight() {
     flipChar("right", "duo")
 
-    jumpChar("pino", 3650, 847)
-    jumpChar("jaz", 6000, 847)
+    jumpChar("pino", 3650, 865)
+    jumpChar("jaz", 6000, 865)
     changeDialogueSprite(newSprite)
     changeSize("duo", 1, 2)
     toggleAnimation("vs", "jaz")
@@ -74,8 +74,8 @@ function fight() {
     jumpChar("npc", 550, 200)
     changeSize("npc", 1, .7)
     setTimeout(() => {
-        jumpChar("pino", 365, 847)
-        jumpChar("jaz", 600, 847)
+        jumpChar("pino", 365, 870)
+        jumpChar("jaz", 600, 870)
     }, 200)
 
     if (checkHistory("river")) {

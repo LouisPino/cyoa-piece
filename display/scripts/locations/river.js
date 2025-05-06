@@ -2,7 +2,7 @@ const boatRockerEl = document.getElementById("boat-rocker")
 const boatCtrEl = document.getElementById("boat-ctr")
 const riverVideoEl = document.getElementById("river-video")
 textsArr = [
-    "It looks like there's a fork in the road…"
+    "It looks like there's a fork in the river…"
 ];
 
 

@@ -20,7 +20,7 @@ if (checkHistory("rats")) {
 
 } else if (checkHistory("bats")) {
     npcBase = "bat"
-    nameCall = "scary bats!"
+    nameCall = "scary bat!"
     newSprite = "bat/2"
     newSprite2 = "bat/3"
     vsNpcEl.src = "/display/assets/fight/vsNPCBat.PNG"
@@ -28,7 +28,7 @@ if (checkHistory("rats")) {
 
 } else if (checkHistory("isopods")) {
     npcBase = "isopod"
-    nameCall = "icky bugs!"
+    nameCall = "icky bug!"
     newSprite = "isopod/2"
     newSprite2 = "isopod/3"
     vsNpcEl.src = "/display/assets/fight/vsNPCIsopod.PNG"
@@ -37,7 +37,7 @@ if (checkHistory("rats")) {
 }
 
 if (checkHistory("river")) {
-    document.getElementById("boat-ctr-fight").style.visibility = "visible"
+    // document.getElementById("boat-ctr-fight").style.visibility = "visible"
     locations.fight["voteVamp"] = "vampRiver.wav"
     vsNpcBgEl.src = "/display/assets/fight/vsNPCBgRiver.PNG"
 

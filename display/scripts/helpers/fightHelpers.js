@@ -571,7 +571,7 @@ function resetBattlefield(next) {
     if (next === "pino") {
         powerBarCtr.style.left = "44px"
     } else {
-        powerBarCtr.style.left = "332px"
+        powerBarCtr.style.left = "342px"
     }
     if (bossHealth != 0) {
         powerBarCtr.style.visibility = "visible"

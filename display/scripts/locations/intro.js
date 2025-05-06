@@ -220,7 +220,7 @@ function scene5() {
     setTimeout(() => {
         slideChar(floppy2El, 300, 0, 2000)
         setTimeout(() => {
-            sendToServer({ type: "fx", val: "mapReveal.wav" })
+            sendToServer({ type: "fx", val: "mapReveal2.wav" })
         }, 1000)
     }, 2000)
     setTimeout(() => {

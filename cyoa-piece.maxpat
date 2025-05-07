@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1721.0, 118.0, 807.0, 880.0 ],
+		"rect" : [ 38.0, 282.0, 807.0, 880.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,32 +39,6 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
-				"box" : 				{
-					"id" : "obj-50",
-					"lastchannelcount" : 0,
-					"maxclass" : "live.gain~",
-					"numinlets" : 2,
-					"numoutlets" : 5,
-					"outlettype" : [ "signal", "signal", "", "float", "list" ],
-					"parameter_enable" : 1,
-					"patching_rect" : [ 364.0, 362.0, 48.0, 136.0 ],
-					"saved_attribute_attributes" : 					{
-						"valueof" : 						{
-							"parameter_longname" : "live.gain~",
-							"parameter_mmax" : 6.0,
-							"parameter_mmin" : -70.0,
-							"parameter_shortname" : "live.gain~",
-							"parameter_type" : 0,
-							"parameter_unitstyle" : 4
-						}
-
-					}
-,
-					"varname" : "live.gain~"
-				}
-
-			}
-, 			{
 				"box" : 				{
 					"id" : "obj-43",
 					"maxclass" : "message",
@@ -108,7 +82,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 824.058600068092574, 1131.110138773918152, 50.0, 36.0 ],
-					"text" : "562 290"
+					"text" : "400 226"
 				}
 
 			}
@@ -715,7 +689,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 555.31914496421814, 13.5, 50.0, 22.0 ],
-					"text" : "108"
+					"text" : "8"
 				}
 
 			}
@@ -764,7 +738,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 881.040327489376068, 1131.110138773918152, 50.0, 36.0 ],
-					"text" : "862 290"
+					"text" : "700 226"
 				}
 
 			}
@@ -899,7 +873,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 674.893398284912109, 90.55937659740448, 50.0, 22.0 ],
-					"text" : "108"
+					"text" : "8"
 				}
 
 			}
@@ -4452,7 +4426,7 @@
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-													"text" : "108"
+													"text" : "8"
 												}
 
 											}
@@ -5760,7 +5734,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-									"text" : "108"
+									"text" : "8"
 								}
 
 							}
@@ -7886,7 +7860,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 1819.0, 199.0, 50.0, 50.0 ],
-									"text" : "trackOcean.wav"
+									"text" : "trackRocks.wav"
 								}
 
 							}
@@ -7995,7 +7969,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 2177.869543552398682, 156.739132404327393, 48.0, 50.0 ],
-									"text" : "trackOcean.wav"
+									"text" : "trackRocks.wav"
 								}
 
 							}
@@ -8032,7 +8006,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 1506.0, 226.739132404327393, 48.0, 50.0 ],
-									"text" : "trackOcean.wav"
+									"text" : "trackRocks.wav"
 								}
 
 							}
@@ -8753,7 +8727,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 1596.244543552398682, 50.739132404327393, 85.0, 36.0 ],
-									"text" : "trackOcean.wav"
+									"text" : "trackRocks.wav"
 								}
 
 							}
@@ -8865,7 +8839,7 @@
 										"followglobaltempo" : 0,
 										"formantcorrection" : 0,
 										"mode" : "basic",
-										"originallength" : [ 528460.386394558590837, "ticks" ],
+										"originallength" : [ 310341.050340136513114, "ticks" ],
 										"originaltempo" : 120.000000000000171,
 										"pitchcorrection" : 0,
 										"quality" : "basic",
@@ -12727,7 +12701,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 205.309558987617493, 6.5, 117.08072251081353, 36.0 ],
-					"text" : "/track trackOcean.wav"
+					"text" : "/track trackRocks.wav"
 				}
 
 			}
@@ -15881,7 +15855,6 @@
 		"parameters" : 		{
 			"obj-107::obj-191" : [ "amxd~", "amxd~", 0 ],
 			"obj-399" : [ "slider", "slider", 0 ],
-			"obj-50" : [ "live.gain~", "live.gain~", 0 ],
 			"parameterbanks" : 			{
 
 			}

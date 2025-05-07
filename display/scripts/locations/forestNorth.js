@@ -98,12 +98,13 @@ function videoAnimationPlaylist() {
         setTimeout(() => {
             toggleAnimation("walk", "duo")
             changeSize("duo", 15000, .4)
-            slideChar("jaz", 500, -300, 15000)
-            slideChar("pino", 750, -300, 15000)
+            slideChar("jaz", 900, -400, 15000)
+            slideChar("pino", 1150, -400, 15000)
+            setTimeout(() => {
+                slideChar("jaz", 1900, -400, 15000)
+                slideChar("pino", 2150, -400, 15000)
+            }, 150000)
         }, 3000)
-        setTimeout(() => {
-            fadeChar("duo", 3000, 3000, 3000, 10)
-        }, 18000)
     }, 180000)
 
 

@@ -508,7 +508,7 @@ const locations = {
     choices: [
     ],
     html: {},
-    transition: { type: "pixelate-no-blur", time: 3000 },
+    transition: { type: "fade", time: 10000 },
     track: "sylvan-game.wav"
   }
 };

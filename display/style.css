@@ -787,6 +787,11 @@ body {
     transition: opacity 8s ease;
 }
 
+#credits-video {
+    opacity: 1;
+    transition: opacity 4s ease-in;
+}
+
 .pino-dvd,
 .jaz-dvd {
     position: absolute;

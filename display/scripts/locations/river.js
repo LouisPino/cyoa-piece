@@ -13,7 +13,7 @@ function river() {
     setTimeout(scene1, 1000)
     setTimeout(scene2, 8000)
     setTimeout(scene3, 14000)
-    setTimeout(scene4, 45000) //244000
+    setTimeout(scene4, 244000) //244000
 
 
 }
@@ -93,11 +93,14 @@ function scene3() {
     riverVideoEl.style.visibility = "visible"
     riverVideoEl.style.opacity = 1
     riverVideoEl.play()
-    setTimeout(() => { slideChar(boatRockerEl, 0, 0, 300), 500 })
+    changeSize(boatCtrEl, 1, .4)
+
+    videoAnimationPlaylist()
+
 }
 function scene4() {
     //after video
-    riverVideoEl.style.opacity = 0
+    // riverVideoEl.style.opacity = 0
     setTimeout(() => {
         riverVideoEl.pause()
     }, 8000)
@@ -110,5 +113,51 @@ function scene4() {
     }, 1000)
 }
 
+function videoAnimationPlaylist() {
+    setTimeout(() => {
+        fadeChar(boatRockerEl, -1350, 150, 10, 30)
+        setTimeout(() => {
+            slideChar(boatRockerEl, 1640, -150, 10000)
+        }, 3000)
+    }, 2000)
+
+
+
+    setTimeout(() => {
+        fadeChar(boatRockerEl, -1314, 700, 10, 1000)
+        setTimeout(() => {
+            changeSize(boatCtrEl, 20000, .1)
+            slideChar(boatRockerEl, 100, -200, 10000)
+        }, 1300)
+        setTimeout(() => {
+            changeSize(boatCtrEl, 20000, .1)
+            slideChar(boatRockerEl, 300, -400, 5000)
+        }, 11300)
+        setTimeout(() => {
+            fadeChar(boatCtrEl, 2000, 2000, 3000, 10)
+            slideChar(boatRockerEl, 300, -400, 5000)
+        }, 11300)
+    }, 70000)
+
+
+    setTimeout(() => {
+        changeSize(boatCtrEl, 1, .7)
+        fadeChar(boatRockerEl, -1350, -50, 10, 30)
+        setTimeout(() => {
+            changeSize(boatCtrEl, 20000, .2)
+            slideChar(boatRockerEl, 1600, -250, 30000)
+        }, 300)
+    }, 128000)
+
+    setTimeout(() => {
+        changeSize(boatCtrEl, 1, .1)
+        fadeChar(boatRockerEl, 0, -800, 10, 30)
+        setTimeout(() => {
+            changeSize(boatCtrEl, 30000, 1)
+            slideChar(boatRockerEl, 0, 1200, 40000)
+        }, 300)
+    }, 187000)
+
+}
 
 river()

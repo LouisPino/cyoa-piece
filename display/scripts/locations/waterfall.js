@@ -1,5 +1,5 @@
 const boatRockerEl = document.getElementById("boat-rocker")
-
+const npcEl = document.getElementById("npc-size-ctr")
 
 textsArr = [
     "Look at this beautiful waterfall! Let’s take a moment to enjoy the sounds.",
@@ -10,13 +10,14 @@ const waterfallVidEl = document.getElementById("waterfall-video")
 
 function waterfall() {
     jumpChar(boatRockerEl, -1000, 300)
+    jumpChar(npcEl, -1200, 300)
     setTimeout(scene0, 100)
     setTimeout(scene1, 1000)
     setTimeout(scene2, 6000)
     setTimeout(scene3, 20000)
-    setTimeout(scene4, 145000) // make me length of video + video start time
-    setTimeout(scene5, 154000) // scene4 + 9000
-    setTimeout(scene6, 167000)
+    setTimeout(scene4, 270000) // make me length of video + video start time
+    setTimeout(scene5, 279000) // scene4 + 9000
+    setTimeout(scene6, 292000)
 
 
 }
@@ -31,13 +32,13 @@ function scene0() {
 
 }
 function scene1() {
+    flipChar("left", "duo")
     renderPino()
     renderJaz()
     fadeChar("pino", locations.forestSouth.mapLocations.pino.x, locations.forestSouth.mapLocations.pino.y, 50, 1000)
     fadeChar("jaz", locations.forestSouth.mapLocations.jaz.x, locations.forestSouth.mapLocations.jaz.y, 50, 1000)
     setTimeout(() => {
         toggleAnimation("walk", "duo")
-        flipChar("left", "duo")
         slideChar("pino", locations.waterfall.mapLocations.pino.x, locations.waterfall.mapLocations.pino.y, 3000)
         slideChar("jaz", locations.waterfall.mapLocations.jaz.x, locations.waterfall.mapLocations.jaz.y, 3000)
         setTimeout(() => {
@@ -64,9 +65,7 @@ function scene3() {
     waterfallVidEl.style.visibility = "visible"
     waterfallVidEl.style.opacity = 1
     waterfallVidEl.play()
-    setTimeout(() => {
-        changeBg("animated/river.gif")
-    }, 7000)
+    videoAnimationPlaylist()
 }
 function scene4() {
     //after video
@@ -83,12 +82,257 @@ function scene4() {
 }
 function scene5() {
     getInBoat(boatRockerEl)
+    changeSize(boatRockerEl, 1, .6)
     slideChar(boatRockerEl, 3000, 300, 4000)
     sendToServer({ type: "fx", val: "boat.wav" })
 }
 function scene6() {
     getOutBoat(boatRockerEl)
     // slideChar("duo", 0, 0, 4000)
+}
+
+
+function videoAnimationPlaylist() {
+    changeSize("duo", 1, .7)
+    flipChar("right", "duo")
+    setTimeout(() => {
+        toggleAnimation("walk", "duo")
+        fadeChar("jaz", -850, -290, 10, 30)
+        fadeChar("pino", -650, -290, 10, 30)
+        setTimeout(() => {
+            slideChar("jaz", 1640, 150, 10000)
+            slideChar("pino", 1840, 150, 10000)
+            setTimeout(() => {
+                hopChar("jaz", 300, 1200)
+            }, 2500)
+            setTimeout(() => {
+                hopChar("pino", 300, 1400)
+            }, 3500)
+        }, 3000)
+    }, 4000)
+
+
+
+    setTimeout(() => {
+        fadeChar("jaz", -830, 626, 10, 30)
+        fadeChar("pino", -630, 626, 10, 30)
+        setTimeout(() => {
+            slideChar("jaz", 1690, 626, 15000)
+            slideChar("pino", 1890, 626, 15000)
+            setTimeout(() => {
+                hopChar("jaz", 250, 800, true)
+            }, 5000)
+            setTimeout(() => {
+                hopChar("pino", 250, 800, true)
+            }, 7000)
+        }, 300)
+    }, 30000)
+
+
+    setTimeout(() => {
+        fadeChar("jaz", -830, 100, 10, 30)
+        fadeChar("pino", -630, 100, 10, 30)
+        setTimeout(() => {
+            slideChar("jaz", 2000, 100, 8000)
+            slideChar("pino", 1800, 100, 8000)
+        }, 300)
+        setTimeout(() => {
+            hopChar("jaz", 50, 700)
+            setTimeout(() => {
+                hopChar("jaz", 50, 700)
+            }, 1000)
+            setTimeout(() => {
+                hopChar("jaz", 50, 700)
+            }, 2000)
+            setTimeout(() => {
+                hopChar("jaz", 50, 700)
+            }, 3000)
+            setTimeout(() => {
+                hopChar("jaz", 50, 700)
+            }, 4000)
+            setTimeout(() => {
+                hopChar("jaz", 50, 700)
+            }, 5000)
+            setTimeout(() => {
+                hopChar("jaz", 50, 700)
+            }, 6000)
+            setTimeout(() => {
+                hopChar("jaz", 50, 700)
+            }, 7000)
+            setTimeout(() => {
+                hopChar("jaz", 50, 700)
+            }, 8000)
+        }, 300)
+        setTimeout(() => {
+            hopChar("pino", 50, 700)
+            setTimeout(() => {
+                hopChar("pino", 50, 700)
+            }, 1000)
+            setTimeout(() => {
+                hopChar("pino", 50, 700)
+            }, 2000)
+            setTimeout(() => {
+                hopChar("pino", 50, 700)
+            }, 3000)
+            setTimeout(() => {
+                hopChar("pino", 50, 700)
+            }, 4000)
+            setTimeout(() => {
+                hopChar("pino", 50, 700)
+            }, 5000)
+            setTimeout(() => {
+                hopChar("pino", 50, 700)
+            }, 6000)
+            setTimeout(() => {
+                hopChar("pino", 50, 700)
+            }, 7000)
+            setTimeout(() => {
+                hopChar("pino", 50, 700)
+            }, 8000)
+        }, 700)
+    }, 75000)
+
+
+
+
+    setTimeout(() => {
+        changeSize("npc", 1, .5)
+        fadeChar("npc", 3750, -50, 2000, 3000)
+        setTimeout(() => {
+            hopChar("npc")
+            sendToServer({ type: "fx", val: "ribbit.mp3" })
+            setTimeout(() => {
+                hopChar("npc")
+            }, 800)
+        }, 6000)
+        setTimeout(() => {
+            flipChar("left", "npc")
+            setTimeout(() => {
+                flipChar("left", "npc")
+            }, 1000)
+            setTimeout(() => {
+                hopChar("npc")
+                setTimeout(() => {
+                    hopChar("npc")
+                }, 800)
+            }, 2000)
+            setTimeout(() => {
+                hopChar("npc")
+                setTimeout(() => {
+                    hopChar("npc")
+                }, 800)
+            }, 5000)
+            setTimeout(() => {
+                hopChar("npc")
+                setTimeout(() => {
+                    hopChar("npc")
+                }, 800)
+            }, 16000)
+            setTimeout(() => {
+                hopChar("npc")
+                setTimeout(() => {
+                    hopChar("npc")
+                }, 800)
+            }, 20000)
+            setTimeout(() => {
+                hopChar("npc")
+                setTimeout(() => {
+                    hopChar("npc")
+                }, 800)
+            }, 23000)
+        }, 9000)
+        setTimeout(() => {
+            fadeChar("npc", -4000, 100, 5000, 3000)
+        }, 25000)
+    }, 115000)
+
+    setTimeout(() => {
+        toggleAnimation("front", "duo")
+        fadeChar("jaz", 834, -150, 3000, 1000)
+        fadeChar("pino", 300, -100, 3000, 1000)
+        setTimeout(() => {
+            hopChar("jaz", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (900 - 300 + 1)) + 300, true);
+            setTimeout(() => {
+                hopChar("jaz", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 1000)
+            setTimeout(() => {
+                hopChar("jaz", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 3000)
+            setTimeout(() => {
+                hopChar("jaz", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 5000)
+            setTimeout(() => {
+                hopChar("jaz", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 7000)
+            setTimeout(() => {
+                hopChar("jaz", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 9000)
+            setTimeout(() => {
+                hopChar("jaz", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 11000)
+            setTimeout(() => {
+                hopChar("jaz", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 13000)
+            setTimeout(() => {
+                hopChar("jaz", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 15000)
+        }, 300)
+        setTimeout(() => {
+            hopChar("pino", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            setTimeout(() => {
+                hopChar("pino", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 2000)
+            setTimeout(() => {
+                hopChar("pino", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 4000)
+            setTimeout(() => {
+                hopChar("pino", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 6000)
+            setTimeout(() => {
+                hopChar("pino", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 8000)
+            setTimeout(() => {
+                hopChar("pino", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 10000)
+
+            setTimeout(() => {
+                hopChar("pino", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 12000)
+            setTimeout(() => {
+                hopChar("pino", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 14000)
+            setTimeout(() => {
+                hopChar("pino", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 16000)
+            setTimeout(() => {
+                fadeChar("duo", 3000, 3000, 3000, 30)
+            }, 18000)
+        }, 700)
+    }, 170000)
+
+
+
+    setTimeout(() => {
+        toggleAnimation("walk", "duo")
+        changeSize("duo", 1, .2)
+        setTimeout(() => {
+            jumpChar("jaz", -1000, -700)
+            jumpChar("pino", -800, -700)
+        }, 100)
+        setTimeout(() => {
+            slideChar("jaz", 2000, -750, 15000)
+            slideChar("pino", 1800, -750, 15000)
+        }, 500)
+    }, 215000)
+
+
+
+
+
+
+
+
+
 }
 
 waterfall()

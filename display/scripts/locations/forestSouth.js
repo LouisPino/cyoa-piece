@@ -49,6 +49,8 @@ function scene3() {
     forestVidEl.style.visibility = "visible"
     forestVidEl.style.opacity = 1
     forestVidEl.play()
+    videoAnimationPlaylist()
+
 }
 function scene4() {
     //after video
@@ -64,5 +66,66 @@ function scene4() {
         }, 8000)
     }, 1000)
 }
+
+
+function videoAnimationPlaylist() {
+    changeSize("duo", 1, .8)
+    flipChar("left", "duo")
+    setTimeout(() => {
+        toggleAnimation("side", "duo")
+        fadeChar("duo", 550, 1000, 10, 3000)
+        setTimeout(() => {
+            changeSize("duo", 30000, .5)
+
+            toggleAnimation("walk", "duo")
+            slideChar("jaz", 375, -265, 30000)
+            slideChar("pino", 575, -265, 30000)
+        }, 3000)
+        setTimeout(() => {
+            fadeChar("duo", 3000, 3000, 3000, 10)
+        }, 33000)
+    }, 30000)
+
+
+
+    setTimeout(() => {
+        changeSize("duo", 1, .8)
+        flipChar("right", "duo")
+        toggleAnimation("side", "duo")
+
+        fadeChar("jaz", -550, 800, 10, 3000)
+        fadeChar("pino", -300, 850, 10, 3000)
+        setTimeout(() => {
+            toggleAnimation("walk", "duo")
+            changeSize("duo", 15000, .4)
+            slideChar("jaz", 900, -400, 15000)
+            slideChar("pino", 1150, -400, 15000)
+            setTimeout(() => {
+                slideChar("jaz", 1900, -400, 15000)
+                slideChar("pino", 2150, -400, 15000)
+            }, 150000)
+        }, 3000)
+    }, 180000)
+
+
+    setTimeout(() => {
+        changeSize("duo", 1, .8)
+        flipChar("right", "duo")
+        toggleAnimation("side", "duo")
+        fadeChar("jaz", -850, -42, 10, 3000)
+        fadeChar("pino", -1050, -42, 10, 3000)
+        setTimeout(() => {
+            toggleAnimation("walk", "duo")
+            slideChar("jaz", 1950, -42, 8000)
+            slideChar("pino", 1750, -42, 8000)
+        }, 3000)
+        setTimeout(() => {
+            fadeChar("duo", 3000, 3000, 3000, 10)
+        }, 30000)
+    }, 286000)
+}
+
+
+
 
 forestSouth()

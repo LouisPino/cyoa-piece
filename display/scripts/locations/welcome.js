@@ -10,11 +10,12 @@ new QRCode(
 const pages = document.querySelectorAll("#intro-gif-page, #intro-qr-page, #intro-leaderboard");
 const introGifEl = document.getElementById("intro-gif")
 // const timings = [45000, 60000, 30000];
-const timings = [30000, 3000, 3000];
+const timings = [3000, 3000, 3000];
 
 let pageCounter = 0;
 let gifCounter = 0;
 const gifs = ["Cave", "Cloud", "Forest", "Ocean", "River", "Rock", "Shore", "Space", "Waterfall"]
+introGifEl.src = `/display/assets/welcome/LocationGifs/${gifs[gifCounter % gifs.length]}.gif`
 
 function switchPage() {
     const current = pages[pageCounter % pages.length];

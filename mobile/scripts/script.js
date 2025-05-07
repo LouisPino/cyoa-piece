@@ -120,6 +120,9 @@ function runLocationScript(locationName) {
 function endFight() {
     fighting = false
     mainEl.innerHTML = `<img class="complete-screen-img" id="mobile-bg" src="/mobile/assets/backgrounds/Phone_Load.gif" />`
+    document.removeEventListener("touchstart", handleTouchStart, { passive: false });
+    document.removeEventListener("touchend", handleTouchEnd, { passive: false });
+
 }
 
 const swipeMap = {
@@ -146,4 +149,43 @@ function changeSwipePrompt(swipeType) {
 function hideMadlib() {
     document.getElementById("madlib-ctr").style.visibility = "hidden"
     madlibbing = false
+}
+
+
+
+let xDown = null;
+let yDown = null;
+
+function handleTouchStart(evt) {
+    if (fighting) {
+        xDown = evt.touches[0].clientX;
+        yDown = evt.touches[0].clientY;
+    }
+    evt.preventDefault(); // Prevent scrolling
+}
+
+function handleTouchEnd(evt) {
+    if (xDown === null || yDown === null) return;
+    let xUp = evt.changedTouches[0].clientX;
+    let yUp = evt.changedTouches[0].clientY;
+    let xDiff = xDown - xUp;
+    let yDiff = yDown - yUp;
+
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        if (xDiff > 20) {
+            sendToServer({ type: "attack", val: "left" });
+        } else if (xDiff < -20) {
+            sendToServer({ type: "attack", val: "right" });
+        }
+    } else {
+        if (yDiff > 20) {
+            sendToServer({ type: "attack", val: "up" });
+        } else if (yDiff < -20) {
+            sendToServer({ type: "attack", val: "down" });
+        }
+    }
+
+    xDown = null;
+    yDown = null;
+    evt.preventDefault(); // Prevent scrolling
 }

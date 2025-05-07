@@ -11,39 +11,69 @@ const oceanVidEl = document.getElementById("ocean-video")
 function twilight() {
     setTimeout(scene0, 100)
     setTimeout(scene1, 1000)
-    setTimeout(scene2, 8000)
-    setTimeout(scene3, 18000)
-    setTimeout(scene4, 35000) // make me length of video + video start time
+    // setTimeout(scene2, 8000)
+    // setTimeout(scene3, 18000)
+    // setTimeout(scene4, 35000) // make me length of video + video start time
 
 }
 
 function scene0() {
+    removePino()
+    removeJaz()
     renderMap()
     fadeMap(1, 1)
     toggleAnimation("front", "duo")
     changeSize("duo", 1, .3)
-    jumpChar("pino", 3000, 3000)
-    jumpChar("jaz", 3000, 3000)
+    setTimeout(() => {
+        jumpChar("pino", 3000, 3000)
+        jumpChar("jaz", 3000, 3000)
+    }, 50)
 }
 function scene1() {
     renderPino()
     renderJaz()
-    setTimeout(() => {
-        fadeChar("pino", locations.clouds.mapLocations.pino.x, locations.clouds.mapLocations.pino.y, 50, 1000)
-        fadeChar("jaz", locations.shores.mapLocations.jaz.x, locations.shores.mapLocations.jaz.y, 50, 1000)
+    if (checkHistory("clouds")) {
         setTimeout(() => {
-            flipChar("right", "duo")
+            fadeChar("pino", locations.clouds.mapLocations.pino.x - 250, locations.clouds.mapLocations.pino.y + 300, 50, 1000)
+            fadeChar("jaz", locations.shores.mapLocations.jaz.x, locations.shores.mapLocations.jaz.y, 50, 1000)
             setTimeout(() => {
-                toggleAnimation("walk", "duo")
-                slideChar("pino", locations.twilight.mapLocations.pino.x, locations.twilight.mapLocations.pino.y, 3000)
-                slideChar("jaz", locations.twilight.mapLocations.jaz.x, locations.twilight.mapLocations.jaz.y, 3000)
                 setTimeout(() => {
-                    toggleAnimation("side", "duo")
-                }, 3000)
-            }, 250)
-
-        }, 3000)
-    }, 1000)
+                    slideChar("pino", 862, 300, 3000)
+                    slideChar("jaz", locations.twilight.mapLocations.jaz.x, locations.twilight.mapLocations.jaz.y, 3000)
+                    setTimeout(() => {
+                    }, 3000)
+                }, 250)
+            }, 3000)
+        }, 1000)
+    }
+    else if (checkHistory("shores")) {
+        setTimeout(() => {
+            fadeChar("pino", locations.clouds.mapLocations.pino.x, locations.clouds.mapLocations.pino.y, 50, 1000)
+            fadeChar("jaz", locations.shores.mapLocations.jaz.x, locations.shores.mapLocations.jaz.y + 200, 50, 1000)
+            setTimeout(() => {
+                setTimeout(() => {
+                    slideChar("pino", locations.twilight.mapLocations.pino.x, locations.twilight.mapLocations.pino.y, 3000)
+                    slideChar("jaz", 890, 300, 3000)
+                    setTimeout(() => {
+                    }, 3000)
+                }, 250)
+            }, 3000)
+        }, 1000)
+    }
+    else {
+        setTimeout(() => {
+            fadeChar("pino", locations.clouds.mapLocations.pino.x, locations.clouds.mapLocations.pino.y, 50, 1000)
+            fadeChar("jaz", locations.shores.mapLocations.jaz.x, locations.shores.mapLocations.jaz.y, 50, 1000)
+            setTimeout(() => {
+                setTimeout(() => {
+                    slideChar("pino", locations.twilight.mapLocations.pino.x, locations.twilight.mapLocations.pino.y, 3000)
+                    slideChar("jaz", locations.twilight.mapLocations.jaz.x, locations.twilight.mapLocations.jaz.y, 3000)
+                    setTimeout(() => {
+                    }, 3000)
+                }, 250)
+            }, 3000)
+        }, 1000)
+    }
 }
 function scene2() {
     fadeMap(0, 5000)

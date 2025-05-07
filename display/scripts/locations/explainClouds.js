@@ -117,6 +117,6 @@ function scene2() {
         slideBoxY("none")
     }, 30000)
 }
-explainClouds()
+// explainClouds()
 
 

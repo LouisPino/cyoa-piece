@@ -7,9 +7,9 @@ const IP4 = require('./helpers/ip4.js')
 const [locations, mobileExtras, displayExtras, displayScripts, mobileScripts, mobileLocationScripts, displayLocationScripts] = require("./helpers/fileLoader.js")
 const [characters] = require("./characters/default.js")
 let currentLocation = locations["welcome"]
-const voteLength = 2000
-const winnerLength = 2000
-const promptLength = 2000
+const voteLength = 2000 //15000
+const winnerLength = 2000 //5000
+const promptLength = 2000//10000
 let gameScores = [
     { "name": "JAZ", "score": 2 },
     { "name": "PNO", "score": 1 },
@@ -24,8 +24,8 @@ let history = {
 let voting = false
 let attacking = false
 
-const bossMaxHealth = 1
-const swipeCountTarget = 3
+const bossMaxHealth = 7 //7
+const swipeCountTarget = 3 //num of people x 1.5
 let bossHealth = bossMaxHealth
 
 const swipeTypes = ["up", "down", "left", "right"]
@@ -469,17 +469,3 @@ module.exports = [
 ]
 
 
-
-
-
-//week before testing considerations
-//All loaction scripts active
-//transition times and vote lengths test at full
-
-
-// irl checks
-// all videos are full length?
-// all location scripts active?
-// voting times set?
-// vote tally correct?
-// disable hotkeys you don't need

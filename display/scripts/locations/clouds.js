@@ -26,7 +26,6 @@ function scene0() {
     fadeMap(1, 1)
     toggleAnimation("front", "duo")
     jumpChar("pino", 3000, 3000)
-    jumpChar("pino", 3000, 3000)
     jumpChar("npc", 1500, 0)
     changeDialogueSprite("cloud/1")
 
@@ -179,4 +178,4 @@ function scene4() {
 }
 
 
-clouds()
+// clouds()

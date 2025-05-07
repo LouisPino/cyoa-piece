@@ -26,32 +26,62 @@ function thermosphere() {
 }
 
 function scene0() {
+    removePino()
+    removeJaz()
     renderMap()
     fadeMap(1, 1)
     toggleAnimation("front", "duo")
     changeSize("duo", 1, .3)
-    jumpChar("pino", 3000, 3000)
-    jumpChar("jaz", 3000, 3000)
+    setTimeout(() => {
+        jumpChar("pino", 3000, 3000)
+        jumpChar("jaz", 3000, 3000)
+    }, 50)
 }
 function scene1() {
     renderPino()
     renderJaz()
-    setTimeout(() => {
-        fadeChar("pino", locations.clouds.mapLocations.pino.x, locations.clouds.mapLocations.pino.y, 50, 1000)
-        fadeChar("jaz", locations.shores.mapLocations.jaz.x, locations.shores.mapLocations.jaz.y, 50, 1000)
+    if (checkHistory("clouds")) {
         setTimeout(() => {
-            flipChar("right", "duo")
+            fadeChar("pino", locations.clouds.mapLocations.pino.x - 250, locations.clouds.mapLocations.pino.y + 300, 50, 1000)
+            fadeChar("jaz", locations.shores.mapLocations.jaz.x, locations.shores.mapLocations.jaz.y, 50, 1000)
             setTimeout(() => {
-                toggleAnimation("walk", "duo")
-                slideChar("pino", locations.thermosphere.mapLocations.pino.x, locations.thermosphere.mapLocations.pino.y, 3000)
-                slideChar("jaz", locations.thermosphere.mapLocations.jaz.x, locations.thermosphere.mapLocations.jaz.y, 3000)
                 setTimeout(() => {
-                    toggleAnimation("side", "duo")
-                }, 3000)
-            }, 250)
-
-        }, 3000)
-    }, 1000)
+                    slideChar("pino", -311, -503, 3000)
+                    slideChar("jaz", locations.thermosphere.mapLocations.jaz.x, locations.thermosphere.mapLocations.jaz.y, 3000)
+                    setTimeout(() => {
+                    }, 3000)
+                }, 250)
+            }, 3000)
+        }, 1000)
+    }
+    else if (checkHistory("shores")) {
+        setTimeout(() => {
+            fadeChar("pino", locations.clouds.mapLocations.pino.x, locations.clouds.mapLocations.pino.y, 50, 1000)
+            fadeChar("jaz", locations.shores.mapLocations.jaz.x, locations.shores.mapLocations.jaz.y + 200, 50, 1000)
+            setTimeout(() => {
+                setTimeout(() => {
+                    slideChar("pino", locations.thermosphere.mapLocations.pino.x, locations.thermosphere.mapLocations.pino.y, 3000)
+                    slideChar("jaz", -471, -506, 3000)
+                    setTimeout(() => {
+                    }, 3000)
+                }, 250)
+            }, 3000)
+        }, 1000)
+    }
+    else {
+        setTimeout(() => {
+            fadeChar("pino", locations.clouds.mapLocations.pino.x, locations.clouds.mapLocations.pino.y, 50, 1000)
+            fadeChar("jaz", locations.shores.mapLocations.jaz.x, locations.shores.mapLocations.jaz.y, 50, 1000)
+            setTimeout(() => {
+                setTimeout(() => {
+                    slideChar("pino", locations.thermosphere.mapLocations.pino.x, locations.thermosphere.mapLocations.pino.y, 3000)
+                    slideChar("jaz", locations.thermosphere.mapLocations.jaz.x, locations.thermosphere.mapLocations.jaz.y, 3000)
+                    setTimeout(() => {
+                    }, 3000)
+                }, 250)
+            }, 3000)
+        }, 1000)
+    }
 }
 function scene2() {
     fadeMap(0, 5000)

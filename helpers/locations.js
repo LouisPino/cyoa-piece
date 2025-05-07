@@ -168,7 +168,7 @@ const locations = {
   },
   river: {
     name: "river",
-    paths: ["bats", "rats"],
+    paths: ["isopods", "rats"],
     choicePrompts: {
       mobile: "Which way should they go?",
       display: "Which way should we go?",

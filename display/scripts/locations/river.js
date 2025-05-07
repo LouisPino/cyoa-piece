@@ -13,7 +13,7 @@ function river() {
     setTimeout(scene1, 1000)
     setTimeout(scene2, 8000)
     setTimeout(scene3, 14000)
-    setTimeout(scene4, 254000)
+    setTimeout(scene4, 45000) //244000
 
 
 }

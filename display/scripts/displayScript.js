@@ -175,6 +175,8 @@ document.addEventListener("DOMContentLoaded", function () {
               }, promptLength);
               break;
             case "path":
+              const boatCtrEl = document.getElementById("boat-ctr");
+              jumpChar(boatCtrEl, 3000, 3000)
               promptVote(mainEl, extras, msg.data, "path");
               setTimeout(() => {
                 displayVote(mainEl, extras, voteLength, msg.data, "path");

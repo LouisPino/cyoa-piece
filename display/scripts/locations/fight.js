@@ -9,7 +9,9 @@ const vsNpcEl = document.getElementById("vs-npc");
 const vsCharNameEl = document.getElementById("vs-char-name");
 const vsCharBgEl = document.getElementById("vs-char-bg");
 const vsLineEl = document.getElementById("vs-line");
-
+const boatRockerEl = document.getElementById("boat-rocker");
+getOutBoat(boatRockerEl)
+jumpChar(boatRockerEl, 3000, 3000)
 if (checkHistory("rats")) {
     npcBase = "rat"
     nameCall = "scallywags!"
@@ -37,7 +39,6 @@ if (checkHistory("rats")) {
 }
 
 if (checkHistory("river")) {
-    // document.getElementById("boat-ctr-fight").style.visibility = "visible"
     locations.fight["voteVamp"] = "vampRiver.wav"
     vsNpcBgEl.src = "/display/assets/fight/vsNPCBgRiver.PNG"
 

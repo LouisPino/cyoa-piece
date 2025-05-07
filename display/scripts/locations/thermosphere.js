@@ -28,7 +28,7 @@ function thermosphere() {
 function scene0() {
     renderMap()
     fadeMap(1, 1)
-    toggleAnimation("side", "duo")
+    toggleAnimation("front", "duo")
     changeSize("duo", 1, .3)
     jumpChar("pino", 3000, 3000)
     jumpChar("jaz", 3000, 3000)
@@ -37,55 +37,20 @@ function scene1() {
     renderPino()
     renderJaz()
     setTimeout(() => {
-        if (checkHistory("shores")) {
-            toggleAnimation("front", "duo")
-            fadeChar("pino", locations.shores.mapLocations.pino.x, locations.shores.mapLocations.pino.y, 50, 1000)
-            fadeChar("jaz", locations.shores.mapLocations.jaz.x, locations.shores.mapLocations.jaz.y, 50, 1000)
+        fadeChar("pino", locations.clouds.mapLocations.pino.x, locations.clouds.mapLocations.pino.y, 50, 1000)
+        fadeChar("jaz", locations.shores.mapLocations.jaz.x, locations.shores.mapLocations.jaz.y, 50, 1000)
+        setTimeout(() => {
+            flipChar("right", "duo")
             setTimeout(() => {
-                flipChar("left", "duo")
+                toggleAnimation("walk", "duo")
                 slideChar("pino", locations.thermosphere.mapLocations.pino.x, locations.thermosphere.mapLocations.pino.y, 3000)
                 slideChar("jaz", locations.thermosphere.mapLocations.jaz.x, locations.thermosphere.mapLocations.jaz.y, 3000)
                 setTimeout(() => {
-                    flipChar("right", "duo")
-                }, 300)
-                setTimeout(() => {
-                    flipChar("left", "duo")
-                }, 600)
-                setTimeout(() => {
-                    flipChar("right", "duo")
-                }, 900)
-                setTimeout(() => {
-                    flipChar("left", "duo")
-                }, 1200)
-                setTimeout(() => {
-                    flipChar("right", "duo")
-                }, 1500)
-                setTimeout(() => {
-                    flipChar("left", "duo")
-                }, 1800)
-                setTimeout(() => {
-                    flipChar("right", "duo")
-                }, 2100)
-                setTimeout(() => {
-                    flipChar("left", "duo")
-                }, 2400)
-                setTimeout(() => {
-                    flipChar("right", "duo")
-                }, 2700)
-            }, 3000)
-        } else {
-            toggleAnimation("front", "duo")
+                    toggleAnimation("side", "duo")
+                }, 3000)
+            }, 250)
 
-            fadeChar("pino", locations.clouds.mapLocations.pino.x, locations.clouds.mapLocations.pino.y, 50, 1000)
-            fadeChar("jaz", locations.clouds.mapLocations.jaz.x, locations.clouds.mapLocations.jaz.y, 50, 1000)
-            setTimeout(() => {
-                setTimeout(() => {
-                    slideChar("pino", locations.thermosphere.mapLocations.pino.x, locations.thermosphere.mapLocations.pino.y, 3000)
-                    slideChar("jaz", locations.thermosphere.mapLocations.jaz.x, locations.thermosphere.mapLocations.jaz.y, 3000)
-                }, 250)
-
-            }, 3000)
-        }
+        }, 3000)
     }, 1000)
 }
 function scene2() {

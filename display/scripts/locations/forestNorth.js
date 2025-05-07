@@ -12,7 +12,6 @@ function forestNorth() {
     setTimeout(scene3, 12000)
     setTimeout(scene4, 310000) // make me length of video + video start time
 }
-console.log(locations)
 function scene0() {
     renderMap()
     fadeMap(1, 1)

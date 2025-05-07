@@ -54,6 +54,10 @@ function displayVote(mainEl, extras, voteLength, data, type) {
 }
 
 function promptVote(mainEl, extras, data, type) {
+    let qrEl = document.getElementById("qrcode1")
+    let qrEl2 = document.getElementById("qrcode2")
+    qrEl.style.visibility = "visible"
+    qrEl2.style.visibility = "visible"
     const html = extras.filter(
         (extra) => extra.name === "votePrompt"
     )[0].content;
@@ -79,6 +83,7 @@ function promptVote(mainEl, extras, data, type) {
 }
 
 function displayWinner(winner, extras, mainEl, currentLocation) {
+
     const html = extras.filter(
         (extra) => extra.name === "voteWin"
     )[0].content;

@@ -17,8 +17,6 @@ function shores() {
     setTimeout(scene2, 8000)
     setTimeout(scene3, 76000)
     setTimeout(scene4, 101500)
-
-
 }
 
 
@@ -159,12 +157,13 @@ function scene3() {
 
 function scene4() {
     slideChar("npc", 350, 0, 1000)
+    sendToServer({ type: "fx", val: "shrimp.wav" })
+
     setTimeout(() => {
         hopChar("npc")
     }, 1000)
     setTimeout(() => {
         toggleBox("sprite")
-        sendToServer({ type: "fx", val: "shrimp.wav" })
 
         setTimeout(nextLine, 200)
     }, 1400)

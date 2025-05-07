@@ -18,7 +18,6 @@ let loserMap = {
 let friend
 if (checkHistory("rats")) {
     friend = "rats"
-
 } else if (checkHistory("isopods")) {
     friend = "isopods"
 } else {
@@ -56,7 +55,6 @@ function fightShrimp() {
 
 function scene0() {
     flipChar("right", "duo")
-
     changeDialogueSprite(`shrimp/1`)
     toggleAnimation("weapon", "jaz")
     jumpChar("npc", 800, 0)

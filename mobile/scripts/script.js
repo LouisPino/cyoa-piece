@@ -111,9 +111,7 @@ function sectionChange(section) {
 }
 
 function runLocationScript(locationName) {
-    console.log(locationName)
     const locationScriptObj = locationScripts.filter(script => script.name === locationName)[0];
-    console.log(locationScriptObj)
     eval(locationScriptObj?.content);
 }
 

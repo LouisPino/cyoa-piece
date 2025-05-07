@@ -11,9 +11,9 @@ const oceanVidEl = document.getElementById("ocean-video")
 function twilight() {
     setTimeout(scene0, 100)
     setTimeout(scene1, 1000)
-    // setTimeout(scene2, 8000)
-    // setTimeout(scene3, 18000)
-    // setTimeout(scene4, 35000) // make me length of video + video start time
+    setTimeout(scene2, 8000)
+    setTimeout(scene3, 18000)
+    setTimeout(scene4, 35000) // make me length of video + video start time
 
 }
 

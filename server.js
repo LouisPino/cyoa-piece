@@ -147,6 +147,7 @@ wss.on('connection', (ws, req) => {
                 break
             case "sample":
                 oscClient.send("/sample", data.val)
+                sendToDisplay({ type: "audience-sample" })
                 break
             case "fx":
                 oscClient.send("/fx", data.val)

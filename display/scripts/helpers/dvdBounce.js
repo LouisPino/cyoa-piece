@@ -162,3 +162,22 @@ function startRotate(char) {
     img.style.animation = 'rotate360 15s linear infinite';
   });
 }
+
+
+function lightPulse() {
+  const x = Math.random() * (1600 - 300) + 300;
+  const y = Math.random() * (800 - 200) + 200;
+
+  const dot = document.createElement("div");
+  dot.className = "light-pulse";
+  dot.style.left = `${x}px`;
+  dot.style.top = `${y}px`;
+  document.body.appendChild(dot);
+
+  setTimeout(() => {
+    dot.remove();
+  }, 300);
+}
+
+
+

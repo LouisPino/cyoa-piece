@@ -33,7 +33,7 @@ const locations = {
     },
     choices: ["north", "south"],
     html: {},
-    transition: { type: "pixelate-no-blur", time: 6000 },
+    transition: { type: "pixelate-no-blur", time: 8000 },
     bgName: "forest",
     voteVamp: "vampForest.wav",
     track: "sylvan-game.wav",
@@ -50,7 +50,7 @@ const locations = {
     choices: ["left", "right"],
     html: {},
     bgName: "forest",
-    transition: { type: "pixelate", time: 1000 },
+    transition: { type: "fade", time: 5000 },
     banner: "forest",
     voteVamp: "vampForest.wav",
     track: "trackForest.wav",
@@ -70,7 +70,7 @@ const locations = {
     bgName: "rock",
     track: "trackRocks.wav",
 
-    transition: { type: "pixelate", time: 1000 },
+    transition: { type: "blur", time: 2000 },
     banner: "rock",
     mapLocations: { pino: { x: 955, y: -338 }, jaz: { x: 651, y: -338 } },
     voteVamp: "vampRocks.wav",
@@ -86,7 +86,7 @@ const locations = {
     // },
     choices: ["", ""],
     html: {},
-    transition: { type: "pixelate", time: 1000 },
+    transition: { type: "blur", time: 2000 },
     bgName: "waterfall",
     track: "trackWaterfall.wav",
     mapLocations: { pino: { x: 115, y: -245 }, jaz: { x: -186, y: -245 } }
@@ -102,7 +102,7 @@ const locations = {
     // },
     choices: ["", ""],
     html: {},
-    transition: { type: "pixelate", time: 1000 },
+    transition: { type: "blur", time: 2000 },
     bgName: "rock",
     track: "trackRocks.wav",
 
@@ -121,7 +121,7 @@ const locations = {
     choices: ["", ""],
     html: {},
 
-    transition: { type: "pixelate", time: 1000 },
+    transition: { type: "blur", time: 2000 },
     bgName: "waterfall",
     banner: "waterfall",
     mapLocations: { pino: { x: -58, y: -357 }, jaz: { x: -358, y: -357 } },
@@ -139,7 +139,7 @@ const locations = {
     },
     choices: ["Left", "Right"],
     html: {},
-    transition: { type: "blur", time: 1000 },
+    transition: { type: "fade", time: 5000 },
     bgName: "forest",
     banner: "forest",
     mapLocations: { pino: { x: 448, y: -78 }, jaz: { x: 148, y: -92 } },
@@ -157,7 +157,7 @@ const locations = {
     },
     choices: ["Left", "Right"],
     html: {},
-    transition: { type: "blur", time: 1000 },
+    transition: { type: "pull", time: 2000 },
     bgName: "cave",
     banner: "cave",
     mapLocations: { pino: { x: 820, y: -620 }, jaz: { x: 520, y: -620 } },
@@ -193,7 +193,7 @@ const locations = {
     // },
     choices: ["space", "ocean"],
     html: {},
-    transition: { type: "fade", time: 1000 },
+    transition: { type: "blur", time: 1000 },
     voteVamp: "vampRiver.wav",
 
   },
@@ -220,7 +220,7 @@ const locations = {
     // },
     choices: ["vacuum", "fork"],
     html: {},
-    transition: { type: "pixelate-no-blur", time: 1000 },
+    transition: { type: "blur", time: 1000 },
     track: "weapon.wav"
 
   },
@@ -233,7 +233,7 @@ const locations = {
     // },
     choices: ["vacuum", "fork"],
     html: {},
-    transition: { type: "pixelate-no-blur", time: 1000 },
+    transition: { type: "blur", time: 1000 },
     track: "weapon.wav"
 
   },
@@ -284,7 +284,7 @@ const locations = {
     },
     choices: ["fight", "chat"],
     html: {},
-    transition: { type: "fade", time: 2000 },
+    transition: { type: "pixelate-no-blur", time: 1000 },
     voteVamp: "vampRiver.wav",
 
   },
@@ -297,7 +297,7 @@ const locations = {
     },
     choices: ["fight", "chat"],
     html: {},
-    transition: { type: "fade", time: 1000 },
+    transition: { type: "pixelate-no-blur", time: 1000 },
     bgName: "riverInterior",
     mapLocations: { pino: { x: 234, y: 73 }, jaz: { x: -70, y: 73 } },
     voteVamp: "vampRiver.wav",
@@ -313,7 +313,7 @@ const locations = {
     },
     choices: ["fight", "chat"],
     html: {},
-    transition: { type: "blur", time: 1000 },
+    transition: { type: "pixelate-no-blur", time: 1000 },
     bgName: "caveInterior",
     mapLocations: { pino: { x: 861, y: -638 }, jaz: { x: 557, y: -638 } },
     voteVamp: "vampCave.wav",
@@ -420,7 +420,7 @@ const locations = {
     choices: ["space", "ocean"],
 
     html: {},
-    transition: { type: "fade", time: 3000 },
+    transition: { type: "pixelate", time: 2000 },
     mapLocations: { pino: { x: 346, y: -600 }, jaz: { x: 42, y: -600 } },
     voteVamp: "vampClouds.wav",
     track: "trackClouds.wav"
@@ -436,7 +436,7 @@ const locations = {
     choices: ["space", "ocean"],
 
     html: {},
-    transition: { type: "fade", time: 3000 },
+    transition: { type: "pixelate", time: 2000 },
     bgName: "shore",
     mapLocations: { pino: { x: 932, y: -23 }, jaz: { x: 628, y: -23 } },
     voteVamp: "vampShores.wav",
@@ -454,7 +454,7 @@ const locations = {
     choices: ["space", "ocean"],
 
     html: {},
-    transition: { type: "fade", time: 3000 },
+    transition: { type: "pixelate", time: 2000 },
     bgName: "shore",
     mapLocations: { pino: { x: 932, y: -23 }, jaz: { x: 628, y: -23 } },
     voteVamp: "vampShores.wav",
@@ -472,7 +472,7 @@ const locations = {
 
     ],
     html: {},
-    transition: { type: "fade", time: 3000 },
+    transition: { type: "fade", time: 5000 },
     bgName: "space",
     banner: "space",
 
@@ -491,7 +491,7 @@ const locations = {
 
     ],
     html: {},
-    transition: { type: "fade", time: 3000 },
+    transition: { type: "fade", time: 5000 },
     bgName: "ocean",
     banner: "ocean",
     mapLocations: { pino: { x: 1300, y: 80 }, jaz: { x: 1000, y: 80 } },
@@ -508,7 +508,7 @@ const locations = {
     choices: [
     ],
     html: {},
-    transition: { type: "fade", time: 3000 },
+    transition: { type: "pixelate-no-blur", time: 3000 },
     track: "sylvan-game.wav"
   }
 };

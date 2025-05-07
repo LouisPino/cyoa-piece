@@ -196,6 +196,9 @@ document.addEventListener("DOMContentLoaded", function () {
         case "game-score":
           displayLeaderboard(msg.data);
           break;
+        case "audience-sample":
+          lightPulse()
+          break;
         case "sandbox":
           if (msg.data.name === "next-line") {
             nextLine();

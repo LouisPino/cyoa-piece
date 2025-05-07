@@ -95,62 +95,102 @@ function scene5() {
     }, 1000)
 }
 
-rockField()
 
 
 function videoAnimationPlaylist() {
-
     changeSize("duo", 1, .8)
-    flipChar("left", "duo")
+    flipChar("right", "duo")
     setTimeout(() => {
-        toggleAnimation("side", "duo")
-        fadeChar("duo", 550, 1000, 10, 3000)
+        toggleAnimation("walk", "duo")
+        fadeChar("jaz", -850, 200, 10, 30)
+        fadeChar("pino", -650, 200, 10, 30)
         setTimeout(() => {
-            changeSize("duo", 30000, .5)
-
             toggleAnimation("walk", "duo")
-            slideChar("jaz", 375, -265, 30000)
-            slideChar("pino", 575, -265, 30000)
-        }, 3000)
+            slideChar("jaz", 246, 50, 10000)
+            slideChar("pino", 446, 50, 10000)
+            setTimeout(() => {
+                toggleAnimation("side", "duo")
+            }, 10000)
+        }, 300)
+    }, 10000)
+    setTimeout(() => {
         setTimeout(() => {
-            fadeChar("duo", 3000, 3000, 3000, 10)
-        }, 33000)
-    }, 30000)
+            flipChar("left", "duo")
+        }, 1000)
+        setTimeout(() => {
+            flipChar("right", "duo")
+        }, 6000)
+        setTimeout(() => {
+            toggleAnimation("front", "duo")
+        }, 11000)
+        setTimeout(() => {
+            hopChar("duo")
+            setTimeout(() => {
+                hopChar("duo")
+            }, 700)
+            setTimeout(() => {
+                hopChar("duo")
+            }, 1400)
+            setTimeout(() => {
+                hopChar("duo")
+            }, 2100)
+            setTimeout(() => {
+                hopChar("duo")
+            }, 2800)
+        }, 14000)
+    }, 24300)
+    setTimeout(() => {
+        fadeChar("duo", 3000, 3000, 4000, 10)
+    }, 39500)
 
 
 
     setTimeout(() => {
         changeSize("duo", 1, .8)
-        flipChar("right", "duo")
-        toggleAnimation("side", "duo")
-
-        fadeChar("jaz", -550, 800, 10, 3000)
-        fadeChar("pino", -300, 850, 10, 3000)
+        toggleAnimation("walk", "duo")
+        flipChar("left", "duo")
+        fadeChar("pino", 1800, -500, 10, 3000)
+        fadeChar("jaz", 1600, -500, -20, 3000)
         setTimeout(() => {
-            toggleAnimation("walk", "duo")
-            changeSize("duo", 15000, .4)
-            slideChar("jaz", 500, -300, 15000)
-            slideChar("pino", 750, -300, 15000)
+            slideChar("pino", -750, 150, 20000)
+            slideChar("jaz", -950, 120, 20000)
         }, 3000)
         setTimeout(() => {
-            fadeChar("duo", 3000, 3000, 3000, 10)
-        }, 18000)
-    }, 180000)
-
-
-    setTimeout(() => {
-        changeSize("duo", 1, .8)
-        flipChar("right", "duo")
-        toggleAnimation("side", "duo")
-        fadeChar("jaz", -850, -42, 10, 3000)
-        fadeChar("pino", -1050, -42, 10, 3000)
-        setTimeout(() => {
-            toggleAnimation("walk", "duo")
-            slideChar("jaz", 1950, -42, 8000)
-            slideChar("pino", 1750, -42, 8000)
-        }, 3000)
-        setTimeout(() => {
-            fadeChar("duo", 3000, 3000, 3000, 10)
+            toggleAnimation("front", "duo")
         }, 30000)
-    }, 286000)
+    }, 91000)
+
+
+    setTimeout(() => {
+        changeSize("duo", 1, .2)
+        toggleAnimation("front", "duo")
+        fadeChar("jaz", 362, -630, 10, 3000)
+        fadeChar("pino", 762, -630, 10, 3000)
+        setTimeout(() => { hopChar("duo", 100, 500, true) }, 3000)
+        setTimeout(() => { hopChar("duo", 100, 500, true) }, 4000)
+        setTimeout(() => { hopChar("duo", 100, 500, true) }, 5000)
+        setTimeout(() => { hopChar("duo", 100, 500, true) }, 6000)
+        setTimeout(() => { hopChar("duo", 100, 500, true) }, 7000)
+        setTimeout(() => { hopChar("duo", 100, 500, true) }, 8000)
+        setTimeout(() => { hopChar("duo", 100, 500, true) }, 9000)
+        setTimeout(() => { hopChar("duo", 100, 500, true) }, 10000)
+        setTimeout(() => { hopChar("duo", 100, 500, true) }, 11000)
+        setTimeout(() => { hopChar("duo", 100, 500, true) }, 12000)
+        setTimeout(() => { hopChar("duo", 100, 500, true) }, 13000)
+        setTimeout(() => { hopChar("duo", 100, 500, true) }, 14000)
+        setTimeout(() => { hopChar("duo", 100, 500, true) }, 15000)
+        setTimeout(() => { hopChar("duo", 100, 500, true) }, 16000)
+        setTimeout(() => { hopChar("duo", 100, 500, true) }, 17000)
+        setTimeout(() => { hopChar("duo", 100, 500, true) }, 18000)
+        setTimeout(() => {
+            fadeChar("duo", 3000, 3000, 3000, 10)
+        }, 16000)
+    }, 192000)
 }
+
+
+
+
+
+
+rockField()

@@ -1,4 +1,5 @@
 // Optimized Floating Words Animation
+const wordHistory = []; // stores all words ever added
 
 const maxWords = 30;
 const words = []; // active DOM elements
@@ -16,26 +17,26 @@ let displaying = false;
 function createFloatingWord(word) {
     if (!area) return;
 
-    if (displaying) {
+    wordHistory.push(word); // Save it to history always
+
+    if (displaying || madlibbing === false) {
         displayLineup.push(word);
         return;
     }
 
-    if (madlibbing === false) {
-        displayLineup.push(word);
-        return;
-    }
-
+    // Maintain only 30 visual words
     let p;
     if (words.length >= maxWords) {
-        p = words.shift();
+        // Remove oldest visual word
+        const oldP = words.shift();
         velocities.shift();
-    } else {
-        p = document.createElement('p');
-        p.className = 'floating-word';
-        p.style.position = 'absolute';
-        area.appendChild(p);
+        area.removeChild(oldP);
     }
+
+    p = document.createElement('p');
+    p.className = 'floating-word';
+    p.style.position = 'absolute';
+    area.appendChild(p);
 
     p.innerText = word.word;
     p.dataset.type = word.type;
@@ -43,6 +44,7 @@ function createFloatingWord(word) {
     const posX = Math.random() * (area.clientWidth - 100);
     const posY = Math.random() * (area.clientHeight - 50);
     p.style.transform = `translate(${posX}px, ${posY}px) rotate(0deg)`;
+
     const velocity = {
         x: (Math.random() * 0.5 + 0.1) * (Math.random() < 0.5 ? 1 : -1),
         y: (Math.random() * 0.5 + 0.1) * (Math.random() < 0.5 ? 1 : -1),
@@ -50,10 +52,10 @@ function createFloatingWord(word) {
         rotationSpeed: (Math.random() * 0.2 + 0.05) * (Math.random() < 0.5 ? 1 : -1)
     };
 
-
     words.push(p);
     velocities.push(velocity);
 }
+
 
 function animateWords() {
     const width = area.clientWidth;
@@ -92,14 +94,12 @@ function displayWord(type) {
     }
 
     if (madlibIdx === wordTypes.length) {
-        movePastMadlib()
-        return
+        movePastMadlib();
+        return;
     }
 
-    setTimeout(resetWords, 3000)
-    madlibIdx++
-
-
+    setTimeout(resetWords, 3000);
+    madlibIdx++;
     displaying = true;
 
     const thoughtBubbleEl = document.getElementById("thought-bubble");
@@ -108,25 +108,58 @@ function displayWord(type) {
     thoughtBubbleEl.style.opacity = 0;
     speechBubbleEl.style.opacity = 1;
 
-    const matchingObjects = madlibWords.filter(w => w.type === type);
+    // Match from full history
+    const matchingObjects = wordHistory.filter(w => w.type === type);
     if (matchingObjects.length === 0) return;
 
     const selectedWord = matchingObjects[Math.floor(Math.random() * matchingObjects.length)];
-    const selectedP = words.find(p => p.innerText === selectedWord.word);
+
+    // Check if it’s already on screen
+    let selectedP = words.find(p => p.innerText === selectedWord.word);
+
+    if (!selectedP) {
+        // Create and track it like any other word
+        selectedP = document.createElement('p');
+        selectedP.className = 'floating-word';
+        selectedP.style.position = 'absolute';
+        selectedP.innerText = selectedWord.word;
+        selectedP.dataset.type = selectedWord.type;
+
+        const posX = Math.random() * (area.clientWidth - 100);
+        const posY = Math.random() * (area.clientHeight - 50);
+        selectedP.style.transform = `translate(${posX}px, ${posY}px) rotate(0deg)`;
+
+        area.appendChild(selectedP);
+
+        // Add to tracking arrays so it behaves like any other
+        words.push(selectedP);
+        velocities.push({
+            x: (Math.random() * 0.5 + 0.1) * (Math.random() < 0.5 ? 1 : -1),
+            y: (Math.random() * 0.5 + 0.1) * (Math.random() < 0.5 ? 1 : -1),
+            angle: 0,
+            rotationSpeed: (Math.random() * 0.2 + 0.05) * (Math.random() < 0.5 ? 1 : -1)
+        });
+
+        // Maintain max word count
+        if (words.length > maxWords) {
+            const oldP = words.shift();
+            velocities.shift();
+            area.removeChild(oldP);
+        }
+    }
 
     for (let p of words) {
-        if (p === selectedP) {
-            const centerX = (area.clientWidth - p.offsetWidth * 2) / 2;
-            const centerY = (area.clientHeight - p.offsetHeight * 2) / 2;
-
-            p.style.transition = 'transform 1s ease';
-            p.style.zIndex = 1000;
-            p.style.transform = `translate(${centerX}px, ${centerY}px) rotate(0deg) scale(5)`;
-        } else {
+        if (p !== selectedP) {
             p.style.display = 'none';
         }
     }
 
+    const centerX = (area.clientWidth - selectedP.offsetWidth * 2) / 2;
+    const centerY = (area.clientHeight - selectedP.offsetHeight * 2) / 2;
+
+    selectedP.style.transition = 'transform 1s ease';
+    selectedP.style.zIndex = 1000;
+    selectedP.style.transform = `translate(${centerX}px, ${centerY}px) rotate(0deg) scale(5)`;
 }
 
 function resetWords() {
@@ -193,5 +226,13 @@ function madlibTimeChange(time) {
 function madlibClearBoard() {
     const wordAreaEl = document.getElementById("word-area");
 
-    wordAreaEl.innerHTML = ""
+    // Remove all floating word elements
+    wordAreaEl.innerHTML = "";
+
+    // Clear DOM tracking arrays
+    words.length = 0;
+    velocities.length = 0;
+
+    // Optionally, also clear displayLineup if needed
+    displayLineup.length = 0;
 }

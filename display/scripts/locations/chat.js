@@ -9,7 +9,7 @@ if (checkHistory("rats")) {
     npcBase = "rat"
 } else if (checkHistory("bats")) {
     npcBase = "bat"
-} else if (checkHistory("isopods")) {
+} else {
     npcBase = "isopod"
 }
 
@@ -17,8 +17,6 @@ if (checkHistory("river")) {
     changeBg("animated/riverInterior.gif")
     document.getElementById("boat-ctr-chat").style.visibility = "visible"
     locations.isopods["voteVamp"] = "vampRiver.wav"
-
-
 } else {
     changeBg("animated/caveInterior.gif")
     locations.isopods["voteVamp"] = "vampCave.wav"

@@ -950,7 +950,8 @@ body {
     position: absolute;
     top: 35px;
     z-index: 1000;
-    /* border: 1px solid red; */
+    border: 8px solid rgb(68, 40, 96);
+    border-radius: 8px;
 }
 
 #qrcode1 {

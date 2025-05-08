@@ -58,6 +58,10 @@ function promptVote(mainEl, extras, data, type) {
     let qrEl2 = document.getElementById("qrcode2")
     qrEl.style.visibility = "visible"
     qrEl2.style.visibility = "visible"
+    qrEl.style.top = 0
+    qrEl.style.left = 0
+    qrEl2.style.top = 0
+    qrEl2.style.right = 0
     const html = extras.filter(
         (extra) => extra.name === "votePrompt"
     )[0].content;

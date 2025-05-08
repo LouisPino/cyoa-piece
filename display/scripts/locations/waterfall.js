@@ -197,7 +197,7 @@ function videoAnimationPlaylist() {
 
     setTimeout(() => {
         changeSize("npc", 1, .5)
-        fadeChar("npc", 3750, -50, 2000, 3000)
+        fadeChar("npc", 3750, -150, 2000, 3000)
         setTimeout(() => {
             hopChar("npc")
             sendToServer({ type: "fx", val: "ribbit.mp3" })
@@ -240,16 +240,28 @@ function videoAnimationPlaylist() {
                     hopChar("npc")
                 }, 800)
             }, 23000)
+            setTimeout(() => {
+                hopChar("npc")
+                setTimeout(() => {
+                    hopChar("npc")
+                }, 800)
+            }, 26000)
+            setTimeout(() => {
+                hopChar("npc")
+                setTimeout(() => {
+                    hopChar("npc")
+                }, 800)
+            }, 30000)
         }, 9000)
         setTimeout(() => {
             fadeChar("npc", -4000, 100, 5000, 3000)
-        }, 25000)
-    }, 115000)
+        }, 32000)
+    }, 114000)
 
     setTimeout(() => {
         toggleAnimation("front", "duo")
         fadeChar("jaz", 834, -150, 3000, 1000)
-        fadeChar("pino", 300, -100, 3000, 1000)
+        fadeChar("pino", 300, -250, 3000, 1000)
         setTimeout(() => {
             hopChar("jaz", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (900 - 300 + 1)) + 300, true);
             setTimeout(() => {
@@ -276,6 +288,21 @@ function videoAnimationPlaylist() {
             setTimeout(() => {
                 hopChar("jaz", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
             }, 15000)
+            setTimeout(() => {
+                hopChar("jaz", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 17000)
+            setTimeout(() => {
+                hopChar("jaz", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 19000)
+            setTimeout(() => {
+                hopChar("jaz", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 21000)
+            setTimeout(() => {
+                hopChar("jaz", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 23000)
+            setTimeout(() => {
+                hopChar("jaz", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 25000)
         }, 300)
         setTimeout(() => {
             hopChar("pino", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
@@ -294,7 +321,6 @@ function videoAnimationPlaylist() {
             setTimeout(() => {
                 hopChar("pino", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
             }, 10000)
-
             setTimeout(() => {
                 hopChar("pino", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
             }, 12000)
@@ -304,11 +330,27 @@ function videoAnimationPlaylist() {
             setTimeout(() => {
                 hopChar("pino", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
             }, 16000)
+
+            setTimeout(() => {
+                hopChar("pino", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 18000)
+            setTimeout(() => {
+                hopChar("pino", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 20000)
+            setTimeout(() => {
+                hopChar("pino", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 22000)
+            setTimeout(() => {
+                hopChar("pino", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 24000)
+            setTimeout(() => {
+                hopChar("pino", Math.floor(Math.random() * (300 - 100 + 1)) + 100, Math.floor(Math.random() * (1100 - 700 + 1)) + 300, true);
+            }, 26000)
             setTimeout(() => {
                 fadeChar("duo", 3000, 3000, 3000, 30)
-            }, 18000)
+            }, 28000)
         }, 700)
-    }, 170000)
+    }, 165000)
 
 
 

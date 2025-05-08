@@ -15,7 +15,7 @@ function clouds() {
     setTimeout(scene1, 100)
     setTimeout(scene2, 8000)
     setTimeout(scene3, 76000)
-    setTimeout(scene4, 101500)
+    setTimeout(scene4, 101500)//76000 and 101500
 }
 
 
@@ -160,7 +160,6 @@ function scene4() {
     setTimeout(() => {
         toggleBox("sprite")
         sendToServer({ type: "fx", val: "woosh.mp3" })
-
         setTimeout(nextLine, 200)
     }, 1400)
     setTimeout(() => {
@@ -178,4 +177,4 @@ function scene4() {
 }
 
 
-// clouds()
+clouds()

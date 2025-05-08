@@ -197,7 +197,11 @@ document.addEventListener("DOMContentLoaded", function () {
           displayLeaderboard(msg.data);
           break;
         case "audience-sample":
-          lightPulse()
+          if (currentLocation.name === "twilight") {
+            bubblePop()
+          } else {
+            lightPulse()
+          }
           break;
         case "sandbox":
           if (msg.data.name === "next-line") {

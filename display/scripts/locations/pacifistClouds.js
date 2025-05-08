@@ -11,8 +11,7 @@ function pacifistClouds() {
     setTimeout(scene1, 1000)
     setTimeout(scene2, 8000)
     setTimeout(scene3, 14000)
-    setTimeout(scene4, 35000) // make me length of video + video start time
-
+    setTimeout(scene4, 314000) // make me length of video + video start time
 }
 
 function scene0() {
@@ -22,6 +21,7 @@ function scene0() {
     changeSize("duo", 1, .3)
     jumpChar("pino", 3000, 3000)
     jumpChar("jaz", 3000, 3000)
+    jumpChar("npc", 2000, 2000)
 }
 function scene1() {
     renderPino()
@@ -115,12 +115,15 @@ function scene3() {
     cloudVidEl.style.visibility = "visible"
     cloudVidEl.style.opacity = 1
     cloudVidEl.play()
+    videoAnimationPlaylist()
 }
 function scene4() {
     //after video
     cloudVidEl.style.opacity = 0
     setTimeout(() => {
         cloudVidEl.pause()
+        congaLine(0)
+
     }, 8000)
     setTimeout(() => {
         slideBoxY("duo")
@@ -138,5 +141,133 @@ function scene4() {
         }, 25000)
     }, 1000)
 }
+
+
+function videoAnimationPlaylist() {
+    changeSize("duo", 1, .8)
+    toggleAnimation("run", "duo")
+    const jazEl = document.getElementById("jaz-char")
+    const pinoEl = document.getElementById("pino-char")
+    const npcEl = document.getElementById("npc")
+
+    jazEl.classList.add("float-cloud")
+    setTimeout(() => {
+        pinoEl.classList.add("float-cloud")
+    }, 3000)
+    setTimeout(() => {
+        npcEl.classList.add("float-cloud")
+    }, 2000)
+    setTimeout(() => {
+        fadeChar("jaz", -1000, 0, 200, 200)
+        setTimeout(() => {
+            slideChar("jaz", 2000, -100, 30000)
+        }, 3000)
+    }, 8000)
+    setTimeout(() => {
+        fadeChar("pino", -1000, 100, 300, 200)
+        setTimeout(() => {
+            slideChar("pino", 2000, 100, 30000)
+        }, 3000)
+    }, 12000)
+
+
+    setTimeout(() => {
+        jumpChar("npc", 1900, 0)
+        setTimeout(() => {
+            slideChar("npc", -2000, 0, 6000)
+            setTimeout(() => {
+                flipChar("left", "npc")
+            }, 1000)
+            setTimeout(() => {
+                flipChar("right", "npc")
+            }, 2000)
+            setTimeout(() => {
+                flipChar("left", "npc")
+            }, 3000)
+            setTimeout(() => {
+                flipChar("right", "npc")
+            }, 4000)
+            setTimeout(() => {
+                flipChar("left", "npc")
+            }, 5000)
+        }, 1000)
+    }, 60000)
+
+    setTimeout(() => {
+        changeSize("duo", 1, .8)
+        toggleAnimation("run", "duo")
+        flipChar("left", "duo")
+        jumpChar("npc", -2000, 0)
+        flipChar("right", "npc")
+        fadeChar("jaz", 2000, 0, 400, 200)
+        setTimeout(() => {
+            slideChar("jaz", -1000, -400, 30000)
+        }, 3000)
+        setTimeout(() => {
+            slideChar("npc", 1900, 0, 30000)
+        }, 9000)
+    }, 120000)
+    setTimeout(() => {
+        fadeChar("pino", 2000, 100, -400, 200)
+        setTimeout(() => {
+            slideChar("pino", -1000, 400, 30000)
+        }, 6000)
+    }, 120000)
+
+
+
+
+    setTimeout(() => {
+        changeSize("npc", 1, .8)
+        setTimeout(() => {
+            congaLine(1, 8, 100)
+        }, 100)
+        setTimeout(() => {
+            slideChar("npc", -1900, 0, 30000)
+        }, 1000)
+    }, 180000)
+
+    setTimeout(() => {
+        startFlipping(45000)
+
+        toggleAnimation("front", "duo")
+        setTimeout(() => {
+            fadeChar("jaz", -1000, 0, 200, 200)
+            setTimeout(() => {
+                slideChar("jaz", 2000, -100, 30000)
+            }, 3000)
+        }, 8000)
+        setTimeout(() => {
+            slideChar("npc", 2000, 0, 30000)
+        }, 9000)
+        setTimeout(() => {
+            fadeChar("pino", -1000, 100, 300, 200)
+            setTimeout(() => {
+                slideChar("pino", 2000, 100, 30000)
+            }, 3000)
+        }, 12000)
+
+    }, 240000)
+
+
+
+
+}
+
+function startFlipping(duration = 45000) {
+    let direction = "left";
+    const target = "duo";
+
+    const interval = setInterval(() => {
+        flipChar(direction, target);
+        direction = direction === "left" ? "right" : "left";
+    }, 300);
+
+    // Stop the interval after the specified duration
+    setTimeout(() => {
+        clearInterval(interval);
+    }, duration);
+}
+
 
 pacifistClouds()

@@ -290,6 +290,11 @@ body {
     position: absolute;
 }
 
+.float-cloud {
+    animation: floatUpDownClouds 8s ease-in-out infinite;
+    position: absolute;
+}
+
 .float-only-rats {
     animation: floatUpDownRats 4s ease-in-out infinite;
     position: absolute;
@@ -330,6 +335,20 @@ body {
 
     100% {
         transform: translateY(0px);
+    }
+}
+
+@keyframes floatUpDownClouds {
+    0% {
+        transform: translateY(100px);
+    }
+
+    50% {
+        transform: translateY(-100px);
+    }
+
+    100% {
+        transform: translateY(100px);
     }
 }
 
@@ -838,6 +857,10 @@ body {
     animation: pulse-out 300ms ease-out forwards;
     pointer-events: none;
     z-index: 9999;
+}
+
+.bubble-pop {
+    width: 50px;
 }
 
 @keyframes pulse-out {

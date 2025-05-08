@@ -91,9 +91,9 @@ function scene3() {
 }
 function scene4() {
     //after video
-    spaceVidEl.style.opacity = 0
+    oceanVidEl.style.opacity = 0
     setTimeout(() => {
-        spaceVidEl.pause()
+        oceanVidEl.pause()
     }, 8000)
     setTimeout(() => {
         slideBoxY("dialogue")

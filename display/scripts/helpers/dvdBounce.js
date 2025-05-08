@@ -178,6 +178,42 @@ function lightPulse() {
     dot.remove();
   }, 300);
 }
+const activeBubbles = [];
 
+function bubblePop() {
+  const x = Math.random() * (1600 - 300) + 300;
+  const y = Math.random() * (800 - 200) + 200;
+  const hue = Math.floor(Math.random() * 360);
 
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", "/display/assets/locations/bubble.gif", true);
+  xhr.responseType = "blob";
+  xhr.onload = function () {
+    const blobUrl = URL.createObjectURL(xhr.response);
 
+    const bubble = document.createElement("img");
+    bubble.src = blobUrl;
+    bubble.className = "bubble-pop";
+    bubble.style.position = "absolute";
+    bubble.style.left = `${x}px`;
+    bubble.style.top = `${y}px`;
+    bubble.style.pointerEvents = "none";
+    bubble.style.filter = `grayscale(1) sepia(1) hue-rotate(${hue}deg) saturate(5)`;
+    bubble.style.zIndex = 1000;
+
+    document.body.appendChild(bubble);
+    activeBubbles.push(bubble);
+
+    setTimeout(() => {
+      if (bubble.parentElement) {
+        bubble.remove();
+        URL.revokeObjectURL(blobUrl); // free memory
+      }
+      const index = activeBubbles.indexOf(bubble);
+      if (index !== -1) {
+        activeBubbles.splice(index, 1);
+      }
+    }, 1000);
+  };
+  xhr.send();
+}

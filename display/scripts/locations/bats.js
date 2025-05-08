@@ -24,11 +24,6 @@ function bats() {
     setTimeout(() => {
         scene4()
     }, 33000 * multiplier)
-    setTimeout(() => {
-        scene5()
-    }, 410000 * multiplier)
-
-
 }
 
 
@@ -124,11 +119,12 @@ function scene4() {
     slideBoxY("sprite")
     setTimeout(() => {
         nextLine()
-        sendToServer({ type: "fx", val: "bat.wav" })
+        sendToServer({ type: "fx", val: "batScreech.wav" })
     }, 750)
-}
-function scene5() {
-    slideBoxY("none")
+    setTimeout(()=>{
+        slideBoxY("none")
+    },10000)
 }
 
-// bats()
+
+bats()

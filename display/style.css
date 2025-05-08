@@ -1049,12 +1049,14 @@ body {
     height: 5vh;
     z-index: 50;
     pointer-events: none;
+    border: 8px solid;
+         border: 8px solid rgb(66, 41, 95);
     /* optional, if you want clicks to go through */
 }
 
 .vote-time-div {
     position: relative;
-    background-color: var(--sylvan-light);
+    background-color: rgb(255, 189, 146);
     width: 100%;
     height: 100%;
     pointer-events: auto;

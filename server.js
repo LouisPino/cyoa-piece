@@ -7,7 +7,7 @@ const IP4 = require('./helpers/ip4.js')
 const [locations, mobileExtras, displayExtras, displayScripts, mobileScripts, mobileLocationScripts, displayLocationScripts] = require("./helpers/fileLoader.js")
 const [characters] = require("./characters/default.js")
 let currentLocation = locations["welcome"]
-const voteLength = 2000 //15000
+const voteLength = 15000 //15000
 const winnerLength = 2000 //5000
 const promptLength = 2000//10000
 let gameScores = [
@@ -25,7 +25,7 @@ let voting = false
 let attacking = false
 
 const bossMaxHealth = 7 //7
-const swipeCountTarget = 3 //num of people x 1.5
+const swipeCountTarget = 10 //num of people x 1.5
 let bossHealth = bossMaxHealth
 
 const swipeTypes = ["up", "down", "left", "right"]

@@ -540,7 +540,7 @@ function decrementHealth() {
         } else if (checkHistory("isopods")) {
             enemySound = "wilhelm.wav"
         } else {
-            enemySound = "bat.wav"
+            enemySound = "batScreech.wav"
         }
         slideBoxY("sprite")
         setTimeout(nextLine, 750)

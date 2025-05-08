@@ -25,9 +25,7 @@ function rats() {
     setTimeout(() => {
         scene4()
     }, 33000 * multiplier)
-    setTimeout(() => {
-        scene5()
-    }, 41000 * multiplier)
+
 
 }
 
@@ -213,10 +211,10 @@ function scene4() {
         sendToServer({ type: "fx", val: "rats.wav" })
 
     }, 750)
-}
-function scene5() {
-    slideBoxY("none")
-    document.getElementById("npc").classList.remove("float-only-rats")
+    setTimeout(() => {
+        slideBoxY("none")
+        document.getElementById("npc").classList.remove("float-only-rats")
+    }, 10000)
 }
 
 rats()

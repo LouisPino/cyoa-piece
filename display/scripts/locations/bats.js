@@ -127,4 +127,4 @@ function scene4() {
 }
 
 
-// bats()
+bats()

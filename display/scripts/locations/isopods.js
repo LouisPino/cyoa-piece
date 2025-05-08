@@ -124,14 +124,11 @@ function scene4() {
     setTimeout(() => {
         nextLine()
         sendToServer({ type: "fx", val: "isopods.wav" })
-
     }, 750)
+    setTimeout(() => {
+        slideBoxY("none")
+    }, 10000)
 }
-function scene5() {
-    slideBoxY("none")
-}
-
-
 
 
 
@@ -150,8 +147,7 @@ function scene0wet() {
 }
 
 function scene1wet() {
-    flipChar("right", "pino")
-    flipChar("right", "jaz")
+
     toggleAnimation("front", "duo")
     getInBoat(boatRockerEl)
     setTimeout(() => {
@@ -226,15 +222,11 @@ function scene4wet() {
         sendToServer({ type: "fx", val: "isopods.wav" })
 
     }, 750)
+    setTimeout(() => {
+        slideBoxY("none")
+        document.getElementById("npc").classList.remove("float-only-rats")
+    }, 10000)
 }
-function scene5wet() {
-    slideBoxY("none")
-    document.getElementById("npc").classList.remove("float-only-rats")
-
-}
-
-
-
 
 
 
@@ -257,9 +249,6 @@ function dryPlaylist() {
     setTimeout(() => {
         scene4()
     }, 33000 * multiplier)
-    setTimeout(() => {
-        scene5()
-    }, 41000 * multiplier)
 }
 function wetPlaylist() {
     scene0wet()
@@ -279,9 +268,6 @@ function wetPlaylist() {
     setTimeout(() => {
         scene4wet()
     }, 33000 * multiplier)
-    setTimeout(() => {
-        scene5wet()
-    }, 41000 * multiplier)
 }
 
 

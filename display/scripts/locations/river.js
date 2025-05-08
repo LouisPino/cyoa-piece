@@ -23,7 +23,6 @@ function scene0() {
     fadeMap(1, 1)
     toggleAnimation("front", "duo")
 
-
 }
 
 function scene1() {
@@ -160,4 +159,4 @@ function videoAnimationPlaylist() {
 
 }
 
-river()
+// river()

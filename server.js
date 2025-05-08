@@ -7,9 +7,9 @@ const IP4 = require('./helpers/ip4.js')
 const [locations, mobileExtras, displayExtras, displayScripts, mobileScripts, mobileLocationScripts, displayLocationScripts] = require("./helpers/fileLoader.js")
 const [characters] = require("./characters/default.js")
 let currentLocation = locations["welcome"]
-const voteLength = 15000 //15000
-const winnerLength = 2000 //5000
-const promptLength = 2000//10000
+const voteLength = 2000 //15000
+const winnerLength = 1000 //5000
+const promptLength = 1000//10000
 let gameScores = [
     { "name": "JAZ", "score": 2 },
     { "name": "PNO", "score": 1 },
@@ -32,8 +32,8 @@ const swipeTypes = ["up", "down", "left", "right"]
 let swipeType
 let swipeCount = 0
 
-const wordTypes = ["noun", "noun", "verb", "verb", "adjective", "adjective"]
-const madlibSubmitLength = 45 //seconds
+const wordTypes = ["adjective", "celebrity", "number", "noun", "hobby", "adjective", "musical instrument", "noun"]
+const madlibSubmitLength = 60 //seconds
 let madlibbing
 let madlibTimerInterval = null;
 
@@ -176,6 +176,7 @@ wss.on('connection', (ws, req) => {
                 break
             case "madlib-word":
                 sendToDisplay({ type: "madlib", route: "word", data: { wordType: data.val.wordType, word: data.val.word } })
+                console.log(data.val)
                 break
         }
     });
@@ -284,7 +285,6 @@ function endVote(type, item, winner) {
             break
         case "path":
             setTimeout(() => {
-
                 switch (winner) {
                     case (0):
                         // choice 1
@@ -297,7 +297,7 @@ function endVote(type, item, winner) {
                         console.log("CHOICE 2 WINS", choices["choice2"])
                         break
                 }
-            }, voteLength)
+            }, 0)
             break
     }
     voting = false;

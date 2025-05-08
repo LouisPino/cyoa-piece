@@ -20,7 +20,6 @@ if (checkHistory("river")) {
 } else {
     changeBg("animated/caveInterior.gif")
     locations.isopods["voteVamp"] = "vampCave.wav"
-
 }
 
 
@@ -63,7 +62,7 @@ const ratsArr = [
 textsArr = previousLocation === "rats" ? ratsArr : batIsoArr
 
 
-let baseSprite = previousLocation.slice(0, -1)
+let baseSprite = npcBase
 function chat() {
     if (previousLocation === "rats") {
         ratPlaylist()
@@ -93,7 +92,7 @@ function ratPlaylist() {
 function scene0() {
     toggleAnimation("side", "jaz")
     toggleAnimation("side", "pino")
-    changeNPCSrc(`${previousLocation.slice(0, -1)}/full.png`)
+    changeNPCSrc(`${npcBase}/full.png`)
     jumpChar("npc", 550, 0)
     changeSize("npc", 1, .7)
     jumpChar("pino", 250, -50)

@@ -49,6 +49,10 @@ function displayChoice(winner, confetti) {
     let qrEl2 = document.getElementById("qrcode2")
     qrEl.style.visibility = "hidden"
     qrEl2.style.visibility = "hidden"
+    const voteTimeDiv = document.querySelector(".vote-time-wrapper")
+
+    voteTimeDiv.style.visibility = "hidden"
+
     const choice1El = document.getElementById("vote-a-img");
     const choice2El = document.getElementById("vote-b-img");
     const choice1BgEl = document.getElementById("vote-a-bg");

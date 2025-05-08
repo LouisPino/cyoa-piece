@@ -17,6 +17,7 @@ let swipeType
 
 
 let madlibWords = [{ word: "bird", type: "noun" }, { word: "Missouri", type: "noun" }, { word: "drink", type: "verb" }, { word: "devour", type: "verb" }, { word: "stinky", type: "adjective" }, { word: "exaggerated", type: "adjective" }]
+const wordOrder = ["adjective", "adjective", "adjective", "celebrity", "adjective", "noun", "noun", "noun", "number", "musical instrument", "adjective", "noun", "noun", "noun", "adjective", "adjective", "noun", "noun", "hobby", "number", "number"]
 let wordTypes
 let madlibIdx = 0
 let madlibbing = false
@@ -252,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function () {
               createFloatingWord(msg.data)
               break
             case "draw":
-              displayWord(wordTypes[madlibIdx])
+              displayWord(wordOrder[madlibIdx])
               break
             case "timer":
               madlibTimeChange(msg.data)

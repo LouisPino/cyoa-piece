@@ -93,7 +93,7 @@ function displayWord(type) {
         animationId = null;
     }
 
-    if (madlibIdx === wordTypes.length) {
+    if (madlibIdx === wordOrder.length) {
         movePastMadlib();
         return;
     }

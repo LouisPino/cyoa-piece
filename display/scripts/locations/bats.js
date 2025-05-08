@@ -121,10 +121,10 @@ function scene4() {
         nextLine()
         sendToServer({ type: "fx", val: "batScreech.wav" })
     }, 750)
-    setTimeout(()=>{
+    setTimeout(() => {
         slideBoxY("none")
-    },10000)
+    }, 10000)
 }
 
 
-bats()
+// bats()

@@ -18,11 +18,13 @@ function displayVote(mainEl, extras, voteLength, data, type) {
         (extra) => extra.name === "vote"
     )[0].content;
     const voteTimeDiv = document.querySelector(".vote-time-div")
+    const voteTimeWrapper = document.querySelector(".vote-time-wrapper")
     const voteBannerText = document.querySelector(".vote-banner-text")
     const voteAImg = document.getElementById("vote-a-img")
     const voteBImg = document.getElementById("vote-b-img")
     const voteBGs = document.querySelectorAll(".vote-selection-bg")
     const backgroundEl = document.querySelector(".vote-bg")
+    voteTimeWrapper.style.visibility = "visible"
     voteTimeDiv.style.animation = `voteTimer ${voteLength / 1000}s linear`;
     let voteEls = [voteAImg, voteBImg, voteBGs[0], voteBGs[1]]
     switch (type) {
@@ -87,6 +89,9 @@ function promptVote(mainEl, extras, data, type) {
 }
 
 function displayWinner(winner, extras, mainEl, currentLocation) {
+    const voteTimeDiv = document.querySelector(".vote-time-div")
+
+    voteTimeDiv.style.visibility = "hidden"
 
     const html = extras.filter(
         (extra) => extra.name === "voteWin"

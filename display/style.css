@@ -1044,14 +1044,12 @@ body {
 .vote-time-wrapper {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100vw;
-    height: 5vh;
+    left: 13vw;
+    width: 74vw;
+    height: 8vh;
     z-index: 50;
     pointer-events: none;
-    border: 8px solid;
-         border: 8px solid rgb(66, 41, 95);
-    /* optional, if you want clicks to go through */
+    border: 8px solid rgb(66, 41, 95);
 }
 
 .vote-time-div {

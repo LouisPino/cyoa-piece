@@ -211,7 +211,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 541.0, 149.0, 50.0, 22.0 ],
-					"text" : "1"
+					"text" : "0"
 				}
 
 			}
@@ -8053,7 +8053,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 2196.869543552398682, 128.0, 48.0, 50.0 ],
-									"text" : "trackRocks.wav"
+									"text" : "trackForest.wav"
 								}
 
 							}
@@ -8811,7 +8811,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 1596.244543552398682, 50.739132404327393, 85.0, 36.0 ],
-									"text" : "trackRocks.wav"
+									"text" : "trackForest.wav"
 								}
 
 							}
@@ -8923,8 +8923,8 @@
 										"followglobaltempo" : 0,
 										"formantcorrection" : 0,
 										"mode" : "basic",
-										"originallength" : [ 214695.118367346993182, "ticks" ],
-										"originaltempo" : 120.000000000000043,
+										"originallength" : [ 214695.118367346964078, "ticks" ],
+										"originaltempo" : 120.000000000000014,
 										"pitchcorrection" : 0,
 										"quality" : "basic",
 										"timestretch" : [ 0 ]
@@ -12875,13 +12875,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-20",
-					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 205.309558987617493, 6.5, 117.08072251081353, 36.0 ],
-					"text" : "/track trackRocks.wav"
+					"patching_rect" : [ 205.309558987617493, 6.5, 117.08072251081353, 22.0 ],
+					"text" : "/fx meow.mp3"
 				}
 
 			}

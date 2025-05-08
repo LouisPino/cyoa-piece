@@ -29,6 +29,7 @@ function initializeWebSocket() {
                 locationScripts = msg.data["locationScripts"]
                 wordTypes = msg.data["wordTypes"]
                 madlibbing = msg.data["madlibbing"]
+                currentLocation = msg.data["currentLocation"]
                 break
             case "section":
                 sectionChange(locations[msg.data.name])

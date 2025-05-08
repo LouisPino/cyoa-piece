@@ -22,6 +22,8 @@ let history = {
     buff: ""
 }
 let voting = false
+let voteType = "skin";
+let skinItem = "";
 let attacking = false
 
 const bossMaxHealth = 7 //7
@@ -126,11 +128,16 @@ wss.on('connection', (ws, req) => {
         sendToDisplay({ type: 'initialFileServe', data: { locations: locations, extras: displayExtras, scripts: displayScripts, locationScripts: displayLocationScripts, voteLength: voteLength, winnerLength: winnerLength, promptLength: promptLength, swipeCountTarget: swipeCountTarget, characters: characters, wordTypes: wordTypes, madlibSubmitLength: madlibSubmitLength } })
         sendToDisplay({ type: "section", data: currentLocation })
     } else {
-        ws.send(JSON.stringify({ type: 'initialFileServe', data: { locations: locations, extras: mobileExtras, scripts: mobileScripts, voteLength: voteLength, locationScripts: mobileLocationScripts, wordTypes: wordTypes, madlibSubmitLength: madlibSubmitLength } }))
+        ws.send(JSON.stringify({ type: 'initialFileServe', data: { locations: locations, currentLocation: currentLocation, extras: mobileExtras, scripts: mobileScripts, voteLength: voteLength, locationScripts: mobileLocationScripts, wordTypes: wordTypes, madlibSubmitLength: madlibSubmitLength } }))
         if (!voting) {
             ws.send(JSON.stringify({ type: "section", data: currentLocation }))
         } else {
-            ws.send(JSON.stringify({ type: "vote", data: { type: "path" } }))
+            if (voteType === "skin") {
+                ws.send(JSON.stringify({ type: "vote", data: { type: "skin", item: skinItem } }))
+
+            } else {
+                ws.send(JSON.stringify({ type: "vote", data: { type: "path", data: currentLocation } }))
+            }
 
         }
     }
@@ -243,6 +250,7 @@ function handleVote(vote) {
 
 function triggerVote(type, item) {
     voting = true
+    voteType = type
     if (type === "path") {
         if (currentLocation.voteVamp) {
             oscClient.send("/track", currentLocation.voteVamp)
@@ -390,7 +398,9 @@ oscServer.on('message', (msg, rinfo) => {
                     triggerVote("path")
                     break
                 case "skin":
+                    skinItem = msg[2]
                     triggerVote("skin", msg[2])
+
                     break
             }
             break

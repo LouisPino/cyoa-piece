@@ -211,7 +211,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 541.0, 149.0, 50.0, 22.0 ],
-					"text" : "2"
+					"text" : "1"
 				}
 
 			}
@@ -723,7 +723,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 555.31914496421814, 13.5, 50.0, 22.0 ],
-					"text" : "99"
+					"text" : "97"
 				}
 
 			}
@@ -907,7 +907,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 674.893398284912109, 90.55937659740448, 50.0, 22.0 ],
-					"text" : "99"
+					"text" : "97"
 				}
 
 			}
@@ -4436,7 +4436,7 @@
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-													"text" : "99"
+													"text" : "97"
 												}
 
 											}
@@ -5755,7 +5755,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-									"text" : "99"
+									"text" : "97"
 								}
 
 							}
@@ -7854,6 +7854,18 @@
 						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-95",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1831.0, 116.0, 101.0, 22.0 ],
+									"text" : "sylvan-game.wav"
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-85",
 									"maxclass" : "message",
 									"numinlets" : 2,
@@ -8040,8 +8052,8 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 2177.869543552398682, 156.739132404327393, 48.0, 50.0 ],
-									"text" : "trackRiver.wav"
+									"patching_rect" : [ 2196.869543552398682, 128.0, 48.0, 50.0 ],
+									"text" : "trackRocks.wav"
 								}
 
 							}
@@ -8078,7 +8090,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 1455.629631280899048, 253.0, 48.0, 50.0 ],
-									"text" : "trackRiver.wav"
+									"text" : "trackForest.wav"
 								}
 
 							}
@@ -8689,7 +8701,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 879.0, 60.597262620925903, 57.0, 36.0 ],
-									"text" : "boing.mp3"
+									"text" : "meow.mp3"
 								}
 
 							}
@@ -8779,7 +8791,7 @@
 										"followglobaltempo" : 0,
 										"formantcorrection" : 0,
 										"mode" : "basic",
-										"originallength" : [ 1584.936054421767722, "ticks" ],
+										"originallength" : [ 1130.862585034012909, "ticks" ],
 										"originaltempo" : 119.999999999999929,
 										"pitchcorrection" : 0,
 										"quality" : "basic",
@@ -8799,7 +8811,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 1596.244543552398682, 50.739132404327393, 85.0, 36.0 ],
-									"text" : "trackRiver.wav"
+									"text" : "trackRocks.wav"
 								}
 
 							}
@@ -8834,7 +8846,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1749.869543552398682, 50.739132404327393, 30.0, 30.0 ]
+									"patching_rect" : [ 1749.869543552398682, 15.739132404327393, 30.0, 30.0 ]
 								}
 
 							}
@@ -8842,11 +8854,11 @@
 								"box" : 								{
 									"id" : "obj-9",
 									"maxclass" : "newobj",
-									"numinlets" : 3,
-									"numoutlets" : 3,
-									"outlettype" : [ "bang", "bang", "" ],
-									"patching_rect" : [ 1749.869543552398682, 101.739132404327393, 104.0, 22.0 ],
-									"text" : "sel 0 weapon.wav"
+									"numinlets" : 4,
+									"numoutlets" : 4,
+									"outlettype" : [ "bang", "bang", "bang", "" ],
+									"patching_rect" : [ 1712.869543552398682, 94.739132404327393, 200.0, 22.0 ],
+									"text" : "sel 0 weapon.wav sylvan-game.wav"
 								}
 
 							}
@@ -8911,7 +8923,7 @@
 										"followglobaltempo" : 0,
 										"formantcorrection" : 0,
 										"mode" : "basic",
-										"originallength" : [ 334884.614965986518655, "ticks" ],
+										"originallength" : [ 214695.118367346993182, "ticks" ],
 										"originaltempo" : 120.000000000000043,
 										"pitchcorrection" : 0,
 										"quality" : "basic",
@@ -11626,6 +11638,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-227", 0 ],
+									"order" : 2,
 									"source" : [ "obj-238", 0 ]
 								}
 
@@ -11634,6 +11647,22 @@
 								"patchline" : 								{
 									"destination" : [ "obj-229", 0 ],
 									"source" : [ "obj-238", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-72", 1 ],
+									"order" : 0,
+									"source" : [ "obj-238", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-80", 1 ],
+									"order" : 1,
+									"source" : [ "obj-238", 0 ]
 								}
 
 							}
@@ -12446,6 +12475,13 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-94", 0 ],
+									"source" : [ "obj-9", 3 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-95", 0 ],
 									"source" : [ "obj-9", 2 ]
 								}
 
@@ -12591,6 +12627,13 @@
 									"destination" : [ "obj-96", 0 ],
 									"order" : 1,
 									"source" : [ "obj-94", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-15", 0 ],
+									"source" : [ "obj-95", 0 ]
 								}
 
 							}
@@ -12838,7 +12881,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 205.309558987617493, 6.5, 117.08072251081353, 36.0 ],
-					"text" : "/track trackRiver.wav"
+					"text" : "/track trackRocks.wav"
 				}
 
 			}

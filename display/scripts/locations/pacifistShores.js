@@ -11,7 +11,7 @@ function pacifistShores() {
     setTimeout(scene1, 1000)
     setTimeout(scene2, 8000)
     setTimeout(scene3, 14000)
-    setTimeout(scene4, 314000) // make me length of video + video start time
+    setTimeout(scene4, 320000) // make me length of video + video start time
 
 }
 

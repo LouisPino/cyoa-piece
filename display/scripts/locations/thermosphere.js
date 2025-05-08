@@ -21,8 +21,7 @@ function thermosphere() {
     setTimeout(scene1, 1000)
     setTimeout(scene2, 8000)
     setTimeout(scene3, 18000)
-    setTimeout(scene4, 35000) // make me length of video + video start time
-
+    setTimeout(scene4, 373000) // make me length of video + video start time
 }
 
 function scene0() {
@@ -95,6 +94,7 @@ function scene3() {
     spaceVidEl.style.visibility = "visible"
     spaceVidEl.style.opacity = 1
     spaceVidEl.play()
+    videoAnimationPlaylist()
     dvdBounce()
 }
 
@@ -129,6 +129,11 @@ function scene4() {
             slideBoxY("none")
         }, 73000)
     }, 1000)
+}
+
+
+function videoAnimationPlaylist() {
+
 }
 
 thermosphere()

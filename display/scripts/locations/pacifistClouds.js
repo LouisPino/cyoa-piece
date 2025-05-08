@@ -152,6 +152,7 @@ function videoAnimationPlaylist() {
 
     jazEl.classList.add("float-cloud")
     setTimeout(() => {
+
         pinoEl.classList.add("float-cloud")
     }, 3000)
     setTimeout(() => {
@@ -228,13 +229,16 @@ function videoAnimationPlaylist() {
     }, 180000)
 
     setTimeout(() => {
-        startFlipping(45000)
+        const almostEl = document.getElementById("almost-space")
 
+        startFlipping(45000)
         toggleAnimation("front", "duo")
         setTimeout(() => {
+            jumpChar(almostEl, 2000, 0)
             fadeChar("jaz", -1000, 0, 200, 200)
             setTimeout(() => {
                 slideChar("jaz", 2000, -100, 30000)
+                slideChar(almostEl, 1000, 0, 5000)
             }, 3000)
         }, 8000)
         setTimeout(() => {
@@ -246,12 +250,7 @@ function videoAnimationPlaylist() {
                 slideChar("pino", 2000, 100, 30000)
             }, 3000)
         }, 12000)
-
     }, 240000)
-
-
-
-
 }
 
 function startFlipping(duration = 45000) {

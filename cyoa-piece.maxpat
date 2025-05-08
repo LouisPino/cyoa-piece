@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 2597.0, 490.0, 791.0, 880.0 ],
+		"rect" : [ 1899.0, 85.0, 626.0, 1272.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -189,7 +189,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 541.0, 149.0, 50.0, 22.0 ],
-					"text" : "1"
+					"text" : "0"
 				}
 
 			}
@@ -7851,6 +7851,7 @@
 						"style" : "",
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
+						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-84",
@@ -7866,13 +7867,13 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-82",
-									"linecount" : 2,
+									"linecount" : 3,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 1819.0, 199.0, 50.0, 50.0 ],
-									"text" : "trackCave.wav"
+									"text" : "trackOcean.wav"
 								}
 
 							}
@@ -7981,7 +7982,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 2177.869543552398682, 156.739132404327393, 48.0, 50.0 ],
-									"text" : "trackCave.wav"
+									"text" : "trackOcean.wav"
 								}
 
 							}
@@ -8018,7 +8019,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 1506.0, 226.739132404327393, 48.0, 50.0 ],
-									"text" : "trackCave.wav"
+									"text" : "trackOcean.wav"
 								}
 
 							}
@@ -8623,12 +8624,13 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-23",
+									"linecount" : 2,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 879.0, 60.597262620925903, 57.0, 36.0 ],
-									"text" : "boat.wav"
+									"text" : "waitWhat.mp3"
 								}
 
 							}
@@ -8718,7 +8720,7 @@
 										"followglobaltempo" : 0,
 										"formantcorrection" : 0,
 										"mode" : "basic",
-										"originallength" : [ 3017.534693877549216, "ticks" ],
+										"originallength" : [ 1435.189115646257505, "ticks" ],
 										"originaltempo" : 119.999999999999915,
 										"pitchcorrection" : 0,
 										"quality" : "basic",
@@ -8738,7 +8740,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 1596.244543552398682, 50.739132404327393, 85.0, 36.0 ],
-									"text" : "trackCave.wav"
+									"text" : "trackOcean.wav"
 								}
 
 							}
@@ -8850,8 +8852,8 @@
 										"followglobaltempo" : 0,
 										"formantcorrection" : 0,
 										"mode" : "basic",
-										"originallength" : [ 430290.459863946132828, "ticks" ],
-										"originaltempo" : 120.000000000000156,
+										"originallength" : [ 528460.386394558358006, "ticks" ],
+										"originaltempo" : 120.000000000000128,
 										"pitchcorrection" : 0,
 										"quality" : "basic",
 										"timestretch" : [ 0 ]
@@ -9205,8 +9207,8 @@
 									"patching_rect" : [ 1647.869543552398682, 493.739132404327393, 63.0, 22.0 ],
 									"saved_object_attributes" : 									{
 										"enabled" : [ 1 ],
-										"pitchshift" : [ 1.147637795275591 ],
-										"pitchshiftcent" : [ 238 ],
+										"pitchshift" : [ 4.812992125984252 ],
+										"pitchshiftcent" : [ 2720 ],
 										"quality" : "basic",
 										"reportlatency" : 0,
 										"usecents" : 0
@@ -9323,8 +9325,8 @@
 									"patching_rect" : [ 1371.869543552398682, 760.739132404327393, 63.0, 22.0 ],
 									"saved_object_attributes" : 									{
 										"enabled" : [ 1 ],
-										"pitchshift" : [ 0.403543307086614 ],
-										"pitchshiftcent" : [ -1571 ],
+										"pitchshift" : [ 0.78740157480315 ],
+										"pitchshiftcent" : [ -414 ],
 										"quality" : "basic",
 										"reportlatency" : 0,
 										"usecents" : 0
@@ -9453,8 +9455,8 @@
 									"patching_rect" : [ 1362.869543552398682, 483.739132404327393, 63.0, 22.0 ],
 									"saved_object_attributes" : 									{
 										"enabled" : [ 1 ],
-										"pitchshift" : [ 0.78740157480315 ],
-										"pitchshiftcent" : [ -414 ],
+										"pitchshift" : [ 0.856299212598425 ],
+										"pitchshiftcent" : [ -269 ],
 										"quality" : "basic",
 										"reportlatency" : 0,
 										"usecents" : 0
@@ -9571,8 +9573,8 @@
 									"patching_rect" : [ 1075.869543552398682, 779.739132404327393, 63.0, 22.0 ],
 									"saved_object_attributes" : 									{
 										"enabled" : [ 1 ],
-										"pitchshift" : [ 0.651574803149606 ],
-										"pitchshiftcent" : [ -742 ],
+										"pitchshift" : [ 0.586614173228346 ],
+										"pitchshiftcent" : [ -923 ],
 										"quality" : "basic",
 										"reportlatency" : 0,
 										"usecents" : 0
@@ -9701,8 +9703,8 @@
 									"patching_rect" : [ 1066.869543552398682, 506.739132404327393, 63.0, 22.0 ],
 									"saved_object_attributes" : 									{
 										"enabled" : [ 1 ],
-										"pitchshift" : [ 1.131889763779528 ],
-										"pitchshiftcent" : [ 214 ],
+										"pitchshift" : [ 1.931102362204724 ],
+										"pitchshiftcent" : [ 1139 ],
 										"quality" : "basic",
 										"reportlatency" : 0,
 										"usecents" : 0
@@ -9819,8 +9821,8 @@
 									"patching_rect" : [ 770.869543552398682, 697.739132404327393, 63.0, 22.0 ],
 									"saved_object_attributes" : 									{
 										"enabled" : [ 1 ],
-										"pitchshift" : [ 0.598425196850394 ],
-										"pitchshiftcent" : [ -889 ],
+										"pitchshift" : [ 0.78740157480315 ],
+										"pitchshiftcent" : [ -414 ],
 										"quality" : "basic",
 										"reportlatency" : 0,
 										"usecents" : 0
@@ -9949,8 +9951,8 @@
 									"patching_rect" : [ 770.869543552398682, 506.739132404327393, 63.0, 22.0 ],
 									"saved_object_attributes" : 									{
 										"enabled" : [ 1 ],
-										"pitchshift" : [ 1.421259842519685 ],
-										"pitchshiftcent" : [ 609 ],
+										"pitchshift" : [ 0.649606299212598 ],
+										"pitchshiftcent" : [ -747 ],
 										"quality" : "basic",
 										"reportlatency" : 0,
 										"usecents" : 0
@@ -10067,8 +10069,8 @@
 									"patching_rect" : [ 474.869543552398682, 697.739132404327393, 63.0, 22.0 ],
 									"saved_object_attributes" : 									{
 										"enabled" : [ 1 ],
-										"pitchshift" : [ 0.610236220472441 ],
-										"pitchshiftcent" : [ -855 ],
+										"pitchshift" : [ 0.486220472440945 ],
+										"pitchshiftcent" : [ -1248 ],
 										"quality" : "basic",
 										"reportlatency" : 0,
 										"usecents" : 0
@@ -10233,8 +10235,8 @@
 									"patching_rect" : [ 474.869543552398682, 502.739132404327393, 63.0, 22.0 ],
 									"saved_object_attributes" : 									{
 										"enabled" : [ 1 ],
-										"pitchshift" : [ 0.622047244094488 ],
-										"pitchshiftcent" : [ -822 ],
+										"pitchshift" : [ 1.683070866141732 ],
+										"pitchshiftcent" : [ 901 ],
 										"quality" : "basic",
 										"reportlatency" : 0,
 										"usecents" : 0
@@ -12706,13 +12708,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-20",
-					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 205.309558987617493, 6.5, 117.08072251081353, 36.0 ],
-					"text" : "/track trackCave.wav"
+					"patching_rect" : [ 205.309558987617493, 6.5, 117.08072251081353, 22.0 ],
+					"text" : "/fx waitWhat.mp3"
 				}
 
 			}

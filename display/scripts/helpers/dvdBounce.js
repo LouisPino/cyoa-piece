@@ -86,6 +86,17 @@ function dvdBounce() {
     requestAnimationFrame(animate);
 
   });
+
+
+
+
+
+
+
+
+
+
+
   toggleAnimation("dvd");
   setTimeout(() => {
     dvdHop(pinoDiv)
@@ -164,6 +175,10 @@ function startRotate(char) {
 }
 
 
+
+
+
+
 function lightPulse() {
   const x = Math.random() * (1600 - 300) + 300;
   const y = Math.random() * (800 - 200) + 200;
@@ -178,6 +193,13 @@ function lightPulse() {
     dot.remove();
   }, 300);
 }
+
+
+
+
+
+
+
 const activeBubbles = [];
 
 function bubblePop() {

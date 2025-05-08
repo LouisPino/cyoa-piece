@@ -833,7 +833,7 @@ body {
 
 .pino-dvd img {
     position: absolute;
-    width: 15vw;
+    width: 33vw;
     height: 26vh;
     object-fit: contain;
     animation: rotate360 15s linear infinite;
@@ -844,7 +844,7 @@ body {
 
 .jaz-dvd img {
     position: absolute;
-    width: 15vw;
+    width: 33vw;
     height: 26vh;
     object-fit: contain;
     animation: rotate360 12s linear infinite;

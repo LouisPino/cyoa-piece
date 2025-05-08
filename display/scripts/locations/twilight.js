@@ -13,7 +13,7 @@ function twilight() {
     setTimeout(scene1, 1000)
     setTimeout(scene2, 8000)
     setTimeout(scene3, 18000)
-    setTimeout(scene4, 35000) // make me length of video + video start time
+    setTimeout(scene4, 377000) // make me length of video + video start time
 
 }
 

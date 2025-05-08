@@ -211,7 +211,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 541.0, 149.0, 50.0, 22.0 ],
-					"text" : "6"
+					"text" : "3"
 				}
 
 			}
@@ -723,7 +723,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 555.31914496421814, 13.5, 50.0, 22.0 ],
-					"text" : "122"
+					"text" : "99"
 				}
 
 			}
@@ -907,7 +907,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 674.893398284912109, 90.55937659740448, 50.0, 22.0 ],
-					"text" : "122"
+					"text" : "99"
 				}
 
 			}
@@ -4436,7 +4436,7 @@
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-													"text" : "122"
+													"text" : "99"
 												}
 
 											}
@@ -5755,7 +5755,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-									"text" : "122"
+									"text" : "99"
 								}
 
 							}
@@ -7851,6 +7851,7 @@
 						"style" : "",
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
+						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-84",
@@ -8480,11 +8481,11 @@
 								"box" : 								{
 									"id" : "obj-1",
 									"maxclass" : "newobj",
-									"numinlets" : 6,
-									"numoutlets" : 6,
-									"outlettype" : [ "bang", "bang", "bang", "bang", "bang", "" ],
-									"patching_rect" : [ 614.869543552398682, 136.0, 311.0, 22.0 ],
-									"text" : "sel aura.wav huh.mp3 bonk.wav boat.wav waitWhat.mp3"
+									"numinlets" : 7,
+									"numoutlets" : 7,
+									"outlettype" : [ "bang", "bang", "bang", "bang", "bang", "bang", "" ],
+									"patching_rect" : [ 614.869543552398682, 136.0, 367.0, 22.0 ],
+									"text" : "sel aura.wav huh.mp3 bonk.wav boat.wav waitWhat.mp3 slurp.mp3"
 								}
 
 							}
@@ -10504,6 +10505,13 @@
 								"patchline" : 								{
 									"destination" : [ "obj-29", 0 ],
 									"order" : 0,
+									"source" : [ "obj-1", 6 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-46", 0 ],
 									"source" : [ "obj-1", 5 ]
 								}
 
@@ -10534,7 +10542,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-73", 0 ],
 									"order" : 1,
-									"source" : [ "obj-1", 5 ]
+									"source" : [ "obj-1", 6 ]
 								}
 
 							}

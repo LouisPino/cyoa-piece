@@ -82,13 +82,44 @@ function scene1() {
         }, 1000)
     }
 }
+
+
 function scene2() {
+    const lookPromptEl = document.createElement("img")
+    lookPromptEl.classList.add("complete-screen-img")
+    lookPromptEl.id = "vote-prompt2"
+    lookPromptEl.src = "/display/assets/vote/LookPrompt.png"
+    lookPromptEl.style.zIndex = 3000
+
     fadeMap(0, 5000)
     fadeChar("duo", 3000, 3000, 5000, 20)
     setTimeout(() => {
         locationBanner(currentLocation.banner)
-    }, 5000)
+
+        setTimeout(() => {
+
+            document.body.appendChild(lookPromptEl)
+            setTimeout(() => {
+                lookPromptEl.style.visibility = "hidden"
+            }, 700)
+            setTimeout(() => {
+                lookPromptEl.style.visibility = "visible"
+            }, 1000)
+            setTimeout(() => {
+                lookPromptEl.style.visibility = "hidden"
+            }, 1700)
+            setTimeout(() => {
+                lookPromptEl.style.visibility = "visible"
+            }, 2000)
+            setTimeout(() => {
+                lookPromptEl.style.visibility = "hidden"
+            }, 2700)
+        }, 5000)
+    }, 2000)
 }
+
+
+
 function scene3() {
     //play video
     spaceVidEl.style.visibility = "visible"

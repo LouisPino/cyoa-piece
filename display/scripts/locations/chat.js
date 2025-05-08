@@ -275,12 +275,11 @@ const writingGifEl = document.getElementById("writing-gif")
 const thoughtBubbleEl = document.getElementById("thought-bubble")
 const speechBubbleEl = document.getElementById("speech-bubble")
 
-const votePromptHtml = `<img class="complete-screen-img" id="vote-prompt" src="/display/assets/vote/VotePrompt.png" />`
-const votePromptEl = document.createElement("img")
-votePromptEl.classList.add("complete-screen-img")
-votePromptEl.id = "vote-prompt2"
-votePromptEl.src = "/display/assets/vote/VotePrompt.png"
-votePromptEl.style.zIndex = 3000
+const lookPromptEl = document.createElement("img")
+lookPromptEl.classList.add("complete-screen-img")
+lookPromptEl.id = "vote-prompt2"
+lookPromptEl.src = "/display/assets/vote/LookPrompt.png"
+lookPromptEl.style.zIndex = 3000
 
 
 function setMadlibStage() {
@@ -294,39 +293,39 @@ function setMadlibStage() {
 
         writingGifEl.style.visibility = "visible"
         thoughtBubbleEl.style.opacity = 1
-        document.body.appendChild(votePromptEl)
+        document.body.appendChild(lookPromptEl)
         setTimeout(() => {
-            votePromptEl.style.visibility = "hidden"
+            lookPromptEl.style.visibility = "hidden"
         }, 700)
         setTimeout(() => {
-            votePromptEl.style.visibility = "visible"
+            lookPromptEl.style.visibility = "visible"
         }, 1000)
         setTimeout(() => {
-            votePromptEl.style.visibility = "hidden"
+            lookPromptEl.style.visibility = "hidden"
         }, 1700)
         setTimeout(() => {
-            votePromptEl.style.visibility = "visible"
+            lookPromptEl.style.visibility = "visible"
         }, 2000)
         setTimeout(() => {
-            votePromptEl.style.visibility = "hidden"
+            lookPromptEl.style.visibility = "hidden"
         }, 2700)
         setTimeout(() => {
-            votePromptEl.style.visibility = "visible"
+            lookPromptEl.style.visibility = "visible"
         }, 3000)
         setTimeout(() => {
-            votePromptEl.style.visibility = "hidden"
+            lookPromptEl.style.visibility = "hidden"
         }, 3700)
         setTimeout(() => {
-            votePromptEl.style.visibility = "visible"
+            lookPromptEl.style.visibility = "visible"
         }, 4000)
         setTimeout(() => {
-            votePromptEl.style.visibility = "hidden"
+            lookPromptEl.style.visibility = "hidden"
         }, 4700)
         setTimeout(() => {
-            votePromptEl.style.visibility = "visible"
+            lookPromptEl.style.visibility = "visible"
         }, 5000)
         setTimeout(() => {
-            votePromptEl.style.visibility = "hidden"
+            lookPromptEl.style.visibility = "hidden"
         }, 5700)
 
 

@@ -101,9 +101,9 @@ function videoAnimationPlaylist() {
             slideChar("jaz", 900, -400, 15000)
             slideChar("pino", 1150, -400, 15000)
             setTimeout(() => {
-                slideChar("jaz", 1900, -400, 15000)
-                slideChar("pino", 2150, -400, 15000)
-            }, 150000)
+                slideChar("jaz", 2000, -400, 15000)
+                slideChar("pino", 2250, -400, 15000)
+            }, 15000)
         }, 3000)
     }, 180000)
 
@@ -117,7 +117,7 @@ function videoAnimationPlaylist() {
         setTimeout(() => {
             toggleAnimation("walk", "duo")
             slideChar("jaz", 1950, -42, 8000)
-            slideChar("pino", 1750, -42, 8000)
+            slideChar("pino", 1900, -42, 8000)
         }, 3000)
         setTimeout(() => {
             fadeChar("duo", 3000, 3000, 3000, 10)

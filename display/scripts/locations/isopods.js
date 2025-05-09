@@ -142,6 +142,7 @@ function scene0wet() {
     toggleAnimation("front", "duo")
     getInBoat(boatRockerEl)
     changeSize(boatCtrEl, 10, .2)
+    setTimeout(() => { jumpChar(boatCtrEl, 0, 0) }, 100)
     document.getElementById("npc").classList.add("float-only-rats")
 
 }

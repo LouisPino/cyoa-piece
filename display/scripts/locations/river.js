@@ -19,6 +19,8 @@ function river() {
 }
 
 function scene0() {
+    jumpChar("npc", -1550, 950)
+
     renderMap()
     fadeMap(1, 1)
     toggleAnimation("front", "duo")
@@ -123,34 +125,63 @@ function videoAnimationPlaylist() {
 
 
     setTimeout(() => {
+        changeNPCSrc("isopod/full.gif")
+        jumpChar("npc", 1400, 200)
+        setTimeout(() => {
+            slideChar("npc", -1500, 200, 9000)
+            setTimeout(() => {
+                hopChar("npc")
+            }, 2000)
+            setTimeout(() => {
+                hopChar("npc")
+            }, 5000)
+        }, 500)
+        setTimeout(() => {
+            changeNPCSrc("isopod/full.png")
+        }, 10000)
+    }, 52500)
+
+
+
+
+    setTimeout(() => {
         fadeChar(boatRockerEl, -1314, 700, 10, 1000)
         setTimeout(() => {
             changeSize(boatCtrEl, 20000, .1)
-            slideChar(boatRockerEl, 100, -200, 10000)
+            slideChar(boatRockerEl, 100, 0, 10000)
         }, 1300)
         setTimeout(() => {
-            changeSize(boatCtrEl, 20000, .1)
             slideChar(boatRockerEl, 300, -400, 5000)
         }, 11300)
         setTimeout(() => {
-            fadeChar(boatCtrEl, 2000, 2000, 3000, 10)
-            slideChar(boatRockerEl, 300, -400, 5000)
-        }, 11300)
+            fadeChar(boatRockerEl, 2000, 2000, 3000, 10)
+        }, 16000)
     }, 70000)
 
 
-    setTimeout(() => {
-        changeSize(boatCtrEl, 1, .7)
-        fadeChar(boatRockerEl, -1350, -50, 10, 30)
-        setTimeout(() => {
-            changeSize(boatCtrEl, 20000, .2)
-            slideChar(boatRockerEl, 1600, -250, 30000)
-        }, 300)
-    }, 128000)
 
     setTimeout(() => {
+        jumpChar(boatRockerEl, -1550, -50)
+        setTimeout(() => {
+            changeSize(boatCtrEl, 1, .7)
+        }, 100)
+        setTimeout(() => {
+            changeSize(boatCtrEl, 20000, .2)
+            slideChar(boatRockerEl, 1600, -200, 30000)
+        }, 300)
+    }, 137000)
+
+    setTimeout(() => {
+        changeNPCSrc("rat/full.gif")
+        jumpChar("npc", 0, 1500)
+        setTimeout(() => {
+            slideChar("npc", 0, -1500, 15000)
+        }, 500)
+    }, 175000)
+
+    setTimeout(() => {
+        jumpChar(boatRockerEl, 0, -800)
         changeSize(boatCtrEl, 1, .1)
-        fadeChar(boatRockerEl, 0, -800, 10, 30)
         setTimeout(() => {
             changeSize(boatCtrEl, 30000, 1)
             slideChar(boatRockerEl, 0, 1200, 40000)
@@ -159,4 +190,4 @@ function videoAnimationPlaylist() {
 
 }
 
-// river()
+river()

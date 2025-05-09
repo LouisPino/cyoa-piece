@@ -3,6 +3,7 @@ textsArr = [
 ];
 
 const caveVidEl = document.getElementById("cave-video")
+const npcEl = document.getElementById("npc-size-ctr")
 
 function cave() {
     setTimeout(scene0, 100)
@@ -19,6 +20,7 @@ function scene0() {
     changeSize("duo", 1, .3)
     jumpChar("pino", 3000, 3000)
     jumpChar("jaz", 3000, 3000)
+    jumpChar("npc", 3000, 3000)
 
 }
 function scene1() {
@@ -107,17 +109,27 @@ function scene4() {
 
 
 function videoAnimationPlaylist() {
+    changeNPCSrc("bat/full.png")
+    jumpChar("npc", -550, 950)
     changeSize("duo", 1, .7)
     flipChar("right", "duo")
     setTimeout(() => {
         toggleAnimation("walk", "duo")
-        fadeChar("jaz", -850, 150, 10, 30)
-        fadeChar("pino", -650, 150, 10, 30)
+        fadeChar("jaz", -850, 150, 10, 1000)
+        fadeChar("pino", -650, 150, 10, 1000)
         setTimeout(() => {
             slideChar("jaz", 1640, 150, 15000)
             slideChar("pino", 1840, 150, 15000)
-        }, 3000)
-    }, 8000)
+            setTimeout(() => {
+                slideChar("npc", -550, 150, 2000)
+                setTimeout(() => {
+                    slideChar("npc", -550, 950, 500)
+                }, 4000)
+            }, 9000)
+        }, 1100)
+    }, 9000)
+
+
 
 
 
@@ -139,7 +151,7 @@ function videoAnimationPlaylist() {
 
     setTimeout(() => {
         toggleAnimation("front", "duo")
-        fadeChar("jaz", 357, -550, 10, 1000)
+        fadeChar("jaz", 350, -525, 10, 1000)
         fadeChar("pino", 700, -615, 10, 1000)
         setTimeout(() => {
             slideChar("jaz", 465, -564, 25000)
@@ -219,25 +231,46 @@ function videoAnimationPlaylist() {
             }, 22000)
             setTimeout(() => {
                 fadeChar("duo", -1000, -1000, 1000, 1000)
-            }, 25000)
+            }, 34000)
         }, 700)
     }, 114000)
 
+    setTimeout(() => {
+        changeNPCSrc("isopod/full.gif")
+        jumpChar("npc", 1400, 200)
+        setTimeout(() => {
+            slideChar("npc", -1500, 200, 20000)
+
+            setTimeout(() => {
+                hopChar("npc")
+            }, 5000)
+            setTimeout(() => {
+                hopChar("npc")
+            }, 13000)
+        }, 500)
+    }, 145000)
 
 
     setTimeout(() => {
+        changeNPCSrc("bat/full.png")
+        jumpChar("npc", -550, 950)
         changeSize("duo", 1, .7)
         flipChar("right", "duo")
         toggleAnimation("walk", "duo")
         fadeChar("jaz", -850, 150, 10, 30)
         fadeChar("pino", -650, 150, 10, 30)
+
         setTimeout(() => {
-            slideChar("jaz", 0, 100, 5000)
-            slideChar("pino", 200, 100, 5000)
+            slideChar("jaz", 400, 100, 5000)
+            slideChar("pino", 600, 100, 5000)
+            setTimeout(() => {
+                slideChar("npc", -550, 150, 2000)
+            }, 2500)
             setTimeout(() => {
                 toggleAnimation("side", "duo")
             }, 5000)
             setTimeout(() => {
+                slideChar("npc", -550, 950, 200)
                 flipChar("left", "duo")
                 setTimeout(() => {
                     flipChar("right", "duo")
@@ -247,10 +280,12 @@ function videoAnimationPlaylist() {
                 toggleAnimation("walk", "duo")
                 slideChar("jaz", 800, 0, 3000)
                 slideChar("pino", 1000, 0, 3000)
+                slideChar("npc", -550, 150, 3000)
                 setTimeout(() => {
                     toggleAnimation("side", "duo")
                 }, 3000)
                 setTimeout(() => {
+                    slideChar("npc", -550, 950, 200)
                     flipChar("left", "duo")
                     setTimeout(() => {
                         flipChar("right", "duo")
@@ -259,12 +294,18 @@ function videoAnimationPlaylist() {
             }, 8000)
             setTimeout(() => {
                 toggleAnimation("walk", "duo")
+                slideChar("npc", -550, 150, 3000)
+
                 slideChar("jaz", 1800, -100, 5000)
                 slideChar("pino", 2000, -100, 5000)
             }, 14000)
+            setTimeout(() => {
+                toggleAnimation("walk", "duo")
+                slideChar("npc", -550, 950, 3000)
+            }, 19000)
         }, 300)
     }, 180000)
 
 }
 
-// cave()
+cave()

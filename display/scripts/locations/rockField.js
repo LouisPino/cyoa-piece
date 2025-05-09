@@ -5,6 +5,7 @@ textsArr = [
 ];
 
 const rockFieldVidEl = document.getElementById("rockField-video")
+const npcEl = document.getElementById("npc-size-ctr")
 
 function rockField() {
     setTimeout(scene0, 100)
@@ -16,6 +17,7 @@ function rockField() {
 }
 
 function scene0() {
+    jumpChar(npcEl, -1400, 100)
     renderMap()
     fadeMap(1, 1)
     toggleAnimation("side", "duo")
@@ -28,7 +30,6 @@ function scene1() {
     renderPino()
     renderJaz()
     flipChar("right", "duo")
-
     fadeChar("pino", locations.forestNorth.mapLocations.pino.x, locations.forestNorth.mapLocations.pino.y, 50, 1000)
     fadeChar("jaz", locations.forestNorth.mapLocations.jaz.x, locations.forestNorth.mapLocations.jaz.y, 50, 1000)
     setTimeout(() => {
@@ -78,7 +79,7 @@ function scene4() {
 
 }
 function scene5() {
-
+    flipChar("right", "duo")
     changeSize("duo", 1, 1)
     jumpChar("duo", 0, 0)
     renderPino()
@@ -145,6 +146,9 @@ function videoAnimationPlaylist() {
 
 
 
+
+
+
     setTimeout(() => {
         changeSize("duo", 1, .8)
         toggleAnimation("walk", "duo")
@@ -159,6 +163,44 @@ function videoAnimationPlaylist() {
             toggleAnimation("front", "duo")
         }, 30000)
     }, 91000)
+
+
+    setTimeout(() => {
+
+        slideChar("npc", 0, 0, 10000)
+        setTimeout(() => {
+            hopChar("npc")
+            setTimeout(() => {
+                hopChar("npc")
+            }, 700)
+            setTimeout(() => {
+                flipChar("left", "npc")
+            }, 1500)
+            setTimeout(() => {
+                flipChar("right", "npc")
+            }, 2000)
+        }, 11000)
+        slideChar("npc", 2300, 120, 10000)
+
+    }, 45000)
+    setTimeout(() => {
+
+        slideChar("npc", 0, 0, 10000)
+        setTimeout(() => {
+            hopChar("npc")
+            setTimeout(() => {
+                hopChar("npc")
+            }, 700)
+            setTimeout(() => {
+                flipChar("left", "npc")
+            }, 1500)
+            setTimeout(() => {
+                flipChar("right", "npc")
+            }, 2000)
+        }, 11000)
+        slideChar("npc", -1500, 120, 10000)
+
+    }, 140000)
 
 
     setTimeout(() => {
@@ -185,7 +227,7 @@ function videoAnimationPlaylist() {
         setTimeout(() => {
             fadeChar("duo", 3000, 3000, 3000, 10)
         }, 16000)
-    }, 192000)
+    }, 194000)
 }
 
 

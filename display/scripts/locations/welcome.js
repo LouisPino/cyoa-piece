@@ -9,8 +9,8 @@ new QRCode(
 
 const pages = document.querySelectorAll("#intro-gif-page, #intro-qr-page, #intro-leaderboard");
 const introGifEl = document.getElementById("intro-gif")
-// const timings = [45000, 60000, 30000];
-const timings = [3000, 3000, 3000];
+const timings = [45000, 45000, 30000];
+// const timings = [3000, 3000, 3000];
 
 let pageCounter = 0;
 let gifCounter = 0;

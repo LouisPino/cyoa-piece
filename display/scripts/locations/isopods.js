@@ -18,7 +18,7 @@ function isopods() {
         locations.isopods["track"] = "trackRiver.wav"
         sendToServer({ type: "track", val: "trackRiver.wav" })
     }
-    else if (previousLocation === "cave") {
+    else {
         changeBg(`animated/caveInterior.gif`)
         dryPlaylist()
         locations.isopods["voteVamp"] = "vampCave.wav"

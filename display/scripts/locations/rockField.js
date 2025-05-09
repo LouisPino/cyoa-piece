@@ -147,6 +147,22 @@ function videoAnimationPlaylist() {
 
 
 
+    setTimeout(() => {
+        slideChar("npc", 0, 0, 10000)
+        setTimeout(() => {
+            hopChar("npc")
+            setTimeout(() => {
+                hopChar("npc")
+            }, 700)
+            setTimeout(() => {
+                flipChar("left", "npc")
+            }, 1500)
+            setTimeout(() => {
+                flipChar("right", "npc")
+            }, 3000)
+        }, 11000)
+        slideChar("npc", 2300, 120, 10000)
+    }, 45000)
 
 
     setTimeout(() => {
@@ -165,26 +181,8 @@ function videoAnimationPlaylist() {
     }, 91000)
 
 
+
     setTimeout(() => {
-
-        slideChar("npc", 0, 0, 10000)
-        setTimeout(() => {
-            hopChar("npc")
-            setTimeout(() => {
-                hopChar("npc")
-            }, 700)
-            setTimeout(() => {
-                flipChar("left", "npc")
-            }, 1500)
-            setTimeout(() => {
-                flipChar("right", "npc")
-            }, 2000)
-        }, 11000)
-        slideChar("npc", 2300, 120, 10000)
-
-    }, 45000)
-    setTimeout(() => {
-
         slideChar("npc", 0, 0, 10000)
         setTimeout(() => {
             hopChar("npc")
@@ -199,7 +197,6 @@ function videoAnimationPlaylist() {
             }, 2000)
         }, 11000)
         slideChar("npc", -1500, 120, 10000)
-
     }, 140000)
 
 

@@ -251,6 +251,11 @@ function videoAnimationPlaylist() {
             }, 3000)
         }, 12000)
     }, 240000)
+    setTimeout(() => {
+        pinoEl.classList.remove("float-cloud")
+        jazEl.classList.remove("float-cloud")
+        npcEl.classList.remove("float-cloud")
+    }, 290000)
 }
 
 function startFlipping(duration = 45000) {

@@ -1,12 +1,12 @@
 
 const options = {
-    thermosphere: [{ name: "moon", data: "drum 1" }, { name: "aura", data: "synth 1" }, { name: "satellite", data: "drum 2" }],
-    twilight: [{ name: "jelly", data: "drum 1" }, { name: "squid", data: "synth 1" }, { name: "eel", data: "drum 2" }]
+    thermosphere: [{ name: "moon", data: "drum" }, { name: "aura", data: "synth" }, { name: "satellite", data: "gran" }],
+    twilight: [{ name: "jelly", data: "drum" }, { name: "squid", data: "synth" }, { name: "eel", data: "gran" }]
 }
 function soundIcons(location) {
     const options = {
-        thermosphere: [{ name: "moon", data: "drum 1" }, { name: "aura", data: "synth 1" }, { name: "satellite", data: "drum 2" }],
-        twilight: [{ name: "jelly", data: "drum 1" }, { name: "squid", data: "synth 1" }, { name: "eel", data: "drum 2" }]
+        thermosphere: [{ name: "moon", data: "drum" }, { name: "aura", data: "synth" }, { name: "satellite", data: "gran" }],
+        twilight: [{ name: "jelly", data: "drum" }, { name: "squid", data: "synth" }, { name: "eel", data: "gran" }]
     }
 
     let randNum = Math.floor(Math.random() * 3)
@@ -47,7 +47,7 @@ function soundIcons(location) {
     const soundIconEls = document.querySelectorAll(".sound-icon")
     soundIconEls.forEach((el) => {
         el.addEventListener("click", () => {
-            const val = el.dataset.sample; // e.g., data-sample="drum 1"
+            const val = el.dataset.sample; // e.g., data-sample="drum"
             sendToServer({ type: "sample", val });
         });
     });

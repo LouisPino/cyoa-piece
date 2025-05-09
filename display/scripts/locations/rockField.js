@@ -145,8 +145,6 @@ function videoAnimationPlaylist() {
     }, 39500)
 
 
-
-
     setTimeout(() => {
         slideChar("npc", 0, 0, 10000)
         setTimeout(() => {

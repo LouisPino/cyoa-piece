@@ -221,7 +221,7 @@ function videoAnimationPlaylist() {
     setTimeout(() => {
         changeSize("npc", 1, .8)
         setTimeout(() => {
-            congaLine(1, 8, 100)
+            congaLine(1, 8, 50)
         }, 100)
         setTimeout(() => {
             slideChar("npc", -1900, 0, 30000)

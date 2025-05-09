@@ -9,6 +9,9 @@ textsArr = [
 function river() {
     changeSize(boatCtrEl, 1, .2)
     jumpChar(boatRockerEl, -5000, 500)
+    setTimeout(() => {
+        jumpChar(boatCtrEl, 0, 0)
+    }, 100)
     setTimeout(scene0, 100)
     setTimeout(scene1, 1000)
     setTimeout(scene2, 8000)
@@ -190,4 +193,4 @@ function videoAnimationPlaylist() {
 
 }
 
-river()
+// river()

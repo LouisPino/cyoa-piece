@@ -15,11 +15,16 @@ if (checkHistory("rats")) {
 
 if (checkHistory("river")) {
     changeBg("animated/riverInterior.gif")
+    sendToServer({ type: "track", val: "trackRiver.wav" })
     document.getElementById("boat-ctr-chat").style.visibility = "visible"
     locations.isopods["voteVamp"] = "vampRiver.wav"
+    locations.isopods["track"] = "trackRiver.wav"
 } else {
     changeBg("animated/caveInterior.gif")
     locations.isopods["voteVamp"] = "vampCave.wav"
+    locations.isopods["track"] = "trackCave.wav"
+    sendToServer({ type: "track", val: "trackCave.wav" })
+
 }
 
 
@@ -290,6 +295,7 @@ function setMadlibStage() {
         changeSize("npc", 1, 1)
         jumpChar("npc", 0, 0)
         changeSize("duo", 1, 1.7)
+        document.getElementById("boat-ctr-chat").style.visibility = "hidden"
 
         writingGifEl.style.visibility = "visible"
         thoughtBubbleEl.style.opacity = 1

@@ -199,6 +199,10 @@ function movePastMadlib() {
     const writingGifEl = document.getElementById("writing-gif");
     const wordAreaEl = document.getElementById("word-area");
     const timerEl = document.getElementById("madlib-timer");
+    if (checkHistory("river")) {
+        document.getElementById("boat-ctr-chat").style.visibility = "visible"
+    }
+
     thoughtBubbleEl.remove()
     speechBubbleEl.remove()
     writingGifEl.remove()

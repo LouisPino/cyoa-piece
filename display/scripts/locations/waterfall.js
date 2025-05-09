@@ -1,4 +1,5 @@
 const boatRockerEl = document.getElementById("boat-rocker")
+const boatCtrEl = document.getElementById("boat-ctr")
 const npcEl = document.getElementById("npc-size-ctr")
 
 textsArr = [
@@ -15,9 +16,9 @@ function waterfall() {
     setTimeout(scene1, 1000)
     setTimeout(scene2, 6000)
     setTimeout(scene3, 20000)
-    setTimeout(scene4, 270000) // make me length of video + video start time
-    setTimeout(scene5, 279000) // scene4 + 9000
-    setTimeout(scene6, 292000)
+    setTimeout(scene4, 262000) // make me length of video + video start time
+    setTimeout(scene5, 274000) // scene4 + 9000
+    setTimeout(scene6, 287000)
 
 
 }
@@ -82,7 +83,7 @@ function scene4() {
 }
 function scene5() {
     getInBoat(boatRockerEl)
-    changeSize(boatRockerEl, 1, .6)
+    changeSize(boatCtrEl, 1, .6)
     slideChar(boatRockerEl, 3000, 300, 4000)
     sendToServer({ type: "fx", val: "boat.wav" })
 }

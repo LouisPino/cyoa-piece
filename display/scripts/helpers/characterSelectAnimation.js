@@ -47,8 +47,10 @@ function revealCharacter(charName, extras, confetti) {
 function displayChoice(winner, confetti) {
     let qrEl = document.getElementById("qrcode1")
     let qrEl2 = document.getElementById("qrcode2")
+    let qrBorder = document.getElementById("QR-border")
     qrEl.style.visibility = "hidden"
     qrEl2.style.visibility = "hidden"
+    qrBorder.style.visibility = "hidden"
     const voteTimeDiv = document.querySelector(".vote-time-wrapper")
 
     voteTimeDiv.style.visibility = "hidden"

@@ -12,11 +12,13 @@ function postChat() {
         document.getElementById("teleporter").src = "/display/assets/locations/teleporter/river.png"
         changeBg("animated/riverInterior.gif")
         locations.postChat["voteVamp"] = "vampRiver.wav"
+        locations.postChat["bgName"] = "riverInterior"
 
     } else {
         changeBg("animated/caveInterior.gif")
         document.getElementById("teleporter").src = "/display/assets/locations/teleporter/cave.png"
         locations.postChat["voteVamp"] = "vampCave.wav"
+        locations.postChat["bgName"] = "caveInterior"
 
     }
 

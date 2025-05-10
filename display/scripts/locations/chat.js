@@ -19,10 +19,12 @@ if (checkHistory("river")) {
     document.getElementById("boat-ctr-chat").style.visibility = "visible"
     locations.isopods["voteVamp"] = "vampRiver.wav"
     locations.isopods["track"] = "trackRiver.wav"
+    locations.isopods["bgName"] = "riverInterior"
 } else {
     changeBg("animated/caveInterior.gif")
     locations.isopods["voteVamp"] = "vampCave.wav"
     locations.isopods["track"] = "trackCave.wav"
+    locations.isopods["bgName"] = "caveInterior"
     sendToServer({ type: "track", val: "trackCave.wav" })
 
 }

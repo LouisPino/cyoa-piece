@@ -12,8 +12,8 @@ function rockField() {
     setTimeout(scene1, 1000)
     setTimeout(scene2, 6000)
     setTimeout(scene3, 20000)
-    setTimeout(scene4, 320000) // make me length of video + video start time
-    setTimeout(scene5, 329000) // scene4 + 9000
+    setTimeout(scene4, 260000) // make me length of video + video start time
+    setTimeout(scene5, 269000) // scene4 + 9000
 }
 
 function scene0() {
@@ -222,7 +222,7 @@ function videoAnimationPlaylist() {
         setTimeout(() => {
             fadeChar("duo", 3000, 3000, 3000, 10)
         }, 16000)
-    }, 194000)
+    }, 192000)
 }
 
 

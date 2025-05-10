@@ -248,6 +248,7 @@ const locations = {
     html: {},
     transition: { type: "pixelate-no-blur", time: 1000 },
     voteVamp: "vampRiver.wav",
+    bgName: ""
 
   },
   postPostChatSpace: {

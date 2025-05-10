@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 2072.0, 85.0, 453.0, 1272.0 ],
+		"rect" : [ 736.0, 113.0, 912.0, 976.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -5854,7 +5854,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 541.0, 149.0, 50.0, 22.0 ],
-					"text" : "11"
+					"text" : "1"
 				}
 
 			}
@@ -8799,7 +8799,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 250.0, 202.0, 1986.0, 1028.0 ],
+						"rect" : [ 759.0, 479.0, 1776.0, 871.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -8827,7 +8827,6 @@
 						"style" : "",
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-88",
@@ -8874,7 +8873,6 @@
 										"style" : "",
 										"subpatcher_template" : "",
 										"assistshowspatchername" : 0,
-										"visible" : 1,
 										"boxes" : [ 											{
 												"box" : 												{
 													"id" : "obj-28",
@@ -9004,7 +9002,7 @@
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 480.0, 223.0, 109.0, 36.0 ],
-													"text" : "open Aliens_Tape_109"
+													"text" : "open Aliens_Tape_154"
 												}
 
 											}
@@ -9033,8 +9031,8 @@
 														"followglobaltempo" : 0,
 														"formantcorrection" : 0,
 														"mode" : "basic",
-														"originallength" : [ 1538.089795918368736, "ticks" ],
-														"originaltempo" : 120.000000000000128,
+														"originallength" : [ 1270.595918367347849, "ticks" ],
+														"originaltempo" : 120.000000000000071,
 														"pitchcorrection" : 0,
 														"quality" : "basic",
 														"timestretch" : [ 0 ]
@@ -66894,7 +66892,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 1447.063555836677551, 624.744677305221558, 48.0, 50.0 ],
-									"text" : "trackOcean.wav"
+									"text" : "trackClouds.wav"
 								}
 
 							}
@@ -66911,7 +66909,7 @@
 										"followglobaltempo" : 0,
 										"formantcorrection" : 0,
 										"mode" : "basic",
-										"originallength" : [ 8861.540136054420145, "ticks" ],
+										"originallength" : [ 6646.160544217686038, "ticks" ],
 										"originaltempo" : 119.999999999999972,
 										"pitchcorrection" : 0,
 										"quality" : "basic",
@@ -66925,13 +66923,13 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-224",
-									"linecount" : 3,
+									"linecount" : 2,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 740.930026292800903, 748.744677305221558, 48.0, 50.0 ],
-									"text" : "trackOcean.wav"
+									"patching_rect" : [ 740.930026292800903, 748.744677305221558, 48.0, 36.0 ],
+									"text" : "weapon.wav"
 								}
 
 							}
@@ -67433,12 +67431,13 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-23",
+									"linecount" : 2,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1050.669938564300537, 33.739132404327393, 63.0, 22.0 ],
-									"text" : "0"
+									"patching_rect" : [ 1050.669938564300537, 33.739132404327393, 63.0, 36.0 ],
+									"text" : "batScreech.wav"
 								}
 
 							}
@@ -67528,8 +67527,8 @@
 										"followglobaltempo" : 0,
 										"formantcorrection" : 0,
 										"mode" : "basic",
-										"originallength" : [ 10011.559183673463849, "ticks" ],
-										"originaltempo" : 119.999999999999929,
+										"originallength" : [ 2358.312925170067501, "ticks" ],
+										"originaltempo" : 119.999999999999986,
 										"pitchcorrection" : 0,
 										"quality" : "basic",
 										"timestretch" : [ 0 ]
@@ -67548,7 +67547,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 881.544938564300537, 546.48380970954895, 85.0, 36.0 ],
-									"text" : "trackOcean.wav"
+									"text" : "trackClouds.wav"
 								}
 
 							}
@@ -67660,8 +67659,8 @@
 										"followglobaltempo" : 0,
 										"formantcorrection" : 0,
 										"mode" : "basic",
-										"originallength" : [ 528460.386394558125176, "ticks" ],
-										"originaltempo" : 120.000000000000057,
+										"originallength" : [ 97480.946938775581657, "ticks" ],
+										"originaltempo" : 120.000000000000085,
 										"pitchcorrection" : 0,
 										"quality" : "basic",
 										"timestretch" : [ 0 ]
@@ -69242,12 +69241,13 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-20",
+					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 205.309558987617493, 6.5, 117.08072251081353, 22.0 ],
-					"text" : "/sample drum"
+					"patching_rect" : [ 205.309558987617493, 6.5, 117.08072251081353, 36.0 ],
+					"text" : "/track trackClouds.wav"
 				}
 
 			}

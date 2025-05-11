@@ -16,6 +16,9 @@ function isopods() {
         wetPlaylist()
         locations.isopods["voteVamp"] = "vampRiver.wav"
         locations.isopods["track"] = "trackRiver.wav"
+        currentLocation.voteVamp = "vampRiver.wav"
+        currentLocation.bgName = "riverInterior"
+
         sendToServer({ type: "track", val: "trackRiver.wav" })
     }
     else {
@@ -23,6 +26,8 @@ function isopods() {
         dryPlaylist()
         locations.isopods["voteVamp"] = "vampCave.wav"
         locations.isopods["track"] = "trackCave.wav"
+        currentLocation.voteVamp = "vampCave.wav"
+        currentLocation.bgName = "caveInterior"
         sendToServer({ type: "track", val: "trackCave.wav" })
     }
 }

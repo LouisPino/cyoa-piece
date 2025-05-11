@@ -11,15 +11,17 @@ function postChat() {
     if (checkHistory("river")) {
         document.getElementById("teleporter").src = "/display/assets/locations/teleporter/river.png"
         changeBg("animated/riverInterior.gif")
-        locations.postChat["voteVamp"] = "vampRiver.wav"
-        locations.postChat["bgName"] = "riverInterior"
-
+        currentLocation.voteVamp = "vampRiver.wav"
+        currentLocation.bgName = "riverInterior"
     } else {
         changeBg("animated/caveInterior.gif")
         document.getElementById("teleporter").src = "/display/assets/locations/teleporter/cave.png"
-        locations.postChat["voteVamp"] = "vampCave.wav"
-        locations.postChat["bgName"] = "caveInterior"
-
+        currentLocation.voteVamp = "vampCave.wav"
+        currentLocation.bgName = "caveInterior"
+        console.log(currentLocation)
+        // locations.postChat.voteVamp = "vampCave.wav"
+        // locations.postChat.bgName = "caveInterior"
+        // console.log(locations.postChat)
     }
 
     slideBoxY("duo")

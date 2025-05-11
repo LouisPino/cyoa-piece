@@ -1,4 +1,4 @@
-const locations = {
+let locations = {
   sandbox: {
     name: "sandbox",
     paths: ["sandbox", "sandbox"],
@@ -249,7 +249,6 @@ const locations = {
     transition: { type: "pixelate-no-blur", time: 1000 },
     voteVamp: "vampRiver.wav",
     bgName: ""
-
   },
   postPostChatSpace: {
     name: "postPostChatSpace",

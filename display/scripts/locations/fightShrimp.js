@@ -116,6 +116,8 @@ function scene3() {
 
 function scene4() {
     toggleAnimation("froggy", "jaz")
+    sendToServer({ type: "track", val: 0 })
+
     changeSize("jaz", 1, 1.2)
     setTimeout(() => {
         fadeChar("jaz", 572, 41, 100, 5000)

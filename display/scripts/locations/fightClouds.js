@@ -117,6 +117,7 @@ function scene3() {
 
 function scene4() {
     toggleAnimation("froggy", "pino")
+    sendToServer({ type: "track", val: 0 })
     changeSize("pino", 1, 1.2)
     setTimeout(() => {
         fadeChar("pino", 572, 41, 100, 5000)

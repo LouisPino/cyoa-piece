@@ -268,8 +268,26 @@ button {
     text-align: center;
 }
 
+.invert-color {
+    filter: invert(1);
+}
+
 #vote-banner-text {
     color: white;
+    position: absolute;
+    z-index: 20;
+    width: 80vw;
+    top: 4vh;
+    left: 10vw;
+    /* border: 1px solid red; */
+    text-align: center;
+    font-size: smaller;
+    line-height: 1.5rem;
+    font-size: 1.6em;
+}
+
+#vote-banner-text-invert {
+    color: black;
     position: absolute;
     z-index: 20;
     width: 80vw;

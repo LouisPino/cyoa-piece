@@ -11,6 +11,7 @@ function soundIcons(location) {
 
     let randNum = Math.floor(Math.random() * 3)
 
+    let prompt = document.getElementById('vote-banner-text-invert')
 
     let voteAImgEl = document.getElementById('sound-icon-1')
     let voteBImgEl = document.getElementById('sound-icon-2')
@@ -41,6 +42,7 @@ function soundIcons(location) {
     voteAImgEl.dataset.sample = options[location][randNum]["data"]
     voteBImgEl.src = `/mobile/assets/vote/soundIcons/right/${options[location][(randNum + 1) % 3]["name"]}/up.png`
     voteBImgEl.dataset.sample = options[location][(randNum + 1) % 3]["data"]
+    prompt.innerHTML = "Press to make a sound!"
 
 
 

@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 736.0, 113.0, 912.0, 976.0 ],
+		"rect" : [ 1211.0, 155.0, 1273.0, 976.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,6 +39,18 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-12",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 817.0, 406.0, 134.0, 22.0 ],
+					"text" : "/track sylvan-game.wav"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-4",
 					"maxclass" : "newobj",
@@ -1916,7 +1928,7 @@
 																	"numoutlets" : 1,
 																	"outlettype" : [ "" ],
 																	"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-																	"text" : "8"
+																	"text" : "127"
 																}
 
 															}
@@ -3091,7 +3103,7 @@
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-													"text" : "8"
+													"text" : "127"
 												}
 
 											}
@@ -5866,7 +5878,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 541.0, 149.0, 50.0, 22.0 ],
-					"text" : "1"
+					"text" : "0"
 				}
 
 			}
@@ -6378,7 +6390,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 555.31914496421814, 13.5, 50.0, 22.0 ],
-					"text" : "8"
+					"text" : "127"
 				}
 
 			}
@@ -6550,7 +6562,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 674.893398284912109, 90.55937659740448, 50.0, 22.0 ],
-					"text" : "8"
+					"text" : "127"
 				}
 
 			}
@@ -8811,7 +8823,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ -91.0, 317.0, 1776.0, 871.0 ],
+						"rect" : [ 42.0, 317.0, 1776.0, 871.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -8839,7 +8851,20 @@
 						"style" : "",
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
+						"visible" : 1,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-10",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1089.669938564300537, 614.48380970954895, 29.5, 22.0 ],
+									"text" : "1"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-88",
 									"maxclass" : "newobj",
@@ -66709,7 +66734,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1116.300395011901855, 611.744677305221558, 101.0, 22.0 ],
+									"patching_rect" : [ 1121.169938564300537, 614.48380970954895, 101.0, 22.0 ],
 									"text" : "sylvan-game.wav"
 								}
 
@@ -66903,7 +66928,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 1447.063555836677551, 624.744677305221558, 48.0, 50.0 ],
-									"text" : "trackClouds.wav"
+									"text" : "characterSelect.wav"
 								}
 
 							}
@@ -66939,8 +66964,8 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 740.930026292800903, 748.744677305221558, 48.0, 36.0 ],
-									"text" : "weapon.wav"
+									"patching_rect" : [ 740.930026292800903, 748.744677305221558, 68.0, 36.0 ],
+									"text" : "characterSelect.wav"
 								}
 
 							}
@@ -67351,7 +67376,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1245.669938564300537, 755.48380970954895, 130.0, 22.0 ],
+									"patching_rect" : [ 1243.169938564300537, 701.886547088623047, 130.0, 22.0 ],
 									"text" : "r startCharSelectMusic"
 								}
 
@@ -67363,20 +67388,8 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1245.669938564300537, 779.48380970954895, 117.0, 22.0 ],
+									"patching_rect" : [ 1239.669938564300537, 727.886547088623047, 117.0, 22.0 ],
 									"text" : "characterSelect.wav"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-44",
-									"maxclass" : "message",
-									"numinlets" : 2,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 1365.169938564300537, 826.744677305221558, 29.5, 22.0 ],
-									"text" : "1"
 								}
 
 							}
@@ -67387,8 +67400,8 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1243.169938564300537, 828.886547088623047, 29.5, 22.0 ],
-									"text" : "0.7"
+									"patching_rect" : [ 1200.169938564300537, 727.886547088623047, 29.5, 22.0 ],
+									"text" : "0.2"
 								}
 
 							}
@@ -67418,18 +67431,6 @@
 							}
 , 							{
 								"box" : 								{
-									"id" : "obj-10",
-									"maxclass" : "newobj",
-									"numinlets" : 2,
-									"numoutlets" : 2,
-									"outlettype" : [ "bang", "" ],
-									"patching_rect" : [ 1243.169938564300537, 802.886547088623047, 135.0, 22.0 ],
-									"text" : "sel characterSelect.wav"
-								}
-
-							}
-, 							{
-								"box" : 								{
 									"id" : "obj-45",
 									"maxclass" : "comment",
 									"numinlets" : 1,
@@ -67442,13 +67443,12 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-23",
-									"linecount" : 2,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1050.669938564300537, 33.739132404327393, 63.0, 36.0 ],
-									"text" : "batScreech.wav"
+									"patching_rect" : [ 1050.669938564300537, 33.739132404327393, 63.0, 22.0 ],
+									"text" : "boat.wav"
 								}
 
 							}
@@ -67538,8 +67538,8 @@
 										"followglobaltempo" : 0,
 										"formantcorrection" : 0,
 										"mode" : "basic",
-										"originallength" : [ 2358.312925170067501, "ticks" ],
-										"originaltempo" : 119.999999999999986,
+										"originallength" : [ 3017.534693877550581, "ticks" ],
+										"originaltempo" : 119.999999999999957,
 										"pitchcorrection" : 0,
 										"quality" : "basic",
 										"timestretch" : [ 0 ]
@@ -67558,7 +67558,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 881.544938564300537, 546.48380970954895, 85.0, 36.0 ],
-									"text" : "trackClouds.wav"
+									"text" : "sylvan-game.wav"
 								}
 
 							}
@@ -67670,8 +67670,8 @@
 										"followglobaltempo" : 0,
 										"formantcorrection" : 0,
 										"mode" : "basic",
-										"originallength" : [ 97480.946938775581657, "ticks" ],
-										"originaltempo" : 120.000000000000085,
+										"originallength" : [ 23342.280272108859208, "ticks" ],
+										"originaltempo" : 120.000000000000099,
 										"pitchcorrection" : 0,
 										"quality" : "basic",
 										"timestretch" : [ 0 ]
@@ -67814,15 +67814,17 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-21", 0 ],
+									"destination" : [ "obj-13", 1 ],
+									"order" : 1,
 									"source" : [ "obj-10", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-44", 0 ],
-									"source" : [ "obj-10", 1 ]
+									"destination" : [ "obj-16", 1 ],
+									"order" : 0,
+									"source" : [ "obj-10", 0 ]
 								}
 
 							}
@@ -68237,30 +68239,6 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-13", 1 ],
-									"order" : 2,
-									"source" : [ "obj-44", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-16", 1 ],
-									"order" : 1,
-									"source" : [ "obj-44", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-78", 1 ],
-									"order" : 0,
-									"source" : [ "obj-44", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
 									"destination" : [ "obj-53", 1 ],
 									"order" : 0,
 									"source" : [ "obj-46", 0 ]
@@ -68277,7 +68255,7 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-10", 0 ],
+									"destination" : [ "obj-15", 0 ],
 									"order" : 0,
 									"source" : [ "obj-47", 0 ]
 								}
@@ -68285,7 +68263,7 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-9", 0 ],
+									"destination" : [ "obj-224", 1 ],
 									"order" : 1,
 									"source" : [ "obj-47", 0 ]
 								}
@@ -68338,7 +68316,16 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-21", 0 ],
+									"order" : 1,
+									"source" : [ "obj-52", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-47", 0 ],
+									"order" : 0,
 									"source" : [ "obj-52", 0 ]
 								}
 
@@ -68716,6 +68703,14 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-10", 0 ],
+									"order" : 1,
+									"source" : [ "obj-9", 2 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-17", 0 ],
 									"order" : 1,
 									"source" : [ "obj-9", 0 ]
@@ -68756,6 +68751,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-95", 0 ],
+									"order" : 0,
 									"source" : [ "obj-9", 2 ]
 								}
 
@@ -69252,13 +69248,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-20",
-					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 205.309558987617493, 6.5, 117.08072251081353, 36.0 ],
-					"text" : "/track trackClouds.wav"
+					"patching_rect" : [ 205.309558987617493, 6.5, 117.08072251081353, 22.0 ],
+					"text" : "/characters voted"
 				}
 
 			}
@@ -69388,6 +69383,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-189", 0 ],
 					"source" : [ "obj-119", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-6", 0 ],
+					"source" : [ "obj-12", 0 ]
 				}
 
 			}

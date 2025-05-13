@@ -130,7 +130,7 @@ function scene3() {
         landChar("jaz", 100, 0, -1000)
     }, 100)
     setTimeout(() => {
-        slideBoxX("jaz")
+        slideBoxY("jaz")
         setTimeout(nextLine, 500)
     }, 4500)
     setTimeout(() => {

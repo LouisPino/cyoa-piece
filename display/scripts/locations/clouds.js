@@ -127,7 +127,7 @@ function scene3() {
         landChar("pino", 100, 0, -1000)
     }, 100)
     setTimeout(() => {
-        slideBoxX("pino")
+        slideBoxY("pino")
         setTimeout(nextLine, 500)
     }, 4500)
     setTimeout(() => {
@@ -148,7 +148,7 @@ function scene3() {
     }, 20000)
     setTimeout(() => {
         clearText()
-        slideBoxX("none")
+        slideBoxY("none")
     }, 24000)
 }
 

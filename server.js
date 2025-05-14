@@ -9,7 +9,7 @@ const [characters] = require("./characters/default.js")
 let currentLocation = locations["welcome"]
 const voteLength = 16000 //16000
 const winnerLength = 4000 //4000
-const promptLength = 8000//8000
+const promptLength = 5000//5000
 let gameScores = [
     { "name": "JAZ", "score": 2 },
     { "name": "PNO", "score": 1 },

@@ -98,7 +98,7 @@ function displayWord(type) {
         return;
     }
 
-    setTimeout(resetWords, 3000);
+    setTimeout(resetWords, 1000);
     madlibIdx++;
     displaying = true;
 

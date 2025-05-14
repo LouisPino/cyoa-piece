@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 518.0, 179.0, 568.0, 535.0 ],
+		"rect" : [ 518.0, 179.0, 793.0, 650.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -1916,7 +1916,7 @@
 																	"numoutlets" : 1,
 																	"outlettype" : [ "" ],
 																	"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-																	"text" : "8"
+																	"text" : "97"
 																}
 
 															}
@@ -3091,7 +3091,7 @@
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 113.0, 216.099408984184265, 50.0, 22.0 ],
-													"text" : "8"
+													"text" : "97"
 												}
 
 											}
@@ -5866,7 +5866,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 541.0, 149.0, 50.0, 22.0 ],
-					"text" : "0"
+					"text" : "1"
 				}
 
 			}
@@ -6378,7 +6378,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 555.31914496421814, 13.5, 50.0, 22.0 ],
-					"text" : "8"
+					"text" : "97"
 				}
 
 			}
@@ -6550,7 +6550,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 674.893398284912109, 90.55937659740448, 50.0, 22.0 ],
-					"text" : "8"
+					"text" : "97"
 				}
 
 			}
@@ -8839,7 +8839,6 @@
 						"style" : "",
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-14",
@@ -9039,7 +9038,7 @@
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 480.0, 223.0, 109.0, 36.0 ],
-													"text" : "open Aliens_Tape_154"
+													"text" : "open Aliens_Tape_195"
 												}
 
 											}
@@ -9389,7 +9388,7 @@
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 540.0, 901.0, 50.0, 22.0 ],
-													"text" : "92"
+													"text" : "99"
 												}
 
 											}
@@ -13958,6 +13957,7 @@
 													"hint" : "Enter preset name (optional)",
 													"id" : "obj-42",
 													"keymode" : 1,
+													"linecount" : 3,
 													"maxclass" : "textedit",
 													"numinlets" : 1,
 													"numoutlets" : 4,
@@ -13967,7 +13967,7 @@
 													"presentation" : 1,
 													"presentation_rect" : [ 490.0, 496.0, 124.819243999999998, 33.0 ],
 													"prototypename" : "Arial9",
-													"text" : "Default",
+													"text" : "djoongtiitonooontilt",
 													"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 													"varname" : "preset-name"
 												}
@@ -15425,7 +15425,7 @@
 													"fontsize" : 10.435669000000001,
 													"hint" : "Select a MIDI controller",
 													"id" : "obj-195",
-													"items" : [ "to Max 1", ",", "to Max 2", ",", "ChamberVerb.amxd" ],
+													"items" : [ "Launch Control XL", ",", "Launch Control XL HUI", ",", "to Max 1", ",", "to Max 2", ",", "ChamberVerb.amxd" ],
 													"maxclass" : "umenu",
 													"numinlets" : 1,
 													"numoutlets" : 3,
@@ -59818,10 +59818,10 @@
 													"outlettype" : [ "", "", "", "" ],
 													"patching_rect" : [ 746.0, 753.0, 169.0, 20.0 ],
 													"restore" : 													{
-														"adsr-attack" : [ 50 ],
-														"adsr-decay" : [ 0 ],
-														"adsr-release" : [ 1000 ],
-														"adsr-sustain" : [ 1.0 ],
+														"adsr-attack" : [ 1 ],
+														"adsr-decay" : [ 1000 ],
+														"adsr-release" : [ 5000 ],
+														"adsr-sustain" : [ 0.3 ],
 														"amp-depth" : [ 1.0 ],
 														"amp-env" : [ "1. 0." ],
 														"amp-env-max" : [ 1.0 ],
@@ -59830,46 +59830,46 @@
 														"amp-lfo-freq" : [ 0.0 ],
 														"amp-lfo-range" : [ 0.0 ],
 														"amp-lfo-wave" : [ "sine" ],
-														"carrier-wave" : [ "sine" ],
+														"carrier-wave" : [ "tri" ],
 														"gain" : [ 0.0 ],
-														"harm-depth" : [ 1.0 ],
+														"harm-depth" : [ 12.0 ],
 														"harm-env" : [ "1. 0." ],
 														"harm-env-max" : [ 1.0 ],
 														"harm-env-min" : [ 0.0 ],
 														"harm-env-time" : [ 1000 ],
 														"harm-lfo-freq" : [ 0.0 ],
-														"harm-lfo-range" : [ 0.0 ],
-														"harm-lfo-wave" : [ "sine" ],
-														"mod-depth" : [ 1.0 ],
+														"harm-lfo-range" : [ 36.0 ],
+														"harm-lfo-wave" : [ "noise" ],
+														"mod-depth" : [ 9.0 ],
 														"mod-env" : [ "1. 0." ],
 														"mod-env-max" : [ 1.0 ],
 														"mod-env-min" : [ 0.0 ],
 														"mod-env-time" : [ 1000 ],
-														"mod-lfo-freq" : [ 0.0 ],
-														"mod-lfo-range" : [ 0.0 ],
-														"mod-lfo-wave" : [ "sine" ],
-														"mod-wave" : [ "sine" ],
-														"preset-name" : [ "Default" ],
+														"mod-lfo-freq" : [ 1.0 ],
+														"mod-lfo-range" : [ 6.0 ],
+														"mod-lfo-wave" : [ "saw-" ],
+														"mod-wave" : [ "tri" ],
+														"preset-name" : [ "djoongtiitonooontilt" ],
 														"rev-damp" : [ 64 ],
 														"rev-decay" : [ 64 ],
 														"rev-diff" : [ 64 ],
 														"rev-gain" : [ 0.0 ],
 														"rev-size" : [ 64 ],
-														"shift-depth" : [ 0.0 ],
+														"shift-depth" : [ 4.0 ],
 														"shift-env" : [ "1. 0." ],
 														"shift-env-max" : [ 1.0 ],
 														"shift-env-min" : [ 0.0 ],
 														"shift-env-time" : [ 1000 ],
 														"shift-lfo-freq" : [ 0.0 ],
 														"shift-lfo-range" : [ 0.0 ],
-														"shift-lfo-wave" : [ "sine" ],
+														"shift-lfo-wave" : [ "saw-" ],
 														"vib-depth" : [ 1.0 ],
 														"vib-env" : [ "1. 0." ],
 														"vib-env-max" : [ 1.0 ],
 														"vib-env-min" : [ 0.0 ],
 														"vib-env-time" : [ 1000 ],
-														"vib-lfo-freq" : [ 0.0 ],
-														"vib-lfo-range" : [ 0.0 ],
+														"vib-lfo-freq" : [ 3.0 ],
+														"vib-lfo-range" : [ 4.0 ],
 														"vib-lfo-wave" : [ "sine" ]
 													}
 ,
@@ -66821,7 +66821,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 1447.063555836677551, 624.744677305221558, 48.0, 49.0 ],
-									"text" : "trackShores.wav"
+									"text" : "sylvan-game.wav"
 								}
 
 							}
@@ -66846,7 +66846,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 740.930026292800903, 748.744677305221558, 68.0, 35.0 ],
-									"text" : "trackShores.wav"
+									"text" : "trackOcean.wav"
 								}
 
 							}
@@ -67428,7 +67428,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 881.544938564300537, 546.48380970954895, 85.0, 35.0 ],
-									"text" : "trackShores.wav"
+									"text" : "sylvan-game.wav"
 								}
 
 							}
@@ -69128,7 +69128,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 205.309558987617493, 6.5, 117.08072251081353, 35.0 ],
-					"text" : "/track trackShores.wav"
+					"text" : "/track sylvan-game.wav"
 				}
 
 			}

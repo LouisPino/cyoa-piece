@@ -96,9 +96,12 @@ function scene2() {
         fadeBox("none")
         fadeChar("pino", -2000, -2000, 1000, 10)
         fadeChar("npc", -2000, -2000, 1000, 10)
+        sendToServer({ type: "control", val: "fade-out" })
 
         threatBlackoutEl.style.opacity = 1
-        setTimeout(() => { threatTextEl.style.left = 0 }, 2000)
+        setTimeout(() => {
+            threatTextEl.style.left = 0
+        }, 2000)
         setTimeout(() => { sendToServer({ type: "fx", val: "goat.mp3" }) }, 3200)
     }, 9000)
 }
@@ -108,6 +111,8 @@ function scene3() {
     setTimeout(() => {
         slideBoxY("sprite")
         changeDialogueSprite(`cloud/3`)
+        sendToServer({ type: "fx", val: "woosh.mp3" })
+
         setTimeout(nextLine, 500)
     }, 3000)
     setTimeout(() => {
@@ -117,7 +122,6 @@ function scene3() {
 
 function scene4() {
     toggleAnimation("froggy", "pino")
-    sendToServer({ type: "track", val: 0 })
     changeSize("pino", 1, 1.2)
     setTimeout(() => {
         fadeChar("pino", 572, 41, 100, 5000)
@@ -129,6 +133,8 @@ function scene4() {
     setTimeout(() => {
         clearText()
         setTimeout(nextLine, 500)
+        sendToServer({ type: "control", val: "fade-in" })
+
     }, 20000)
     setTimeout(() => {
         setTimeout(nextLine, 500)

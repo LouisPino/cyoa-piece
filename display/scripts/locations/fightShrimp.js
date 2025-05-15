@@ -95,9 +95,11 @@ function scene2() {
         fadeBox("none")
         fadeChar("jaz", -2000, -2000, 1000, 10)
         fadeChar("npc", -2000, -2000, 1000, 10)
-
+        sendToServer({ type: "control", val: "fade-out" })
         threatBlackoutEl.style.opacity = 1
-        setTimeout(() => { threatTextEl.style.left = 0 }, 2000)
+        setTimeout(() => {
+            threatTextEl.style.left = 0
+        }, 2000)
         setTimeout(() => { sendToServer({ type: "fx", val: "goat.mp3" }) }, 2500)
     }, 9000)
 }
@@ -107,6 +109,7 @@ function scene3() {
     setTimeout(() => {
         slideBoxY("sprite")
         changeDialogueSprite(`shrimp/3`)
+        sendToServer({ type: "fx", val: "shrimp.wav" })
         setTimeout(nextLine, 500)
     }, 3000)
     setTimeout(() => {
@@ -116,7 +119,6 @@ function scene3() {
 
 function scene4() {
     toggleAnimation("froggy", "jaz")
-    sendToServer({ type: "track", val: 0 })
 
     changeSize("jaz", 1, 1.2)
     setTimeout(() => {
@@ -132,6 +134,7 @@ function scene4() {
     }, 20000)
     setTimeout(() => {
         setTimeout(nextLine, 500)
+
     }, 27000)
     setTimeout(() => {
         clearText()

@@ -37,7 +37,6 @@ let locations = {
     bgName: "forest",
     voteVamp: "vampForest.wav",
     track: "sylvan-game.wav",
-
     mapLocations: { pino: { x: 507, y: -286 }, jaz: { x: 203, y: -286 } }
   },
   forestNorth: {

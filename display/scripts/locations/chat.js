@@ -29,6 +29,9 @@ if (checkHistory("river")) {
 
 }
 
+let qrEl = document.getElementById("qrcode1")
+let qrEl2 = document.getElementById("qrcode2")
+let qrBorder = document.getElementById("QR-border")
 
 const batIsoArr = [
     `Hey buddy, is everything all right? Is something on your mind?`,
@@ -159,6 +162,9 @@ function scene2() {
 }
 
 window.chatPart2 = function () {
+    qrEl.style.visibility = "hidden"
+    qrEl2.style.visibility = "hidden"
+    qrBorder.style.visibility = "hidden"
     scene0()
     toggleAnimation("side", "duo")
     jumpChar("pino", 250, -50)
@@ -290,6 +296,7 @@ lookPromptEl.style.zIndex = 3000
 
 
 function setMadlibStage() {
+
     document.getElementById("black-overlay").style.opacity = 1;
     setTimeout(() => {
         toggleAnimation("madlib", "duo")
@@ -298,7 +305,9 @@ function setMadlibStage() {
         jumpChar("npc", 0, 0)
         changeSize("duo", 1, 1.7)
         document.getElementById("boat-ctr-chat").style.visibility = "hidden"
-
+        qrEl.style.visibility = "visible"
+        qrEl2.style.visibility = "visible"
+        qrBorder.style.visibility = "visible"
         writingGifEl.style.visibility = "visible"
         thoughtBubbleEl.style.opacity = 1
         document.body.appendChild(lookPromptEl)

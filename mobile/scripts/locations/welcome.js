@@ -49,7 +49,7 @@ function welcomeGame() {
     document.addEventListener('touchmove', handleTouchMove, { passive: false });
     replaybtnEl.forEach((btn) => { btn.addEventListener("click", startGame) })
     charEl.addEventListener("click", toggleCharacterSrc)
-    starEl.addEventListener("click", () => { alert("Come see Sylvan Legacy live at ArrayMusic on May 15th!") })
+    starEl.addEventListener("click", () => { alert("Come see Sylvan Legacy live at OpenEars on June 7th!") })
     submitScoreEl.addEventListener("click", submitScore)
     submitPromptBtnEl.addEventListener("click", openAddToLeaderboard)
     window.addEventListener("resize", resizeGameScreen)

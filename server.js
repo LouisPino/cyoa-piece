@@ -27,7 +27,7 @@ let skinItem = "";
 let attacking = false
 
 const bossMaxHealth = 7 //7
-const swipeCountTarget = 70 //num of people x 1.5
+const swipeCountTarget = 75 //num of people x 1.5
 let bossHealth = bossMaxHealth
 
 const swipeTypes = ["up", "down", "left", "right"]
@@ -328,11 +328,6 @@ const choiceMap = {
 function tallyVotes() {
     return choiceMap[Object.keys(choices).reduce((a, b) => choices[a] >= choices[b] ? a : b)]
 }
-
-// function intermissionTrigger() {
-//     sendToWebClients({ type: "intermission" });
-//     sendToDisplay({ type: "intermission" }); 
-// }
 
 
 function handleAttack(attackType) {
